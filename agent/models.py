@@ -35,7 +35,9 @@ class LinkMatch(BaseModel):
 class CandidateLink(BaseModel):
     url: str
     json_path: str
+    parent_json_path: str
     anchor_text: str | None = None
+    context: dict[str, str] = Field(default_factory=dict)
     score: int = 0
 
 

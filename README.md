@@ -11,12 +11,56 @@ python -m venv .venv
 .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 Copy-Item .env.example .env
-ollama pull llama3.2
+ollama pull qwen3.5:4b
 python main.py
 ```
 
 Python 3.10+ is required. A request must contain a starting HTTP(S) URL, either
 directly or in its conversation context.
+
+## Configuration
+
+The factory automatically loads `config.json` from the project root:
+
+```json
+{
+  "model": {
+    "identifier": "ollama:qwen3.5:4b",
+    "temperature": 0
+  },
+  "agent": {
+    "max_rounds": 5,
+    "max_candidate_urls": 20
+  },
+  "retrieval": {
+    "max_results_per_page": 12,
+    "max_links_per_page": 20
+  },
+  "extractor": {
+    "timeout_seconds": 30,
+    "link_context_max_fields": 12,
+    "link_context_max_chars": 1000
+  }
+}
+```
+
+All values are validated at startup and unknown keys are rejected. Load another
+file or provide a Python override when needed:
+
+```python
+agent = create_retrieval_agent(
+    config="configs/experiment.json",
+    max_rounds=8,
+)
+```
+
+Explicit Python arguments override the file. `AGENT_MODEL` can override only the
+configured model identifier, which is useful for temporary model comparisons.
+
+Discovered links include their immediate parent JSON path, inferred anchor text,
+and bounded scalar sibling fields such as `name`, `title`, `label`, and
+`description`. These fields participate in relevance ranking. The two
+`link_context_*` settings prevent large parent objects from inflating prompts.
 
 ## Reasoning loop
 
@@ -49,7 +93,7 @@ from agent import create_retrieval_agent
 
 agent = create_retrieval_agent(max_rounds=4)
 result = agent.invoke(
-    "Who is Mary Berg? Start at https://foodnetwork.co.uk/chefs",
+    "Could I get a recipe for a chicken dish by Guy Fieri? Start at https://foodnetwork.co.uk",
     trace_sink=lambda step: print(step.stage, step.duration_ms, step.metrics),
 )
 
@@ -69,18 +113,18 @@ steps. A successful run also includes the full trace in `result.trace`.
 Use one LangChain model for the whole reasoning loop:
 
 ```text
-AGENT_MODEL=ollama:llama3.2
+AGENT_MODEL=ollama:qwen3.5:4b
 ```
 
-The default uses the locally running Ollama service and requires no API key.
-You can also inject an explicitly configured Llama model:
+The default uses Qwen 3.5 4B through the locally running Ollama service and
+requires no API key. You can also inject it explicitly:
 
 ```python
 from langchain_ollama import ChatOllama
 from agent import create_retrieval_agent
 
 agent = create_retrieval_agent(
-    model=ChatOllama(model="llama3.1", temperature=0),
+    model=ChatOllama(model="qwen3.5:4b", temperature=0),
 )
 ```
 

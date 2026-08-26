@@ -1,0 +1,19 @@
+{
+  "model": {
+    "identifier": "ollama:qwen3.5:4b",
+    "temperature": 0
+  },
+  "agent": {
+    "max_rounds": 5,
+    "max_candidate_urls": 20
+  },
+  "retrieval": {
+    "max_results_per_page": 12,
+    "max_links_per_page": 20
+  },
+  "extractor": {
+    "timeout_seconds": 30,
+    "link_context_max_fields": 12,
+    "link_context_max_chars": 1000
+  }
+}

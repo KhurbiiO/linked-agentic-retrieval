@@ -3,13 +3,16 @@
 from __future__ import annotations
 
 import json
+import os
 from collections.abc import Callable, Sequence
+from pathlib import Path
 from time import perf_counter
 from typing import Any
 
 from dotenv import load_dotenv
 from langchain_core.language_models.chat_models import BaseChatModel
 
+from agent.config import AppConfig, load_config
 from agent.models import (
     AgentAnswer,
     CandidateLink,
@@ -23,7 +26,7 @@ from agent.models import (
 )
 from agent.models_factory import ModelInput, create_chat_model
 from agent.tracing import WorkflowTracer
-from tools.extract.webex import StructuredDataExtractor
+from tools import StructuredDataExtractor
 
 
 ANALYSIS_PROMPT = """You are the analysis stage of a web retrieval host.
@@ -37,7 +40,9 @@ INSTRUCTION_PROMPT = """You are choosing the next action in your retrieval loop.
 Your extraction tool can retrieve exactly one web page
 per turn. Produce the next bounded instruction. Select target_url only from the
 provided candidate URLs, never from memory. Use prior evidence and verification
-to decide which link best advances the goal. Do not revisit a visited URL.
+to decide which link best advances the goal. Pay particular attention to each
+candidate link's anchor_text, context, and parent_json_path. Do not revisit a
+visited URL.
 """
 
 VERIFY_PROMPT = """Verify the retrieved evidence against the original goal and
@@ -64,12 +69,20 @@ class RetrievalAgent:
         answer_model: BaseChatModel,
         extractor: StructuredDataExtractor,
         max_rounds: int = 5,
+        max_candidate_urls: int = 20,
+        max_results_per_page: int = 12,
+        max_links_per_page: int = 20,
     ) -> None:
         if max_rounds < 1:
             raise ValueError("max_rounds must be at least 1")
+        if min(max_candidate_urls, max_results_per_page, max_links_per_page) < 1:
+            raise ValueError("Retrieval limits must be at least 1")
         self.answer_model = answer_model
         self.extractor = extractor
         self.max_rounds = max_rounds
+        self.max_candidate_urls = max_candidate_urls
+        self.max_results_per_page = max_results_per_page
+        self.max_links_per_page = max_links_per_page
         self.analyzer = analysis_model.with_structured_output(QuestionAnalysis, include_raw=True)
         self.navigator = navigation_model.with_structured_output(RetrievalInstruction, include_raw=True)
         self.verifier = verification_model.with_structured_output(Verification, include_raw=True)
@@ -104,7 +117,7 @@ class RetrievalAgent:
         evidence: list[RetrievalResult] = []
         verifications: list[Verification] = []
         visited: set[str] = set()
-        candidate_urls = list(dict.fromkeys(analysis.seed_urls))
+        candidate_urls = list(dict.fromkeys(analysis.seed_urls))[: self.max_candidate_urls]
 
         for round_number in range(1, self.max_rounds + 1):
             instruction_packet = tracer.run(
@@ -143,6 +156,12 @@ class RetrievalAgent:
             instruction = self._parsed(instruction_packet, RetrievalInstruction)
             if instruction.target_url not in candidate_urls or instruction.target_url in visited:
                 raise ValueError("Host selected a URL outside the allowed unvisited candidates")
+            instruction = instruction.model_copy(
+                update={
+                    "max_results": self.max_results_per_page,
+                    "max_links": self.max_links_per_page,
+                }
+            )
 
             extracted = tracer.run(
                 "tool.extract_url",
@@ -191,7 +210,7 @@ class RetrievalAgent:
                     [url for url in candidate_urls if url not in visited]
                     + [item.url for item in links if item.url not in visited]
                 )
-            )
+            )[: self.max_candidate_urls]
 
             verification_packet = tracer.run(
                 "agent.verify_evidence",
@@ -316,20 +335,34 @@ class RetrievalAgent:
 def create_retrieval_agent(
     model: ModelInput | None = None,
     *,
+    config: AppConfig | str | Path | None = None,
     analysis_model: ModelInput | None = None,
     navigation_model: ModelInput | None = None,
     verification_model: ModelInput | None = None,
     answer_model: ModelInput | None = None,
     extractor: StructuredDataExtractor | None = None,
-    max_rounds: int = 5,
+    max_rounds: int | None = None,
+    max_candidate_urls: int | None = None,
+    max_results_per_page: int | None = None,
+    max_links_per_page: int | None = None,
 ) -> RetrievalAgent:
-    """Build one reasoning agent; each reasoning stage may use a different model."""
+    """Build one reasoning agent from config, with optional explicit overrides."""
     load_dotenv()
+    settings = config if isinstance(config, AppConfig) else load_config(config)
     overrides = [analysis_model, navigation_model, verification_model, answer_model]
-    shared = create_chat_model(model) if any(item is None for item in overrides) else None
+    configured_model = model or os.getenv("AGENT_MODEL") or settings.model.identifier
+    shared = (
+        create_chat_model(configured_model, temperature=settings.model.temperature)
+        if any(item is None for item in overrides)
+        else None
+    )
 
     def resolve(value: ModelInput | None) -> BaseChatModel:
-        resolved = create_chat_model(value) if value is not None else shared
+        resolved = (
+            create_chat_model(value, temperature=settings.model.temperature)
+            if value is not None
+            else shared
+        )
         if resolved is None:
             raise ValueError("Every host model stage must be configured")
         return resolved
@@ -339,6 +372,25 @@ def create_retrieval_agent(
         navigation_model=resolve(navigation_model),
         verification_model=resolve(verification_model),
         answer_model=resolve(answer_model),
-        extractor=extractor or StructuredDataExtractor(),
-        max_rounds=max_rounds,
+        extractor=extractor or StructuredDataExtractor(
+            timeout=settings.extractor.timeout_seconds,
+            link_context_max_fields=settings.extractor.link_context_max_fields,
+            link_context_max_chars=settings.extractor.link_context_max_chars,
+        ),
+        max_rounds=max_rounds if max_rounds is not None else settings.agent.max_rounds,
+        max_candidate_urls=(
+            max_candidate_urls
+            if max_candidate_urls is not None
+            else settings.agent.max_candidate_urls
+        ),
+        max_results_per_page=(
+            max_results_per_page
+            if max_results_per_page is not None
+            else settings.retrieval.max_results_per_page
+        ),
+        max_links_per_page=(
+            max_links_per_page
+            if max_links_per_page is not None
+            else settings.retrieval.max_links_per_page
+        ),
     )

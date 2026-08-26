@@ -1,8 +1,9 @@
 from agent import create_retrieval_agent
+from tools import StructuredDataExtractor
 
 
 def main() -> None:
-    agent = create_retrieval_agent()
+    agent = create_retrieval_agent(extractor=StructuredDataExtractor())
     context: list[dict[str, str]] = []
 
     print("Agent ready. Type 'exit' to quit.")

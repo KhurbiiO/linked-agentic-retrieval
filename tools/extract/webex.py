@@ -10,8 +10,10 @@ from w3lib.html import get_base_url
 
 
 class StructuredDataExtractor:
-    def __init__(self, timeout=30):
+    def __init__(self, timeout=30, link_context_max_fields=12, link_context_max_chars=1000):
         self.timeout = timeout
+        self.link_context_max_fields = link_context_max_fields
+        self.link_context_max_chars = link_context_max_chars
 
         self.headers = {
             "User-Agent": (
@@ -124,7 +126,7 @@ class StructuredDataExtractor:
             )
 
         except Exception as e:
-            print("Extruct error:", e)
+            # print("Extruct error:", e)
             return {}
 
     # --------------------------------------------------
@@ -443,14 +445,80 @@ class StructuredDataExtractor:
                 continue
 
             normalized = parsed._replace(fragment="").geturl()
-            score = sum(f"{json_path} {normalized}".casefold().count(term) for term in terms)
+            parent = self._value_at_path(result, path[:-1])
+            context = self._link_context(parent, excluded_key=path[-1] if path else None)
+            anchor_text = self._anchor_text(context)
+            context_text = " ".join(f"{key} {value}" for key, value in context.items())
+            score = sum(
+                f"{json_path} {normalized} {context_text}".casefold().count(term)
+                for term in terms
+            )
             current = found.get(normalized)
-            item = {"url": normalized, "json_path": json_path, "score": score}
+            item = {
+                "url": normalized,
+                "json_path": json_path,
+                "parent_json_path": self._format_path(path[:-1]),
+                "anchor_text": anchor_text,
+                "context": context,
+                "score": score,
+            }
             if current is None or score > current["score"]:
                 found[normalized] = item
 
         links = sorted(found.values(), key=lambda item: (-item["score"], item["url"]))
         return links[:max_links]
+
+    @staticmethod
+    def _value_at_path(root, path):
+        value = root
+        for part in path:
+            if isinstance(value, dict):
+                value = value.get(part)
+            elif isinstance(value, list) and isinstance(part, int) and part < len(value):
+                value = value[part]
+            else:
+                return None
+        return value
+
+    def _link_context(self, parent, excluded_key=None):
+        """Return bounded scalar siblings from the URL's immediate parent object."""
+        if not isinstance(parent, dict):
+            return {}
+
+        preferred = ("name", "title", "label", "heading", "description", "text", "type")
+        keys = [key for key in preferred if key in parent]
+        keys.extend(key for key in parent if key not in keys)
+        context = {}
+        consumed = 0
+
+        for key in keys:
+            if key == excluded_key or len(context) >= self.link_context_max_fields:
+                continue
+            value = parent[key]
+            if isinstance(value, (str, int, float, bool)):
+                rendered = self._render(value, limit=300)
+            elif isinstance(value, list) and all(
+                isinstance(item, (str, int, float, bool)) for item in value
+            ):
+                rendered = self._render(", ".join(str(item) for item in value), limit=300)
+            else:
+                continue
+
+            remaining = self.link_context_max_chars - consumed
+            if remaining <= 0:
+                break
+            rendered = rendered[:remaining]
+            context[str(key)] = rendered
+            consumed += len(str(key)) + len(rendered)
+
+        return context
+
+    @staticmethod
+    def _anchor_text(context):
+        for key in ("name", "title", "label", "heading", "text"):
+            if context.get(key):
+                return context[key]
+        return None
 
     @staticmethod
     def _format_path(path):
@@ -484,7 +552,7 @@ if __name__ == "__main__":
     )
     
     with open(
-        "db/meta/extracted_data_2.json",
+        "tools/extracted_data_2.json",
         "w",
         encoding="utf-8"
     ) as f:
