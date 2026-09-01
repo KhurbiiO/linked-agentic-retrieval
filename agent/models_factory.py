@@ -17,13 +17,13 @@ def create_chat_model(
     """Resolve an injected model or initialize one from a LangChain identifier.
 
     Identifiers use LangChain's ``provider:model`` form. The default is the
-    locally served ``ollama:qwen3.5:4b`` model. Any injected ``BaseChatModel``
+    locally served ``ollama:llama3.2`` model. Any injected ``BaseChatModel``
     remains supported.
     """
     if isinstance(model, BaseChatModel):
         return model
 
-    identifier = model or os.getenv("AGENT_MODEL", "ollama:qwen3.5:4b")
+    identifier = model or os.getenv("AGENT_MODEL", "ollama:llama3.2")
     if not identifier.strip():
         raise ValueError("A model identifier must be provided via AGENT_MODEL or model=")
 

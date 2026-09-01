@@ -38,7 +38,8 @@ class CandidateLink(BaseModel):
     parent_json_path: str
     anchor_text: str | None = None
     context: dict[str, str] = Field(default_factory=dict)
-    score: int = 0
+    score: float = 0
+    score_components: dict[str, float] = Field(default_factory=dict)
 
 
 class RetrievalResult(BaseModel):

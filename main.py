@@ -19,13 +19,12 @@ def main() -> None:
         if not user_input:
             continue
 
-        result = agent.invoke(
-            user_input,
-            context=context,
-            trace_sink=lambda step: print(
+        trace_sink = None
+        if agent.trace_enabled:
+            trace_sink = lambda step: print(
                 f"  [{step.sequence}] {step.stage}: {step.status} ({step.duration_ms:.1f} ms)"
-            ),
-        )
+            )
+        result = agent.invoke(user_input, context=context, trace_sink=trace_sink)
         print(f"Agent: {result.answer}")
         print(f"Performance: {result.performance.model_dump_json()}")
         context.extend(

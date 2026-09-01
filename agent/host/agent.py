@@ -11,8 +11,9 @@ from typing import Any
 
 from dotenv import load_dotenv
 from langchain_core.language_models.chat_models import BaseChatModel
+from requests import RequestException
 
-from agent.config import AppConfig, load_config
+from config import AppConfig, load_config
 from agent.models import (
     AgentAnswer,
     CandidateLink,
@@ -26,7 +27,7 @@ from agent.models import (
 )
 from agent.models_factory import ModelInput, create_chat_model
 from agent.tracing import WorkflowTracer
-from tools import StructuredDataExtractor
+from tools import StructuredDataExtractor, create_candidate_scorer
 
 
 ANALYSIS_PROMPT = """You are the analysis stage of a web retrieval host.
@@ -72,17 +73,29 @@ class RetrievalAgent:
         max_candidate_urls: int = 20,
         max_results_per_page: int = 12,
         max_links_per_page: int = 20,
+        traverse_links: bool = True,
+        evidence_mode: str = "filtered",
+        extraction_prompt_max_chars_per_page: int = 12000,
+        trace_enabled: bool = False,
     ) -> None:
         if max_rounds < 1:
             raise ValueError("max_rounds must be at least 1")
         if min(max_candidate_urls, max_results_per_page, max_links_per_page) < 1:
             raise ValueError("Retrieval limits must be at least 1")
+        if evidence_mode not in {"filtered", "extraction"}:
+            raise ValueError("evidence_mode must be 'filtered' or 'extraction'")
+        if extraction_prompt_max_chars_per_page < 1000:
+            raise ValueError("extraction_prompt_max_chars_per_page must be at least 1000")
         self.answer_model = answer_model
         self.extractor = extractor
         self.max_rounds = max_rounds
         self.max_candidate_urls = max_candidate_urls
         self.max_results_per_page = max_results_per_page
         self.max_links_per_page = max_links_per_page
+        self.traverse_links = traverse_links
+        self.evidence_mode = evidence_mode
+        self.extraction_prompt_max_chars_per_page = extraction_prompt_max_chars_per_page
+        self.trace_enabled = trace_enabled
         self.analyzer = analysis_model.with_structured_output(QuestionAnalysis, include_raw=True)
         self.navigator = navigation_model.with_structured_output(RetrievalInstruction, include_raw=True)
         self.verifier = verification_model.with_structured_output(Verification, include_raw=True)
@@ -92,11 +105,18 @@ class RetrievalAgent:
         question: str,
         context: Sequence[dict[str, str]] = (),
         trace_sink: Callable[[TraceStep], None] | None = None,
+        trace_enabled: bool | None = None,
     ) -> AgentAnswer:
         if not question.strip():
             raise ValueError("Question cannot be empty")
         run_started = perf_counter()
-        tracer = WorkflowTracer(trace_sink)
+        debug_trace = self.trace_enabled if trace_enabled is None else trace_enabled
+        if trace_sink is not None:
+            debug_trace = True
+        tracer = WorkflowTracer(
+            trace_sink if debug_trace else None,
+            capture_details=debug_trace,
+        )
 
         analysis_packet = tracer.run(
             "agent.question_analysis",
@@ -115,11 +135,15 @@ class RetrievalAgent:
             raise ValueError("The request or its context must include a starting HTTP(S) URL")
 
         evidence: list[RetrievalResult] = []
+        raw_extractions: list[dict[str, Any]] = []
         verifications: list[Verification] = []
         visited: set[str] = set()
+        failed_urls: dict[str, str] = {}
         candidate_urls = list(dict.fromkeys(analysis.seed_urls))[: self.max_candidate_urls]
 
-        for round_number in range(1, self.max_rounds + 1):
+        round_number = 0
+        while round_number < self.max_rounds and candidate_urls:
+            round_number += 1
             instruction_packet = tracer.run(
                 "agent.select_action",
                 "agent",
@@ -128,6 +152,7 @@ class RetrievalAgent:
                     "analysis": analysis.model_dump(),
                     "candidate_urls": candidate_urls,
                     "visited_urls": sorted(visited),
+                    "failed_urls": failed_urls,
                     "previous_verification": (
                         verifications[-1].model_dump() if verifications else None
                     ),
@@ -142,7 +167,8 @@ class RetrievalAgent:
                                     "analysis": analysis.model_dump(),
                                     "candidate_urls": candidate_urls,
                                     "visited_urls": sorted(visited),
-                                    "evidence": [item.model_dump() for item in evidence],
+                                    "failed_urls": failed_urls,
+                                    "evidence": self._model_evidence(evidence, raw_extractions),
                                     "previous_verification": (
                                         verifications[-1].model_dump() if verifications else None
                                     ),
@@ -154,8 +180,27 @@ class RetrievalAgent:
                 self._summarize_structured,
             )
             instruction = self._parsed(instruction_packet, RetrievalInstruction)
-            if instruction.target_url not in candidate_urls or instruction.target_url in visited:
-                raise ValueError("Host selected a URL outside the allowed unvisited candidates")
+            allowed_urls = [url for url in candidate_urls if url not in visited]
+            if instruction.target_url not in allowed_urls:
+                if not allowed_urls:
+                    break
+                fallback_url = tracer.run(
+                    "agent.selection_fallback",
+                    "agent",
+                    {
+                        "round": round_number,
+                        "rejected_url": instruction.target_url,
+                        "allowed_urls": allowed_urls,
+                    },
+                    lambda: allowed_urls[0],
+                    lambda selected: (
+                        {"selected_url": selected},
+                        {"fallback_count": 1},
+                    ),
+                )
+                instruction = instruction.model_copy(
+                    update={"target_url": fallback_url}
+                )
             instruction = instruction.model_copy(
                 update={
                     "max_results": self.max_results_per_page,
@@ -163,15 +208,28 @@ class RetrievalAgent:
                 }
             )
 
-            extracted = tracer.run(
-                "tool.extract_url",
-                "tool",
-                {"round": round_number, "instruction": instruction.model_dump()},
-                lambda: self.extractor.extract(instruction.target_url),
-                self._summarize_extraction,
-            )
+            try:
+                extracted = tracer.run(
+                    "tool.extract_url",
+                    "tool",
+                    {"round": round_number, "instruction": instruction.model_dump()},
+                    lambda: self.extractor.extract(instruction.target_url),
+                    self._summarize_extraction,
+                )
+            except RequestException as error:
+                failed_urls[instruction.target_url] = f"{type(error).__name__}: {error}"
+                visited.add(instruction.target_url)
+                candidate_urls = [
+                    url for url in candidate_urls if url != instruction.target_url
+                ]
+                if candidate_urls:
+                    # Failed downloads do not consume a successful retrieval round.
+                    round_number -= 1
+                    continue
+                break
             visited.add(instruction.target_url)
             visited.add(str(extracted.get("url", instruction.target_url)))
+            raw_extractions.append(extracted)
 
             matches = tracer.run(
                 "tool.traverse_data",
@@ -185,18 +243,26 @@ class RetrievalAgent:
                 ],
                 lambda result: ({"matches": [item.model_dump() for item in result]}, {"match_count": len(result)}),
             )
-            links = tracer.run(
-                "tool.discover_links",
-                "tool",
-                {"round": round_number, "url": instruction.target_url},
-                lambda: [
-                    CandidateLink.model_validate(item)
-                    for item in self.extractor.discover_links(
-                        extracted, instruction.search_terms, instruction.max_links
-                    )
-                ],
-                lambda result: ({"links": [item.model_dump() for item in result]}, {"link_count": len(result)}),
-            )
+            links: list[CandidateLink] = []
+            if self.traverse_links:
+                links = tracer.run(
+                    "tool.discover_links",
+                    "tool",
+                    {"round": round_number, "url": instruction.target_url},
+                    lambda: [
+                        CandidateLink.model_validate(item)
+                        for item in self.extractor.discover_links(
+                            extracted,
+                            instruction.search_terms,
+                            instruction.max_links,
+                            goal=analysis.goal,
+                        )
+                    ],
+                    lambda result: (
+                        {"links": [item.model_dump() for item in result]},
+                        {"link_count": len(result)},
+                    ),
+                )
             result = RetrievalResult(
                 objective=instruction.objective,
                 requested_url=instruction.target_url,
@@ -224,7 +290,7 @@ class RetrievalAgent:
                             json.dumps(
                                 {
                                     "analysis": analysis.model_dump(),
-                                    "all_evidence": [item.model_dump() for item in evidence],
+                                    "all_evidence": self._model_evidence(evidence, raw_extractions),
                                     "remaining_candidate_urls": candidate_urls,
                                 }
                             ),
@@ -238,10 +304,25 @@ class RetrievalAgent:
             if verification.decision != "continue" or not candidate_urls:
                 break
 
+        final_verification = (
+            verifications[-1].model_dump()
+            if verifications
+            else {
+                "decision": "failed",
+                "assessment": "No unvisited candidate URL remained.",
+                "satisfied_criteria": [],
+                "missing_information": analysis.success_criteria,
+            }
+        )
         answer_message = tracer.run(
             "agent.synthesize_answer",
             "agent",
-            {"question": question, "verification": verifications[-1].model_dump(), "rounds": len(evidence)},
+            {
+                "question": question,
+                "verification": final_verification,
+                "rounds": len(evidence),
+                "failed_urls": failed_urls,
+            },
             lambda: self.answer_model.invoke(
                 [
                     ("system", ANSWER_PROMPT),
@@ -251,8 +332,9 @@ class RetrievalAgent:
                             {
                                 "question": question,
                                 "analysis": analysis.model_dump(),
-                                "evidence": [item.model_dump() for item in evidence],
+                                "evidence": self._model_evidence(evidence, raw_extractions),
                                 "verifications": [item.model_dump() for item in verifications],
+                                "failed_urls": failed_urls,
                             }
                         ),
                     ),
@@ -271,9 +353,35 @@ class RetrievalAgent:
             analysis=analysis,
             evidence=evidence,
             verifications=verifications,
-            trace=tracer.steps,
+            trace=tracer.steps if debug_trace else [],
             performance=performance,
         )
+
+    def _model_evidence(
+        self,
+        evidence: list[RetrievalResult],
+        raw_extractions: list[dict[str, Any]],
+    ) -> list[dict[str, Any]]:
+        if self.evidence_mode == "filtered":
+            return [item.model_dump() for item in evidence]
+
+        payload = []
+        for index, extraction in enumerate(raw_extractions):
+            serialized = json.dumps(extraction, ensure_ascii=False, default=str)
+            limit = self.extraction_prompt_max_chars_per_page
+            payload.append(
+                {
+                    "url": extraction.get("url"),
+                    "extraction": serialized[:limit],
+                    "truncated": len(serialized) > limit,
+                    "original_char_count": len(serialized),
+                    "included_char_count": min(len(serialized), limit),
+                    "filtered_evidence": (
+                        evidence[index].model_dump() if index < len(evidence) else None
+                    ),
+                }
+            )
+        return payload
 
     @staticmethod
     def _performance_metrics(
@@ -345,6 +453,10 @@ def create_retrieval_agent(
     max_candidate_urls: int | None = None,
     max_results_per_page: int | None = None,
     max_links_per_page: int | None = None,
+    traverse_links: bool | None = None,
+    evidence_mode: str | None = None,
+    extraction_prompt_max_chars_per_page: int | None = None,
+    trace_enabled: bool | None = None,
 ) -> RetrievalAgent:
     """Build one reasoning agent from config, with optional explicit overrides."""
     load_dotenv()
@@ -376,6 +488,9 @@ def create_retrieval_agent(
             timeout=settings.extractor.timeout_seconds,
             link_context_max_fields=settings.extractor.link_context_max_fields,
             link_context_max_chars=settings.extractor.link_context_max_chars,
+            link_context_child_depth=settings.extractor.link_context_child_depth,
+            candidate_scorer=create_candidate_scorer(settings.retrieval.scoring_method),
+            excluded_url_extensions=settings.retrieval.excluded_url_extensions,
         ),
         max_rounds=max_rounds if max_rounds is not None else settings.agent.max_rounds,
         max_candidate_urls=(
@@ -392,5 +507,21 @@ def create_retrieval_agent(
             max_links_per_page
             if max_links_per_page is not None
             else settings.retrieval.max_links_per_page
+        ),
+        traverse_links=(
+            traverse_links
+            if traverse_links is not None
+            else settings.retrieval.traverse_links
+        ),
+        evidence_mode=(
+            evidence_mode if evidence_mode is not None else settings.retrieval.evidence_mode
+        ),
+        extraction_prompt_max_chars_per_page=(
+            extraction_prompt_max_chars_per_page
+            if extraction_prompt_max_chars_per_page is not None
+            else settings.retrieval.extraction_prompt_max_chars_per_page
+        ),
+        trace_enabled=(
+            trace_enabled if trace_enabled is not None else settings.tracing.enabled
         ),
     )

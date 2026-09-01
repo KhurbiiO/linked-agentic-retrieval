@@ -9,9 +9,14 @@ T = TypeVar("T")
 
 
 class WorkflowTracer:
-    def __init__(self, sink: Callable[[TraceStep], None] | None = None) -> None:
+    def __init__(
+        self,
+        sink: Callable[[TraceStep], None] | None = None,
+        capture_details: bool = True,
+    ) -> None:
         self.steps: list[TraceStep] = []
         self.sink = sink
+        self.capture_details = capture_details
 
     def run(
         self,
@@ -33,8 +38,8 @@ class WorkflowTracer:
                 started_at=started_at,
                 duration_ms=round((perf_counter() - started) * 1000, 3),
                 status="ok",
-                input=inputs,
-                output=output,
+                input=inputs if self.capture_details else {},
+                output=output if self.capture_details else None,
                 metrics=metrics,
             )
         except Exception as exc:
@@ -45,7 +50,7 @@ class WorkflowTracer:
                 started_at=started_at,
                 duration_ms=round((perf_counter() - started) * 1000, 3),
                 status="error",
-                input=inputs,
+                input=inputs if self.capture_details else {},
                 error=f"{type(exc).__name__}: {exc}",
             )
             self._append(step)

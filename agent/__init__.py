@@ -1,5 +1,5 @@
 from .host import RetrievalAgent, create_retrieval_agent
-from .config import AppConfig, load_config
+from config import AppConfig, load_config
 from .models import (
     AgentAnswer,
     PerformanceMetrics,

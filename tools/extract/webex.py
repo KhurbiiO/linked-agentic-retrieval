@@ -8,12 +8,28 @@ import extruct
 from bs4 import BeautifulSoup
 from w3lib.html import get_base_url
 
+from .scoring import CandidateScorer, WeightedContextScorer
+
 
 class StructuredDataExtractor:
-    def __init__(self, timeout=30, link_context_max_fields=12, link_context_max_chars=1000):
+    def __init__(
+        self,
+        timeout=30,
+        link_context_max_fields=12,
+        link_context_max_chars=1000,
+        link_context_child_depth=2,
+        candidate_scorer: CandidateScorer | None = None,
+        excluded_url_extensions=None,
+    ):
         self.timeout = timeout
         self.link_context_max_fields = link_context_max_fields
         self.link_context_max_chars = link_context_max_chars
+        self.link_context_child_depth = link_context_child_depth
+        self.candidate_scorer = candidate_scorer or WeightedContextScorer()
+        self.excluded_url_extensions = tuple(
+            extension.casefold() if extension.startswith(".") else f".{extension.casefold()}"
+            for extension in (excluded_url_extensions or [])
+        )
 
         self.headers = {
             "User-Agent": (
@@ -419,7 +435,7 @@ class StructuredDataExtractor:
         matches.sort(key=lambda item: (-item["score"], item["json_path"]))
         return matches[:max_results]
 
-    def discover_links(self, result, search_terms, max_links=20):
+    def discover_links(self, result, search_terms, max_links=20, goal=""):
         """Return ranked HTTP(S) links found in extracted structured data."""
         base_url = str(result.get("url", ""))
         terms = [term.casefold().strip() for term in search_terms if term.strip()]
@@ -443,15 +459,19 @@ class StructuredDataExtractor:
             parsed = urlparse(candidate)
             if parsed.scheme not in {"http", "https"} or not parsed.netloc:
                 continue
+            if parsed.path.casefold().endswith(self.excluded_url_extensions):
+                continue
 
             normalized = parsed._replace(fragment="").geturl()
             parent = self._value_at_path(result, path[:-1])
             context = self._link_context(parent, excluded_key=path[-1] if path else None)
             anchor_text = self._anchor_text(context)
-            context_text = " ".join(f"{key} {value}" for key, value in context.items())
-            score = sum(
-                f"{json_path} {normalized} {context_text}".casefold().count(term)
-                for term in terms
+            scored = self.candidate_scorer.score(
+                url=normalized,
+                json_path=json_path,
+                context=context,
+                goal=goal,
+                search_terms=terms,
             )
             current = found.get(normalized)
             item = {
@@ -460,9 +480,10 @@ class StructuredDataExtractor:
                 "parent_json_path": self._format_path(path[:-1]),
                 "anchor_text": anchor_text,
                 "context": context,
-                "score": score,
+                "score": scored.total,
+                "score_components": scored.components,
             }
-            if current is None or score > current["score"]:
+            if current is None or scored.total > current["score"]:
                 found[normalized] = item
 
         links = sorted(found.values(), key=lambda item: (-item["score"], item["url"]))
@@ -481,7 +502,7 @@ class StructuredDataExtractor:
         return value
 
     def _link_context(self, parent, excluded_key=None):
-        """Return bounded scalar siblings from the URL's immediate parent object."""
+        """Return bounded scalar values from the URL's parent and nested children."""
         if not isinstance(parent, dict):
             return {}
 
@@ -492,32 +513,46 @@ class StructuredDataExtractor:
         consumed = 0
 
         for key in keys:
-            if key == excluded_key or len(context) >= self.link_context_max_fields:
+            if key == excluded_key:
                 continue
-            value = parent[key]
-            if isinstance(value, (str, int, float, bool)):
-                rendered = self._render(value, limit=300)
-            elif isinstance(value, list) and all(
-                isinstance(item, (str, int, float, bool)) for item in value
+            for context_key, value in self._flatten_context(
+                parent[key], str(key), self.link_context_child_depth
             ):
-                rendered = self._render(", ".join(str(item) for item in value), limit=300)
-            else:
-                continue
-
-            remaining = self.link_context_max_chars - consumed
-            if remaining <= 0:
-                break
-            rendered = rendered[:remaining]
-            context[str(key)] = rendered
-            consumed += len(str(key)) + len(rendered)
+                if len(context) >= self.link_context_max_fields:
+                    return context
+                rendered = self._render(value, limit=300)
+                remaining = self.link_context_max_chars - consumed - len(context_key)
+                if remaining <= 0:
+                    return context
+                rendered = rendered[:remaining]
+                context[context_key] = rendered
+                consumed += len(context_key) + len(rendered)
 
         return context
 
+    def _flatten_context(self, value, prefix, depth):
+        if isinstance(value, (str, int, float, bool)):
+            yield prefix, value
+        elif isinstance(value, list):
+            if all(isinstance(item, (str, int, float, bool)) for item in value):
+                yield prefix, ", ".join(str(item) for item in value)
+            elif depth > 0:
+                for index, child in enumerate(value):
+                    yield from self._flatten_context(child, f"{prefix}[{index}]", depth - 1)
+        elif isinstance(value, dict) and depth > 0:
+            preferred = ("name", "title", "label", "heading", "description", "text", "type")
+            keys = [key for key in preferred if key in value]
+            keys.extend(key for key in value if key not in keys)
+            for key in keys:
+                yield from self._flatten_context(value[key], f"{prefix}.{key}", depth - 1)
+
     @staticmethod
     def _anchor_text(context):
-        for key in ("name", "title", "label", "heading", "text"):
-            if context.get(key):
-                return context[key]
+        for wanted in ("name", "title", "label", "heading", "text"):
+            for key, value in context.items():
+                leaf = key.rsplit(".", 1)[-1].split("[", 1)[0]
+                if leaf == wanted and value:
+                    return value
         return None
 
     @staticmethod
@@ -548,11 +583,11 @@ if __name__ == "__main__":
     extractor = StructuredDataExtractor()
 
     data = extractor.extract(
-        "https://foodnetwork.co.uk/chefs"
+        "https://foodnetwork.co.uk/chefs/guy-fieri"
     )
     
     with open(
-        "tools/extracted_data_2.json",
+        "tools/guy_fieri_data.json",
         "w",
         encoding="utf-8"
     ) as f:

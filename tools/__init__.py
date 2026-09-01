@@ -1,5 +1,5 @@
 """Public tool interfaces used by the retrieval agent."""
 
-from .extract import StructuredDataExtractor
+from .extract import CandidateScorer, StructuredDataExtractor, create_candidate_scorer
 
-__all__ = ["StructuredDataExtractor"]
+__all__ = ["CandidateScorer", "StructuredDataExtractor", "create_candidate_scorer"]

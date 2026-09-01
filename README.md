@@ -11,7 +11,7 @@ python -m venv .venv
 .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 Copy-Item .env.example .env
-ollama pull qwen3.5:4b
+ollama pull llama3.2
 python main.py
 ```
 
@@ -25,7 +25,7 @@ The factory automatically loads `config.json` from the project root:
 ```json
 {
   "model": {
-    "identifier": "ollama:qwen3.5:4b",
+    "identifier": "ollama:llama3.2",
     "temperature": 0
   },
   "agent": {
@@ -34,12 +34,24 @@ The factory automatically loads `config.json` from the project root:
   },
   "retrieval": {
     "max_results_per_page": 12,
-    "max_links_per_page": 20
+    "max_links_per_page": 10,
+    "scoring_method": "weighted_context",
+    "traverse_links": true,
+    "evidence_mode": "filtered",
+    "extraction_prompt_max_chars_per_page": 12000,
+    "excluded_url_extensions": [
+      ".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg",
+      ".mp4", ".webm", ".mp3", ".css", ".js", ".woff2"
+    ]
   },
   "extractor": {
     "timeout_seconds": 30,
     "link_context_max_fields": 12,
-    "link_context_max_chars": 1000
+    "link_context_max_chars": 1000,
+    "link_context_child_depth": 2
+  },
+  "tracing": {
+    "enabled": false
   }
 }
 ```
@@ -57,10 +69,88 @@ agent = create_retrieval_agent(
 Explicit Python arguments override the file. `AGENT_MODEL` can override only the
 configured model identifier, which is useful for temporary model comparisons.
 
+`excluded_url_extensions` removes media and static-asset URLs before context
+extraction, scoring, or candidate-pool insertion. Matching is case-insensitive
+and checks only the URL path, so query strings such as `image.jpg?width=800` are
+handled correctly. Edit the list to allow or exclude additional file types.
+
 Discovered links include their immediate parent JSON path, inferred anchor text,
 and bounded scalar sibling fields such as `name`, `title`, `label`, and
 `description`. These fields participate in relevance ranking. The two
 `link_context_*` settings prevent large parent objects from inflating prompts.
+
+Candidate context is flattened recursively through child dictionaries and lists
+up to `link_context_child_depth`. The default `weighted_context` scorer combines
+URL matches, JSON-path matches, weighted contextual fields, and token overlap
+with the complete retrieval goal. Every candidate exposes `score_components`
+so rankings can be inspected during debugging.
+
+Set `scoring_method` to `term_frequency` to use the original unweighted exact
+substring counter. Additional strategies can implement `CandidateScorer` in
+`tools/extract/scoring.py` without changing extraction or agent orchestration.
+
+Set `traverse_links` to `false` to restrict retrieval to URLs supplied directly
+in the request or conversation context. Seed pages are still extracted and
+searched, and multiple supplied seeds may still be visited, but links discovered
+inside their metadata are not collected or followed. This can also be overridden
+in Python:
+
+```python
+agent = create_retrieval_agent(traverse_links=False)
+```
+
+### Evidence mode
+
+`evidence_mode` controls how visited-page data is supplied to the model:
+
+- `filtered` sends only ranked matches and contextual candidate links. This is
+  the default and uses fewer tokens.
+- `extraction` additionally sends a serialized portion of the raw structured
+  extraction for every visited page. Filtered evidence remains attached for
+  paths, scores, and citations.
+
+```json
+"retrieval": {
+  "evidence_mode": "extraction",
+  "extraction_prompt_max_chars_per_page": 12000
+}
+```
+
+The character limit applies separately to every page. The payload tells the
+model whether it was truncated and reports original and included character
+counts. Extraction mode can substantially increase prompt-processing time and
+may exceed a small Ollama context window when several pages are visited.
+
+It can also be selected in Python:
+
+```python
+agent = create_retrieval_agent(
+    evidence_mode="extraction",
+    extraction_prompt_max_chars_per_page=8000,
+)
+```
+
+### Debug tracing
+
+Detailed tracing is disabled by default. Enable it in `config.json`:
+
+```json
+"tracing": {
+  "enabled": true
+}
+```
+
+It can also be toggled for one call:
+
+```python
+result = agent.invoke(question, trace_enabled=True)
+print(result.trace)
+```
+
+Providing `trace_sink` automatically enables tracing for that invocation.
+Aggregate `result.performance` timing and token metrics remain available when
+debug tracing is disabled, but `result.trace` is empty and detailed inputs and
+outputs are not retained.
 
 ## Reasoning loop
 
@@ -76,6 +166,12 @@ There is one reasoning policy and one evolving evidence state. A single
 `StructuredDataExtractor` in `tools/extract/webex.py` owns downloading,
 structured-data extraction, ranked traversal, and link discovery. It contains
 no model, memory, goal, or autonomous decision-making.
+
+If extraction fails because of an HTTP error, timeout, connection failure, or
+redirect error, that URL is marked failed and removed from the pool. The loop
+then selects another candidate instead of terminating. Failed downloads do not
+consume `max_rounds`, which counts successful page retrievals, and their errors
+remain available in debug traces and final-answer context.
 
 ## Performance measurement
 
@@ -93,7 +189,7 @@ from agent import create_retrieval_agent
 
 agent = create_retrieval_agent(max_rounds=4)
 result = agent.invoke(
-    "Could I get a recipe for a chicken dish by Guy Fieri? Start at https://foodnetwork.co.uk",
+    "Could I get a recipe by Guy Fieri without beans? Start at https://foodnetwork.co.uk/chefs/guy-fieri",
     trace_sink=lambda step: print(step.stage, step.duration_ms, step.metrics),
 )
 
@@ -113,18 +209,18 @@ steps. A successful run also includes the full trace in `result.trace`.
 Use one LangChain model for the whole reasoning loop:
 
 ```text
-AGENT_MODEL=ollama:qwen3.5:4b
+AGENT_MODEL=ollama:llama3.2
 ```
 
-The default uses Qwen 3.5 4B through the locally running Ollama service and
-requires no API key. You can also inject it explicitly:
+The default uses Llama 3.2 through the locally running Ollama service and
+requires no API key. You can also inject Llama 3.2 explicitly:
 
 ```python
 from langchain_ollama import ChatOllama
 from agent import create_retrieval_agent
 
 agent = create_retrieval_agent(
-    model=ChatOllama(model="qwen3.5:4b", temperature=0),
+    model=ChatOllama(model="llama3.2", temperature=0),
 )
 ```
 
