@@ -1,6 +1,11 @@
 """Structured web extraction utilities."""
 
-from .scoring import CandidateScorer, create_candidate_scorer
-from .webex import StructuredDataExtractor
+from .scoring import CandidateScorer, SemanticScorer, create_candidate_scorer
+from .extract import StructuredDataExtractor
 
-__all__ = ["CandidateScorer", "StructuredDataExtractor", "create_candidate_scorer"]
+__all__ = [
+    "CandidateScorer",
+    "SemanticScorer",
+    "StructuredDataExtractor",
+    "create_candidate_scorer",
+]

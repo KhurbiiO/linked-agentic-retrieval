@@ -8,3 +8,4 @@ requests>=2.32,<3.0
 extruct>=0.18,<1.0
 beautifulsoup4>=4.12,<5.0
 w3lib>=2.2,<3.0
+sentence-transformers>=6.0,<7.0

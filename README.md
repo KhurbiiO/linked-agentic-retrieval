@@ -35,7 +35,8 @@ The factory automatically loads `config.json` from the project root:
   "retrieval": {
     "max_results_per_page": 12,
     "max_links_per_page": 10,
-    "scoring_method": "weighted_context",
+    "scoring_method": "semantic",
+    "semantic_model_name": "sentence-transformers/all-MiniLM-L6-v2",
     "traverse_links": true,
     "evidence_mode": "filtered",
     "extraction_prompt_max_chars_per_page": 12000,
@@ -80,14 +81,19 @@ and bounded scalar sibling fields such as `name`, `title`, `label`, and
 `link_context_*` settings prevent large parent objects from inflating prompts.
 
 Candidate context is flattened recursively through child dictionaries and lists
-up to `link_context_child_depth`. The default `weighted_context` scorer combines
-URL matches, JSON-path matches, weighted contextual fields, and token overlap
-with the complete retrieval goal. Every candidate exposes `score_components`
-so rankings can be inspected during debugging.
+up to `link_context_child_depth`. The default `semantic` scorer ranks candidates
+only by cosine similarity between the complete retrieval goal and candidate
+URL, JSON path, and context using `all-MiniLM-L6-v2`. Every candidate exposes
+the resulting `semantic_similarity` in `score_components`.
 
-Set `scoring_method` to `term_frequency` to use the original unweighted exact
+Set `scoring_method` to `weighted_context` to use goal-token and field-weighted
+lexical matching without embeddings, or `term_frequency` for the original exact
 substring counter. Additional strategies can implement `CandidateScorer` in
 `tools/extract/scoring.py` without changing extraction or agent orchestration.
+
+The embedding model is downloaded and loaded lazily on the first link-scoring
+operation. This makes the first semantic-scoring round slower; later calls reuse
+the loaded model and cached embeddings.
 
 Set `traverse_links` to `false` to restrict retrieval to URLs supplied directly
 in the request or conversation context. Seed pages are still extracted and
@@ -163,7 +169,7 @@ outputs are not retained.
 7. Steps 2-6 repeat as needed, then `agent.synthesize_answer` produces the answer.
 
 There is one reasoning policy and one evolving evidence state. A single
-`StructuredDataExtractor` in `tools/extract/webex.py` owns downloading,
+`StructuredDataExtractor` in `tools/extract/extract.py` owns downloading,
 structured-data extraction, ranked traversal, and link discovery. It contains
 no model, memory, goal, or autonomous decision-making.
 

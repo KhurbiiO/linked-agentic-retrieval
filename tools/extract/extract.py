@@ -11,7 +11,7 @@ from w3lib.html import get_base_url
 if __package__:
     from .scoring import CandidateScorer, WeightedContextScorer
 else:
-    # Support direct execution: python tools/extract/webex.py
+    # Support direct execution: python tools/extract/extract.py
     from scoring import CandidateScorer, WeightedContextScorer
 
 

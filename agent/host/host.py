@@ -489,7 +489,10 @@ def create_retrieval_agent(
             link_context_max_fields=settings.extractor.link_context_max_fields,
             link_context_max_chars=settings.extractor.link_context_max_chars,
             link_context_child_depth=settings.extractor.link_context_child_depth,
-            candidate_scorer=create_candidate_scorer(settings.retrieval.scoring_method),
+            candidate_scorer=create_candidate_scorer(
+                settings.retrieval.scoring_method,
+                semantic_model_name=settings.retrieval.semantic_model_name,
+            ),
             excluded_url_extensions=settings.retrieval.excluded_url_extensions,
         ),
         max_rounds=max_rounds if max_rounds is not None else settings.agent.max_rounds,

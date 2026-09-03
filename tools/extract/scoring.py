@@ -5,6 +5,7 @@ from __future__ import annotations
 import re
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
+from functools import lru_cache
 
 
 @dataclass(frozen=True)
@@ -85,11 +86,50 @@ class WeightedContextScorer(CandidateScorer):
         return {token for token in re.findall(r"[\w-]+", text.casefold()) if len(token) >= 3}
 
 
-def create_candidate_scorer(method: str) -> CandidateScorer:
+class SemanticScorer(CandidateScorer):
+    """Score candidates only by embedding cosine similarity."""
+
+    def __init__(
+        self,
+        model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
+    ) -> None:
+        self.model_name = model_name
+        self._model = None
+
+    def score(self, *, url, json_path, context, goal, search_terms):
+        query = goal.strip() or " ".join(search_terms)
+        candidate = f"{url} {json_path} " + " ".join(
+            f"{key}: {value}" for key, value in context.items()
+        )
+        similarity = float(self._encode(query) @ self._encode(candidate))
+        similarity = round(similarity, 6)
+        return CandidateScore(
+            total=similarity,
+            components={"semantic_similarity": similarity},
+        )
+
+    @lru_cache(maxsize=512)
+    def _encode(self, text: str):
+        if self._model is None:
+            from sentence_transformers import SentenceTransformer
+
+            self._model = SentenceTransformer(self.model_name)
+        return self._model.encode(text, normalize_embeddings=True)
+
+
+def create_candidate_scorer(
+    method: str,
+    *,
+    semantic_model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
+) -> CandidateScorer:
     scorers = {
         "term_frequency": TermFrequencyScorer,
         "weighted_context": WeightedContextScorer,
     }
+    if method == "semantic":
+        return SemanticScorer(
+            model_name=semantic_model_name,
+        )
     try:
         return scorers[method]()
     except KeyError as exc:
