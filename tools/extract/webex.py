@@ -8,7 +8,11 @@ import extruct
 from bs4 import BeautifulSoup
 from w3lib.html import get_base_url
 
-from .scoring import CandidateScorer, WeightedContextScorer
+if __package__:
+    from .scoring import CandidateScorer, WeightedContextScorer
+else:
+    # Support direct execution: python tools/extract/webex.py
+    from scoring import CandidateScorer, WeightedContextScorer
 
 
 class StructuredDataExtractor:
@@ -583,18 +587,17 @@ if __name__ == "__main__":
     extractor = StructuredDataExtractor()
 
     data = extractor.extract(
-        "https://foodnetwork.co.uk/chefs/guy-fieri"
+        "https://www.allrecipes.com/grilled-bruschetta-chicken-recipe-7509319"
     )
-    
-    with open(
-        "tools/guy_fieri_data.json",
-        "w",
-        encoding="utf-8"
-    ) as f:
 
+    with open(
+        "tools/chicken.json",
+        "w",
+        encoding="utf-8",
+    ) as output:
         json.dump(
             data,
-            f,
+            output,
             indent=2,
-            ensure_ascii=False
+            ensure_ascii=False,
         )

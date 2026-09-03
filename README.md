@@ -189,7 +189,7 @@ from agent import create_retrieval_agent
 
 agent = create_retrieval_agent(max_rounds=4)
 result = agent.invoke(
-    "Could I get a recipe by Guy Fieri without beans? Start at https://foodnetwork.co.uk/chefs/guy-fieri",
+    "Does the dish in this page contain brocolli? Start at https://www.allrecipes.com/grilled-bruschetta-chicken-recipe-7509319grilled-bruschetta-chicken-recipe-7509319",
     trace_sink=lambda step: print(step.stage, step.duration_ms, step.metrics),
 )
 
