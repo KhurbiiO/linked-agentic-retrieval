@@ -27,6 +27,7 @@ def main() -> None:
         result = agent.invoke(user_input, context=context, trace_sink=trace_sink)
         print(f"Agent: {result.answer}")
         print(f"Performance: {result.performance.model_dump_json()}")
+
         context.extend(
             [
                 {"role": "user", "content": user_input},

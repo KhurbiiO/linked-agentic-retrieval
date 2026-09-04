@@ -10,7 +10,7 @@
   "retrieval": {
     "max_results_per_page": 12,
     "max_links_per_page": 10,
-    "scoring_method": "semantic",
+    "scoring_method": "weighted_context",
     "semantic_model_name": "sentence-transformers/all-MiniLM-L6-v2",
     "traverse_links": false,
     "evidence_mode": "filtered",
