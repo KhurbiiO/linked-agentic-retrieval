@@ -35,6 +35,8 @@ The factory automatically loads `config.json` from the project root:
   "retrieval": {
     "max_results_per_page": 12,
     "max_links_per_page": 10,
+    "minimum_evidence_score": 0.0,
+    "minimum_link_score": 0.0,
     "scoring_method": "semantic",
     "semantic_model_name": "sentence-transformers/all-MiniLM-L6-v2",
     "traverse_links": true,
@@ -83,6 +85,14 @@ obvious tracking parameters, numeric IDs, and opaque identifiers are removed.
 For example, `/recipes/salmon-cooking-time?view=full` becomes
 `recipes salmon cooking time view full`. The scheme, hostname, anchor
 text, HTML context, page context, and page evidence do not affect link scores.
+
+`minimum_evidence_score` and `minimum_link_score` are strict thresholds. Only
+items with `score > threshold` are retained or supplied to the host. For
+semantic cosine scoring, values such as `0.25` or `0.4` can remove weak matches,
+but the cutoff should be calibrated for the selected embedding model. A value
+of `0.0` preserves all positively scored items. Evidence thresholding applies
+to filtered matches; `evidence_mode: "extraction"` still deliberately supplies
+the bounded raw extraction.
 
 The default `semantic` scorer ranks candidates by cosine similarity between the
 complete retrieval goal and this relative URL using

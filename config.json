@@ -10,9 +10,11 @@
   "retrieval": {
     "max_results_per_page": 18,
     "max_links_per_page": 3,
+    "minimum_evidence_score": 0.0,
+    "minimum_link_score": 0.0,
     "scoring_method": "semantic",
     "semantic_model_name": "sentence-transformers/all-MiniLM-L6-v2",
-    "traverse_links": true,
+    "traverse_links": false,
     "evidence_mode": "filtered",
     "extraction_prompt_max_chars_per_page": 50000,
     "excluded_url_extensions": [

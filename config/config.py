@@ -24,6 +24,8 @@ class RetrievalSettings(BaseModel):
     model_config = ConfigDict(extra="forbid")
     max_results_per_page: int = Field(default=12, ge=1, le=100)
     max_links_per_page: int = Field(default=20, ge=1, le=200)
+    minimum_evidence_score: float = Field(default=0.0, allow_inf_nan=False)
+    minimum_link_score: float = Field(default=0.0, allow_inf_nan=False)
     scoring_method: Literal[
         "semantic", "weighted_context", "term_frequency"
     ] = "semantic"

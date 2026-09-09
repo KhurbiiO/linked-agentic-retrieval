@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import os
 from collections.abc import Callable, Sequence
+from math import isfinite
 from pathlib import Path
 from time import perf_counter
 from typing import Any
@@ -187,6 +188,8 @@ class RetrievalAgent:
         max_candidate_urls: int = 20,
         max_results_per_page: int = 12,
         max_links_per_page: int = 20,
+        minimum_evidence_score: float = 0.0,
+        minimum_link_score: float = 0.0,
         traverse_links: bool = True,
         evidence_mode: str = "filtered",
         extraction_prompt_max_chars_per_page: int = 12000,
@@ -196,6 +199,8 @@ class RetrievalAgent:
             raise ValueError("max_rounds must be at least 1")
         if min(max_candidate_urls, max_results_per_page, max_links_per_page) < 1:
             raise ValueError("Retrieval limits must be at least 1")
+        if not all(isfinite(value) for value in (minimum_evidence_score, minimum_link_score)):
+            raise ValueError("Score thresholds must be finite numbers")
         if evidence_mode not in {"filtered", "extraction"}:
             raise ValueError("evidence_mode must be 'filtered' or 'extraction'")
         if extraction_prompt_max_chars_per_page < 1000:
@@ -206,6 +211,8 @@ class RetrievalAgent:
         self.max_candidate_urls = max_candidate_urls
         self.max_results_per_page = max_results_per_page
         self.max_links_per_page = max_links_per_page
+        self.minimum_evidence_score = minimum_evidence_score
+        self.minimum_link_score = minimum_link_score
         self.traverse_links = traverse_links
         self.evidence_mode = evidence_mode
         self.extraction_prompt_max_chars_per_page = extraction_prompt_max_chars_per_page
@@ -350,13 +357,15 @@ class RetrievalAgent:
                 "tool",
                 {"round": round_number, "url": instruction.target_url, "terms": instruction.search_terms},
                 lambda: [
-                    LinkMatch.model_validate(item)
+                    match
                     for item in self.extractor.traverse(
                         extracted,
                         instruction.search_terms,
                         instruction.max_results,
                         goal=analysis.goal,
                     )
+                    if (match := LinkMatch.model_validate(item)).score
+                    > self.minimum_evidence_score
                 ],
                 lambda result: ({"matches": [item.model_dump() for item in result]}, {"match_count": len(result)}),
             )
@@ -371,13 +380,15 @@ class RetrievalAgent:
                         "page_evidence_count": len(matches),
                     },
                     lambda: [
-                        CandidateLink.model_validate(item)
+                        link
                         for item in self.extractor.discover_links(
                             extracted,
                             instruction.search_terms,
                             instruction.max_links,
                             goal=analysis.goal,
                         )
+                        if (link := CandidateLink.model_validate(item)).score
+                        > self.minimum_link_score
                     ],
                     lambda result: (
                         {"links": [item.model_dump() for item in result]},
@@ -574,6 +585,8 @@ def create_retrieval_agent(
     max_candidate_urls: int | None = None,
     max_results_per_page: int | None = None,
     max_links_per_page: int | None = None,
+    minimum_evidence_score: float | None = None,
+    minimum_link_score: float | None = None,
     traverse_links: bool | None = None,
     evidence_mode: str | None = None,
     extraction_prompt_max_chars_per_page: int | None = None,
@@ -631,6 +644,16 @@ def create_retrieval_agent(
             max_links_per_page
             if max_links_per_page is not None
             else settings.retrieval.max_links_per_page
+        ),
+        minimum_evidence_score=(
+            minimum_evidence_score
+            if minimum_evidence_score is not None
+            else settings.retrieval.minimum_evidence_score
+        ),
+        minimum_link_score=(
+            minimum_link_score
+            if minimum_link_score is not None
+            else settings.retrieval.minimum_link_score
         ),
         traverse_links=(
             traverse_links
