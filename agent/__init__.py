@@ -1,4 +1,9 @@
-from .host import RetrievalAgent, create_retrieval_agent
+from .host import RetrievalAgent
+from .filtered import (
+    FilteredRetrievalAgent,
+    create_filtered_retrieval_agent,
+    create_retrieval_agent,
+)
 from .full import FullExtractionAgent, create_full_extraction_agent
 from config import AppConfig, load_config
 from .models import (
@@ -16,6 +21,7 @@ __all__ = [
     "AppConfig",
     "PerformanceMetrics",
     "FullExtractionAgent",
+    "FilteredRetrievalAgent",
     "RetrievalAgent",
     "RetrievalInstruction",
     "ModelInput",
@@ -24,6 +30,7 @@ __all__ = [
     "Verification",
     "create_chat_model",
     "create_full_extraction_agent",
+    "create_filtered_retrieval_agent",
     "create_retrieval_agent",
     "load_config",
 ]

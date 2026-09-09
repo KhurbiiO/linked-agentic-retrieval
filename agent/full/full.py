@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from agent.host.host import RetrievalAgent, create_retrieval_agent
+from agent.host.host import RetrievalAgent, _create_retrieval_agent
 from agent.models import RetrievalResult
 
 
@@ -30,7 +30,7 @@ class FullExtractionAgent(RetrievalAgent):
 
 def create_full_extraction_agent(*args, **kwargs) -> FullExtractionAgent:
     """Build the full-extraction variant using the standard agent configuration."""
-    return create_retrieval_agent(
+    return _create_retrieval_agent(
         *args,
         _agent_class=FullExtractionAgent,
         **kwargs,

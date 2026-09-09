@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import os
-
 from langchain.chat_models import init_chat_model
 from langchain_core.language_models.chat_models import BaseChatModel
 
@@ -23,8 +21,8 @@ def create_chat_model(
     if isinstance(model, BaseChatModel):
         return model
 
-    identifier = model or os.getenv("AGENT_MODEL", "ollama:llama3.2")
+    identifier = model or "ollama:llama3.2"
     if not identifier.strip():
-        raise ValueError("A model identifier must be provided via AGENT_MODEL or model=")
+        raise ValueError("A model identifier must be provided via model=")
 
     return init_chat_model(identifier, temperature=temperature)

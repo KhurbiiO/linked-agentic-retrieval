@@ -10,7 +10,6 @@ independent agents.
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-Copy-Item .env.example .env
 ollama pull llama3.2
 python main.py
 ```
@@ -18,11 +17,13 @@ python main.py
 Python 3.10+ is required. A request must contain a starting HTTP(S) URL, either
 directly or in its conversation context.
 
-Two agent variants share the same reasoning loop. The default
-`RetrievalAgent` supplies ranked evidence (or bounded extraction payloads when
-configured). `FullExtractionAgent` always supplies the complete structured
-extraction from every successfully visited page to navigation, verification,
-and final synthesis, together with the score-filtered relevant evidence:
+`RetrievalAgent` in `agent/host/host.py` is the abstract parent containing the
+shared reasoning loop. Two concrete variants implement its evidence payload.
+`FilteredRetrievalAgent` in `agent/filtered/filtered.py` supplies only ranked,
+threshold-filtered evidence. `FullExtractionAgent` in `agent/full/full.py`
+supplies the complete structured extraction from every
+successfully visited page to navigation, verification, and final synthesis,
+together with the score-filtered relevant evidence:
 
 ```python
 from agent import create_full_extraction_agent
@@ -82,8 +83,8 @@ agent = create_retrieval_agent(
 )
 ```
 
-Explicit Python arguments override the file. `AGENT_MODEL` can override only the
-configured model identifier, which is useful for temporary model comparisons.
+Explicit Python arguments override the file, which is useful for temporary
+model comparisons.
 
 `excluded_url_extensions` removes media and static-asset URLs before context
 extraction, scoring, or candidate-pool insertion. Matching is case-insensitive
@@ -211,14 +212,9 @@ steps. A successful run also includes the full trace in `result.trace`.
 
 ## Model selection
 
-Use one LangChain model for the whole reasoning loop:
-
-```text
-AGENT_MODEL=ollama:llama3.2
-```
-
-The default uses Llama 3.2 through the locally running Ollama service and
-requires no API key. You can also inject Llama 3.2 explicitly:
+Set the default LangChain model in `config.json`. The default uses Llama 3.2
+through the locally running Ollama service and requires no API key. You can also
+inject Llama 3.2 explicitly:
 
 ```python
 from langchain_ollama import ChatOllama
