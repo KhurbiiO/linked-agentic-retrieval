@@ -18,6 +18,21 @@ python main.py
 Python 3.10+ is required. A request must contain a starting HTTP(S) URL, either
 directly or in its conversation context.
 
+Two agent variants share the same reasoning loop. The default
+`RetrievalAgent` supplies ranked evidence (or bounded extraction payloads when
+configured). `FullExtractionAgent` always supplies the complete structured
+extraction from every successfully visited page to navigation, verification,
+and final synthesis, together with the score-filtered relevant evidence:
+
+```python
+from agent import create_full_extraction_agent
+
+agent = create_full_extraction_agent()
+result = agent.invoke("Question involving https://example.com")
+```
+
+The full variant can consume substantially more model context on large pages.
+
 ## Configuration
 
 The factory automatically loads `config.json` from the project root:
@@ -40,8 +55,6 @@ The factory automatically loads `config.json` from the project root:
     "scoring_method": "semantic",
     "semantic_model_name": "sentence-transformers/all-MiniLM-L6-v2",
     "traverse_links": true,
-    "evidence_mode": "filtered",
-    "extraction_prompt_max_chars_per_page": 12000,
     "excluded_url_extensions": [
       ".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg",
       ".mp4", ".webm", ".mp3", ".css", ".js", ".woff2"
@@ -90,9 +103,9 @@ text, HTML context, page context, and page evidence do not affect link scores.
 items with `score > threshold` are retained or supplied to the host. For
 semantic cosine scoring, values such as `0.25` or `0.4` can remove weak matches,
 but the cutoff should be calibrated for the selected embedding model. A value
-of `0.0` preserves all positively scored items. Evidence thresholding applies
-to filtered matches; `evidence_mode: "extraction"` still deliberately supplies
-the bounded raw extraction.
+of `0.0` preserves all positively scored items. The standard host supplies only
+these filtered matches. The full-extraction agent additionally supplies each
+complete structured extraction.
 
 The default `semantic` scorer ranks candidates by cosine similarity between the
 complete retrieval goal and this relative URL using
@@ -120,37 +133,6 @@ in Python:
 
 ```python
 agent = create_retrieval_agent(traverse_links=False)
-```
-
-### Evidence mode
-
-`evidence_mode` controls how visited-page data is supplied to the model:
-
-- `filtered` sends only ranked matches and contextual candidate links. This is
-  the default and uses fewer tokens.
-- `extraction` additionally sends a serialized portion of the raw structured
-  extraction for every visited page. Filtered evidence remains attached for
-  paths, scores, and citations.
-
-```json
-"retrieval": {
-  "evidence_mode": "extraction",
-  "extraction_prompt_max_chars_per_page": 12000
-}
-```
-
-The character limit applies separately to every page. The payload tells the
-model whether it was truncated and reports original and included character
-counts. Extraction mode can substantially increase prompt-processing time and
-may exceed a small Ollama context window when several pages are visited.
-
-It can also be selected in Python:
-
-```python
-agent = create_retrieval_agent(
-    evidence_mode="extraction",
-    extraction_prompt_max_chars_per_page=8000,
-)
 ```
 
 ### Debug tracing

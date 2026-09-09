@@ -191,8 +191,6 @@ class RetrievalAgent:
         minimum_evidence_score: float = 0.0,
         minimum_link_score: float = 0.0,
         traverse_links: bool = True,
-        evidence_mode: str = "filtered",
-        extraction_prompt_max_chars_per_page: int = 12000,
         trace_enabled: bool = False,
     ) -> None:
         if max_rounds < 1:
@@ -201,10 +199,6 @@ class RetrievalAgent:
             raise ValueError("Retrieval limits must be at least 1")
         if not all(isfinite(value) for value in (minimum_evidence_score, minimum_link_score)):
             raise ValueError("Score thresholds must be finite numbers")
-        if evidence_mode not in {"filtered", "extraction"}:
-            raise ValueError("evidence_mode must be 'filtered' or 'extraction'")
-        if extraction_prompt_max_chars_per_page < 1000:
-            raise ValueError("extraction_prompt_max_chars_per_page must be at least 1000")
         self.answer_model = answer_model
         self.extractor = extractor
         self.max_rounds = max_rounds
@@ -214,8 +208,6 @@ class RetrievalAgent:
         self.minimum_evidence_score = minimum_evidence_score
         self.minimum_link_score = minimum_link_score
         self.traverse_links = traverse_links
-        self.evidence_mode = evidence_mode
-        self.extraction_prompt_max_chars_per_page = extraction_prompt_max_chars_per_page
         self.trace_enabled = trace_enabled
         self.analyzer = analysis_model.with_structured_output(QuestionAnalysis, include_raw=True)
         self.navigator = navigation_model.with_structured_output(RetrievalInstruction, include_raw=True)
@@ -494,26 +486,7 @@ class RetrievalAgent:
         evidence: list[RetrievalResult],
         raw_extractions: list[dict[str, Any]],
     ) -> list[dict[str, Any]]:
-        if self.evidence_mode == "filtered":
-            return [item.model_dump() for item in evidence]
-
-        payload = []
-        for index, extraction in enumerate(raw_extractions):
-            serialized = json.dumps(extraction, ensure_ascii=False, default=str)
-            limit = self.extraction_prompt_max_chars_per_page
-            payload.append(
-                {
-                    "url": extraction.get("url"),
-                    "extraction": serialized[:limit],
-                    "truncated": len(serialized) > limit,
-                    "original_char_count": len(serialized),
-                    "included_char_count": min(len(serialized), limit),
-                    "filtered_evidence": (
-                        evidence[index].model_dump() if index < len(evidence) else None
-                    ),
-                }
-            )
-        return payload
+        return [item.model_dump() for item in evidence]
 
     @staticmethod
     def _performance_metrics(
@@ -588,9 +561,8 @@ def create_retrieval_agent(
     minimum_evidence_score: float | None = None,
     minimum_link_score: float | None = None,
     traverse_links: bool | None = None,
-    evidence_mode: str | None = None,
-    extraction_prompt_max_chars_per_page: int | None = None,
     trace_enabled: bool | None = None,
+    _agent_class: type[RetrievalAgent] = RetrievalAgent,
 ) -> RetrievalAgent:
     """Build one reasoning agent from config, with optional explicit overrides."""
     load_dotenv()
@@ -613,7 +585,7 @@ def create_retrieval_agent(
             raise ValueError("Every host model stage must be configured")
         return resolved
 
-    return RetrievalAgent(
+    return _agent_class(
         analysis_model=resolve(analysis_model),
         navigation_model=resolve(navigation_model),
         verification_model=resolve(verification_model),
@@ -659,14 +631,6 @@ def create_retrieval_agent(
             traverse_links
             if traverse_links is not None
             else settings.retrieval.traverse_links
-        ),
-        evidence_mode=(
-            evidence_mode if evidence_mode is not None else settings.retrieval.evidence_mode
-        ),
-        extraction_prompt_max_chars_per_page=(
-            extraction_prompt_max_chars_per_page
-            if extraction_prompt_max_chars_per_page is not None
-            else settings.retrieval.extraction_prompt_max_chars_per_page
         ),
         trace_enabled=(
             trace_enabled if trace_enabled is not None else settings.tracing.enabled

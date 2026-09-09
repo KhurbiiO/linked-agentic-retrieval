@@ -31,8 +31,6 @@ class RetrievalSettings(BaseModel):
     ] = "semantic"
     semantic_model_name: str = "sentence-transformers/all-MiniLM-L6-v2"
     traverse_links: bool = True
-    evidence_mode: Literal["filtered", "extraction"] = "filtered"
-    extraction_prompt_max_chars_per_page: int = Field(default=12000, ge=1000, le=200000)
     excluded_url_extensions: list[str] = Field(
         default_factory=lambda: [
             ".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg", ".avif", ".ico",
