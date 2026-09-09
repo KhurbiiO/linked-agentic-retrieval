@@ -590,6 +590,7 @@ def _create_retrieval_agent(
         answer_model=resolve(answer_model),
         extractor=extractor or StructuredDataExtractor(
             timeout=settings.extractor.timeout_seconds,
+            use_custom_extraction=settings.extractor.use_custom_extraction,
             link_context_max_fields=settings.extractor.link_context_max_fields,
             link_context_max_chars=settings.extractor.link_context_max_chars,
             link_context_child_depth=settings.extractor.link_context_child_depth,

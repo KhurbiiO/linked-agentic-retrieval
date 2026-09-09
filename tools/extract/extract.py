@@ -28,6 +28,7 @@ class StructuredDataExtractor:
     def __init__(
         self,
         timeout=30,
+        use_custom_extraction=True,
         link_context_max_fields=12,
         link_context_max_chars=1000,
         link_context_child_depth=2,
@@ -35,6 +36,7 @@ class StructuredDataExtractor:
         excluded_url_extensions=None,
     ):
         self.timeout = timeout
+        self.use_custom_extraction = use_custom_extraction
         self.link_context_max_fields = link_context_max_fields
         self.link_context_max_chars = link_context_max_chars
         self.link_context_child_depth = link_context_child_depth
@@ -81,8 +83,10 @@ class StructuredDataExtractor:
             final_url
         )
 
-        embedded = self._extract_embedded_json(
-            html_text
+        embedded = (
+            self._extract_embedded_json(html_text)
+            if self.use_custom_extraction
+            else []
         )
 
         # Also recursively inspect JSON-LD found by extruct
@@ -667,7 +671,7 @@ class StructuredDataExtractor:
 
 
 if __name__ == "__main__":
-    extractor = StructuredDataExtractor()
+    extractor = StructuredDataExtractor(use_custom_extraction=False)
 
     data = extractor.extract(
         "https://www.bbcgoodfood.com/recipes/salmon-beetroot-feta-lime-salsa"

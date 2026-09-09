@@ -62,6 +62,7 @@ The factory automatically loads `config.json` from the project root:
     ]
   },
   "extractor": {
+    "use_custom_extraction": true,
     "timeout_seconds": 30,
     "link_context_max_fields": 12,
     "link_context_max_chars": 1000,
@@ -85,6 +86,16 @@ agent = create_retrieval_agent(
 
 Explicit Python arguments override the file, which is useful for temporary
 model comparisons.
+
+`extractor.use_custom_extraction` selects the extraction sources:
+
+- `false`: use only Extruct output (`json-ld`, microdata, RDFa, Open Graph,
+  microformats, and Dublin Core).
+- `true`: use Extruct and additionally scan HTML attributes and script elements
+  for embedded JSON.
+
+HTML `href` collection is controlled separately by `retrieval.traverse_links`
+and is unaffected by this extraction-source setting.
 
 `excluded_url_extensions` removes media and static-asset URLs before context
 extraction, scoring, or candidate-pool insertion. Matching is case-insensitive

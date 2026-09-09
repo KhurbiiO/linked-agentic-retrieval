@@ -23,6 +23,7 @@
     ]
   },
   "extractor": {
+    "use_custom_extraction": true,
     "timeout_seconds": 30,
     "link_context_max_fields": 12,
     "link_context_max_chars": 1000,

@@ -43,6 +43,7 @@ class RetrievalSettings(BaseModel):
 
 class ExtractorSettings(BaseModel):
     model_config = ConfigDict(extra="forbid")
+    use_custom_extraction: bool = True
     timeout_seconds: float = Field(default=30, gt=0, le=300)
     link_context_max_fields: int = Field(default=12, ge=1, le=50)
     link_context_max_chars: int = Field(default=1000, ge=100, le=10000)
