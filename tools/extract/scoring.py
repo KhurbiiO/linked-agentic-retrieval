@@ -15,7 +15,7 @@ class CandidateScore:
 
 
 class CandidateScorer(ABC):
-    """Strategy interface for ranking a URL against a retrieval goal."""
+    """Strategy interface for ranking links and extracted evidence."""
 
     @abstractmethod
     def score(
@@ -28,6 +28,45 @@ class CandidateScorer(ABC):
         search_terms: list[str],
     ) -> CandidateScore:
         raise NotImplementedError
+
+    def score_evidence(
+        self,
+        *,
+        source_url: str,
+        json_path: str,
+        value: str,
+        goal: str,
+        search_terms: list[str],
+    ) -> CandidateScore:
+        """Rank a scalar extraction while preserving lexical-mode behavior."""
+        haystack = f"{json_path} {value}".casefold()
+        total = float(
+            sum(
+                haystack.count(term.casefold())
+                for term in search_terms
+                if term.strip()
+            )
+        )
+        return CandidateScore(total=total, components={"term_frequency": total})
+
+    def score_evidence_batch(
+        self,
+        *,
+        items: list[tuple[str, str]],
+        source_url: str,
+        goal: str,
+        search_terms: list[str],
+    ) -> list[CandidateScore]:
+        return [
+            self.score_evidence(
+                source_url=source_url,
+                json_path=json_path,
+                value=value,
+                goal=goal,
+                search_terms=search_terms,
+            )
+            for json_path, value in items
+        ]
 
 
 class TermFrequencyScorer(CandidateScorer):
@@ -108,13 +147,46 @@ class SemanticScorer(CandidateScorer):
             components={"semantic_similarity": similarity},
         )
 
-    @lru_cache(maxsize=512)
-    def _encode(self, text: str):
+    def score_evidence(
+        self, *, source_url, json_path, value, goal, search_terms
+    ):
+        query = goal.strip() or " ".join(search_terms)
+        candidate = f"{json_path}: {value}"
+        similarity = round(float(self._encode(query) @ self._encode(candidate)), 6)
+        return CandidateScore(
+            total=similarity,
+            components={"semantic_similarity": similarity},
+        )
+
+    def score_evidence_batch(
+        self, *, items, source_url, goal, search_terms
+    ):
+        if not items:
+            return []
+        query = goal.strip() or " ".join(search_terms)
+        candidates = [f"{json_path}: {value}" for json_path, value in items]
+        query_embedding = self._encode(query)
+        candidate_embeddings = self._get_model().encode(
+            candidates, normalize_embeddings=True
+        )
+        return [
+            CandidateScore(
+                total=(similarity := round(float(query_embedding @ embedding), 6)),
+                components={"semantic_similarity": similarity},
+            )
+            for embedding in candidate_embeddings
+        ]
+
+    def _get_model(self):
         if self._model is None:
             from sentence_transformers import SentenceTransformer
 
             self._model = SentenceTransformer(self.model_name)
-        return self._model.encode(text, normalize_embeddings=True)
+        return self._model
+
+    @lru_cache(maxsize=512)
+    def _encode(self, text: str):
+        return self._get_model().encode(text, normalize_embeddings=True)
 
 
 def create_candidate_scorer(

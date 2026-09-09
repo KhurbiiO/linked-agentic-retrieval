@@ -84,14 +84,18 @@ Candidate context is flattened recursively through child dictionaries and lists
 up to `link_context_child_depth`. The default `semantic` scorer ranks candidates
 only by cosine similarity between the complete retrieval goal and candidate
 URL, JSON path, and context using `all-MiniLM-L6-v2`. Every candidate exposes
-the resulting `semantic_similarity` in `score_components`.
+the resulting `semantic_similarity` in `score_components`. The same semantic
+strategy ranks extracted scalar evidence by comparing the complete retrieval
+goal with each scalar's JSON path and value. Consequently,
+`max_results_per_page` retains the most semantically relevant evidence from
+each page rather than requiring exact term matches.
 
 Set `scoring_method` to `weighted_context` to use goal-token and field-weighted
 lexical matching without embeddings, or `term_frequency` for the original exact
 substring counter. Additional strategies can implement `CandidateScorer` in
 `tools/extract/scoring.py` without changing extraction or agent orchestration.
 
-The embedding model is downloaded and loaded lazily on the first link-scoring
+The embedding model is downloaded and loaded lazily on the first evidence- or link-scoring
 operation. This makes the first semantic-scoring round slower; later calls reuse
 the loaded model and cached embeddings.
 

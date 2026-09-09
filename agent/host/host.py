@@ -352,7 +352,10 @@ class RetrievalAgent:
                 lambda: [
                     LinkMatch.model_validate(item)
                     for item in self.extractor.traverse(
-                        extracted, instruction.search_terms, instruction.max_results
+                        extracted,
+                        instruction.search_terms,
+                        instruction.max_results,
+                        goal=analysis.goal,
                     )
                 ],
                 lambda result: ({"matches": [item.model_dump() for item in result]}, {"match_count": len(result)}),

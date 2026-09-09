@@ -414,11 +414,12 @@ class StructuredDataExtractor:
     # Agent retrieval operations
     # --------------------------------------------------
 
-    def traverse(self, result, search_terms, max_results=12):
-        """Rank scalar paths and values against retrieval terms."""
+    def traverse(self, result, search_terms, max_results=12, goal=""):
+        """Rank scalar paths and values using the configured scoring strategy."""
         terms = [term.casefold().strip() for term in search_terms if term.strip()]
         source_url = str(result.get("url", ""))
         matches = []
+        scalar_items = []
 
         for path, value in self._walk(result):
             if value is None or isinstance(value, (dict, list)):
@@ -426,14 +427,22 @@ class StructuredDataExtractor:
 
             rendered = self._render(value)
             json_path = self._format_path(path)
-            haystack = f"{json_path} {rendered}".casefold()
-            score = sum(haystack.count(term) for term in terms)
-            if score:
+            scalar_items.append((json_path, rendered))
+
+        scores = self.candidate_scorer.score_evidence_batch(
+            items=scalar_items,
+            source_url=source_url,
+            goal=goal,
+            search_terms=terms,
+        )
+        for (json_path, rendered), scored in zip(scalar_items, scores):
+            if scored.total > 0:
                 matches.append({
                     "source_url": source_url,
                     "json_path": json_path,
                     "value": rendered,
-                    "score": score
+                    "score": scored.total,
+                    "score_components": scored.components,
                 })
 
         matches.sort(key=lambda item: (-item["score"], item["json_path"]))
