@@ -75,15 +75,15 @@ extraction, scoring, or candidate-pool insertion. Matching is case-insensitive
 and checks only the URL path, so query strings such as `image.jpg?width=800` are
 handled correctly. Edit the list to allow or exclude additional file types.
 
-Discovered links include their immediate parent JSON path, inferred anchor text,
-and bounded scalar sibling fields such as `name`, `title`, `label`, and
-`description`. These fields participate in relevance ranking. The two
-`link_context_*` settings prevent large parent objects from inflating prompts.
+When traversal is enabled, discovered links come from HTML elements carrying an
+`href`, rather than only from URLs present in structured metadata. Each link is
+ranked using its resolved URL, anchor text, title/relationship attributes,
+nearby HTML text, page title and description, and the evidence selected from
+that page. The `link_context_*` limits keep this combined context bounded.
 
-Candidate context is flattened recursively through child dictionaries and lists
-up to `link_context_child_depth`. The default `semantic` scorer ranks candidates
-only by cosine similarity between the complete retrieval goal and candidate
-URL, JSON path, and context using `all-MiniLM-L6-v2`. Every candidate exposes
+The default `semantic` scorer ranks candidates by cosine similarity between the
+complete retrieval goal and candidate URL plus its combined context using
+`all-MiniLM-L6-v2`. Every candidate exposes
 the resulting `semantic_similarity` in `score_components`. The same semantic
 strategy ranks extracted scalar evidence by comparing the complete retrieval
 goal with each scalar's JSON path and value. Consequently,

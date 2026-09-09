@@ -365,7 +365,11 @@ class RetrievalAgent:
                 links = tracer.run(
                     "tool.discover_links",
                     "tool",
-                    {"round": round_number, "url": instruction.target_url},
+                    {
+                        "round": round_number,
+                        "url": instruction.target_url,
+                        "page_evidence_count": len(matches),
+                    },
                     lambda: [
                         CandidateLink.model_validate(item)
                         for item in self.extractor.discover_links(
@@ -373,6 +377,7 @@ class RetrievalAgent:
                             instruction.search_terms,
                             instruction.max_links,
                             goal=analysis.goal,
+                            evidence=matches,
                         )
                     ],
                     lambda result: (

@@ -29,6 +29,9 @@ class CandidateScorer(ABC):
     ) -> CandidateScore:
         raise NotImplementedError
 
+    def score_batch(self, items: list[dict]) -> list[CandidateScore]:
+        return [self.score(**item) for item in items]
+
     def score_evidence(
         self,
         *,
@@ -146,6 +149,25 @@ class SemanticScorer(CandidateScorer):
             total=similarity,
             components={"semantic_similarity": similarity},
         )
+
+    def score_batch(self, items):
+        if not items:
+            return []
+        queries = [item["goal"].strip() or " ".join(item["search_terms"]) for item in items]
+        candidates = [
+            f'{item["url"]} {item["json_path"]} '
+            + " ".join(f"{key}: {value}" for key, value in item["context"].items())
+            for item in items
+        ]
+        query_embeddings = self._get_model().encode(queries, normalize_embeddings=True)
+        candidate_embeddings = self._get_model().encode(candidates, normalize_embeddings=True)
+        return [
+            CandidateScore(
+                total=(similarity := round(float(query @ candidate), 6)),
+                components={"semantic_similarity": similarity},
+            )
+            for query, candidate in zip(query_embeddings, candidate_embeddings)
+        ]
 
     def score_evidence(
         self, *, source_url, json_path, value, goal, search_terms

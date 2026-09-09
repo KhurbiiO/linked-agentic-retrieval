@@ -15,6 +15,14 @@ else:
     from scoring import CandidateScorer, WeightedContextScorer
 
 
+class ExtractionResult(dict):
+    """Public structured extraction with private HTML traversal metadata."""
+
+    def __init__(self, *args, html_references=None, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.html_references = html_references or []
+
+
 class StructuredDataExtractor:
     def __init__(
         self,
@@ -95,13 +103,13 @@ class StructuredDataExtractor:
             json_sources
         )
 
-        return {
+        return ExtractionResult({
             "url": final_url,
             "standard": standard,
             "embedded_json": embedded,
             "schema_objects": schema_objects,
             "all_typed_objects": typed_objects
-        }
+        }, html_references=self._extract_html_references(html_text, final_url))
 
     # --------------------------------------------------
     # Download
@@ -257,6 +265,37 @@ class StructuredDataExtractor:
                 })
 
         return results
+
+    def _extract_html_references(self, html_text, page_url=""):
+        """Capture HTML hrefs and their local context for optional traversal."""
+        soup = BeautifulSoup(html_text, "html.parser")
+        base_url = get_base_url(html_text, page_url) if page_url else page_url
+        page_title = self._render(soup.title.get_text(" ", strip=True), 300) if soup.title else ""
+        description_tag = soup.find("meta", attrs={"name": lambda value: value and value.casefold() == "description"})
+        page_description = self._render(description_tag.get("content", ""), 500) if description_tag else ""
+        references = []
+
+        for index, tag in enumerate(soup.find_all(href=True)):
+            href = str(tag.get("href", "")).strip()
+            if not href:
+                continue
+            anchor_text = self._render(tag.get_text(" ", strip=True), 300)
+            container = tag.find_parent(["li", "nav", "article", "section", "main", "div"])
+            local_text = self._render(container.get_text(" ", strip=True), 500) if container else anchor_text
+            references.append({
+                "href": href,
+                "base_url": base_url,
+                "tag": tag.name,
+                "index": index,
+                "anchor_text": anchor_text or self._render(tag.get("aria-label", ""), 300),
+                "title": self._render(tag.get("title", ""), 300),
+                "rel": " ".join(tag.get("rel", [])),
+                "local_text": local_text,
+                "page_title": page_title,
+                "page_description": page_description,
+            })
+
+        return references
 
     # --------------------------------------------------
     # Generic recursive JSON walker
@@ -448,27 +487,18 @@ class StructuredDataExtractor:
         matches.sort(key=lambda item: (-item["score"], item["json_path"]))
         return matches[:max_results]
 
-    def discover_links(self, result, search_terms, max_links=20, goal=""):
-        """Return ranked HTTP(S) links found in extracted structured data."""
+    def discover_links(self, result, search_terms, max_links=20, goal="", evidence=None):
+        """Rank HTML hrefs using URL, page context, and selected page evidence."""
         base_url = str(result.get("url", ""))
         terms = [term.casefold().strip() for term in search_terms if term.strip()]
-        found = {}
+        candidates = []
+        evidence_context = self._evidence_context(evidence or [])
 
-        for path, value in self._walk(result):
-            if not isinstance(value, str):
+        for reference in getattr(result, "html_references", []):
+            raw_value = reference["href"]
+            if raw_value.startswith(("#", "mailto:", "tel:", "javascript:", "data:")):
                 continue
-
-            raw_value = value.strip()
-            json_path = self._format_path(path)
-            path_hint = str(path[-1]).casefold() if path else ""
-            is_link_field = any(hint in path_hint for hint in ("url", "href", "link"))
-            if not (
-                raw_value.startswith(("http://", "https://", "/", "./", "../"))
-                or (is_link_field and raw_value and not any(char.isspace() for char in raw_value))
-            ):
-                continue
-
-            candidate = urljoin(base_url, raw_value)
+            candidate = urljoin(reference.get("base_url") or base_url, raw_value)
             parsed = urlparse(candidate)
             if parsed.scheme not in {"http", "https"} or not parsed.netloc:
                 continue
@@ -476,23 +506,40 @@ class StructuredDataExtractor:
                 continue
 
             normalized = parsed._replace(fragment="").geturl()
-            parent = self._value_at_path(result, path[:-1])
-            context = self._link_context(parent, excluded_key=path[-1] if path else None)
-            anchor_text = self._anchor_text(context)
-            scored = self.candidate_scorer.score(
-                url=normalized,
-                json_path=json_path,
-                context=context,
-                goal=goal,
-                search_terms=terms,
-            )
+            json_path = f'html.{reference["tag"]}[{reference["index"]}].@href'
+            context = self._bounded_context({
+                "anchor_text": reference["anchor_text"],
+                "link_title": reference["title"],
+                "rel": reference["rel"],
+                "page_title": reference["page_title"],
+                **evidence_context,
+                "local_text": reference["local_text"],
+                "page_description": reference["page_description"],
+            })
+            candidates.append({
+                "url": normalized,
+                "json_path": json_path,
+                "context": context,
+                "goal": goal,
+                "search_terms": terms,
+                "anchor_text": reference["anchor_text"] or None,
+                "parent_json_path": f'html.{reference["tag"]}[{reference["index"]}]',
+            })
+
+        scores = self.candidate_scorer.score_batch([
+            {key: item[key] for key in ("url", "json_path", "context", "goal", "search_terms")}
+            for item in candidates
+        ])
+        found = {}
+        for candidate, scored in zip(candidates, scores):
+            normalized = candidate["url"]
             current = found.get(normalized)
             item = {
                 "url": normalized,
-                "json_path": json_path,
-                "parent_json_path": self._format_path(path[:-1]),
-                "anchor_text": anchor_text,
-                "context": context,
+                "json_path": candidate["json_path"],
+                "parent_json_path": candidate["parent_json_path"],
+                "anchor_text": candidate["anchor_text"],
+                "context": candidate["context"],
                 "score": scored.total,
                 "score_components": scored.components,
             }
@@ -501,6 +548,31 @@ class StructuredDataExtractor:
 
         links = sorted(found.values(), key=lambda item: (-item["score"], item["url"]))
         return links[:max_links]
+
+    def _evidence_context(self, evidence):
+        context = {}
+        for index, item in enumerate(evidence):
+            if hasattr(item, "model_dump"):
+                item = item.model_dump()
+            if not isinstance(item, dict):
+                continue
+            context[f"evidence[{index}].path"] = self._render(item.get("json_path", ""), 200)
+            context[f"evidence[{index}].value"] = self._render(item.get("value", ""), 400)
+        return context
+
+    def _bounded_context(self, context):
+        bounded = {}
+        consumed = 0
+        for key, value in context.items():
+            if not value or len(bounded) >= self.link_context_max_fields:
+                continue
+            remaining = self.link_context_max_chars - consumed - len(key)
+            if remaining <= 0:
+                break
+            rendered = self._render(value, min(500, remaining))
+            bounded[key] = rendered
+            consumed += len(key) + len(rendered)
+        return bounded
 
     @staticmethod
     def _value_at_path(root, path):
@@ -596,7 +668,7 @@ if __name__ == "__main__":
     extractor = StructuredDataExtractor()
 
     data = extractor.extract(
-        "https://www.allrecipes.com/grilled-bruschetta-chicken-recipe-7509319"
+        "https://www.bbcgoodfood.com/recipes/salmon-beetroot-feta-lime-salsa"
     )
 
     with open(
