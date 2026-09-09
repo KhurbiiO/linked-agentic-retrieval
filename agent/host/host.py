@@ -377,7 +377,6 @@ class RetrievalAgent:
                             instruction.search_terms,
                             instruction.max_links,
                             goal=analysis.goal,
-                            evidence=matches,
                         )
                     ],
                     lambda result: (

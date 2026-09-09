@@ -1,6 +1,7 @@
 import json
 import html
-from urllib.parse import urljoin, urlparse
+import re
+from urllib.parse import parse_qsl, unquote, urljoin, urlparse
 
 import requests
 import extruct
@@ -267,32 +268,20 @@ class StructuredDataExtractor:
         return results
 
     def _extract_html_references(self, html_text, page_url=""):
-        """Capture HTML hrefs and their local context for optional traversal."""
+        """Capture HTML hrefs for optional traversal."""
         soup = BeautifulSoup(html_text, "html.parser")
         base_url = get_base_url(html_text, page_url) if page_url else page_url
-        page_title = self._render(soup.title.get_text(" ", strip=True), 300) if soup.title else ""
-        description_tag = soup.find("meta", attrs={"name": lambda value: value and value.casefold() == "description"})
-        page_description = self._render(description_tag.get("content", ""), 500) if description_tag else ""
         references = []
 
         for index, tag in enumerate(soup.find_all(href=True)):
             href = str(tag.get("href", "")).strip()
             if not href:
                 continue
-            anchor_text = self._render(tag.get_text(" ", strip=True), 300)
-            container = tag.find_parent(["li", "nav", "article", "section", "main", "div"])
-            local_text = self._render(container.get_text(" ", strip=True), 500) if container else anchor_text
             references.append({
                 "href": href,
                 "base_url": base_url,
                 "tag": tag.name,
                 "index": index,
-                "anchor_text": anchor_text or self._render(tag.get("aria-label", ""), 300),
-                "title": self._render(tag.get("title", ""), 300),
-                "rel": " ".join(tag.get("rel", [])),
-                "local_text": local_text,
-                "page_title": page_title,
-                "page_description": page_description,
             })
 
         return references
@@ -487,12 +476,11 @@ class StructuredDataExtractor:
         matches.sort(key=lambda item: (-item["score"], item["json_path"]))
         return matches[:max_results]
 
-    def discover_links(self, result, search_terms, max_links=20, goal="", evidence=None):
-        """Rank HTML hrefs using URL, page context, and selected page evidence."""
+    def discover_links(self, result, search_terms, max_links=20, goal=""):
+        """Rank HTML hrefs using only the URL path and query string."""
         base_url = str(result.get("url", ""))
         terms = [term.casefold().strip() for term in search_terms if term.strip()]
         candidates = []
-        evidence_context = self._evidence_context(evidence or [])
 
         for reference in getattr(result, "html_references", []):
             raw_value = reference["href"]
@@ -506,28 +494,25 @@ class StructuredDataExtractor:
                 continue
 
             normalized = parsed._replace(fragment="").geturl()
+            scoring_url = self._naturalize_url(parsed)
             json_path = f'html.{reference["tag"]}[{reference["index"]}].@href'
-            context = self._bounded_context({
-                "anchor_text": reference["anchor_text"],
-                "link_title": reference["title"],
-                "rel": reference["rel"],
-                "page_title": reference["page_title"],
-                **evidence_context,
-                "local_text": reference["local_text"],
-                "page_description": reference["page_description"],
-            })
             candidates.append({
                 "url": normalized,
+                "scoring_url": scoring_url,
                 "json_path": json_path,
-                "context": context,
                 "goal": goal,
                 "search_terms": terms,
-                "anchor_text": reference["anchor_text"] or None,
                 "parent_json_path": f'html.{reference["tag"]}[{reference["index"]}]',
             })
 
         scores = self.candidate_scorer.score_batch([
-            {key: item[key] for key in ("url", "json_path", "context", "goal", "search_terms")}
+            {
+                "url": item["scoring_url"],
+                "json_path": "",
+                "context": {},
+                "goal": item["goal"],
+                "search_terms": item["search_terms"],
+            }
             for item in candidates
         ])
         found = {}
@@ -538,8 +523,8 @@ class StructuredDataExtractor:
                 "url": normalized,
                 "json_path": candidate["json_path"],
                 "parent_json_path": candidate["parent_json_path"],
-                "anchor_text": candidate["anchor_text"],
-                "context": candidate["context"],
+                "anchor_text": None,
+                "context": {},
                 "score": scored.total,
                 "score_components": scored.components,
             }
@@ -549,30 +534,47 @@ class StructuredDataExtractor:
         links = sorted(found.values(), key=lambda item: (-item["score"], item["url"]))
         return links[:max_links]
 
-    def _evidence_context(self, evidence):
-        context = {}
-        for index, item in enumerate(evidence):
-            if hasattr(item, "model_dump"):
-                item = item.model_dump()
-            if not isinstance(item, dict):
-                continue
-            context[f"evidence[{index}].path"] = self._render(item.get("json_path", ""), 200)
-            context[f"evidence[{index}].value"] = self._render(item.get("value", ""), 400)
-        return context
+    @staticmethod
+    def _naturalize_url(parsed):
+        """Turn a URL path and query into cleaner text for relevance scoring."""
+        tracking_keys = {
+            "fbclid", "gclid", "dclid", "msclkid", "ref", "source",
+        }
+        parts = []
+        path = unquote(parsed.path or "")
+        path = re.sub(
+            r"\b[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\b",
+            " ",
+            path,
+        )
+        path = re.sub(r"\.(?:html?|php|aspx?)$", "", path, flags=re.IGNORECASE)
+        parts.append(path)
 
-    def _bounded_context(self, context):
-        bounded = {}
-        consumed = 0
-        for key, value in context.items():
-            if not value or len(bounded) >= self.link_context_max_fields:
+        for key, value in parse_qsl(parsed.query, keep_blank_values=False):
+            normalized_key = key.casefold()
+            if normalized_key.startswith("utm_") or normalized_key in tracking_keys:
                 continue
-            remaining = self.link_context_max_chars - consumed - len(key)
-            if remaining <= 0:
-                break
-            rendered = self._render(value, min(500, remaining))
-            bounded[key] = rendered
-            consumed += len(key) + len(rendered)
-        return bounded
+            if normalized_key in {"id", "uuid", "guid", "token"} and (
+                value.isdigit() or len(value) >= 12
+            ):
+                continue
+            parts.extend((unquote(key), unquote(value)))
+
+        text = " ".join(parts)
+        text = re.sub(r"(?<=[a-z])(?=[A-Z])", " ", text)
+        tokens = re.findall(r"[^\W_]+", text.replace("_", " "), flags=re.UNICODE)
+
+        meaningful = []
+        for token in tokens:
+            if token.isdigit():
+                continue
+            if len(token) >= 12 and re.fullmatch(r"[0-9a-fA-F]+", token):
+                continue
+            if len(token) >= 16 and any(char.isdigit() for char in token):
+                continue
+            meaningful.append(token.casefold())
+
+        return " ".join(meaningful)
 
     @staticmethod
     def _value_at_path(root, path):
@@ -682,3 +684,6 @@ if __name__ == "__main__":
             indent=2,
             ensure_ascii=False,
         )
+
+    # Count how many links were found
+    print(f"Found {len(data.html_references)} HTML references.")

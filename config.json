@@ -8,7 +8,7 @@
     "max_candidate_urls": 20
   },
   "retrieval": {
-    "max_results_per_page": 15,
+    "max_results_per_page": 18,
     "max_links_per_page": 3,
     "scoring_method": "semantic",
     "semantic_model_name": "sentence-transformers/all-MiniLM-L6-v2",

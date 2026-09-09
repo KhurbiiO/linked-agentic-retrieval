@@ -77,12 +77,15 @@ handled correctly. Edit the list to allow or exclude additional file types.
 
 When traversal is enabled, discovered links come from HTML elements carrying an
 `href`, rather than only from URLs present in structured metadata. Each link is
-ranked using its resolved URL, anchor text, title/relationship attributes,
-nearby HTML text, page title and description, and the evidence selected from
-that page. The `link_context_*` limits keep this combined context bounded.
+ranked using only a naturalized version of its URL path and query string. URL
+encoding is decoded, separators become spaces, camel-case words are split, and
+obvious tracking parameters, numeric IDs, and opaque identifiers are removed.
+For example, `/recipes/salmon-cooking-time?view=full` becomes
+`recipes salmon cooking time view full`. The scheme, hostname, anchor
+text, HTML context, page context, and page evidence do not affect link scores.
 
 The default `semantic` scorer ranks candidates by cosine similarity between the
-complete retrieval goal and candidate URL plus its combined context using
+complete retrieval goal and this relative URL using
 `all-MiniLM-L6-v2`. Every candidate exposes
 the resulting `semantic_similarity` in `score_components`. The same semantic
 strategy ranks extracted scalar evidence by comparing the complete retrieval
