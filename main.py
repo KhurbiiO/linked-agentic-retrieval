@@ -1,9 +1,16 @@
+import json
+
+from langchain_ollama import ChatOllama
+
 from agent import create_retrieval_agent
 from tools import StructuredDataExtractor
 
 
 def main() -> None:
-    agent = create_retrieval_agent(extractor=StructuredDataExtractor())
+    agent = create_retrieval_agent(
+        extractor=StructuredDataExtractor(),
+        model=ChatOllama(model="qwen3:0.6b", temperature=0)
+    )
     context: list[dict[str, str]] = []
 
     print("Agent ready. Type 'exit' to quit.")

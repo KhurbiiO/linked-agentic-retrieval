@@ -124,7 +124,14 @@ complete retrieval goal and this relative URL using
 `all-MiniLM-L6-v2`. Every candidate exposes
 the resulting `semantic_similarity` in `score_components`. The same semantic
 strategy ranks extracted scalar evidence by comparing the complete retrieval
-goal with each scalar's JSON path and value. Consequently,
+goal with a naturalized relation/value pair. JSON indexes and extraction-wrapper
+terms are removed, separators become spaces, and camel-case keys are split. For
+example, `$.standard.json-ld[2].recipeIngredient[0]` with value `lime juice`
+becomes `recipe ingredient: lime juice`. The original JSON path and exact value
+remain attached for provenance. Evidence discovery reads only the canonical
+`standard` and `embedded_json` sections; derived `schema_objects` and
+`all_typed_objects` views are excluded to avoid scoring the same data repeatedly.
+Consequently,
 `max_results_per_page` retains the most semantically relevant evidence from
 each page rather than requiring exact term matches.
 

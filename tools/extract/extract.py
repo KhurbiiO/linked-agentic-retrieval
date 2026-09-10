@@ -452,33 +452,59 @@ class StructuredDataExtractor:
         source_url = str(result.get("url", ""))
         matches = []
         scalar_items = []
+        evidence_sources = {
+            "standard": result.get("standard", {}),
+            "embedded_json": result.get("embedded_json", []),
+        }
 
-        for path, value in self._walk(result):
+        for path, value in self._walk(evidence_sources):
             if value is None or isinstance(value, (dict, list)):
                 continue
 
             rendered = self._render(value)
             json_path = self._format_path(path)
-            scalar_items.append((json_path, rendered))
+            naturalized_path = self._naturalize_json_path(path)
+            naturalized_pair = (
+                f"{naturalized_path}: {rendered}"
+                if naturalized_path
+                else rendered
+            )
+            scalar_items.append((json_path, rendered, naturalized_pair))
 
         scores = self.candidate_scorer.score_evidence_batch(
-            items=scalar_items,
+            items=[("", naturalized_pair) for _, _, naturalized_pair in scalar_items],
             source_url=source_url,
             goal=goal,
             search_terms=terms,
         )
-        for (json_path, rendered), scored in zip(scalar_items, scores):
+        for (json_path, rendered, naturalized_pair), scored in zip(scalar_items, scores):
             if scored.total > 0:
                 matches.append({
                     "source_url": source_url,
                     "json_path": json_path,
                     "value": rendered,
+                    "naturalized_pair": naturalized_pair,
                     "score": scored.total,
                     "score_components": scored.components,
                 })
 
         matches.sort(key=lambda item: (-item["score"], item["json_path"]))
         return matches[:max_results]
+
+    @staticmethod
+    def _naturalize_json_path(path):
+        """Convert a structured-data path into readable relation words."""
+        ignored = {"standard", "embedded", "json", "ld", "data"}
+        words = []
+        for part in path:
+            if isinstance(part, int):
+                continue
+            text = re.sub(r"(?<=[a-z])(?=[A-Z])", " ", str(part))
+            for word in re.findall(r"[^\W_]+", text.replace("_", " "), flags=re.UNICODE):
+                normalized = word.casefold()
+                if normalized not in ignored:
+                    words.append(normalized)
+        return " ".join(words)
 
     def discover_links(self, result, search_terms, max_links=20, goal=""):
         """Rank HTML hrefs using only the URL path and query string."""

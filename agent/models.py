@@ -29,6 +29,7 @@ class LinkMatch(BaseModel):
     source_url: str
     json_path: str
     value: str
+    naturalized_pair: str = ""
     score: float
     score_components: dict[str, float] = Field(default_factory=dict)
 
