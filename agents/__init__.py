@@ -14,6 +14,7 @@ from .models import (
     StageMetric,
     TriAgentResult,
 )
+from .tracing import ProcessTracer
 
 __all__ = [
     "BuilderAgent",
@@ -24,6 +25,7 @@ __all__ = [
     "GraphTriple",
     "InstructorAgent",
     "KnowledgeGraph",
+    "ProcessTracer",
     "RetrievalPlan",
     "StageMetric",
     "TriAgentResult",

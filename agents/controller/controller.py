@@ -14,6 +14,7 @@ from agents.models import (
     ControllerResult,
     RetrievalPlan,
 )
+from agents.tracing import ProcessTracer
 from utils.aria import AriaPage
 
 
@@ -44,6 +45,7 @@ class ControllerAgent:
         aria_page: AriaPage | None = None,
         max_actions: int = 5,
         snapshot_max_chars: int = 30000,
+        tracer: ProcessTracer | None = None,
     ) -> None:
         if max_actions < 1:
             raise ValueError("max_actions must be at least 1")
@@ -53,10 +55,12 @@ class ControllerAgent:
         self.aria_page = aria_page or AriaPage()
         self.max_actions = max_actions
         self.snapshot_max_chars = snapshot_max_chars
+        self.tracer = tracer or ProcessTracer()
 
     def retrieve(self, plan: RetrievalPlan) -> ControllerResult:
         """Open the seed and execute model-selected actions until stopped."""
         navigation_started = perf_counter()
+        self.tracer.emit("controller", "navigation_started", url=plan.seed_url)
         self.aria_page.navigate(plan.seed_url)
         initial_action = ControllerDecision(
             action="snapshot",
@@ -70,6 +74,13 @@ class ControllerAgent:
                 None,
             )
         ]
+        self.tracer.emit(
+            "controller",
+            "navigation_completed",
+            url=self._url,
+            aria_chars=len(self.aria_page.aria),
+            duration_ms=observations[0].duration_ms,
+        )
         stopped_reason = "maximum controller actions reached"
 
         for sequence in range(1, self.max_actions + 1):
@@ -89,6 +100,12 @@ class ControllerAgent:
                     ],
                 })),
             ])
+            self.tracer.emit(
+                "controller",
+                "decision",
+                sequence=sequence,
+                decision=decision.model_dump(),
+            )
             if decision.action == "stop":
                 stopped_reason = decision.reason
                 break
@@ -101,13 +118,31 @@ class ControllerAgent:
                 error = f"{type(exc).__name__}: {exc}"
             duration_ms = round((perf_counter() - started) * 1000, 3)
             observations.append(self._observation(sequence, decision, duration_ms, error))
+            self.tracer.emit(
+                "controller",
+                "action_completed",
+                sequence=sequence,
+                action=decision.action,
+                url=self._url,
+                aria_chars=len(self.aria_page.aria),
+                duration_ms=duration_ms,
+                error=error,
+            )
 
-        return ControllerResult(
+        controller_result = ControllerResult(
             final_url=self._url,
             final_aria=self.aria_page.aria,
             observations=observations,
             stopped_reason=stopped_reason,
         )
+        self.tracer.emit(
+            "controller",
+            "completed",
+            observations=len(observations),
+            final_url=self._url,
+            stopped_reason=stopped_reason,
+        )
+        return controller_result
 
     def _execute(self, decision: ControllerDecision) -> None:
         if decision.action == "back":

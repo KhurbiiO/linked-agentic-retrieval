@@ -9,7 +9,6 @@ from urllib.parse import urlparse
 
 from playwright.sync_api import Locator, Page, sync_playwright
 
-
 class AriaPage:
     """Keep a browser page open while inspecting and refreshing its ARIA tree."""
 
@@ -249,3 +248,24 @@ def extract(
         exclude_properties=exclude_properties,
     ) as aria_page:
         return aria_page.navigate(url).aria
+
+
+
+
+# Edit these values before running this file.
+URL = "https://foodnetwork.co.uk"
+OUTPUT_FILE = Path("output/aria.txt")
+
+
+def main() -> None:
+    """Retrieve, print, and save the configured page's ARIA snapshot."""
+    aria = extract(URL)
+    print(aria)
+
+    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT_FILE.write_text(aria, encoding="utf-8")
+    print(f"\nSaved ARIA snapshot to: {OUTPUT_FILE.resolve()}")
+
+
+if __name__ == "__main__":
+    main()

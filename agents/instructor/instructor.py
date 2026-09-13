@@ -11,6 +11,7 @@ from langchain_core.language_models.chat_models import BaseChatModel
 from agents.builder import BuilderAgent
 from agents.controller import ControllerAgent
 from agents.models import RetrievalPlan, StageMetric, TriAgentResult
+from agents.tracing import ProcessTracer
 
 
 INSTRUCTOR_PROMPT = """Analyze the user's retrieval request and create a precise
@@ -31,10 +32,12 @@ class InstructorAgent:
         model: BaseChatModel,
         controller: ControllerAgent,
         builder: BuilderAgent,
+        tracer: ProcessTracer | None = None,
     ) -> None:
         self.model = model.with_structured_output(RetrievalPlan)
         self.controller = controller
         self.builder = builder
+        self.tracer = tracer or ProcessTracer()
 
     def plan(self, prompt: str) -> RetrievalPlan:
         if not prompt.strip():
@@ -53,13 +56,16 @@ class InstructorAgent:
     def invoke(self, prompt: str) -> TriAgentResult:
         started = perf_counter()
         metrics = []
+        self.tracer.emit("workflow", "started", prompt=prompt)
 
         stage_started = perf_counter()
+        self.tracer.emit("instructor", "planning_started")
         plan = self.plan(prompt)
         metrics.append(StageMetric(
             stage="instructor.plan",
             duration_ms=round((perf_counter() - stage_started) * 1000, 3),
         ))
+        self.tracer.emit("instructor", "planning_completed", plan=plan.model_dump())
 
         stage_started = perf_counter()
         controller_result = self.controller.retrieve(plan)
@@ -75,13 +81,20 @@ class InstructorAgent:
             duration_ms=round((perf_counter() - stage_started) * 1000, 3),
         ))
 
-        return TriAgentResult(
+        result = TriAgentResult(
             plan=plan,
             controller=controller_result,
             graph=graph,
             metrics=metrics,
             total_duration_ms=round((perf_counter() - started) * 1000, 3),
         )
+        self.tracer.emit(
+            "workflow",
+            "completed",
+            total_duration_ms=result.total_duration_ms,
+            metrics=[metric.model_dump() for metric in metrics],
+        )
+        return result
 
     def close(self) -> None:
         self.controller.close()
