@@ -697,14 +697,15 @@ class StructuredDataExtractor:
 
 
 if __name__ == "__main__":
-    extractor = StructuredDataExtractor(use_custom_extraction=False)
+    extractor = StructuredDataExtractor(use_custom_extraction=True)
 
     data = extractor.extract(
-        "https://www.bbcgoodfood.com/recipes/salmon-beetroot-feta-lime-salsa"
+        "https://foodnetwork.co.uk/chefs",
+
     )
 
     with open(
-        "tools/chicken.json",
+        "tools/check.json",
         "w",
         encoding="utf-8",
     ) as output:

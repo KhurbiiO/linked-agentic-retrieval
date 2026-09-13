@@ -1,46 +1,45 @@
-import json
+"""Run the tri-agent workflow and save its RDF knowledge graphs."""
 
-from langchain_ollama import ChatOllama
+from pathlib import Path
 
-from agent import create_retrieval_agent
-from tools import StructuredDataExtractor
+from agents import create_tri_agent
+
+
+# Edit these values before running this file.
+SEED_URL = "https://foodnetwork.co.uk"
+QUESTION = "What useful information is available on this page?"
+MODEL = "ollama:llama3.2"
+MAX_CONTROLLER_ACTIONS = 5
+OUTPUT_DIRECTORY = Path("output")
 
 
 def main() -> None:
-    agent = create_retrieval_agent(
-        extractor=StructuredDataExtractor(),
-        model=ChatOllama(model="qwen3:0.6b", temperature=0)
-    )
-    context: list[dict[str, str]] = []
+    prompt = f"{QUESTION}\nSeed URL: {SEED_URL}"
+    OUTPUT_DIRECTORY.mkdir(parents=True, exist_ok=True)
 
-    print("Agent ready. Type 'exit' to quit.")
-    while True:
-        try:
-            user_input = input("You: ").strip()
-        except (EOFError, KeyboardInterrupt):
-            print()
-            break
+    with create_tri_agent(
+        model=MODEL,
+        max_controller_actions=MAX_CONTROLLER_ACTIONS,
+    ) as tri_agent:
+        result = tri_agent.invoke(prompt)
+        graph_store = tri_agent.builder.graph_store
 
-        if user_input.lower() in {"exit", "quit"}:
-            break
-        if not user_input:
-            continue
-
-        trace_sink = None
-        if agent.trace_enabled:
-            trace_sink = lambda step: print(
-                f"  [{step.sequence}] {step.stage}: {step.status} ({step.duration_ms:.1f} ms)"
-            )
-        result = agent.invoke(user_input, context=context, trace_sink=trace_sink)
-        print(f"Agent: {result.answer}")
-        print(f"Performance: {result.performance.model_dump_json()}")
-
-        context.extend(
-            [
-                {"role": "user", "content": user_input},
-                {"role": "assistant", "content": result.answer},
-            ]
+        graph_store.save(OUTPUT_DIRECTORY / "knowledge_graphs.trig")
+        graph_store.save(
+            OUTPUT_DIRECTORY / "content_graph.ttl",
+            kind="content",
+            format="turtle",
         )
+        graph_store.save(
+            OUTPUT_DIRECTORY / "layout_graph.ttl",
+            kind="layout",
+            format="turtle",
+        )
+
+    print(result.graph.summary)
+    print(f"Saved {graph_store.counts['content']} content triples")
+    print(f"Saved {graph_store.counts['layout']} layout triples")
+    print(f"Output directory: {OUTPUT_DIRECTORY.resolve()}")
 
 
 if __name__ == "__main__":
