@@ -16,6 +16,8 @@ BUILD_MODEL = "ollama:llama3.2"
 
 MAX_CONTROLLER_ACTIONS = 5
 MAX_RETRIEVAL_ROUNDS = 3
+PRELOAD_MODELS = True
+OLLAMA_KEEP_ALIVE = "30m"
 
 OUTPUT_DIRECTORY = Path("output")
 TRACE_PROCESS = False
@@ -33,6 +35,8 @@ def run_tri_agent():
         instructor_model=INSTRUCTOR_MODEL,
         controller_model=CONTROLLER_MODEL,
         builder_model=BUILD_MODEL,
+        preload_models=PRELOAD_MODELS,
+        ollama_keep_alive=OLLAMA_KEEP_ALIVE,
         trace=TRACE_PROCESS,
         trace_path=TRACE_FILE if TRACE_PROCESS else None,
     ) as tri_agent:

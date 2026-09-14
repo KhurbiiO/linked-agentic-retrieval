@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from time import perf_counter
 
 from langchain.chat_models import init_chat_model
 from langchain_core.language_models.chat_models import BaseChatModel
@@ -18,10 +19,37 @@ from store import RDFKnowledgeGraphStore
 ModelInput = str | BaseChatModel
 
 
-def _model(value: ModelInput, temperature: float) -> BaseChatModel:
+def _model(
+    value: ModelInput,
+    temperature: float,
+    ollama_keep_alive: str | int | None,
+) -> BaseChatModel:
     if isinstance(value, BaseChatModel):
         return value
-    return init_chat_model(value, temperature=temperature)
+    options = {"temperature": temperature}
+    if value.startswith("ollama:") and ollama_keep_alive is not None:
+        options["keep_alive"] = ollama_keep_alive
+    return init_chat_model(value, **options)
+
+
+def _preload(models: list[BaseChatModel], tracer: ProcessTracer) -> None:
+    """Warm each distinct provider/model pair with one minimal request."""
+    loaded: set[tuple[object, object]] = set()
+    for model in models:
+        model_name = getattr(model, "model", None) or id(model)
+        key = (type(model), str(model_name))
+        if key in loaded:
+            continue
+        loaded.add(key)
+        tracer.emit("models", "preload_started", model=str(model_name))
+        started = perf_counter()
+        model.invoke("Reply with only: OK")
+        tracer.emit(
+            "models",
+            "preload_completed",
+            model=str(model_name),
+            duration_ms=round((perf_counter() - started) * 1000, 3),
+        )
 
 
 def create_tri_agent(
@@ -40,13 +68,26 @@ def create_tri_agent(
     trace: bool = False,
     trace_path: str | Path | None = None,
     trace_console: bool = True,
+    preload_models: bool = False,
+    ollama_keep_alive: str | int | None = "30m",
 ) -> InstructorAgent:
     """Create the Instructor with its Controller and Builder collaborators."""
-    shared = _model(model, temperature)
-    instructor_llm = _model(instructor_model, temperature) if instructor_model else shared
-    controller_llm = _model(controller_model, temperature) if controller_model else shared
-    builder_llm = _model(builder_model, temperature) if builder_model else shared
     tracer = ProcessTracer(trace, path=trace_path, console=trace_console)
+    shared = _model(model, temperature, ollama_keep_alive)
+    instructor_llm = (
+        _model(instructor_model, temperature, ollama_keep_alive)
+        if instructor_model else shared
+    )
+    controller_llm = (
+        _model(controller_model, temperature, ollama_keep_alive)
+        if controller_model else shared
+    )
+    builder_llm = (
+        _model(builder_model, temperature, ollama_keep_alive)
+        if builder_model else shared
+    )
+    if preload_models:
+        _preload([instructor_llm, controller_llm, builder_llm], tracer)
 
     controller = ControllerAgent(
         controller_llm,
