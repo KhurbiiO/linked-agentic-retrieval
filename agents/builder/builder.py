@@ -113,7 +113,7 @@ class BuilderAgent:
             "builder",
             "started",
             source_url=result.final_url,
-            aria_chars=min(len(result.final_aria), self.snapshot_max_chars),
+            aria_chars=min(len(result.builder_aria), self.snapshot_max_chars),
         )
         graph = self.model.invoke([
             ("system", BUILDER_PROMPT),
@@ -122,7 +122,7 @@ class BuilderAgent:
                 "context_terms": plan.context_terms,
                 "success_criteria": plan.success_criteria,
                 "source_url": result.final_url,
-                "aria_snapshot": result.final_aria[: self.snapshot_max_chars],
+                "aria_snapshot": result.builder_aria[: self.snapshot_max_chars],
             })),
         ])
         self.graph_store.add_knowledge_graph(graph, source_url=result.final_url)

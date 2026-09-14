@@ -6,16 +6,23 @@ import json
 import re
 from time import perf_counter
 
+from langchain_core.embeddings import Embeddings
 from langchain_core.language_models.chat_models import BaseChatModel
 from playwright.sync_api import Error as PlaywrightError
 
 from agents.models import (
+    AriaEvidenceSelection,
     ControllerDecision,
     ControllerObservation,
     ControllerResult,
     RetrievalPlan,
 )
 from agents.tracing import ProcessTracer
+from agents.controller.evidence_filter import (
+    EmbeddingCosineScorer,
+    rank_aria_blocks,
+    render_blocks,
+)
 from utils.aria import AriaPage
 
 
@@ -41,6 +48,13 @@ Actions:
 Never invent page state. Do not navigate to a URL directly; follow page controls.
 Prefer accessible role/name targeting. Take one action only."""
 
+ARIA_FILTER_PROMPT = """Choose the candidate ARIA subtree IDs that contain
+content evidence useful for the retrieval goal and success criteria. Candidates
+were already ranked using embedding cosine similarity. Preserve candidates
+needed to understand entity relationships. Exclude menus, cookie notices,
+advertising, social links, and unrelated controls. Return candidate IDs only;
+never rewrite page content. Select no more than maximum_segments."""
+
 
 class ControllerAgent:
     """Use an LLM to operate one persistent :class:`AriaPage`."""
@@ -54,6 +68,13 @@ class ControllerAgent:
         snapshot_max_chars: int = 30000,
         tracer: ProcessTracer | None = None,
         action_timeout: float = 5,
+        max_evidence_segments: int = 12,
+        evidence_candidate_limit: int = 20,
+        evidence_min_score: float = 0.08,
+        evidence_fallback_blocks: int = 3,
+        evidence_context_depth: int = 2,
+        evidence_max_chars: int = 16000,
+        evidence_embeddings: Embeddings | None = None,
     ) -> None:
         if max_actions < 1:
             raise ValueError("max_actions must be at least 1")
@@ -61,12 +82,32 @@ class ControllerAgent:
             raise ValueError("snapshot_max_chars must be at least 1000")
         if action_timeout <= 0:
             raise ValueError("action_timeout must be greater than zero")
+        if not 1 <= max_evidence_segments <= 20:
+            raise ValueError("max_evidence_segments must be between 1 and 20")
+        if evidence_candidate_limit < max_evidence_segments:
+            raise ValueError("evidence_candidate_limit must cover evidence segments")
+        if not 0 <= evidence_min_score <= 1:
+            raise ValueError("evidence_min_score must be between 0 and 1")
+        if evidence_fallback_blocks < 1 or evidence_context_depth < 0:
+            raise ValueError("fallback blocks must be positive and context depth nonnegative")
+        if evidence_max_chars < 1000:
+            raise ValueError("evidence_max_chars must be at least 1000")
+        if evidence_embeddings is None:
+            raise ValueError("evidence_embeddings is required for semantic scoring")
         self.model = model.with_structured_output(ControllerDecision)
+        self.filter_model = model.with_structured_output(AriaEvidenceSelection)
         self.aria_page = aria_page or AriaPage()
         self.max_actions = max_actions
         self.snapshot_max_chars = snapshot_max_chars
         self.tracer = tracer or ProcessTracer()
         self.action_timeout_ms = action_timeout * 1000
+        self.max_evidence_segments = max_evidence_segments
+        self.evidence_candidate_limit = evidence_candidate_limit
+        self.evidence_min_score = evidence_min_score
+        self.evidence_fallback_blocks = evidence_fallback_blocks
+        self.evidence_context_depth = evidence_context_depth
+        self.evidence_max_chars = evidence_max_chars
+        self.evidence_scorer = EmbeddingCosineScorer(evidence_embeddings)
 
     def observe_seed(self, plan: RetrievalPlan) -> ControllerResult:
         """Open the seed once and return its ARIA without an LLM action."""
@@ -93,9 +134,11 @@ class ControllerAgent:
             aria_chars=len(self.aria_page.aria),
             duration_ms=observations[0].duration_ms,
         )
+        builder_aria = self._filter_for_builder(plan)
         return ControllerResult(
             final_url=self._url,
             final_aria=self.aria_page.aria,
+            builder_aria=builder_aria,
             observations=observations,
             stopped_reason="initial seed observed",
         )
@@ -188,9 +231,11 @@ class ControllerAgent:
                 error=error,
             )
 
+        builder_aria = self._filter_for_builder(plan, instruction)
         controller_result = ControllerResult(
             final_url=self._url,
             final_aria=self.aria_page.aria,
+            builder_aria=builder_aria,
             observations=observations,
             stopped_reason=stopped_reason,
         )
@@ -202,6 +247,69 @@ class ControllerAgent:
             stopped_reason=stopped_reason,
         )
         return controller_result
+
+    def _filter_for_builder(
+        self,
+        plan: RetrievalPlan,
+        instruction: str | None = None,
+    ) -> str:
+        """Rank structural blocks, then model-select and render verbatim evidence."""
+        source = self.aria_page.aria[: self.snapshot_max_chars]
+        query = "\n".join(filter(None, [
+            plan.goal,
+            " ".join(plan.context_terms),
+            " ".join(plan.success_criteria),
+            instruction,
+        ]))
+        lines, candidates = rank_aria_blocks(
+            source,
+            query,
+            self.evidence_scorer,
+            max_candidates=self.evidence_candidate_limit,
+            min_score=self.evidence_min_score,
+            context_depth=self.evidence_context_depth,
+        )
+        started = perf_counter()
+        candidate_payload = [
+            {
+                "id": block.id,
+                "role": block.role,
+                "score": block.score,
+                "lines": [block.start_line, block.end_line],
+                "aria": block.text[:1500],
+            }
+            for block in candidates
+        ]
+        selection = self.filter_model.invoke([
+            ("system", ARIA_FILTER_PROMPT),
+            ("user", json.dumps({
+                "goal": plan.goal,
+                "context_terms": plan.context_terms,
+                "success_criteria": plan.success_criteria,
+                "missing_evidence_instruction": instruction,
+                "maximum_segments": self.max_evidence_segments,
+                "ranked_candidates": candidate_payload,
+            })),
+        ])
+        selected_ids = set(selection.candidate_ids[: self.max_evidence_segments])
+        selected = [block for block in candidates if block.id in selected_ids]
+        fallback_used = not selected
+        if fallback_used:
+            selected = candidates[: self.evidence_fallback_blocks]
+        filtered = render_blocks(lines, selected, max_chars=self.evidence_max_chars)
+        self.tracer.emit(
+            "controller",
+            "aria_filtered",
+            raw_chars=len(source),
+            filtered_chars=len(filtered),
+            candidate_blocks=len(candidates),
+            selected_blocks=len(selected),
+            selected_ids=[block.id for block in selected],
+            fallback_used=fallback_used,
+            duration_ms=round((perf_counter() - started) * 1000, 3),
+            reasoning=selection.reasoning,
+        )
+        return filtered
 
     def _execute(self, decision: ControllerDecision) -> None:
         if decision.action == "back":

@@ -5,6 +5,7 @@ from .controller import ControllerAgent
 from .factory import create_tri_agent
 from .instructor import InstructorAgent
 from .models import (
+    AriaEvidenceSelection,
     ControllerDecision,
     ControllerObservation,
     ControllerResult,
@@ -18,6 +19,7 @@ from .models import (
 from .tracing import ProcessTracer
 
 __all__ = [
+    "AriaEvidenceSelection",
     "BuilderAgent",
     "ControllerAgent",
     "ControllerDecision",

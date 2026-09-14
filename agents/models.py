@@ -36,9 +36,15 @@ class ControllerObservation(BaseModel):
     duration_ms: float
 
 
+class AriaEvidenceSelection(BaseModel):
+    candidate_ids: list[str] = Field(default_factory=list, max_length=20)
+    reasoning: str
+
+
 class ControllerResult(BaseModel):
     final_url: str
     final_aria: str
+    builder_aria: str
     observations: list[ControllerObservation]
     stopped_reason: str
 

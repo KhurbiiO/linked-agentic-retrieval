@@ -6,6 +6,8 @@ from pathlib import Path
 from time import perf_counter
 
 from langchain.chat_models import init_chat_model
+from langchain.embeddings import init_embeddings
+from langchain_core.embeddings import Embeddings
 from langchain_core.language_models.chat_models import BaseChatModel
 
 from agents.builder import BuilderAgent
@@ -17,6 +19,7 @@ from store import RDFKnowledgeGraphStore
 
 
 ModelInput = str | BaseChatModel
+EmbeddingInput = str | Embeddings
 
 
 def _model(
@@ -52,15 +55,26 @@ def _preload(models: list[BaseChatModel], tracer: ProcessTracer) -> None:
         )
 
 
+def _embedding_model(value: EmbeddingInput) -> Embeddings:
+    return value if isinstance(value, Embeddings) else init_embeddings(value)
+
+
 def create_tri_agent(
     model: ModelInput = "ollama:llama3.2",
     *,
     instructor_model: ModelInput | None = None,
     controller_model: ModelInput | None = None,
     builder_model: ModelInput | None = None,
+    evidence_embedding_model: EmbeddingInput = "ollama:nomic-embed-text",
     temperature: float = 0,
     max_controller_actions: int = 5,
     controller_action_timeout: float = 5,
+    controller_max_evidence_segments: int = 12,
+    controller_evidence_candidate_limit: int = 20,
+    controller_evidence_min_score: float = 0.08,
+    controller_evidence_fallback_blocks: int = 3,
+    controller_evidence_context_depth: int = 2,
+    controller_evidence_max_chars: int = 16000,
     max_retrieval_rounds: int = 3,
     controller_snapshot_max_chars: int = 30000,
     builder_snapshot_max_chars: int = 60000,
@@ -87,8 +101,17 @@ def create_tri_agent(
         _model(builder_model, temperature, ollama_keep_alive)
         if builder_model else shared
     )
+    evidence_embeddings = _embedding_model(evidence_embedding_model)
     if preload_models:
         _preload([instructor_llm, controller_llm, builder_llm], tracer)
+        embedding_started = perf_counter()
+        tracer.emit("models", "embedding_preload_started")
+        evidence_embeddings.embed_query("semantic relevance warmup")
+        tracer.emit(
+            "models",
+            "embedding_preload_completed",
+            duration_ms=round((perf_counter() - embedding_started) * 1000, 3),
+        )
 
     controller = ControllerAgent(
         controller_llm,
@@ -97,6 +120,13 @@ def create_tri_agent(
         snapshot_max_chars=controller_snapshot_max_chars,
         tracer=tracer,
         action_timeout=controller_action_timeout,
+        max_evidence_segments=controller_max_evidence_segments,
+        evidence_candidate_limit=controller_evidence_candidate_limit,
+        evidence_min_score=controller_evidence_min_score,
+        evidence_fallback_blocks=controller_evidence_fallback_blocks,
+        evidence_context_depth=controller_evidence_context_depth,
+        evidence_max_chars=controller_evidence_max_chars,
+        evidence_embeddings=evidence_embeddings,
     )
     builder = BuilderAgent(
         builder_llm,
