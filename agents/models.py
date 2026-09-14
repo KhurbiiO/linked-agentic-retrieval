@@ -44,10 +44,16 @@ class ControllerResult(BaseModel):
 
 
 class GraphTriple(BaseModel):
-    subject: str
-    predicate: str
+    subject: str = Field(description="Stable absolute IRI for the subject")
+    predicate: str = Field(
+        description=(
+            "Full https://schema.org property IRI, or RDF type IRI "
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        )
+    )
     object: str
-    semantic_type: Literal["content", "layout"]
+    object_kind: Literal["literal", "iri"] = "literal"
+    semantic_type: Literal["content"] = "content"
     evidence: str
 
 
@@ -65,9 +71,21 @@ class StageMetric(BaseModel):
     total_tokens: int = 0
 
 
+class GoalVerification(BaseModel):
+    sufficient: bool
+    answer: str | None = None
+    missing_information: list[str] = Field(default_factory=list)
+    controller_instruction: str | None = None
+    reasoning: str
+
+
 class TriAgentResult(BaseModel):
     plan: RetrievalPlan
     controller: ControllerResult
     graph: KnowledgeGraph
+    verification: GoalVerification
+    verification_history: list[GoalVerification]
+    answer: str | None = None
+    completed: bool
     metrics: list[StageMetric]
     total_duration_ms: float

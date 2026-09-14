@@ -1,4 +1,4 @@
-"""RDFLib storage for Builder-generated content and layout graphs."""
+"""RDFLib storage for Builder-generated content facts."""
 
 from __future__ import annotations
 
@@ -6,14 +6,14 @@ from dataclasses import dataclass
 from hashlib import sha256
 from pathlib import Path
 import re
-from typing import Any, Iterable, Literal as TypingLiteral
+from typing import Any
 from urllib.parse import urlparse
 
-from rdflib import Dataset, Graph, Literal, Namespace, URIRef
+from rdflib import Dataset, Graph, Literal, Namespace, RDF, URIRef
 from rdflib.term import Node
 
 
-GraphKind = TypingLiteral["content", "layout"]
+GraphKind = str
 
 
 @dataclass(frozen=True, slots=True)
@@ -29,21 +29,22 @@ class StoredEvidence:
 
 
 class RDFKnowledgeGraphStore:
-    """Own separate RDF named graphs for content and page-layout semantics.
+    """Own the RDF named graph containing Builder-supported content facts.
 
     Builder labels are deterministically converted to URIs. Plain object values
     become RDF literals, while absolute HTTP(S) object values remain URIRefs.
     """
 
     BASE = Namespace("urn:linked-agentic-retrieval:")
+    SCHEMA = Namespace("https://schema.org/")
     CONTENT_GRAPH = URIRef(BASE["graph/content"])
-    LAYOUT_GRAPH = URIRef(BASE["graph/layout"])
 
     def __init__(self, dataset: Dataset | None = None) -> None:
         self.dataset = dataset if dataset is not None else Dataset()
         self.dataset.bind("lar", self.BASE)
+        self.dataset.bind("schema", self.SCHEMA)
+        self.dataset.bind("rdf", RDF)
         self.content_graph = self.dataset.graph(self.CONTENT_GRAPH)
-        self.layout_graph = self.dataset.graph(self.LAYOUT_GRAPH)
         self._evidence: list[StoredEvidence] = []
 
     @property
@@ -54,16 +55,13 @@ class RDFKnowledgeGraphStore:
     def counts(self) -> dict[str, int]:
         return {
             "content": len(self.content_graph),
-            "layout": len(self.layout_graph),
-            "total": len(self.content_graph) + len(self.layout_graph),
+            "total": len(self.content_graph),
         }
 
     def graph(self, kind: GraphKind) -> Graph:
         if kind == "content":
             return self.content_graph
-        if kind == "layout":
-            return self.layout_graph
-        raise ValueError(f"Unknown graph kind: {kind!r}")
+        raise ValueError("Only the content graph is available")
 
     def add_knowledge_graph(
         self,
@@ -77,11 +75,16 @@ class RDFKnowledgeGraphStore:
             self.add_triple(triple, source_url=source_url)
 
     def add_triple(self, triple: Any, *, source_url: str | None = None) -> None:
-        kind = self._field(triple, "semantic_type")
-        target = self.graph(kind)
+        kind = self._field(triple, "semantic_type", "content")
+        if kind != "content":
+            raise ValueError("Builder triples must be content facts")
+        target = self.content_graph
         subject = self._resource(self._field(triple, "subject"), "entity")
-        predicate = self._resource(self._field(triple, "predicate"), "property")
-        object_ = self._object(self._field(triple, "object"))
+        predicate = self._predicate(self._field(triple, "predicate"))
+        object_ = self._object(
+            self._field(triple, "object"),
+            self._field(triple, "object_kind", "literal"),
+        )
         target.add((subject, predicate, object_))
         self._evidence.append(StoredEvidence(
             graph=kind,
@@ -112,16 +115,15 @@ class RDFKnowledgeGraphStore:
         Path(path).write_text(self.serialize(kind, format=format), encoding="utf-8")
 
     def clear(self, kind: GraphKind | None = None) -> None:
-        kinds: Iterable[GraphKind] = (kind,) if kind else ("content", "layout")
-        selected = set(kinds)
-        for selected_kind in selected:
-            self.graph(selected_kind).remove((None, None, None))
-        self._evidence = [item for item in self._evidence if item.graph not in selected]
+        if kind not in {None, "content"}:
+            raise ValueError("Only the content graph is available")
+        self.content_graph.remove((None, None, None))
+        self._evidence.clear()
 
     @classmethod
     def _resource(cls, value: Any, category: str) -> URIRef:
         text = str(value).strip()
-        if cls._is_web_url(text):
+        if cls._is_absolute_iri(text):
             return URIRef(text)
         slug = re.sub(r"[^a-z0-9]+", "-", text.casefold()).strip("-")[:60]
         slug = slug or "unnamed"
@@ -129,14 +131,36 @@ class RDFKnowledgeGraphStore:
         return URIRef(cls.BASE[f"{category}/{slug}-{digest}"])
 
     @classmethod
-    def _object(cls, value: Any) -> Node:
+    def _predicate(cls, value: Any) -> URIRef:
         text = str(value).strip()
-        return URIRef(text) if cls._is_web_url(text) else Literal(text)
+        if text == "rdf:type":
+            return RDF.type
+        if text == str(RDF.type) or text.startswith(str(cls.SCHEMA)):
+            return URIRef(text)
+        if text.startswith("http://schema.org/"):
+            return URIRef("https://schema.org/" + text.removeprefix("http://schema.org/"))
+        raise ValueError(
+            "Predicate must be rdf:type or a full https://schema.org/ IRI: "
+            f"{text!r}"
+        )
+
+    @classmethod
+    def _object(cls, value: Any, kind: str) -> Node:
+        text = str(value).strip()
+        if kind == "iri":
+            if not cls._is_absolute_iri(text):
+                raise ValueError(f"IRI object is not an absolute IRI: {text!r}")
+            return URIRef(text)
+        if kind != "literal":
+            raise ValueError(f"Unknown object kind: {kind!r}")
+        return Literal(text)
 
     @staticmethod
-    def _is_web_url(value: str) -> bool:
+    def _is_absolute_iri(value: str) -> bool:
         parsed = urlparse(value)
-        return parsed.scheme in {"http", "https"} and bool(parsed.netloc)
+        return bool(parsed.scheme) and (
+            parsed.scheme == "urn" or bool(parsed.netloc)
+        )
 
     @staticmethod
     def _field(value: Any, name: str, default: Any = None) -> Any:

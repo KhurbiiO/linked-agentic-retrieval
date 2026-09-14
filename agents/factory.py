@@ -32,6 +32,7 @@ def create_tri_agent(
     builder_model: ModelInput | None = None,
     temperature: float = 0,
     max_controller_actions: int = 5,
+    max_retrieval_rounds: int = 3,
     controller_snapshot_max_chars: int = 30000,
     builder_snapshot_max_chars: int = 60000,
     aria_page: AriaPage | None = None,
@@ -60,4 +61,10 @@ def create_tri_agent(
         graph_store=graph_store,
         tracer=tracer,
     )
-    return InstructorAgent(instructor_llm, controller, builder, tracer=tracer)
+    return InstructorAgent(
+        instructor_llm,
+        controller,
+        builder,
+        tracer=tracer,
+        max_retrieval_rounds=max_retrieval_rounds,
+    )
