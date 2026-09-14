@@ -11,8 +11,62 @@ from agents.tracing import ProcessTracer
 from store import RDFKnowledgeGraphStore
 
 
-BUILDER_PROMPT = """Build a semantically rich content knowledge graph using
+SCHEMA_ORG_GROUNDING = """Schema.org ontology grounding
+
+Core classes:
+- schema:Thing: the most general entity.
+- schema:CreativeWork: authored content such as an article or recipe.
+- schema:WebPage: a page on the web; subclass of CreativeWork.
+- schema:Article: an article or editorial work; subclass of CreativeWork.
+- schema:Recipe: instructions for preparing a food dish; subclass of
+  CreativeWork.
+- schema:ItemList: an ordered or unordered collection of items.
+- schema:ListItem: one member of an ItemList, optionally with a position.
+- schema:Person: a human being.
+- schema:Organization: an organization such as a publisher or brand.
+- schema:ImageObject: an image represented as a media object.
+- schema:NutritionInformation: nutritional facts associated with a recipe.
+
+Core properties and expected values:
+- schema:name: Thing -> text name.
+- schema:description: Thing -> text description.
+- schema:url: Thing -> URL IRI.
+- schema:mainEntity: WebPage -> primary Thing described by the page.
+- schema:about: CreativeWork -> Thing discussed by the work.
+- schema:author: CreativeWork -> Person or Organization IRI.
+- schema:publisher: CreativeWork -> Organization or Person IRI.
+- schema:datePublished: CreativeWork -> date or date-time literal.
+- schema:image: Thing -> URL IRI or ImageObject IRI.
+- schema:itemListElement: ItemList -> ListItem, Text, or Thing IRI.
+- schema:position: ListItem -> integer literal.
+- schema:item: ListItem -> represented Thing IRI.
+- schema:recipeIngredient: Recipe -> ingredient text.
+- schema:recipeInstructions: Recipe -> instruction text or defined step IRI.
+- schema:recipeCuisine: Recipe -> cuisine text.
+- schema:recipeCategory: Recipe -> category text.
+- schema:suitableForDiet: Recipe -> schema.org diet enumeration IRI, such as
+  https://schema.org/VeganDiet.
+- schema:prepTime, schema:cookTime, schema:totalTime: Recipe -> ISO 8601
+  duration literal, such as PT30M.
+- schema:recipeYield: Recipe -> yield text or quantity.
+- schema:nutrition: Recipe -> NutritionInformation IRI.
+
+Grounding rules:
+- Expand every schema: term above to its full https://schema.org/... IRI.
+- Prefer the most specific supported class justified by the evidence.
+- Add an rdf:type triple for each identifiable entity.
+- Use a property only with the meaning and expected value described above.
+- Reuse the same entity IRI across related triples.
+- Do not substitute a similar-sounding property or create a new schema term.
+- If no grounded property represents an evidenced fact, omit that fact and
+  mention it in unresolved.
+"""
+
+
+BUILDER_PROMPT = f"""Build a semantically rich content knowledge graph using
 only facts explicitly supported by the supplied ARIA evidence.
+
+{SCHEMA_ORG_GROUNDING}
 
 The graph must use the schema.org vocabulary:
 - Give every subject a stable absolute IRI. Prefer the source URL with a
