@@ -60,6 +60,7 @@ def create_tri_agent(
     builder_model: ModelInput | None = None,
     temperature: float = 0,
     max_controller_actions: int = 5,
+    controller_action_timeout: float = 5,
     max_retrieval_rounds: int = 3,
     controller_snapshot_max_chars: int = 30000,
     builder_snapshot_max_chars: int = 60000,
@@ -95,6 +96,7 @@ def create_tri_agent(
         max_actions=max_controller_actions,
         snapshot_max_chars=controller_snapshot_max_chars,
         tracer=tracer,
+        action_timeout=controller_action_timeout,
     )
     builder = BuilderAgent(
         builder_llm,

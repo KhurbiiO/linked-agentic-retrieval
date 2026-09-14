@@ -15,6 +15,7 @@ CONTROLLER_MODEL = "ollama:llama3.2"
 BUILD_MODEL = "ollama:llama3.2"
 
 MAX_CONTROLLER_ACTIONS = 5
+CONTROLLER_ACTION_TIMEOUT = 5
 MAX_RETRIEVAL_ROUNDS = 3
 PRELOAD_MODELS = True
 OLLAMA_KEEP_ALIVE = "30m"
@@ -31,6 +32,7 @@ def run_tri_agent():
     with create_tri_agent(
         model=INSTRUCTOR_MODEL,
         max_controller_actions=MAX_CONTROLLER_ACTIONS,
+        controller_action_timeout=CONTROLLER_ACTION_TIMEOUT,
         max_retrieval_rounds=MAX_RETRIEVAL_ROUNDS,
         instructor_model=INSTRUCTOR_MODEL,
         controller_model=CONTROLLER_MODEL,

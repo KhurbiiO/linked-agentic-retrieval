@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 from time import perf_counter
 
 from langchain_core.language_models.chat_models import BaseChatModel
@@ -52,22 +53,27 @@ class ControllerAgent:
         max_actions: int = 5,
         snapshot_max_chars: int = 30000,
         tracer: ProcessTracer | None = None,
+        action_timeout: float = 5,
     ) -> None:
         if max_actions < 1:
             raise ValueError("max_actions must be at least 1")
         if snapshot_max_chars < 1000:
             raise ValueError("snapshot_max_chars must be at least 1000")
+        if action_timeout <= 0:
+            raise ValueError("action_timeout must be greater than zero")
         self.model = model.with_structured_output(ControllerDecision)
         self.aria_page = aria_page or AriaPage()
         self.max_actions = max_actions
         self.snapshot_max_chars = snapshot_max_chars
         self.tracer = tracer or ProcessTracer()
+        self.action_timeout_ms = action_timeout * 1000
 
     def observe_seed(self, plan: RetrievalPlan) -> ControllerResult:
         """Open the seed once and return its ARIA without an LLM action."""
         navigation_started = perf_counter()
         self.tracer.emit("controller", "navigation_started", url=plan.seed_url)
         self.aria_page.navigate(plan.seed_url)
+        self._dismiss_cookie_consent()
         initial_action = ControllerDecision(
             action="snapshot",
             reason="Initial ARIA snapshot of the Instructor's seed URL.",
@@ -100,6 +106,7 @@ class ControllerAgent:
             self.observe_seed(plan)
         observations: list[ControllerObservation] = []
         stopped_reason = "maximum controller actions reached"
+        failed_actions: set[tuple[str, str | None, str | None, str | None]] = set()
 
         for sequence in range(1, self.max_actions + 1):
             decision_started = perf_counter()
@@ -144,6 +151,22 @@ class ControllerAgent:
                 )
                 break
 
+            signature = (
+                decision.action,
+                decision.role,
+                decision.name,
+                decision.selector,
+            )
+            if signature in failed_actions:
+                stopped_reason = "Controller repeated an unchanged failed action"
+                self.tracer.emit(
+                    "controller",
+                    "repeated_failed_action_stopped",
+                    sequence=sequence,
+                    decision=decision.model_dump(),
+                )
+                break
+
             started = perf_counter()
             error = None
             try:
@@ -152,6 +175,8 @@ class ControllerAgent:
                 error = f"{type(exc).__name__}: {exc}"
             duration_ms = round((perf_counter() - started) * 1000, 3)
             observations.append(self._observation(sequence, decision, duration_ms, error))
+            if error is not None:
+                failed_actions.add(signature)
             self.tracer.emit(
                 "controller",
                 "action_completed",
@@ -190,18 +215,55 @@ class ControllerAgent:
 
         locator = self._locator(decision)
         if decision.action == "click":
-            locator.first.click()
+            try:
+                locator.first.click(timeout=self.action_timeout_ms)
+            except PlaywrightError:
+                # Preserve click-based navigation while bypassing overlays that
+                # intercept pointer events. No href is read or navigated to.
+                locator.first.evaluate(
+                    "element => element.click()",
+                    timeout=self.action_timeout_ms,
+                )
         elif decision.action == "fill":
             if decision.value is None:
                 raise ValueError("fill requires value")
-            locator.first.fill(decision.value)
+            locator.first.fill(decision.value, timeout=self.action_timeout_ms)
         elif decision.action == "press":
             if decision.value is None:
                 raise ValueError("press requires value")
-            locator.first.press(decision.value)
+            locator.first.press(decision.value, timeout=self.action_timeout_ms)
         else:
             raise ValueError(f"Unsupported controller action: {decision.action}")
         self.aria_page.snapshot()
+
+    def _dismiss_cookie_consent(self) -> None:
+        """Dismiss common consent overlays when an accessible button is present."""
+        page = self.aria_page.page
+        if page is None:
+            return
+        candidates = [
+            page.locator("#onetrust-accept-btn-handler"),
+            page.get_by_role(
+                "button",
+                name=re.compile(
+                    r"^(accept( all)? cookies|allow all|agree|accept)$",
+                    re.IGNORECASE,
+                ),
+            ),
+        ]
+        for candidate in candidates:
+            try:
+                if candidate.count() and candidate.first.is_visible():
+                    candidate.first.click(timeout=self.action_timeout_ms)
+                    self.aria_page.snapshot()
+                    self.tracer.emit("controller", "cookie_consent_dismissed")
+                    return
+            except PlaywrightError as exc:
+                self.tracer.emit(
+                    "controller",
+                    "cookie_consent_failed",
+                    error=f"{type(exc).__name__}: {exc}",
+                )
 
     def _locator(self, decision: ControllerDecision):
         page = self.aria_page.page

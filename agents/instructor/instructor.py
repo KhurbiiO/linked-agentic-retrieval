@@ -130,6 +130,21 @@ class InstructorAgent:
                     "content_graph": graph.model_dump(),
                 })),
             ])
+            if not verification.sufficient:
+                missing = (
+                    verification.missing_information
+                    or graph.unresolved
+                    or plan.success_criteria
+                )
+                instruction = verification.controller_instruction or (
+                    "Navigate to find explicit page evidence for: "
+                    + "; ".join(missing)
+                )
+                verification = verification.model_copy(update={
+                    "missing_information": missing,
+                    "controller_instruction": instruction,
+                    "answer": None,
+                })
             verification_history.append(verification)
             metrics.append(StageMetric(
                 stage=f"instructor.verify.{round_number}",
@@ -144,9 +159,8 @@ class InstructorAgent:
             if verification.sufficient or round_number == self.max_retrieval_rounds:
                 break
 
-            instruction = verification.controller_instruction or (
-                "Find evidence for: " + "; ".join(verification.missing_information)
-            )
+            instruction = verification.controller_instruction
+            assert instruction is not None
             stage_started = perf_counter()
             controller_result = self.controller.retrieve(plan, instruction)
             metrics.append(StageMetric(
