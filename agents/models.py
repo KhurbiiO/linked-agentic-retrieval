@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
 class RetrievalPlan(BaseModel):
@@ -37,8 +37,22 @@ class ControllerObservation(BaseModel):
 
 
 class AriaEvidenceSelection(BaseModel):
-    candidate_ids: list[str] = Field(default_factory=list, max_length=20)
+    model_config = ConfigDict(extra="forbid")
+
+    status: Literal["selected", "no_evidence"] = Field(
+        description="Use no_evidence only when none of the candidates contains useful content facts."
+    )
+    candidate_ids: list[str] = Field(
+        max_length=20,
+        description="Exact IDs from ranked_candidates; explicitly [] when status is no_evidence.",
+    )
     reasoning: str
+
+    @model_validator(mode="after")
+    def check_selection(self) -> AriaEvidenceSelection:
+        if (self.status == "selected") != bool(self.candidate_ids):
+            raise ValueError("selected requires candidate IDs; no_evidence requires an empty list")
+        return self
 
 
 class ControllerResult(BaseModel):
@@ -47,6 +61,7 @@ class ControllerResult(BaseModel):
     builder_aria: str
     observations: list[ControllerObservation]
     stopped_reason: str
+    filter_status: str = "unknown"
 
 
 class GraphTriple(BaseModel):

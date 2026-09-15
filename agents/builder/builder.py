@@ -109,6 +109,12 @@ class BuilderAgent:
         self.tracer = tracer or ProcessTracer()
 
     def build(self, plan: RetrievalPlan, result: ControllerResult) -> KnowledgeGraph:
+        if not result.builder_aria.strip():
+            self.tracer.emit("builder", "skipped", reason=result.filter_status)
+            return KnowledgeGraph(
+                summary="No usable content evidence selected from the current page.",
+                unresolved=list(plan.success_criteria),
+            )
         self.tracer.emit(
             "builder",
             "started",
