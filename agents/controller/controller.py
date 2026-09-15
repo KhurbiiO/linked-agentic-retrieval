@@ -72,7 +72,13 @@ contains their exact IDs. Otherwise use status="no_evidence", candidate_ids=[].
 candidate_ids is REQUIRED even when empty; do not put IDs only in reasoning.
 Never rewrite page content. Select no more than maximum_segments.
 Consider every missing requirement; relevant facts need not repeat the topic
-word in the goal (for example an ingredient list need not say "vegan")."""
+word in the goal (for example an ingredient list need not say "vegan"). A
+single candidate need not satisfy the whole goal: for list requests, select
+multiple item candidates when they collectively provide the requested list.
+Prefer item-level links, headings, list items, and articles over navigation,
+collection-only links, images, and controls when both are available. Use the
+candidate's structural context to decide whether an item belongs to the
+requested section."""
 
 
 class ControllerAgent:
@@ -334,6 +340,11 @@ class ControllerAgent:
         supplied = []
         payload_chars = 0
         for block in candidates:
+            context = "\n".join(
+                lines[line - 1]
+                for line in block.ancestor_lines
+                if 1 <= line <= len(lines)
+            )
             payload = {
                 "id": block.id,
                 "role": block.role,
@@ -342,6 +353,8 @@ class ControllerAgent:
                 "lines": [block.start_line, block.end_line],
                 "aria": block.text,
             }
+            if context:
+                payload["context"] = context
             size = len(json.dumps(payload, ensure_ascii=False)) + 2
             if payload_chars + size > self.evidence_selection_max_chars:
                 continue
@@ -376,6 +389,26 @@ class ControllerAgent:
         fallback_used = selection.status == "invalid_selection"
         if fallback_used:
             selected = supplied[:min(self.evidence_fallback_blocks, self.max_evidence_segments)]
+        elif selection.status == "no_evidence" and instruction and supplied:
+            # A selector can reject a list goal because no *single* candidate
+            # contains the complete list, even though several ranked item
+            # blocks together contain the required facts.  Once the controller
+            # has an explicit missing-evidence instruction, give the builder a
+            # small, deterministic recovery set.  Keep navigation-seed
+            # filtering conservative (``instruction`` is None there), and
+            # avoid obvious non-content controls in the recovery set.
+            recovery_roles = {
+                "article", "cell", "definition", "heading", "link",
+                "listitem", "paragraph", "region", "row", "term", "text",
+            }
+            recovery = [
+                block for block in supplied
+                if block.role in recovery_roles
+            ]
+            selected = (recovery or supplied)[
+                :min(self.evidence_fallback_blocks, self.max_evidence_segments)
+            ]
+            fallback_used = bool(selected)
         fitted = fit_blocks(lines, selected, max_chars=self.evidence_max_chars)
         filtered = render_blocks(lines, fitted, max_chars=self.evidence_max_chars)
         self._filter_status = "fallback" if fallback_used else selection.status

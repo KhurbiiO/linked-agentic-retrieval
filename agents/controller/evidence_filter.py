@@ -175,7 +175,10 @@ def rank_aria_blocks(
             ancestor_lines=ancestors,
         ))
 
-    documents = [block.text for block in blocks]
+    documents = [
+        _scoring_text(lines, block)
+        for block in blocks
+    ]
     retrieval_query = query
     if page_title.strip():
         retrieval_query = f"{query}\nPage title: {page_title.strip()}"
@@ -318,6 +321,18 @@ def _block_line_indexes(lines: list[str], block: AriaBlock) -> set[int]:
     if start <= end:
         indexes.update(range(start - 1, end))
     return indexes
+
+
+def _scoring_text(lines: list[str], block: AriaBlock) -> str:
+    """Add ancestor labels to a block for semantic ranking only."""
+    context = [
+        lines[line - 1]
+        for line in block.ancestor_lines
+        if 1 <= line <= len(lines)
+    ]
+    if not context:
+        return block.text
+    return "\n".join([*context, block.text])
 
 
 def _char_count_for_indexes(lines: list[str], indexes: set[int]) -> int:
