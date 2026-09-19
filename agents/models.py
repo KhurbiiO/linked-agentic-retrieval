@@ -16,12 +16,9 @@ class RetrievalPlan(BaseModel):
 
 
 class ControllerDecision(BaseModel):
-    action: Literal["click", "fill", "press", "snapshot", "back", "stop"]
+    action: Literal["goto", "back", "stop"]
     reason: str
-    selector: str | None = None
-    role: str | None = None
-    name: str | None = None
-    value: str | None = None
+    url: str | None = None
 
 
 class ControllerObservation(BaseModel):
