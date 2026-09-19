@@ -106,6 +106,10 @@ def create_tri_agent(
         if isinstance(graph_embedding_model, Embeddings)
         else init_embeddings(graph_embedding_model)
     )
+    nomic_retrieval = (
+        isinstance(graph_embedding_model, str)
+        and graph_embedding_model.removeprefix("ollama:").startswith("nomic-embed-text")
+    )
     if preload_models:
         _preload([instructor_llm, controller_llm, builder_llm], tracer)
         tracer.emit("models", "graph_embedding_preload_started")
@@ -139,7 +143,10 @@ def create_tri_agent(
         max_graph_query_steps=max_graph_query_steps,
         graph_query_result_limit=graph_query_result_limit,
         fact_index=FactVectorIndex(
-            graph_embeddings, database_path=graph_vector_database_path
+            graph_embeddings,
+            database_path=graph_vector_database_path,
+            document_prefix="search_document: " if nomic_retrieval else "",
+            query_prefix="search_query: " if nomic_retrieval else "",
         ),
         graph_neighbor_limit=graph_neighbor_limit,
         graph_min_score=graph_min_score,

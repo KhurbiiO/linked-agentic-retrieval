@@ -5,11 +5,13 @@ from __future__ import annotations
 from dataclasses import dataclass
 import json
 from math import sqrt
+import re
 import sqlite3
 from typing import TYPE_CHECKING
+from urllib.parse import unquote, urlparse
 
 from langchain_core.embeddings import Embeddings
-from rdflib import URIRef
+from rdflib import RDF, URIRef
 
 if TYPE_CHECKING:
     from .graph_store import RDFKnowledgeGraphStore, StoredEvidence
@@ -43,38 +45,94 @@ class FactVectorIndex:
         return str(fact.subject), str(fact.predicate), str(fact.object)
 
     @staticmethod
-    def _text(fact: StoredEvidence) -> str:
-        predicate = str(fact.predicate).rsplit("/", 1)[-1].rsplit("#", 1)[-1]
-        return f"Subject: {fact.subject}; {predicate}: {fact.object}"
+    def _words(value: str) -> str:
+        value = unquote(value)
+        value = re.sub(r"([a-z0-9])([A-Z])", r"\1 \2", value)
+        return re.sub(r"[_\-/]+", " ", value).strip()
 
-    def sync(self, facts: tuple[StoredEvidence, ...]) -> int:
+    @classmethod
+    def _uri_words(cls, value: URIRef) -> str:
+        uri = str(value)
+        parsed = urlparse(uri)
+        if parsed.scheme in {"http", "https"}:
+            path = cls._words(parsed.path).strip()
+            return f"{parsed.netloc} {path}".strip()
+        return cls._words(uri.rsplit("/", 1)[-1].rsplit("#", 1)[-1])
+
+    @classmethod
+    def _entity_name(cls, node: URIRef, store: RDFKnowledgeGraphStore) -> str:
+        graph = store.content_graph
+        for predicate in (
+            URIRef("https://schema.org/name"),
+            URIRef("https://schema.org/headline"),
+            URIRef("https://schema.org/alternateName"),
+        ):
+            for value in graph.objects(node, predicate):
+                label = str(value).strip()
+                if label:
+                    return label
+        for value in graph.objects(node, URIRef("https://schema.org/url")):
+            url = urlparse(str(value))
+            if url.scheme in {"http", "https"} and url.path.strip("/"):
+                return cls._words(url.path).strip()
+        if str(node).startswith(("http://", "https://")):
+            return cls._uri_words(node)
+        for value in graph.objects(node, RDF.type):
+            return cls._words(str(value).rsplit("/", 1)[-1].rsplit("#", 1)[-1])
+        return "entity"
+
+    @classmethod
+    def _text(cls, fact: StoredEvidence, store: RDFKnowledgeGraphStore) -> str:
+        subject = cls._entity_name(fact.subject, store)
+        if fact.predicate == RDF.type:
+            kind = cls._words(str(fact.object).rsplit("/", 1)[-1].rsplit("#", 1)[-1])
+            return f"{subject} is a {kind}."
+        predicate = cls._words(
+            str(fact.predicate).rsplit("/", 1)[-1].rsplit("#", 1)[-1]
+        ).casefold()
+        if isinstance(fact.object, URIRef):
+            object_text = cls._entity_name(fact.object, store)
+        else:
+            literal = str(fact.object)
+            object_text = (
+                cls._uri_words(URIRef(literal))
+                if urlparse(literal).scheme in {"http", "https"}
+                else literal
+            )
+        return f"{subject} has {predicate}: {object_text}."
+
+    def sync(self, facts: tuple[StoredEvidence, ...], store: RDFKnowledgeGraphStore) -> int:
+        pending_by_key: dict[tuple[str, str, str], tuple[StoredEvidence, str]] = {}
         for fact in facts:
             key = self._key(fact)
-            if key in self.entries:
+            text = self._text(fact, store)
+            embedded_text = self.document_prefix + text
+            current = self.entries.get(key)
+            if current is not None and current.text == text:
                 continue
             row = self.database.execute(
                 "SELECT text, vector FROM fact_vectors WHERE subject=? AND predicate=? AND object=?",
                 key,
             ).fetchone()
-            if row is not None:
-                self.entries[key] = FactVector(fact, row[0], json.loads(row[1]))
-        pending_by_key = {
-            self._key(fact): fact for fact in facts
-            if self._key(fact) not in self.entries
-        }
+            if row is not None and row[0] == embedded_text:
+                self.entries[key] = FactVector(fact, text, json.loads(row[1]))
+            else:
+                pending_by_key[key] = (fact, text)
         pending = list(pending_by_key.values())
         if not pending:
             return 0
-        texts = [self._text(fact) for fact in pending]
+        texts = [text for _, text in pending]
         vectors = self.embeddings.embed_documents([self.document_prefix + text for text in texts])
         if len(vectors) != len(pending):
             raise ValueError("Embedding model returned the wrong number of fact vectors")
-        for fact, text, vector in zip(pending, texts, vectors):
+        for (fact, text), vector in zip(pending, vectors):
             key = self._key(fact)
             self.entries[key] = FactVector(fact, text, vector)
             self.database.execute(
-                "INSERT OR IGNORE INTO fact_vectors VALUES (?, ?, ?, ?, ?)",
-                (*key, text, json.dumps(vector)),
+                "INSERT INTO fact_vectors VALUES (?, ?, ?, ?, ?) "
+                "ON CONFLICT(subject, predicate, object) DO UPDATE SET "
+                "text=excluded.text, vector=excluded.vector",
+                (*key, self.document_prefix + text, json.dumps(vector)),
             )
         self.database.commit()
         return len(pending)
@@ -94,7 +152,7 @@ class FactVectorIndex:
         """Rank entry facts, then collect bounded same-subject and linked facts."""
         if entry_limit < 1 or neighbor_limit < 0:
             raise ValueError("entry_limit must be positive and neighbor_limit nonnegative")
-        indexed = self.sync(store.evidence)
+        indexed = self.sync(store.evidence, store)
         queries = [goal.strip() for goal in goals if goal.strip()]
         if not queries or not self.entries:
             return {"entries": [], "facts": [], "indexed_count": indexed}
