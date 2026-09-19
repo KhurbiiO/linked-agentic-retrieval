@@ -9,6 +9,7 @@ from rdflib import URIRef
 
 from agents.models import ControllerResult, GraphTriple, KnowledgeGraph, RetrievalPlan
 from agents.tracing import ProcessTracer
+from agents.usage import ModelUsageTracker
 from store import RDFKnowledgeGraphStore
 
 
@@ -113,10 +114,12 @@ class BuilderAgent:
         *,
         graph_store: RDFKnowledgeGraphStore | None = None,
         tracer: ProcessTracer | None = None,
+        usage_tracker: ModelUsageTracker | None = None,
     ) -> None:
         self.model = model.with_structured_output(KnowledgeGraph)
         self.graph_store = graph_store or RDFKnowledgeGraphStore()
         self.tracer = tracer or ProcessTracer()
+        self.usage_tracker = usage_tracker or ModelUsageTracker()
 
     def ingest_structured_graph(self, graph, *, source_url: str) -> KnowledgeGraph:
         """Store embedded schema.org RDF and expose it to goal verification."""
@@ -163,7 +166,7 @@ class BuilderAgent:
                 "source_url": result.final_url,
                 "aria_snapshot": result.builder_aria,
             })),
-        ])
+        ], config={"callbacks": [self.usage_tracker]})
         self.graph_store.add_knowledge_graph(graph, source_url=result.final_url)
         self.tracer.emit(
             "builder",

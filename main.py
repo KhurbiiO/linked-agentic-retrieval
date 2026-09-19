@@ -77,6 +77,12 @@ def main() -> None:
         print("Goal not completed within the configured retrieval rounds.")
         print("Missing evidence:", "; ".join(result.verification.missing_information))
     print(f"Saved {graph_store.counts['content']} content triples")
+    print(
+        "Chat-model tokens: "
+        f"{sum(metric.total_tokens for metric in result.metrics)} total "
+        f"({sum(metric.input_tokens for metric in result.metrics)} input, "
+        f"{sum(metric.output_tokens for metric in result.metrics)} output)"
+    )
     print(f"Output directory: {OUTPUT_DIRECTORY.resolve()}")
 
 

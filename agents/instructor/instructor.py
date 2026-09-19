@@ -20,6 +20,7 @@ from agents.models import (
     TriAgentResult,
 )
 from agents.tracing import ProcessTracer
+from agents.usage import ModelUsageTracker
 from store.fact_vector_store import FactVectorIndex
 
 
@@ -63,6 +64,7 @@ class InstructorAgent:
         controller: ControllerAgent,
         builder: BuilderAgent,
         tracer: ProcessTracer | None = None,
+        usage_tracker: ModelUsageTracker | None = None,
         max_retrieval_rounds: int = 3,
         max_graph_query_steps: int = 4,
         graph_query_result_limit: int = 12,
@@ -80,6 +82,7 @@ class InstructorAgent:
         self.controller = controller
         self.builder = builder
         self.tracer = tracer or ProcessTracer()
+        self.usage_tracker = usage_tracker or ModelUsageTracker()
         self.max_retrieval_rounds = max_retrieval_rounds
         self.max_graph_query_steps = max_graph_query_steps
         self.graph_query_result_limit = graph_query_result_limit
@@ -97,7 +100,7 @@ class InstructorAgent:
         plan = self.model.invoke([
             ("system", INSTRUCTOR_PROMPT),
             ("user", json.dumps({"prompt": prompt})),
-        ])
+        ], config={"callbacks": [self.usage_tracker]})
         parsed = urlparse(plan.seed_url)
         if parsed.scheme not in {"http", "https"} or not parsed.netloc:
             raise ValueError("Instructor did not return a valid HTTP(S) seed URL")
@@ -123,10 +126,7 @@ class InstructorAgent:
         stage_started = perf_counter()
         self.tracer.emit("instructor", "planning_started")
         plan = self.plan(prompt)
-        metrics.append(StageMetric(
-            stage="instructor.plan",
-            duration_ms=round((perf_counter() - stage_started) * 1000, 3),
-        ))
+        metrics.append(self.usage_tracker.metric("instructor.plan", stage_started))
         self.tracer.emit("instructor", "planning_completed", plan=plan.model_dump())
 
         accumulated: list[GraphTriple] = []
@@ -152,10 +152,7 @@ class InstructorAgent:
                 url=plan.seed_url,
                 error=f"{type(exc).__name__}: {exc}",
             )
-        metrics.append(StageMetric(
-            stage="controller.extract_structured_data",
-            duration_ms=round((perf_counter() - stage_started) * 1000, 3),
-        ))
+        metrics.append(self.usage_tracker.metric("controller.extract_structured_data", stage_started))
 
         if structured is not None:
             self.tracer.emit(
@@ -172,17 +169,11 @@ class InstructorAgent:
                     structured.graph, source_url=structured.url
                 )
                 self._accumulate(graph, accumulated, seen)
-                metrics.append(StageMetric(
-                    stage="builder.ingest_structured_data",
-                    duration_ms=round((perf_counter() - stage_started) * 1000, 3),
-                ))
+                metrics.append(self.usage_tracker.metric("builder.ingest_structured_data", stage_started))
                 stage_started = perf_counter()
                 verification = self._verify(prompt, plan, graph)
                 verification_history.append(verification)
-                metrics.append(StageMetric(
-                    stage="instructor.verify.structured_data",
-                    duration_ms=round((perf_counter() - stage_started) * 1000, 3),
-                ))
+                metrics.append(self.usage_tracker.metric("instructor.verify.structured_data", stage_started))
                 self.tracer.emit(
                     "instructor", "structured_data_verified",
                     verification=verification.model_dump(),
@@ -196,10 +187,7 @@ class InstructorAgent:
 
         stage_started = perf_counter()
         controller_result = self.controller.observe_seed(plan)
-        metrics.append(StageMetric(
-            stage="controller.observe_seed",
-            duration_ms=round((perf_counter() - stage_started) * 1000, 3),
-        ))
+        metrics.append(self.usage_tracker.metric("controller.observe_seed", stage_started))
 
         for round_number in range(1, self.max_retrieval_rounds + 1):
             pending_structured = self.controller.drain_structured_data()
@@ -215,10 +203,7 @@ class InstructorAgent:
                     )
                     imported_count += len(structured_graph.triples)
                     self._accumulate(structured_graph, accumulated, seen)
-                metrics.append(StageMetric(
-                    stage=f"builder.ingest_structured_data.{round_number}",
-                    duration_ms=round((perf_counter() - stage_started) * 1000, 3),
-                ))
+                metrics.append(self.usage_tracker.metric(f"builder.ingest_structured_data.{round_number}", stage_started))
                 if imported_count:
                     graph = KnowledgeGraph(
                         triples=accumulated,
@@ -231,10 +216,7 @@ class InstructorAgent:
                     stage_started = perf_counter()
                     verification = self._verify(prompt, plan, graph)
                     verification_history.append(verification)
-                    metrics.append(StageMetric(
-                        stage=f"instructor.verify.structured_data.{round_number}",
-                        duration_ms=round((perf_counter() - stage_started) * 1000, 3),
-                    ))
+                    metrics.append(self.usage_tracker.metric(f"instructor.verify.structured_data.{round_number}", stage_started))
                     self.tracer.emit(
                         "instructor",
                         "navigated_structured_data_verified",
@@ -254,18 +236,12 @@ class InstructorAgent:
                 summary=page_graph.summary,
                 unresolved=page_graph.unresolved,
             )
-            metrics.append(StageMetric(
-                stage=f"builder.build.{round_number}",
-                duration_ms=round((perf_counter() - stage_started) * 1000, 3),
-            ))
+            metrics.append(self.usage_tracker.metric(f"builder.build.{round_number}", stage_started))
 
             stage_started = perf_counter()
             verification = self._verify(prompt, plan, graph)
             verification_history.append(verification)
-            metrics.append(StageMetric(
-                stage=f"instructor.verify.{round_number}",
-                duration_ms=round((perf_counter() - stage_started) * 1000, 3),
-            ))
+            metrics.append(self.usage_tracker.metric(f"instructor.verify.{round_number}", stage_started))
             self.tracer.emit(
                 "instructor",
                 "verification_completed",
@@ -281,10 +257,7 @@ class InstructorAgent:
             controller_result = self.controller.retrieve(
                 plan, instruction, missing_information=verification.missing_information
             )
-            metrics.append(StageMetric(
-                stage=f"controller.retrieve.{round_number}",
-                duration_ms=round((perf_counter() - stage_started) * 1000, 3),
-            ))
+            metrics.append(self.usage_tracker.metric(f"controller.retrieve.{round_number}", stage_started))
 
         return self._result(
             prompt, started, plan, controller_result, graph, verification,
@@ -305,7 +278,7 @@ class InstructorAgent:
                 "entry_points": queried_facts["entries"],
                 "graph_fact_count": self.builder.graph_store.counts["content"],
             })),
-        ])
+        ], config={"callbacks": [self.usage_tracker]})
         if verification.sufficient:
             return verification
         missing = verification.missing_information or graph.unresolved or plan.success_criteria
@@ -363,10 +336,7 @@ class InstructorAgent:
         grounded_answer, query_trace = self._answer_by_querying_graph(
             prompt, plan, verification
         )
-        metrics.append(StageMetric(
-            stage="instructor.answer",
-            duration_ms=round((perf_counter() - answer_started) * 1000, 3),
-        ))
+        metrics.append(self.usage_tracker.metric("instructor.answer", answer_started))
         answer = grounded_answer.answer.strip()
         if grounded_answer.limitations:
             answer += "\n\nMissing or unsupported information:\n" + "\n".join(
@@ -413,7 +383,7 @@ class InstructorAgent:
                 "entry_points": result["entries"],
                 "verification_missing": verification.missing_information,
             })),
-        ])
+        ], config={"callbacks": [self.usage_tracker]})
         return grounded, [{"goals": goals[:self.max_graph_query_steps],
                            "entry_count": len(result["entries"]),
                            "fact_count": len(result["facts"])}]

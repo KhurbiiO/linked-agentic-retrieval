@@ -14,6 +14,7 @@ from agents.builder import BuilderAgent
 from agents.controller import ControllerAgent
 from agents.instructor import InstructorAgent
 from agents.tracing import ProcessTracer
+from agents.usage import ModelUsageTracker
 from utils.aria import AriaPage
 from store import RDFKnowledgeGraphStore
 from store.fact_vector_store import FactVectorIndex
@@ -86,6 +87,7 @@ def create_tri_agent(
 ) -> InstructorAgent:
     """Create the Instructor with its Controller and Builder collaborators."""
     tracer = ProcessTracer(trace, path=trace_path, console=trace_console)
+    usage_tracker = ModelUsageTracker()
     shared = _model(model, temperature, ollama_keep_alive)
     instructor_llm = (
         _model(instructor_model, temperature, ollama_keep_alive)
@@ -119,17 +121,20 @@ def create_tri_agent(
         action_timeout=controller_action_timeout,
         navigation_timeout=controller_navigation_timeout,
         structured_data_extractor=structured_data_extractor,
+        usage_tracker=usage_tracker,
     )
     builder = BuilderAgent(
         builder_llm,
         graph_store=graph_store,
         tracer=tracer,
+        usage_tracker=usage_tracker,
     )
     return InstructorAgent(
         instructor_llm,
         controller,
         builder,
         tracer=tracer,
+        usage_tracker=usage_tracker,
         max_retrieval_rounds=max_retrieval_rounds,
         max_graph_query_steps=max_graph_query_steps,
         graph_query_result_limit=graph_query_result_limit,

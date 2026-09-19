@@ -15,6 +15,7 @@ from agents.models import (
     RetrievalPlan,
 )
 from agents.tracing import ProcessTracer
+from agents.usage import ModelUsageTracker
 from agents.controller.navigation import (
     NavigationNotConfirmed,
     canonical_target_key,
@@ -63,6 +64,7 @@ class ControllerAgent:
         action_timeout: float = 5,
         navigation_timeout: float = 15,
         structured_data_extractor: StructuredDataExtractor | None = None,
+        usage_tracker: ModelUsageTracker | None = None,
     ) -> None:
         if max_actions < 1:
             raise ValueError("max_actions must be at least 1")
@@ -77,6 +79,7 @@ class ControllerAgent:
         self.max_actions = max_actions
         self.snapshot_max_chars = snapshot_max_chars
         self.tracer = tracer or ProcessTracer()
+        self.usage_tracker = usage_tracker or ModelUsageTracker()
         self.action_timeout_ms = action_timeout * 1000
         self.navigation_timeout_ms = navigation_timeout * 1000
         self._failed_actions: set[tuple] = set()
@@ -219,7 +222,7 @@ class ControllerAgent:
                         for item in self._observations[-10:]
                     ],
                 })),
-            ])
+            ], config={"callbacks": [self.usage_tracker]})
             self.tracer.emit(
                 "controller",
                 "decision",
