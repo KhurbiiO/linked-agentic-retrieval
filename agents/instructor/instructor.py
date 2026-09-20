@@ -27,9 +27,17 @@ from store.fact_vector_store import FactVectorIndex
 INSTRUCTOR_PROMPT = """Analyze the user's retrieval request and create a precise
 browser-retrieval plan. Extract exactly one literal HTTP(S) seed URL from the
 request, the information goal, useful contextual terms, an objective for the
-browser Controller, and independently verifiable success criteria.
+browser Controller, independently verifiable extraction success criteria,
+and any explicit navigational goals.
 
-The goal and success_criteria will be embedded as cosine-similarity queries
+Separate where to go from what facts to extract. navigation_goals are concrete
+destinations or page types to find, ordered by usefulness with priority 1 as
+highest. Include them only when the request implies navigation; otherwise use
+an empty list. Do not turn requested facts into navigational goals. The
+Controller may later add a navigation goal when a page reveals a promising
+route toward an unresolved extraction criterion.
+
+The goal and success_criteria are extraction goals embedded as cosine-similarity queries
 against text renderings of RDF facts. Write them to retrieve facts, not as
 questions or as a polished answer:
 - Make the goal a concise query for the main entity and requested fact types.
@@ -141,7 +149,15 @@ class InstructorAgent:
         ]
         if not factual_criteria:
             factual_criteria = [plan.goal]
-        plan = plan.model_copy(update={"success_criteria": factual_criteria})
+        navigation_goals = sorted(
+            [goal.model_copy(update={"source": "instructor"})
+             for goal in plan.navigation_goals if goal.goal.strip()],
+            key=lambda item: item.priority,
+        )
+        plan = plan.model_copy(update={
+            "success_criteria": factual_criteria,
+            "navigation_goals": navigation_goals,
+        })
         return plan
 
     def invoke(self, prompt: str) -> TriAgentResult:

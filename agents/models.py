@@ -7,11 +7,18 @@ from typing import Literal
 from pydantic import BaseModel, Field
 
 
+class NavigationGoal(BaseModel):
+    goal: str = Field(description="Concrete page or route to find, not a content fact")
+    priority: int = Field(default=3, ge=1, le=5, description="1 is highest priority")
+    source: Literal["instructor", "controller"] = "instructor"
+
+
 class RetrievalPlan(BaseModel):
     goal: str
     seed_url: str
     context_terms: list[str] = Field(min_length=1)
     controller_objective: str
+    navigation_goals: list[NavigationGoal] = Field(default_factory=list)
     success_criteria: list[str] = Field(min_length=1)
 
 
@@ -19,6 +26,8 @@ class ControllerDecision(BaseModel):
     action: Literal["goto", "back", "stop"]
     reason: str
     url: str | None = None
+    new_navigation_goal: NavigationGoal | None = None
+    completed_navigation_goal_indices: list[int] = Field(default_factory=list)
 
 
 class ControllerObservation(BaseModel):
@@ -40,6 +49,8 @@ class ControllerResult(BaseModel):
     observations: list[ControllerObservation]
     stopped_reason: str
     filter_status: str = "unknown"
+    navigation_goals: list[NavigationGoal] = Field(default_factory=list)
+    completed_navigation_goal_indices: list[int] = Field(default_factory=list)
 
 
 class GraphTriple(BaseModel):
