@@ -173,6 +173,8 @@ class InstructorAgent:
 
         accumulated: list[GraphTriple] = []
         seen: set[tuple[str, str, str, str]] = set()
+        built_urls: set[str] = set()
+        ingested_structured_urls: set[str] = set()
         verification_history: list[GoalVerification] = []
         graph = KnowledgeGraph(triples=[], summary="No structured data found.", unresolved=[])
         controller_result = None
@@ -211,6 +213,7 @@ class InstructorAgent:
                     structured.graph, source_url=structured.url
                 )
                 self._accumulate(graph, accumulated, seen)
+                ingested_structured_urls.add(structured.url)
                 metrics.append(self.usage_tracker.metric("builder.ingest_structured_data", stage_started))
                 stage_started = perf_counter()
                 verification = self._verify(prompt, plan, graph)
@@ -237,7 +240,7 @@ class InstructorAgent:
                 stage_started = perf_counter()
                 imported_count = 0
                 for structured_page in pending_structured:
-                    if not len(structured_page.graph):
+                    if not len(structured_page.graph) or structured_page.url in ingested_structured_urls:
                         continue
                     structured_graph = self.builder.ingest_structured_graph(
                         structured_page.graph,
@@ -245,6 +248,7 @@ class InstructorAgent:
                     )
                     imported_count += len(structured_graph.triples)
                     self._accumulate(structured_graph, accumulated, seen)
+                    ingested_structured_urls.add(structured_page.url)
                 metrics.append(self.usage_tracker.metric(f"builder.ingest_structured_data.{round_number}", stage_started))
                 if imported_count:
                     graph = KnowledgeGraph(
@@ -270,15 +274,23 @@ class InstructorAgent:
                     if verification.sufficient:
                         break
 
-            stage_started = perf_counter()
-            page_graph = self.builder.build(plan, controller_result)
-            self._accumulate(page_graph, accumulated, seen)
-            graph = KnowledgeGraph(
-                triples=accumulated,
-                summary=page_graph.summary,
-                unresolved=page_graph.unresolved,
-            )
-            metrics.append(self.usage_tracker.metric(f"builder.build.{round_number}", stage_started))
+            if controller_result.final_url in built_urls:
+                self.tracer.emit(
+                    "builder", "skipped", reason="page_already_built",
+                    source_url=controller_result.final_url,
+                )
+            else:
+                stage_started = perf_counter()
+                page_graph = self.builder.build(plan, controller_result)
+                if controller_result.builder_aria.strip():
+                    built_urls.add(controller_result.final_url)
+                self._accumulate(page_graph, accumulated, seen)
+                graph = KnowledgeGraph(
+                    triples=accumulated,
+                    summary=page_graph.summary,
+                    unresolved=page_graph.unresolved,
+                )
+                metrics.append(self.usage_tracker.metric(f"builder.build.{round_number}", stage_started))
 
             stage_started = perf_counter()
             verification = self._verify(prompt, plan, graph)
