@@ -175,6 +175,7 @@ class InstructorAgent:
         seen: set[tuple[str, str, str, str]] = set()
         built_urls: set[str] = set()
         ingested_structured_urls: set[str] = set()
+        verified_fact_count = 0
         verification_history: list[GoalVerification] = []
         graph = KnowledgeGraph(triples=[], summary="No structured data found.", unresolved=[])
         controller_result = None
@@ -215,14 +216,16 @@ class InstructorAgent:
                 self._accumulate(graph, accumulated, seen)
                 ingested_structured_urls.add(structured.url)
                 metrics.append(self.usage_tracker.metric("builder.ingest_structured_data", stage_started))
-                stage_started = perf_counter()
-                verification = self._verify(prompt, plan, graph)
-                verification_history.append(verification)
-                metrics.append(self.usage_tracker.metric("instructor.verify.structured_data", stage_started))
-                self.tracer.emit(
-                    "instructor", "structured_data_verified",
-                    verification=verification.model_dump(),
-                )
+                if len(seen) > verified_fact_count:
+                    stage_started = perf_counter()
+                    verification = self._verify(prompt, plan, graph)
+                    verified_fact_count = len(seen)
+                    verification_history.append(verification)
+                    metrics.append(self.usage_tracker.metric("instructor.verify.structured_data", stage_started))
+                    self.tracer.emit(
+                        "instructor", "structured_data_verified",
+                        verification=verification.model_dump(),
+                    )
 
         if verification.sufficient:
             return self._result(
@@ -233,6 +236,7 @@ class InstructorAgent:
         stage_started = perf_counter()
         controller_result = self.controller.observe_seed(plan)
         metrics.append(self.usage_tracker.metric("controller.observe_seed", stage_started))
+        navigation_stopped = False
 
         for round_number in range(1, self.max_retrieval_rounds + 1):
             pending_structured = self.controller.drain_structured_data()
@@ -259,20 +263,22 @@ class InstructorAgent:
                         ),
                         unresolved=list(verification.missing_information),
                     )
-                    stage_started = perf_counter()
-                    verification = self._verify(prompt, plan, graph)
-                    verification_history.append(verification)
-                    metrics.append(self.usage_tracker.metric(f"instructor.verify.structured_data.{round_number}", stage_started))
-                    self.tracer.emit(
-                        "instructor",
-                        "navigated_structured_data_verified",
-                        round=round_number,
-                        pages=len(pending_structured),
-                        imported_triples=imported_count,
-                        verification=verification.model_dump(),
-                    )
-                    if verification.sufficient:
-                        break
+                    if len(seen) > verified_fact_count:
+                        stage_started = perf_counter()
+                        verification = self._verify(prompt, plan, graph)
+                        verified_fact_count = len(seen)
+                        verification_history.append(verification)
+                        metrics.append(self.usage_tracker.metric(f"instructor.verify.structured_data.{round_number}", stage_started))
+                        self.tracer.emit(
+                            "instructor",
+                            "navigated_structured_data_verified",
+                            round=round_number,
+                            pages=len(pending_structured),
+                            imported_triples=imported_count,
+                            verification=verification.model_dump(),
+                        )
+                        if verification.sufficient:
+                            break
 
             if controller_result.final_url in built_urls:
                 self.tracer.emit(
@@ -292,17 +298,24 @@ class InstructorAgent:
                 )
                 metrics.append(self.usage_tracker.metric(f"builder.build.{round_number}", stage_started))
 
-            stage_started = perf_counter()
-            verification = self._verify(prompt, plan, graph)
-            verification_history.append(verification)
-            metrics.append(self.usage_tracker.metric(f"instructor.verify.{round_number}", stage_started))
-            self.tracer.emit(
-                "instructor",
-                "verification_completed",
-                round=round_number,
-                verification=verification.model_dump(),
-            )
-            if verification.sufficient or round_number == self.max_retrieval_rounds:
+            if len(seen) > verified_fact_count:
+                stage_started = perf_counter()
+                verification = self._verify(prompt, plan, graph)
+                verified_fact_count = len(seen)
+                verification_history.append(verification)
+                metrics.append(self.usage_tracker.metric(f"instructor.verify.{round_number}", stage_started))
+                self.tracer.emit(
+                    "instructor",
+                    "verification_completed",
+                    round=round_number,
+                    verification=verification.model_dump(),
+                )
+            else:
+                self.tracer.emit(
+                    "instructor", "verification_skipped",
+                    round=round_number, reason="no_new_facts",
+                )
+            if verification.sufficient or navigation_stopped or round_number == self.max_retrieval_rounds:
                 break
 
             instruction = verification.controller_instruction
@@ -311,6 +324,7 @@ class InstructorAgent:
             controller_result = self.controller.retrieve(
                 plan, instruction, missing_information=verification.missing_information
             )
+            navigation_stopped = controller_result.navigation_stopped
             metrics.append(self.usage_tracker.metric(f"controller.retrieve.{round_number}", stage_started))
 
         return self._result(

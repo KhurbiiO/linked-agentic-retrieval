@@ -48,6 +48,7 @@ class ControllerResult(BaseModel):
     builder_aria: str
     observations: list[ControllerObservation]
     stopped_reason: str
+    navigation_stopped: bool = False
     filter_status: str = "unknown"
     navigation_goals: list[NavigationGoal] = Field(default_factory=list)
     completed_navigation_goal_indices: list[int] = Field(default_factory=list)

@@ -206,6 +206,7 @@ class ControllerAgent:
             self._navigation_goals = list(plan.navigation_goals)
         observations: list[ControllerObservation] = []
         stopped_reason = "maximum controller actions reached"
+        navigation_stopped = False
 
         for sequence in range(1, self.max_actions + 1):
             visible_aria = self.aria_page.aria[: self.snapshot_max_chars]
@@ -215,6 +216,7 @@ class ControllerAgent:
             ]
             if not available_links and len(self._history) <= 1:
                 stopped_reason = "No unvisited navigable links in the current ARIA snapshot"
+                navigation_stopped = True
                 break
             decision_started = perf_counter()
             decision = self.model.invoke([
@@ -264,6 +266,7 @@ class ControllerAgent:
             if decision.action == "stop":
                 self._complete_navigation_goals(decision.completed_navigation_goal_indices)
                 stopped_reason = decision.reason
+                navigation_stopped = True
                 break
             signature = (self._url, decision.action, decision.url or "")
             if signature in self._failed_actions:
@@ -316,6 +319,7 @@ class ControllerAgent:
             builder_aria=builder_aria,
             observations=observations,
             stopped_reason=stopped_reason,
+            navigation_stopped=navigation_stopped,
             filter_status="full_aria" if self._page_ready else "navigation_unconfirmed",
             navigation_goals=list(self._navigation_goals),
             completed_navigation_goal_indices=sorted(self._completed_navigation_goals),
@@ -344,6 +348,7 @@ class ControllerAgent:
             raise ValueError("Browser page is not open")
         before_url = self._url
         navigation_budget_ms = self.action_timeout_ms + self.navigation_timeout_ms
+        destination_was_visited = True
         if decision.action == "goto":
             allowed = {link["url"] for link in available_links}
             if not decision.url or decision.url not in allowed:
@@ -354,6 +359,7 @@ class ControllerAgent:
             )
             if self._url == before_url:
                 raise ValueError("Navigation did not change the page URL")
+            destination_was_visited = self._url in self._visited_urls
             self._history.append(self._url)
             self._visited_urls.add(decision.url)
             self._visited_urls.add(self._url)
@@ -371,7 +377,8 @@ class ControllerAgent:
         self._page_ready = False
         refresh_stable_snapshot(self.aria_page, timeout_ms=self.navigation_timeout_ms)
         self._page_ready = True
-        self._capture_current_structured_data()
+        if not destination_was_visited:
+            self._capture_current_structured_data()
         self.tracer.emit(
             "controller", "page_transition", before_url=before_url,
             after_url=self._url, status=decision.action,
