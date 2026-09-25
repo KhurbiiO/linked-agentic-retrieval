@@ -1,0 +1,3033 @@
+[
+  {
+    "id": "BR-001",
+    "website": "apple.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.apple.com/ca/iphone-16/specs/",
+    "instruction": "On the iPhone 16 technical specifications page, report the weight of the iPhone 16 (not the Plus model).",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "weight_grams": 170
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.apple.com/ca/iphone-16/specs/",
+        "section": "Size and Weight",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-002",
+    "website": "apple.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://www.apple.com/ca/iphone-16/specs/",
+    "instruction": "What display size and display technology are listed for the iPhone 16?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "diagonal_size_inches": 6.1,
+      "technology": "all-screen OLED Super Retina XDR display"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.apple.com/ca/iphone-16/specs/",
+        "section": "Display",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-003",
+    "website": "apple.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.apple.com/ca/iphone-16/specs/",
+    "instruction": "Report the iPhone 16 chip name and the core counts for its CPU, GPU, and Neural Engine.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "chip": "A18",
+      "cpu": "6-core (2 performance and 4 efficiency cores)",
+      "gpu": "5-core",
+      "neural_engine": "16-core"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.apple.com/ca/iphone-16/specs/",
+        "section": "Chip",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-004",
+    "website": "apple.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.apple.com/ca/iphone-16/specs/",
+    "instruction": "Starting from the specifications page, use the Splash-, Water- and Dust-Resistant section to report the rating, maximum depth, and maximum duration.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "rating": "IP68 under IEC 60529",
+      "maximum_depth_metres": 6,
+      "maximum_duration_minutes": 30
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.apple.com/ca/iphone-16/specs/",
+        "section": "Splash-, Water- and Dust-Resistant",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-005",
+    "website": "apple.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "hard",
+    "task_type": "section_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://www.apple.com/ca/iphone-16/specs/",
+    "instruction": "Starting from the specifications page, use the Camera section to compare the Fusion Main, 2x Telephoto, and Ultra Wide cameras by megapixels, and include the Ultra Wide field of view.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "fusion_main_mp": 48,
+      "telephoto_2x_mp": 12,
+      "ultra_wide_mp": 12,
+      "ultra_wide_field_of_view_degrees": 120
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.apple.com/ca/iphone-16/specs/",
+        "section": "Camera",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-006",
+    "website": "arxiv.org",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://arxiv.org/abs/2306.06070",
+    "instruction": "How many websites and domains does the Mind2Web abstract say the dataset spans?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "websites": 137,
+      "domains": 31
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2306.06070",
+        "section": "Abstract",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-007",
+    "website": "arxiv.org",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://arxiv.org/abs/2306.06070",
+    "instruction": "Approximately how many open-ended tasks are reported for Mind2Web?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "task_count": "over 2,000"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2306.06070",
+        "section": "Abstract",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-008",
+    "website": "arxiv.org",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://arxiv.org/abs/2306.06070",
+    "instruction": "List the three ingredients that the abstract says Mind2Web provides for building generalist web agents.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "ingredients": [
+        "diverse domains, websites, and tasks",
+        "real-world websites instead of simulated and simplified ones",
+        "a broad spectrum of user interaction patterns"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2306.06070",
+        "section": "Abstract",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-009",
+    "website": "arxiv.org",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://arxiv.org/abs/2306.06070",
+    "instruction": "Starting from the paper page, use the author area to return all eight authors in displayed order.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "authors": [
+        "Xiang Deng",
+        "Yu Gu",
+        "Boyuan Zheng",
+        "Shijie Chen",
+        "Samuel Stevens",
+        "Boshi Wang",
+        "Huan Sun",
+        "Yu Su"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2306.06070",
+        "section": "Authors",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-010",
+    "website": "arxiv.org",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "hard",
+    "task_type": "problem_solution_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://arxiv.org/abs/2306.06070",
+    "instruction": "Starting from the abstract, identify the raw-HTML limitation and the mitigation evaluated by the authors, including the claimed effect.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "limitation": "Raw HTML of real-world websites is often too large to feed to an LLM.",
+      "mitigation": "Filter the HTML first with a small language model.",
+      "claimed_effect": "Improves effectiveness and efficiency."
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2306.06070",
+        "section": "Abstract",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-011",
+    "website": "coursera.org",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.coursera.org/specializations/python",
+    "instruction": "How many courses are in the Python for Everybody Specialization?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "courses": 5
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.coursera.org/specializations/python",
+        "section": "Specialization summary",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-012",
+    "website": "coursera.org",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://www.coursera.org/specializations/python",
+    "instruction": "Who teaches the specialization, and which university offers it?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "instructor": "Charles Russell Severance",
+      "institution": "University of Michigan"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.coursera.org/specializations/python",
+        "section": "Specialization summary",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-013",
+    "website": "coursera.org",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.coursera.org/specializations/python",
+    "instruction": "Report the stated level, prerequisite expectation, and estimated weekly and total time commitment.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "level": "Beginner",
+      "prior_experience": "No prior experience required",
+      "estimated_duration": "2 months",
+      "hours_per_week": 10
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.coursera.org/specializations/python",
+        "section": "Details to know",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-014",
+    "website": "coursera.org",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.coursera.org/specializations/python",
+    "instruction": "Starting from the specialization page, use the Capstone description to name the three data operations students apply when creating their own applications.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "operations": [
+        "data retrieval",
+        "processing",
+        "visualization"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.coursera.org/specializations/python",
+        "section": "What you'll learn",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-015",
+    "website": "coursera.org",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "hard",
+    "task_type": "comparison_calculation",
+    "explicit_navigation": true,
+    "start_url": "https://www.coursera.org/specializations/python",
+    "instruction": "Starting from the course-series section, compare the listed durations of Course 1 and Course 2 and calculate how many hours longer Course 2 is.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "course_1": "Programming for Everybody (Getting Started with Python)",
+      "course_1_hours": 17,
+      "course_2": "Python Data Structures",
+      "course_2_hours": 20,
+      "difference_hours": 3
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.coursera.org/specializations/python",
+        "section": "Specialization - 5 course series",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-016",
+    "website": "github.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://github.com/OSU-NLP-Group/Mind2Web/blob/main/README.md",
+    "instruction": "What license applies to the Mind2Web dataset?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "dataset_license": "Creative Commons Attribution 4.0 International (CC BY 4.0)"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://github.com/OSU-NLP-Group/Mind2Web/blob/main/README.md",
+        "section": "Licensing Information",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-017",
+    "website": "github.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://github.com/OSU-NLP-Group/Mind2Web/blob/main/README.md",
+    "instruction": "What license applies to the code in the Mind2Web repository?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "code_license": "MIT License"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://github.com/OSU-NLP-Group/Mind2Web/blob/main/README.md",
+        "section": "Licensing Information",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-018",
+    "website": "github.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://github.com/OSU-NLP-Group/Mind2Web/blob/main/README.md",
+    "instruction": "List the three named contacts in the README.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "contacts": [
+        "Xiang Deng",
+        "Huan Sun",
+        "Yu Su"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://github.com/OSU-NLP-Group/Mind2Web/blob/main/README.md",
+        "section": "Contact",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-019",
+    "website": "github.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://github.com/OSU-NLP-Group/Mind2Web/blob/main/README.md",
+    "instruction": "Starting from the README, use the dataset overview to report the task, website, and domain counts.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "tasks": "over 2,000",
+      "websites": 137,
+      "domains": 31
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://github.com/OSU-NLP-Group/Mind2Web/blob/main/README.md",
+        "section": "Overview",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-020",
+    "website": "github.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "hard",
+    "task_type": "section_reconciliation",
+    "explicit_navigation": true,
+    "start_url": "https://github.com/OSU-NLP-Group/Mind2Web/blob/main/README.md",
+    "instruction": "Starting from the README, distinguish the dataset license from the repository code license and return both in one answer.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "dataset": "CC BY 4.0",
+      "repository_code": "MIT License"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://github.com/OSU-NLP-Group/Mind2Web/blob/main/README.md",
+        "section": "Licensing Information",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-021",
+    "website": "huggingface.co",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://huggingface.co/google-bert/bert-base-uncased",
+    "instruction": "How many parameters does bert-base-uncased have?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "parameters": "110M"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://huggingface.co/google-bert/bert-base-uncased",
+        "section": "Model variations",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-022",
+    "website": "huggingface.co",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "definition_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://huggingface.co/google-bert/bert-base-uncased",
+    "instruction": "What language is bert-base-uncased trained for, and what does 'uncased' mean on this model card?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "language": "English",
+      "uncased_meaning": "It does not distinguish between differently cased forms such as 'english' and 'English'."
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://huggingface.co/google-bert/bert-base-uncased",
+        "section": "Model description",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-023",
+    "website": "huggingface.co",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://huggingface.co/google-bert/bert-base-uncased",
+    "instruction": "Name the two pretraining datasets and the exclusions stated for the Wikipedia portion.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "datasets": [
+        "BookCorpus (11,038 unpublished books)",
+        "English Wikipedia"
+      ],
+      "wikipedia_exclusions": [
+        "lists",
+        "tables",
+        "headers"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://huggingface.co/google-bert/bert-base-uncased",
+        "section": "Training data",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-024",
+    "website": "huggingface.co",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://huggingface.co/google-bert/bert-base-uncased",
+    "instruction": "Starting from the model card, use Model Description to name and briefly describe both pretraining objectives.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "objectives": [
+        {
+          "name": "Masked language modeling (MLM)",
+          "description": "Mask 15% of input words and predict the masked words."
+        },
+        {
+          "name": "Next sentence prediction (NSP)",
+          "description": "Predict whether two input spans followed each other in the source text."
+        }
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://huggingface.co/google-bert/bert-base-uncased",
+        "section": "Model description",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-025",
+    "website": "huggingface.co",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "hard",
+    "task_type": "section_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://huggingface.co/google-bert/bert-base-uncased",
+    "instruction": "Starting from Training procedure, report the token-selection rate and the 80/10/10 replacement split used for masked tokens.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "selected_for_masking_percent": 15,
+      "replaced_with_mask_percent": 80,
+      "replaced_with_random_token_percent": 10,
+      "left_unchanged_percent": 10
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://huggingface.co/google-bert/bert-base-uncased",
+        "section": "Training procedure - Preprocessing",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-026",
+    "website": "rottentomatoes.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://www.rottentomatoes.com/m/matrix",
+    "instruction": "What release year and content rating are displayed for The Matrix?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "year": 1999,
+      "rating": "R"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.rottentomatoes.com/m/matrix",
+        "section": "Movie header",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-027",
+    "website": "rottentomatoes.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.rottentomatoes.com/m/matrix",
+    "instruction": "What runtime is displayed for The Matrix?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "runtime": "2h 16m"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.rottentomatoes.com/m/matrix",
+        "section": "Movie header",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-028",
+    "website": "rottentomatoes.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.rottentomatoes.com/m/matrix",
+    "instruction": "List the genres displayed in the movie header.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "genres": [
+        "Sci-Fi",
+        "Action",
+        "Mystery & Thriller"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.rottentomatoes.com/m/matrix",
+        "section": "Movie header",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-029",
+    "website": "rottentomatoes.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.rottentomatoes.com/m/matrix",
+    "instruction": "Starting from the movie page, use Cast & Crew to identify both directors.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "directors": [
+        "Lilly Wachowski",
+        "Lana Wachowski"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.rottentomatoes.com/m/matrix/cast-and-crew",
+        "section": "Cast & Crew",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-030",
+    "website": "rottentomatoes.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "hard",
+    "task_type": "section_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://www.rottentomatoes.com/m/matrix",
+    "instruction": "Starting from What to Know, report the two filmmaking elements that the critics consensus says the film combines, and the creative factor it credits.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "elements": [
+        "spectacular action",
+        "groundbreaking special effects"
+      ],
+      "credited_factor": "the Wachowskis' imaginative vision"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.rottentomatoes.com/m/matrix",
+        "section": "What to Know - Critics Consensus",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-031",
+    "website": "last.fm",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.last.fm/music/Radiohead",
+    "instruction": "According to the Radiohead biography, in what year was the band formed?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "formed": 1985
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.last.fm/music/Radiohead",
+        "section": "Artist biography",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-032",
+    "website": "last.fm",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.last.fm/music/Radiohead",
+    "instruction": "Where does the page say Radiohead was formed?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "place": "Abingdon, Oxfordshire, England, United Kingdom"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.last.fm/music/Radiohead",
+        "section": "Artist biography",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-033",
+    "website": "last.fm",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.last.fm/music/Radiohead",
+    "instruction": "Return the five band members and the roles stated for each.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "members": [
+        {
+          "name": "Thom Yorke",
+          "roles": [
+            "vocals",
+            "guitar",
+            "piano",
+            "keyboards"
+          ]
+        },
+        {
+          "name": "Jonny Greenwood",
+          "roles": [
+            "guitar",
+            "keyboards",
+            "other instruments"
+          ]
+        },
+        {
+          "name": "Colin Greenwood",
+          "roles": [
+            "bass"
+          ]
+        },
+        {
+          "name": "Ed O'Brien",
+          "roles": [
+            "guitar",
+            "backing vocals"
+          ]
+        },
+        {
+          "name": "Philip Selway",
+          "roles": [
+            "drums",
+            "percussion"
+          ]
+        }
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.last.fm/music/Radiohead",
+        "section": "Artist biography",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-034",
+    "website": "last.fm",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.last.fm/music/Radiohead",
+    "instruction": "Starting from the artist biography, identify the two frequent collaborators, their roles, and the year from which the collaboration is stated.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "since": 1994,
+      "collaborators": [
+        {
+          "name": "Nigel Godrich",
+          "role": "producer"
+        },
+        {
+          "name": "Stanley Donwood",
+          "role": "cover artist"
+        }
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.last.fm/music/Radiohead",
+        "section": "Artist biography",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-035",
+    "website": "last.fm",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "hard",
+    "task_type": "section_reconciliation",
+    "explicit_navigation": true,
+    "start_url": "https://www.last.fm/music/Radiohead",
+    "instruction": "Starting from the artist page, report the displayed Years Active value and the separate formation year in the biography without trying to reconcile them.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "years_active_display": "1991-present",
+      "biography_formation_year": 1985
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.last.fm/music/Radiohead",
+        "section": "Artist metadata and biography",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-036",
+    "website": "espn.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.espn.com/soccer/report/_/gameId/633850",
+    "instruction": "Who won the 2022 World Cup final, and what was the penalty-shootout score?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "winner": "Argentina",
+      "shootout_score": "4-2"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.espn.com/soccer/report/_/gameId/633850",
+        "section": "Match report",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-037",
+    "website": "espn.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://www.espn.com/soccer/report/_/gameId/633850",
+    "instruction": "What was the score after extra time, and at which stadium was the final played?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "score_after_extra_time": "3-3",
+      "stadium": "Lusail Stadium",
+      "location": "Doha, Qatar"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.espn.com/soccer/report/_/gameId/633850",
+        "section": "Match report",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-038",
+    "website": "espn.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.espn.com/soccer/report/_/gameId/633850",
+    "instruction": "Name Argentina's two regulation/extra-time scorers and France's scorer.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "argentina": [
+        "Lionel Messi",
+        "Angel Di Maria"
+      ],
+      "france": [
+        "Kylian Mbappe"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.espn.com/soccer/report/_/gameId/633850",
+        "section": "Match report",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-039",
+    "website": "espn.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.espn.com/soccer/report/_/gameId/633850",
+    "instruction": "Starting from the report, identify the two French players whose shootout attempts were saved and the Argentine player who converted the decisive kick.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "saved_from": [
+        "Kingsley Coman",
+        "Aurelien Tchouameni"
+      ],
+      "decisive_kick": "Gonzalo Montiel"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.espn.com/soccer/report/_/gameId/633850",
+        "section": "Penalty shootout account",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-040",
+    "website": "espn.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "hard",
+    "task_type": "historical_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://www.espn.com/soccer/report/_/gameId/633850",
+    "instruction": "Starting from the report, combine the result with the historical context: which numbered World Cup title was this for Argentina, and in which two earlier years had they won?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "title_number": 3,
+      "previous_wins": [
+        1978,
+        1986
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.espn.com/soccer/report/_/gameId/633850",
+        "section": "Match report",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-041",
+    "website": "discogs.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://support.discogs.com/hc/en-us/articles/360003622014-How-To-Browse-Search-In-The-Database",
+    "instruction": "What two result views does the Discogs database search article describe?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "views": [
+        "Grid View",
+        "List View"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://support.discogs.com/hc/en-us/articles/360003622014-How-To-Browse-Search-In-The-Database",
+        "section": "Using Search & Filters to Explore the Database",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-042",
+    "website": "discogs.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://support.discogs.com/hc/en-us/articles/360003622014-How-To-Browse-Search-In-The-Database",
+    "instruction": "Which five essential details does Grid View show alongside artwork?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "details": [
+        "format",
+        "title",
+        "artist",
+        "year",
+        "country"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://support.discogs.com/hc/en-us/articles/360003622014-How-To-Browse-Search-In-The-Database",
+        "section": "Grid View",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-043",
+    "website": "discogs.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://support.discogs.com/hc/en-us/articles/360003622014-How-To-Browse-Search-In-The-Database",
+    "instruction": "Which granular fields does the article say List View exposes from the search page?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "fields": [
+        "track names",
+        "record labels",
+        "catalog numbers",
+        "barcodes",
+        "matrix numbers"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://support.discogs.com/hc/en-us/articles/360003622014-How-To-Browse-Search-In-The-Database",
+        "section": "List View",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-044",
+    "website": "discogs.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "guided_comparison",
+    "explicit_navigation": true,
+    "start_url": "https://support.discogs.com/hc/en-us/articles/360003622014-How-To-Browse-Search-In-The-Database",
+    "instruction": "Starting from the result-view descriptions, choose the view suited to quickly scanning artwork and the view suited to detailed metadata.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "artwork_scanning": "Grid View",
+      "detailed_metadata": "List View"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://support.discogs.com/hc/en-us/articles/360003622014-How-To-Browse-Search-In-The-Database",
+        "section": "Grid View and List View",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-045",
+    "website": "discogs.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "hard",
+    "task_type": "guided_navigation_retrieval",
+    "explicit_navigation": true,
+    "start_url": "https://support.discogs.com/hc/en-us/articles/360003622014-How-To-Browse-Search-In-The-Database",
+    "instruction": "Starting from the database-search article, list the four result categories available as tabs for narrowing the kind of database object.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "categories": [
+        "Master",
+        "Artist",
+        "Label",
+        "Release"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://support.discogs.com/hc/en-us/articles/360003622014-How-To-Browse-Search-In-The-Database",
+        "section": "Search categories",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-046",
+    "website": "nps.gov",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+    "instruction": "On what date was Yellowstone established, and what global distinction does the page give it?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "established": "March 1, 1872",
+      "distinction": "the world's first national park"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+        "section": "History",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-047",
+    "website": "nps.gov",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+    "instruction": "Report Yellowstone's area in square miles and acres.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "square_miles": 3472,
+      "acres": 2221766
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+        "section": "Geography",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-048",
+    "website": "nps.gov",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+    "instruction": "What percentage of Yellowstone lies in Wyoming, Montana, and Idaho?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "Wyoming_percent": 96,
+      "Montana_percent": 3,
+      "Idaho_percent": 1
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+        "section": "Geography",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-049",
+    "website": "nps.gov",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+    "instruction": "Starting from Park Facts, use Geography to report the highest and lowest points with their elevations in feet.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "highest": {
+        "name": "Eagle Peak",
+        "feet": 11358
+      },
+      "lowest": {
+        "name": "Reese Creek",
+        "feet": 5282
+      }
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+        "section": "Geography",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-050",
+    "website": "nps.gov",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "hard",
+    "task_type": "section_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+    "instruction": "Starting from Park Facts, use Roads & Trails to report the number of entrances, paved-road miles, approximate hiking-trail miles, and trailheads.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "park_entrances": 5,
+      "paved_road_miles": 392,
+      "approximate_hiking_trail_miles": 1114,
+      "trailheads": 92
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+        "section": "Roads & Trails",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-051",
+    "website": "ikea.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://www.ikea.com/global/en/our-business/how-we-work/story-of-ikea/",
+    "instruction": "Who founded IKEA, and how old was he when the company was registered?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "founder": "Ingvar Kamprad",
+      "age": 17
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.ikea.com/global/en/our-business/how-we-work/story-of-ikea/",
+        "section": "Humble beginnings",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-052",
+    "website": "ikea.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.ikea.com/global/en/our-business/how-we-work/story-of-ikea/",
+    "instruction": "On what date was IKEA first registered as a trading company?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "date": "July 28, 1943"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.ikea.com/global/en/our-business/how-we-work/story-of-ikea/",
+        "section": "Humble beginnings",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-053",
+    "website": "ikea.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "acronym_expansion",
+    "explicit_navigation": false,
+    "start_url": "https://www.ikea.com/global/en/our-business/how-we-work/story-of-ikea/",
+    "instruction": "Expand each letter in the name IKEA as described on the page.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "I": "Ingvar",
+      "K": "Kamprad",
+      "E": "Elmtaryd",
+      "A": "Agunnaryd"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.ikea.com/global/en/our-business/how-we-work/story-of-ikea/",
+        "section": "Did you know?",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-054",
+    "website": "ikea.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.ikea.com/global/en/our-business/how-we-work/story-of-ikea/",
+    "instruction": "Starting from the story page, use Humble beginnings to list three early imported product types and the year furniture was added.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "early_products": [
+        "pens",
+        "watches",
+        "nylon stockings"
+      ],
+      "furniture_added": 1948
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.ikea.com/global/en/our-business/how-we-work/story-of-ikea/",
+        "section": "Humble beginnings",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-055",
+    "website": "ikea.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "hard",
+    "task_type": "timeline_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://www.ikea.com/global/en/our-business/how-we-work/story-of-ikea/",
+    "instruction": "Starting from IKEA's history material, place these milestones in order with years: company registration, furniture added to the range, first IKEA store opened.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "timeline": [
+        {
+          "year": 1943,
+          "event": "IKEA registered as a trading company"
+        },
+        {
+          "year": 1948,
+          "event": "Furniture added to the range"
+        },
+        {
+          "year": 1958,
+          "event": "First IKEA store opened in Älmhult, Sweden"
+        }
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.ikea.com/global/en/our-business/how-we-work/",
+        "section": "Story and history",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-056",
+    "website": "tesla.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.tesla.com/about",
+    "instruction": "What three technologies does Tesla's About page name in its description of a sustainable world?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "technologies": [
+        "solar energy",
+        "batteries",
+        "electric vehicles"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.tesla.com/about",
+        "section": "The Future is Sustainable",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-057",
+    "website": "tesla.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.tesla.com/about",
+    "instruction": "What does the page say batteries are used for?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "purpose": "to store clean energy"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.tesla.com/about",
+        "section": "Batteries",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-058",
+    "website": "tesla.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.tesla.com/about",
+    "instruction": "State the role given to Solar, Batteries, and Electric Vehicles on the page.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "Solar": "Produce solar energy for residential and commercial needs.",
+      "Batteries": "Install batteries to store clean energy.",
+      "Electric Vehicles": "Make zero-emission vehicles that can charge with clean energy."
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.tesla.com/about",
+        "section": "Power Earth",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-059",
+    "website": "tesla.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.tesla.com/about",
+    "instruction": "Starting from the About page, use the sustainable-systems text to explain how the energy products and vehicles are said to relate.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "relationship": "Energy generation and storage products work together with electric vehicles to amplify their impact."
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.tesla.com/about",
+        "section": "The Future is Sustainable",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-060",
+    "website": "tesla.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "hard",
+    "task_type": "process_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://www.tesla.com/about",
+    "instruction": "Starting from the About page, construct the three-stage clean-energy flow implied by the Solar, Batteries, and Electric Vehicles descriptions.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "flow": [
+        "produce solar energy",
+        "store clean energy in batteries",
+        "charge and operate zero-emission electric vehicles"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.tesla.com/about",
+        "section": "Power Earth",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-061",
+    "website": "justice.gov",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.justice.gov/doj/organization-mission-and-functions-manual",
+    "instruction": "Which act created the position of Attorney General, and in what year?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "act": "Judiciary Act",
+      "year": 1789
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.justice.gov/doj/organization-mission-and-functions-manual",
+        "section": "Organization, Mission and Functions Manual",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-062",
+    "website": "justice.gov",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://www.justice.gov/doj/organization-mission-and-functions-manual",
+    "instruction": "When was the Department of Justice established, and who is its head?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "established": "June 1870",
+      "head": "Attorney General"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.justice.gov/doj/organization-mission-and-functions-manual",
+        "section": "Organization, Mission and Functions Manual",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-063",
+    "website": "justice.gov",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.justice.gov/doj/organization-mission-and-functions-manual",
+    "instruction": "Return the three clauses of the DOJ mission statement.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "mission": [
+        "uphold the rule of law",
+        "keep our country safe",
+        "protect civil rights"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.justice.gov/doj/organization-mission-and-functions-manual",
+        "section": "Mission",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-064",
+    "website": "justice.gov",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.justice.gov/doj/organization-mission-and-functions-manual",
+    "instruction": "Starting from the manual, use the Values area to name the four values listed by DOJ.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "values": [
+        "Independence and Impartiality",
+        "Honesty and Integrity",
+        "Respect",
+        "Excellence"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.justice.gov/about",
+        "section": "Values",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-065",
+    "website": "justice.gov",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "hard",
+    "task_type": "timeline_reconciliation",
+    "explicit_navigation": true,
+    "start_url": "https://www.justice.gov/doj/organization-mission-and-functions-manual",
+    "instruction": "Starting from the history text, distinguish the creation of the Attorney General position from the establishment of the Department of Justice by giving the event and year for each.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "events": [
+        {
+          "year": 1789,
+          "event": "Congress created the position of Attorney General through the Judiciary Act."
+        },
+        {
+          "year": 1870,
+          "event": "The United States Department of Justice was established by statute, with the Attorney General as its head."
+        }
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.justice.gov/doj/organization-mission-and-functions-manual",
+        "section": "History",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-066",
+    "website": "osu.edu",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://polisci.osu.edu/about-us/ohio-state",
+    "instruction": "In what year was Ohio State founded, and what kind of institution was it?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "year": 1870,
+      "type": "federal land-grant institution"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://polisci.osu.edu/about-us/ohio-state",
+        "section": "About The Ohio State",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-067",
+    "website": "osu.edu",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://polisci.osu.edu/about-us/ohio-state",
+    "instruction": "How many students are stated for the Columbus campus and for the regional campuses combined?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "Columbus": "more than 60,000",
+      "regional": "an additional 8,000"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://polisci.osu.edu/about-us/ohio-state",
+        "section": "About The Ohio State",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-068",
+    "website": "osu.edu",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://polisci.osu.edu/about-us/ohio-state",
+    "instruction": "How many undergraduate majors and graduate/professional degree programs are stated?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "undergraduate_majors": 170,
+      "masters_doctoral_professional_programs": "more than 250"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://polisci.osu.edu/about-us/ohio-state",
+        "section": "About The Ohio State",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-069",
+    "website": "osu.edu",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://polisci.osu.edu/about-us/ohio-state",
+    "instruction": "Starting from the About page, list the four named regional campuses and the separate Agricultural Technical Institute location.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "regional_campuses": [
+        "Lima",
+        "Mansfield",
+        "Marion",
+        "Newark"
+      ],
+      "agricultural_technical_institute": "Wooster"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://polisci.osu.edu/about-us/ohio-state",
+        "section": "About The Ohio State",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-070",
+    "website": "osu.edu",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "hard",
+    "task_type": "section_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://polisci.osu.edu/about-us/ohio-state",
+    "instruction": "Starting from the institutional facts, report how many degrees had been awarded since 1878 and how many living alumni were stated.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "degrees_awarded_since_1878": 637048,
+      "living_alumni": "more than 465,000"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://polisci.osu.edu/about-us/ohio-state",
+        "section": "About The Ohio State",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-071",
+    "website": "ups.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://about.ups.com/us/en/our-company/our-history.html",
+    "instruction": "Who founded the American Messenger Company in 1907?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "founders": [
+        "Claude Ryan",
+        "Jim Casey"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://about.ups.com/us/en/our-company/our-history.html",
+        "section": "1907 - It all started with $100",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-072",
+    "website": "ups.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://about.ups.com/us/en/our-company/our-history.html",
+    "instruction": "Where did the company begin, and what was the amount and source of its starting capital?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "place": "a Seattle basement",
+      "capital": "$100 loan"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://about.ups.com/us/en/our-company/our-history.html",
+        "section": "1907 - It all started with $100",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-073",
+    "website": "ups.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "timeline_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://about.ups.com/us/en/our-company/our-history.html",
+    "instruction": "What happened in 1919 regarding expansion, the company name, and vehicle colour?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "expansion": "first expansion beyond Seattle to Oakland, California",
+      "name": "United Parcel Service debuted",
+      "vehicle_colour": "brown",
+      "colour_meaning": [
+        "class",
+        "sophistication",
+        "professionalism"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://about.ups.com/us/en/our-company/our-history.html",
+        "section": "1919 - The name and the look you know",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-074",
+    "website": "ups.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://about.ups.com/us/en/our-company/our-history.html",
+    "instruction": "Starting from the history timeline, use the 1930 entry to report the expansion destination and the office move.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "expansion": "metropolitan New York City",
+      "office_move": "from Los Angeles to 331 East 38th Street, New York City"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://about.ups.com/us/en/our-company/our-history.html",
+        "section": "1930 - East Coast bound",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-075",
+    "website": "ups.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "hard",
+    "task_type": "timeline_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://about.ups.com/us/en/our-company/our-history.html",
+    "instruction": "Starting from the history timeline, use the 1994 entry to report the headquarters city and address, the construction emphasis, and the web milestone from that year.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "headquarters": "Atlanta, 55 Glenlake Parkway",
+      "construction_emphasis": [
+        "energy efficiency",
+        "tree protection and replacement"
+      ],
+      "web_milestone": "UPS.com debuted"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://about.ups.com/us/en/our-company/our-history.html",
+        "section": "1994 - A green new home",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-076",
+    "website": "amtrak.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.amtrak.com/california-zephyr-train",
+    "instruction": "Which four cities are presented as Route Highlights for the California Zephyr?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "cities": [
+        "Chicago",
+        "Denver",
+        "Salt Lake City",
+        "San Francisco"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.amtrak.com/california-zephyr-train",
+        "section": "Route Highlights",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-077",
+    "website": "amtrak.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.amtrak.com/california-zephyr-train",
+    "instruction": "Name the two dining options listed for the California Zephyr.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "dining_options": [
+        "Traditional Dining",
+        "Cafe Service"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.amtrak.com/california-zephyr-train",
+        "section": "Dining Options",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-078",
+    "website": "amtrak.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.amtrak.com/california-zephyr-train",
+    "instruction": "List the six accommodation types shown on the page.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "accommodations": [
+        "Lower/Upper Level Coach Class Seats",
+        "Superliner Roomette",
+        "Superliner Bedroom",
+        "Superliner Bedroom Suite",
+        "Superliner Family Bedroom",
+        "Superliner Accessible Bedroom"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.amtrak.com/california-zephyr-train",
+        "section": "Accommodations",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-079",
+    "website": "amtrak.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "guided_list_retrieval",
+    "explicit_navigation": true,
+    "start_url": "https://www.amtrak.com/california-zephyr-train",
+    "instruction": "Starting from the route page, use the scenic-highlights text to name at least six explicitly listed natural or engineered sights.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "accepted_sights": [
+        "Rocky Mountains",
+        "Sierra Nevadas",
+        "Moffat Tunnel",
+        "Gore Canyon",
+        "Byers Canyon",
+        "Glenwood Canyon",
+        "Winter Park",
+        "Truckee River",
+        "Donner Lake",
+        "San Pablo Bay",
+        "Carquinez Strait"
+      ],
+      "minimum_required": 6
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.amtrak.com/california-zephyr-train",
+        "section": "Scenic highlights",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-080",
+    "website": "amtrak.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "hard",
+    "task_type": "sequence_comparison",
+    "explicit_navigation": true,
+    "start_url": "https://www.amtrak.com/california-zephyr-train",
+    "instruction": "Starting from the route page, compare the sequence of meals listed for eastbound and westbound travel, preserving order.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "eastbound": [
+        "Lunch",
+        "Dinner",
+        "Breakfast",
+        "Lunch",
+        "Dinner",
+        "Breakfast"
+      ],
+      "westbound": [
+        "Dinner",
+        "Breakfast",
+        "Lunch",
+        "Dinner",
+        "Breakfast",
+        "Lunch"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.amtrak.com/california-zephyr-train",
+        "section": "Meals on This Train",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-081",
+    "website": "steampowered.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://store.steampowered.com/app/570/Dota_2/",
+    "instruction": "Who is listed as both developer and publisher of Dota 2?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "developer": "Valve",
+      "publisher": "Valve"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://store.steampowered.com/app/570/Dota_2/",
+        "section": "Game header",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-082",
+    "website": "steampowered.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://store.steampowered.com/app/570/Dota_2/",
+    "instruction": "What release date is listed for Dota 2?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "release_date": "July 9, 2013"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://store.steampowered.com/app/570/Dota_2/",
+        "section": "Game header",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-083",
+    "website": "steampowered.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://store.steampowered.com/app/570/Dota_2/",
+    "instruction": "Which three genres are listed in the product details?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "genres": [
+        "Action",
+        "Strategy",
+        "Free To Play"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://store.steampowered.com/app/570/Dota_2/",
+        "section": "Product details",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-084",
+    "website": "steampowered.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://store.steampowered.com/app/570/Dota_2/",
+    "instruction": "Starting from the store page, use the Content area to list the interactive elements disclosed for the game.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "interactive_elements": [
+        "in-game purchases",
+        "chance-based in-game purchases",
+        "in-game chat",
+        "online interactivity"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://store.steampowered.com/app/570/Dota_2/",
+        "section": "Content",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-085",
+    "website": "steampowered.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "hard",
+    "task_type": "section_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://store.steampowered.com/app/570/Dota_2/",
+    "instruction": "Starting from the store description, report the stated daily player scale, hero count, and mechanism described as keeping gameplay evolving.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "daily_player_scale": "millions of players worldwide",
+      "hero_count": "over one hundred",
+      "evolution_mechanism": "regular updates to gameplay, features, and heroes"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://store.steampowered.com/app/570/Dota_2/",
+        "section": "About This Game",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-086",
+    "website": "koa.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://koa.com/campgrounds/yellowstone-park/amenities/",
+    "instruction": "Under what condition does the campground allow fires, and what fire feature is at each site?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "condition": "when no burn ban is in place",
+      "site_feature": "a fire ring"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://koa.com/campgrounds/yellowstone-park/amenities/",
+        "section": "Campground amenities",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-087",
+    "website": "koa.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://koa.com/campgrounds/yellowstone-park/amenities/",
+    "instruction": "What kind of pool is available, and during what seasonal period is it open?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "pool": "heated indoor pool",
+      "open_period": "Memorial Day through Labor Day"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://koa.com/campgrounds/yellowstone-park/amenities/",
+        "section": "Campground amenities",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-088",
+    "website": "koa.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://koa.com/campgrounds/yellowstone-park/amenities/",
+    "instruction": "What claim does the page make about the coverage of its upgraded Wi-Fi?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "coverage": "Devices can connect to the Internet anywhere in the park."
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://koa.com/campgrounds/yellowstone-park/amenities/",
+        "section": "Stay Connected With Upgraded Wi-Fi",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-089",
+    "website": "koa.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://koa.com/campgrounds/yellowstone-park/amenities/",
+    "instruction": "Starting from the amenities page, use Directions to report the campground's position relative to Yellowstone's West Entrance and the Montana/Idaho border.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "from_west_entrance": "6 miles west on US Highway 20",
+      "from_montana_idaho_border": "3 miles east on US Highway 20"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://koa.com/campgrounds/yellowstone-park/amenities/",
+        "section": "Directions",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-090",
+    "website": "koa.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "hard",
+    "task_type": "comparison",
+    "explicit_navigation": true,
+    "start_url": "https://koa.com/campgrounds/yellowstone-park/amenities/",
+    "instruction": "Starting from the campground details, compare check-in and check-out times for RV/tent sites versus accommodations.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "rv_and_tent_sites": {
+        "check_in": "1:00 pm",
+        "check_out": "11:00 am"
+      },
+      "accommodations": {
+        "check_in": "3:00 pm",
+        "check_out": "11:00 am"
+      }
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://koa.com/campgrounds/yellowstone-park/amenities/",
+        "section": "Check-In/Check-Out Times",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-091",
+    "website": "marriott.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://www.marriott.com/en-us/hotels/amswh-w-amsterdam/overview/",
+    "instruction": "What are the standard check-in and check-out times at W Amsterdam?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "check_in": "3:00 pm",
+      "check_out": "12:00 pm"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.marriott.com/en-us/hotels/amswh-w-amsterdam/overview/",
+        "section": "Property Details",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-092",
+    "website": "marriott.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.marriott.com/en-us/hotels/amswh-w-amsterdam/overview/",
+    "instruction": "What is the street address of W Amsterdam?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "address": "Spuistraat 175, Amsterdam, Netherlands, 1012 VN"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.marriott.com/en-us/hotels/amswh-w-amsterdam/overview/",
+        "section": "Hotel footer",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-093",
+    "website": "marriott.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.marriott.com/en-us/hotels/amswh-w-amsterdam/overview/",
+    "instruction": "Report the hotel's pet limit, maximum pet weight, and non-refundable fee.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "maximum_pets_per_room": 1,
+      "maximum_weight_kg": 20.0,
+      "non_refundable_fee": "EUR 100 per room per stay"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.marriott.com/en-us/hotels/amswh-w-amsterdam/overview/",
+        "section": "Pet Policy",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-094",
+    "website": "marriott.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.marriott.com/en-us/hotels/amswh-w-amsterdam/overview/",
+    "instruction": "Starting from the overview, use the parking FAQ to report the on-site parking option and daily fee.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "parking_type": "valet parking",
+      "daily_fee_eur": 95
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.marriott.com/en-us/hotels/amswh-w-amsterdam/overview/",
+        "section": "Frequently Asked Questions - Parking",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-095",
+    "website": "marriott.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "hard",
+    "task_type": "multi_section_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://www.marriott.com/en-us/hotels/amswh-w-amsterdam/overview/",
+    "instruction": "Starting from the FAQ, combine the Wi-Fi, airport, and charging information: state the condition for complimentary in-room Internet, the closest airport and distance, and whether EV charging is available.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "complimentary_wifi_condition": "Marriott Bonvoy members who book direct",
+      "closest_airport": "Amsterdam Airport Schiphol (AMS)",
+      "distance_km": 16.0,
+      "ev_charging": false
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://www.marriott.com/en-us/hotels/amswh-w-amsterdam/overview/",
+        "section": "Frequently Asked Questions",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-096",
+    "website": "stackoverflow.com",
+    "benchmark_origin": "OSWorld task-source websites",
+    "difficulty": "easy",
+    "task_type": "code_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value",
+    "instruction": "What expression shown on the page sorts dictionary items by value in ascending order using a lambda?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "expression": "sorted(d.items(), key=lambda x: x[1])"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value",
+        "section": "Answers",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-097",
+    "website": "stackoverflow.com",
+    "benchmark_origin": "OSWorld task-source websites",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value",
+    "instruction": "What argument is added to sort the items by value in descending order?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "argument": "reverse=True"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value",
+        "section": "Answers",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-098",
+    "website": "stackoverflow.com",
+    "benchmark_origin": "OSWorld task-source websites",
+    "difficulty": "medium",
+    "task_type": "code_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value",
+    "instruction": "What operator.itemgetter expression is shown as an alternative to the lambda for sorting by values?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "expression": "sorted(d.items(), key=operator.itemgetter(1))"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value",
+        "section": "Answers",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-099",
+    "website": "stackoverflow.com",
+    "benchmark_origin": "OSWorld task-source websites",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value",
+    "instruction": "Starting from the answers, identify the standard-library mapping suggested when an explicitly ordered dictionary is required.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "type": "collections.OrderedDict"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value",
+        "section": "Answers - OrderedDict",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-100",
+    "website": "stackoverflow.com",
+    "benchmark_origin": "OSWorld task-source websites",
+    "difficulty": "hard",
+    "task_type": "code_result_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value",
+    "instruction": "Starting from the answer examples, explain the difference between the basic sorted result and wrapping it in dict or OrderedDict.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "basic_sorted_result": "a list of (key, value) tuples ordered by value",
+      "dict_wrapper": "a dictionary constructed in that sorted insertion order on modern Python",
+      "ordered_dict_wrapper": "an OrderedDict preserving the sorted order explicitly"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-25",
+    "evidence": [
+      {
+        "url": "https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value",
+        "section": "Answers",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-25",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  }
+]

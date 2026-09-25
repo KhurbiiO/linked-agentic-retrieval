@@ -20,7 +20,7 @@ from benchmark.evaluate import evaluate_answer
 from benchmark.judge import ModelAnswerJudge
 
 
-DATASET_PATH = Path(__file__).with_name("web_retrieval_tasks_100.json")
+DATASET_PATH = Path(__file__).with_name("tasks/web_retrieval_tasks_100_T2.json")
 OUTPUT_DIRECTORY = Path("output") / "benchmark"
 SCORABLE_ONLY = True
 TASK_IDS: set[str] = set()  # Empty means all eligible tasks.
