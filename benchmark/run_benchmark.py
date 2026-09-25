@@ -30,9 +30,9 @@ RESUME = True
 ALGORITHMS: list[BenchmarkAlgorithm] = [
     TriAgentAlgorithm(
         name="llama3.2",
-        instructor_model="ollama:llama3.2",
-        controller_model="ollama:llama3.2",
-        builder_model="ollama:llama3.2",
+        instructor_model="ollama:qwen3.5:9b",
+        controller_model="ollama:qwen3.5:9b",
+        builder_model="ollama:qwen3.5:9b",
     ),
 ]
 
