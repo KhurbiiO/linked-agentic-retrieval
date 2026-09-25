@@ -1,0 +1,3301 @@
+[
+  {
+    "id": "AR-01",
+    "website": "allrecipes.com",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+    "instruction": "For “Banana Banana Bread,” report the original recipe's serving count.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "servings": 12
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+        "section": "Recipe summary",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "AR-02",
+    "website": "allrecipes.com",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/",
+    "instruction": "For “Good Old-Fashioned Pancakes,” report the stated preparation time.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "prep_time": "5 minutes"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/",
+        "section": "Recipe summary",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "AR-03",
+    "website": "allrecipes.com",
+    "difficulty": "easy",
+    "task_type": "ingredient_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+    "instruction": "What quantity of mashed bananas does “Banana Banana Bread” require? Include the unit and the stated ripeness.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "bananas": "2 1/3 cups mashed overripe bananas"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+        "section": "Ingredients",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "AR-04",
+    "website": "allrecipes.com",
+    "difficulty": "easy",
+    "task_type": "ingredient_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/",
+    "instruction": "Which raising agent appears in the ingredient list for “Good Old-Fashioned Pancakes,” and how much is required?",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "raising_agent": "baking powder",
+      "quantity": "3 1/2 teaspoons"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/",
+        "section": "Ingredients",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "AR-05",
+    "website": "allrecipes.com",
+    "difficulty": "easy",
+    "task_type": "attribution",
+    "explicit_navigation": false,
+    "start_url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+    "instruction": "Who submitted “Banana Banana Bread”? Use the recipe submitter, rather than the test-kitchen or editorial credit.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "submitted_by": "Shelley Albeluhn"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+        "section": "Recipe byline",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "AR-06",
+    "website": "allrecipes.com",
+    "difficulty": "easy",
+    "task_type": "method_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+    "instruction": "What loaf-pan dimensions are specified in the directions for “Banana Banana Bread”?",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "loaf_pan": "9 × 5 inches"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+        "section": "Directions, step 1",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "AR-07",
+    "website": "allrecipes.com",
+    "difficulty": "easy",
+    "task_type": "nutrition_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+    "instruction": "Report the calories per serving for “Banana Banana Bread,” retaining the serving basis.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "calories": 231,
+      "basis": "per serving"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+        "section": "Nutrition Facts",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "AR-08",
+    "website": "allrecipes.com",
+    "difficulty": "easy",
+    "task_type": "section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+    "instruction": "Within “Banana Banana Bread,” go to the storage section and report the stated room-temperature storage duration.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "duration": "about 4 days",
+      "condition": "properly stored at room temperature"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+        "section": "How to Store Banana Bread",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "AR-09",
+    "website": "allrecipes.com",
+    "difficulty": "medium",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/",
+    "instruction": "For “Good Old-Fashioned Pancakes,” retrieve the preparation time, cooking time, total time, and original yield as separately labelled fields.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "prep_time": "5 minutes",
+      "cook_time": "15 minutes",
+      "total_time": "20 minutes",
+      "original_yield": "8 servings",
+      "pancake_count": "not_stated"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/",
+        "section": "Recipe summary; original 1X yield",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "AR-10",
+    "website": "allrecipes.com",
+    "difficulty": "medium",
+    "task_type": "section_reconciliation",
+    "explicit_navigation": false,
+    "start_url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+    "instruction": "For “Banana Banana Bread,” retrieve the oven temperature, baking duration, and cooling time in the pan. Identify which stage each duration belongs to.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "oven": "350°F (175°C)",
+      "baking": "about 60 minutes",
+      "cooling_in_pan": "10 minutes"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+        "section": "Directions, steps 1, 4–5",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "AR-11",
+    "website": "allrecipes.com",
+    "difficulty": "medium",
+    "task_type": "method_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/",
+    "instruction": "For “Good Old-Fashioned Pancakes,” retrieve the amount of batter used per pancake and the visual signs indicating when to turn it.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "batter_per_pancake": "approximately 1/4 cup",
+      "turning_cues": [
+        "surface bubbles",
+        "dry edges"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/",
+        "section": "Directions, step 3",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "AR-12",
+    "website": "allrecipes.com",
+    "difficulty": "medium",
+    "task_type": "provenance",
+    "explicit_navigation": false,
+    "start_url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+    "instruction": "Separate the named recipe submitter, testing credit, and editorial contributor on “Banana Banana Bread.” Report a missing credit as not stated.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "submitter": "Shelley Albeluhn",
+      "testing_credit": "Allrecipes Test Kitchen",
+      "editorial_contributor": "Corey Williams"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+        "section": "Byline; editorial contributions",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "AR-13",
+    "website": "allrecipes.com",
+    "difficulty": "medium",
+    "task_type": "guided_discovery",
+    "explicit_navigation": true,
+    "start_url": "https://www.allrecipes.com/longform/top-10-recipes-of-all-time/",
+    "instruction": "From the top-ten recipes article, follow the reference to “Easy Meatloaf” and retrieve its original servings and cooking time. Include the article and recipe URLs.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "title": "Easy Meatloaf",
+      "servings": 8,
+      "cook_time": "1 hour",
+      "article_url": "https://www.allrecipes.com/longform/top-10-recipes-of-all-time/",
+      "recipe_url": "https://www.allrecipes.com/recipe/16354/easy-meatloaf/"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/longform/top-10-recipes-of-all-time/",
+        "section": "Easy Meatloaf recipe link",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://www.allrecipes.com/recipe/16354/easy-meatloaf/",
+        "section": "Recipe summary",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "AR-14",
+    "website": "allrecipes.com",
+    "difficulty": "medium",
+    "task_type": "guided_discovery",
+    "explicit_navigation": true,
+    "start_url": "https://www.allrecipes.com/longform/top-10-recipes-of-all-time/",
+    "instruction": "From the top-ten recipes article, follow the reference to “To Die For Blueberry Muffins.” Retrieve the original yield and identify the ingredients assigned to its topping.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "yield": "8 large muffins",
+      "topping": [
+        "white sugar",
+        "all-purpose flour",
+        "butter",
+        "ground cinnamon"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/longform/top-10-recipes-of-all-time/",
+        "section": "Blueberry muffins recipe link",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://www.allrecipes.com/recipe/6865/to-die-for-blueberry-muffins/",
+        "section": "Recipe summary; Ingredients / Crumb Topping",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "AR-15",
+    "website": "allrecipes.com",
+    "difficulty": "medium",
+    "task_type": "guided_discovery",
+    "explicit_navigation": true,
+    "start_url": "https://www.allrecipes.com/article/how-to-freeze-leftovers/",
+    "instruction": "From the leftovers-freezing guide, locate the banana-bread section, then follow its recipe reference. Report the linked recipe title and its original yield.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "title": "Banana Banana Bread",
+      "yield": "1 (9 × 5-inch) loaf",
+      "servings": 12
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/article/how-to-freeze-leftovers/",
+        "section": "How to Freeze Banana Bread",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+        "section": "Recipe summary",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "AR-16",
+    "website": "allrecipes.com",
+    "difficulty": "medium",
+    "task_type": "section_reconciliation",
+    "explicit_navigation": false,
+    "start_url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+    "instruction": "For “Banana Banana Bread,” distinguish the bananas required by the ingredient list from the banana amounts mentioned in the quoted community feedback. Attribute each amount to its source section.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "recipe_card": "2 1/3 cups mashed overripe bananas",
+      "quoted_community_feedback": {
+        "SOULWOLF": "Usually about 5 medium bananas; has used as few as 3."
+      }
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+        "section": "Ingredients; Allrecipes Community Tips and Praise",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true,
+    "answer_notes": "The task is interpreted as the editorial section containing quoted community feedback, not the separately paginated photo/review feed. Other quoted contributors in that editorial section do not give a banana quantity."
+  },
+  {
+    "id": "AR-17",
+    "website": "allrecipes.com",
+    "difficulty": "medium",
+    "task_type": "guided_discovery",
+    "explicit_navigation": true,
+    "start_url": "https://www.allrecipes.com/longform/top-10-recipes-of-all-time/",
+    "instruction": "From the top-ten recipes article, follow the reference to “Oven-Roasted Asparagus.” Retrieve the oven temperature and the stated roasting duration from the recipe directions.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "oven": "425°F (220°C)",
+      "roasting": "12–15 minutes, depending on thickness"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/longform/top-10-recipes-of-all-time/",
+        "section": "Asparagus recipe link",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://www.allrecipes.com/recipe/214931/oven-roasted-asparagus/",
+        "section": "Directions, steps 1 and 4",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "AR-18",
+    "website": "allrecipes.com",
+    "difficulty": "hard",
+    "task_type": "bounded_comparison",
+    "explicit_navigation": true,
+    "start_url": "https://www.allrecipes.com/longform/top-10-recipes-of-all-time/",
+    "instruction": "From the top-ten recipes article, visit its two pancake recipes. Compare their raising agents, liquid ingredients, and original yields in a table, retaining the original units.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "Good Old-Fashioned Pancakes": {
+        "raising_agents": [
+          "3 1/2 tsp baking powder"
+        ],
+        "wet_ingredients": [
+          "1 1/4 cups milk",
+          "3 tbsp melted butter",
+          "1 large egg"
+        ],
+        "yield": "8 servings"
+      },
+      "Fluffy Pancakes": {
+        "raising_agents": [
+          "1 tsp baking powder",
+          "1/2 tsp baking soda"
+        ],
+        "wet_ingredients": [
+          "3/4 cup milk",
+          "2 tbsp white vinegar",
+          "2 tbsp melted butter",
+          "1 egg"
+        ],
+        "yield": "8 pancakes; 4 servings"
+      }
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/longform/top-10-recipes-of-all-time/",
+        "section": "Pancake recipe links",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/",
+        "section": "Ingredients; summary",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://www.allrecipes.com/recipe/162760/fluffy-pancakes/",
+        "section": "Ingredients; summary",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent.",
+    "answer_notes": "Wet ingredients includes egg and melted butter; pan-greasing oil or spray is not batter liquid."
+  },
+  {
+    "id": "AR-19",
+    "website": "allrecipes.com",
+    "difficulty": "hard",
+    "task_type": "bounded_comparison",
+    "explicit_navigation": true,
+    "start_url": "https://www.allrecipes.com/longform/top-10-recipes-of-all-time/",
+    "instruction": "From the top-ten recipes article, retrieve the banana-bread and zucchini-bread recipes. Compare their pan requirements, baking temperatures, and baking durations, keeping ranges intact.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "Banana Banana Bread": {
+        "pan": "one 9 × 5-inch loaf pan",
+        "oven": "350°F (175°C)",
+        "baking": "about 60 minutes"
+      },
+      "Mom’s Zucchini Bread": {
+        "pan": "two 8 × 4-inch loaf pans",
+        "oven": "325°F (165°C)",
+        "baking": "40–60 minutes"
+      }
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/longform/top-10-recipes-of-all-time/",
+        "section": "Bread recipe links",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+        "section": "Directions",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://www.allrecipes.com/recipe/6698/moms-zucchini-bread/",
+        "section": "Directions",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "AR-20",
+    "website": "allrecipes.com",
+    "difficulty": "hard",
+    "task_type": "bounded_filter",
+    "explicit_navigation": true,
+    "start_url": "https://www.allrecipes.com/longform/top-10-recipes-of-all-time/",
+    "instruction": "Consider only “Easy Meatloaf,” “World’s Best Lasagna,” and “Oven-Roasted Asparagus” linked from the top-ten article. Which have a stated total time of at most 90 minutes? Provide the stated time for every candidate, including excluded ones.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "matches": [
+        "Easy Meatloaf",
+        "Oven-Roasted Asparagus"
+      ],
+      "candidates": {
+        "Easy Meatloaf": {
+          "total_time": "1 hour 15 minutes",
+          "qualifies": true
+        },
+        "World’s Best Lasagna": {
+          "total_time": "3 hours 15 minutes",
+          "qualifies": false
+        },
+        "Oven-Roasted Asparagus": {
+          "total_time": "25 minutes",
+          "qualifies": true
+        }
+      }
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/longform/top-10-recipes-of-all-time/",
+        "section": "Named recipe links",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://www.allrecipes.com/recipe/16354/easy-meatloaf/",
+        "section": "Total Time",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://www.allrecipes.com/recipe/23600/worlds-best-lasagna/",
+        "section": "Total Time",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://www.allrecipes.com/recipe/214931/oven-roasted-asparagus/",
+        "section": "Total Time",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "AR-21",
+    "website": "allrecipes.com",
+    "difficulty": "hard",
+    "task_type": "multi_page_join",
+    "explicit_navigation": true,
+    "start_url": "https://www.allrecipes.com/article/how-to-freeze-leftovers/",
+    "instruction": "Read the pancake and banana-bread sections of the leftovers-freezing guide and their linked recipes. For each dish, report the recipe title, original yield, and the guide's freezing instructions. Keep guide evidence separate from recipe evidence.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "pancakes": {
+        "title": "Good Old-Fashioned Pancakes",
+        "yield": "8 servings",
+        "guide_instructions": "Cool; freeze separately on a lined tray for 1 hour. Stack with parchment or plastic between pancakes, bag for freezing, label with recipe and date; use within 2 months."
+      },
+      "banana_bread": {
+        "title": "Banana Banana Bread",
+        "yield": "1 (9 × 5-inch) loaf; 12 servings",
+        "guide_instructions": "Cool; tightly wrap loaf in plastic and foil. Alternatively wrap individual slices, then freezer-bag them. Label with recipe and date; use within 3 months."
+      }
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/article/how-to-freeze-leftovers/",
+        "section": "Pancake and banana-bread freezing sections",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/",
+        "section": "Recipe summary",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+        "section": "Recipe summary",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "AR-22",
+    "website": "allrecipes.com",
+    "difficulty": "hard",
+    "task_type": "bounded_comparison",
+    "explicit_navigation": true,
+    "start_url": "https://www.allrecipes.com/longform/top-10-recipes-of-all-time/",
+    "instruction": "Visit “Good Old-Fashioned Pancakes,” “Banana Banana Bread,” and “To Die For Blueberry Muffins” from the top-ten article. Compare stated calories and protein per serving, retaining each recipe's serving basis without assuming equal portion sizes.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "Good Old-Fashioned Pancakes": {
+        "calories": 158,
+        "protein": "5g",
+        "basis": "per serving; 8 servings per recipe"
+      },
+      "Banana Banana Bread": {
+        "calories": 231,
+        "protein": "4g",
+        "basis": "per serving; 12 servings per loaf"
+      },
+      "To Die For Blueberry Muffins": {
+        "calories": 381,
+        "protein": "4g",
+        "basis": "per serving; 8 large muffins / 8 servings"
+      }
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/longform/top-10-recipes-of-all-time/",
+        "section": "Named recipe links",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/",
+        "section": "Nutrition Facts",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+        "section": "Nutrition Facts",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://www.allrecipes.com/recipe/6865/to-die-for-blueberry-muffins/",
+        "section": "Nutrition Facts",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent.",
+    "answer_notes": "Serving weights are not established as equal."
+  },
+  {
+    "id": "AR-23",
+    "website": "allrecipes.com",
+    "difficulty": "hard",
+    "task_type": "conflict_detection",
+    "explicit_navigation": false,
+    "start_url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+    "instruction": "Compare the doneness advice in the test-kitchen tips with the doneness wording in the directions for “Banana Banana Bread.” Report both criteria and explain whether their wording agrees exactly, without choosing one as correct.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "tips_criterion": "Toothpick carries moist crumbs, without wet batter.",
+      "directions_criterion": "Toothpick emerges clean.",
+      "exact_agreement": false
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+        "section": "Test Kitchen Tips; Directions, step 4",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "AR-24",
+    "website": "allrecipes.com",
+    "difficulty": "hard",
+    "task_type": "bounded_comparison",
+    "explicit_navigation": true,
+    "start_url": "https://www.allrecipes.com/longform/top-10-recipes-of-all-time/",
+    "instruction": "From the top-ten article, visit “Best Chocolate Chip Cookies” and “To Die For Blueberry Muffins.” Identify which ingredient names occur in both recipe cards and which raising agents occur in only one. Exclude reader comments and optional serving suggestions.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "shared_ingredients": [
+        "all-purpose flour",
+        "white sugar",
+        "butter",
+        "egg",
+        "salt"
+      ],
+      "raising_agent_only_in_cookies": "baking soda",
+      "raising_agent_only_in_muffins": "baking powder"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/longform/top-10-recipes-of-all-time/",
+        "section": "Cookie and muffin links",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://www.allrecipes.com/recipe/10813/best-chocolate-chip-cookies/",
+        "section": "Ingredients",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://www.allrecipes.com/recipe/6865/to-die-for-blueberry-muffins/",
+        "section": "Ingredients, including Crumb Topping",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent.",
+    "answer_notes": "Ingredient-name comparison normalises egg/eggs and preparation descriptors; it includes the muffin topping."
+  },
+  {
+    "id": "AR-25",
+    "website": "allrecipes.com",
+    "difficulty": "hard",
+    "task_type": "bounded_filter",
+    "explicit_navigation": true,
+    "start_url": "https://www.allrecipes.com/longform/top-10-recipes-of-all-time/",
+    "instruction": "Among the banana bread, chocolate-chip cookies, and blueberry muffins linked from the top-ten article, which list brown sugar in the original recipe card? For each matching recipe, report its brown-sugar quantity and original yield; show the ingredient evidence for each nonmatch.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "matches": {
+        "Banana Banana Bread": {
+          "brown_sugar": "3/4 cup",
+          "yield": "1 loaf; 12 servings"
+        },
+        "Best Chocolate Chip Cookies": {
+          "brown_sugar": "1 cup, packed",
+          "yield": "4 dozen cookies; 48 servings"
+        }
+      },
+      "nonmatches": {
+        "To Die For Blueberry Muffins": {
+          "reason": "Original card uses white sugar in both muffin batter and crumb topping; no brown sugar.",
+          "batter_white_sugar": "3/4 cup",
+          "topping_white_sugar": "1/2 cup"
+        }
+      }
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.allrecipes.com/longform/top-10-recipes-of-all-time/",
+        "section": "Named recipe links",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
+        "section": "Ingredients; summary",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://www.allrecipes.com/recipe/10813/best-chocolate-chip-cookies/",
+        "section": "Ingredients; summary",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://www.allrecipes.com/recipe/6865/to-die-for-blueberry-muffins/",
+        "section": "Ingredients",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "FN-01",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://foodnetwork.co.uk/recipes/5-ingredient-chicken-with-peas-and-carrots",
+    "instruction": "For “5-Ingredient Chicken with Peas and Carrots,” report the number of chicken thighs required.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "chicken_thighs": 6
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes/5-ingredient-chicken-with-peas-and-carrots",
+        "section": "Ingredients",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "FN-02",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "easy",
+    "task_type": "ingredient_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://foodnetwork.co.uk/recipes/5-ingredient-chicken-with-peas-and-carrots",
+    "instruction": "For “5-Ingredient Chicken with Peas and Carrots,” retrieve the quantity of peas and whether they are fresh or frozen.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "peas": "150g",
+      "form": "frozen"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes/5-ingredient-chicken-with-peas-and-carrots",
+        "section": "Ingredients",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "FN-03",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "easy",
+    "task_type": "method_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://foodnetwork.co.uk/recipes/5-ingredient-chicken-with-peas-and-carrots",
+    "instruction": "What oven temperature is specified in “5-Ingredient Chicken with Peas and Carrots”? Retain the displayed unit.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "oven": "200°C"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes/5-ingredient-chicken-with-peas-and-carrots",
+        "section": "Method, step 1",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "FN-04",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "easy",
+    "task_type": "ingredient_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://foodnetwork.co.uk/recipes/brownie-pudding",
+    "instruction": "For “Brownie Pudding,” identify the chocolate or cocoa ingredient and its listed quantity.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "ingredient": "good cocoa powder",
+      "quantity": "85g"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes/brownie-pudding",
+        "section": "Ingredients",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "FN-05",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "easy",
+    "task_type": "method_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://foodnetwork.co.uk/recipes/brownie-pudding",
+    "instruction": "For “Brownie Pudding,” retrieve the dimensions or capacity of the baking dish specified in the method.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "dish": "oval baking dish, 9 × 12 × 2 inches"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes/brownie-pudding",
+        "section": "Method, step 1",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "FN-06",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "easy",
+    "task_type": "ingredient_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://foodnetwork.co.uk/recipes/5-ingredient-chicken-with-peas-and-carrots",
+    "instruction": "What form of chicken thighs does “5-Ingredient Chicken with Peas and Carrots” specify regarding skin and bones?",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "chicken_thighs": "bone-in, skin-on"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes/5-ingredient-chicken-with-peas-and-carrots",
+        "section": "Ingredients",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "FN-07",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "easy",
+    "task_type": "section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://foodnetwork.co.uk/recipes",
+    "instruction": "On the Recipes page, go to “Explore By Diet” and list the dietary collection names displayed there. Do not include counts.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "collections": [
+        "Vegetarian Recipes",
+        "Vegan Recipes",
+        "Gluten-Free Recipes",
+        "Dairy-Free Recipes",
+        "Healthy Recipes"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes",
+        "section": "Explore By Diet",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "FN-08",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "easy",
+    "task_type": "section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://foodnetwork.co.uk/recipes",
+    "instruction": "On the Recipes page, go to “Explore by Course” and report the course collection names displayed there.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "collections": [
+        "Starter Recipes",
+        "Main Course Recipes",
+        "Dessert Recipes",
+        "Side Dish Recipes"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes",
+        "section": "Explore by Course",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "FN-09",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "medium",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://foodnetwork.co.uk/recipes/5-ingredient-chicken-with-peas-and-carrots",
+    "instruction": "For “5-Ingredient Chicken with Peas and Carrots,” retrieve the two stovetop cooking durations and the oven-baking duration, labelled by stage.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "stovetop_skin_side": "about 5 minutes",
+      "stovetop_after_turning": "2 minutes",
+      "oven_baking": "30–40 minutes"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes/5-ingredient-chicken-with-peas-and-carrots",
+        "section": "Method, steps 2 and 4",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "FN-10",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "medium",
+    "task_type": "method_sequence",
+    "explicit_navigation": false,
+    "start_url": "https://foodnetwork.co.uk/recipes/5-ingredient-chicken-with-peas-and-carrots",
+    "instruction": "Describe, from the method, when the peas are added and what happens to the oven afterward in “5-Ingredient Chicken with Peas and Carrots.”",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "peas_added": "After oven-baking the chicken and carrots.",
+      "next_steps": "Return pan to oven and switch oven off; residual heat warms and thaws peas."
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes/5-ingredient-chicken-with-peas-and-carrots",
+        "section": "Method, step 5",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "FN-11",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "medium",
+    "task_type": "ingredient_role",
+    "explicit_navigation": false,
+    "start_url": "https://foodnetwork.co.uk/recipes/5-ingredient-chicken-with-peas-and-carrots",
+    "instruction": "For “5-Ingredient Chicken with Peas and Carrots,” retrieve how the carrot tops are used and identify the other ingredients combined with them.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "carrot_tops_role": "gremolata",
+      "combined_with": [
+        "garlic",
+        "lemon zest",
+        "lemon juice",
+        "salt",
+        "extra-virgin olive oil"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes/5-ingredient-chicken-with-peas-and-carrots",
+        "section": "Method, steps 6–7",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "FN-12",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "medium",
+    "task_type": "method_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://foodnetwork.co.uk/recipes/brownie-pudding",
+    "instruction": "For “Brownie Pudding,” retrieve the oven temperature, baking duration, and stated test for doneness. Keep the original units and any ranges.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "oven": "160°C",
+      "baking": "exactly 1 hour",
+      "test": "Tester 2 inches from the edge is 3/4 clean; centre still looks substantially underbaked."
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes/brownie-pudding",
+        "section": "Method, steps 1 and 4",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "FN-13",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "medium",
+    "task_type": "guided_discovery",
+    "explicit_navigation": true,
+    "start_url": "https://foodnetwork.co.uk/recipes",
+    "instruction": "From the Recipes page, follow the recipe reference for “5-Ingredient Sausage and Pea Pasta.” Retrieve the pasta type and the listed sausage and pea quantities.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "pasta_type": "rigatoni",
+      "sausage": "1 pound hot Italian sausage, casings removed",
+      "peas": "150g frozen peas"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes",
+        "section": "Recent Recipes",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://foodnetwork.co.uk/recipes/5-ingredient-sausage-and-pea-pasta",
+        "section": "Ingredients",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "FN-14",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "medium",
+    "task_type": "guided_discovery",
+    "explicit_navigation": true,
+    "start_url": "https://foodnetwork.co.uk/recipes",
+    "instruction": "From the Recipes page, follow the recipe reference for “Coconut-Chia Pudding Breakfast Bowl.” Retrieve the chia-seed quantity and any explicit chilling or standing duration; distinguish a missing duration from zero.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "chia_seeds": "2 tablespoons",
+      "chilling": "covered in refrigerator overnight"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes",
+        "section": "Breakfast feature / Now Trending",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://foodnetwork.co.uk/recipes/coconut-chia-pudding-breakfast-bowl",
+        "section": "Ingredients; Method",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "FN-15",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "medium",
+    "task_type": "guided_discovery",
+    "explicit_navigation": true,
+    "start_url": "https://foodnetwork.co.uk/recipes",
+    "instruction": "From the Recipes page, follow the reference for “Cherry Polenta Cake.” Retrieve the cherry preparation and the type of polenta specified in its ingredient list.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "cherries": "450g fresh cherries, pitted",
+      "polenta_ingredient": "78g fine cornmeal"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes",
+        "section": "Featured Recipes",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://foodnetwork.co.uk/recipes/cherry-polenta-cake",
+        "section": "Ingredients",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "FN-16",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "medium",
+    "task_type": "guided_discovery",
+    "explicit_navigation": true,
+    "start_url": "https://foodnetwork.co.uk/recipes",
+    "instruction": "From the Recipes page, follow the reference for “Crispy Smashed Potatoes with Chimichurri Dressing.” Retrieve the potato type and the ingredients explicitly grouped under the dressing.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "potato_type": "baby potatoes (description)",
+      "chimichurri_ingredients": [
+        "2 cloves finely chopped garlic",
+        "1/4 bunch finely chopped coriander",
+        "1/4 bunch finely chopped parsley",
+        "120ml olive oil",
+        "salt"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes",
+        "section": "Featured Recipes",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://foodnetwork.co.uk/recipes/crispy-smashed-potatoes-with-chimichurri-dressing",
+        "section": "Description; Ingredients / Chimichurri",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent.",
+    "answer_notes": "The retrieved ingredient list omits the potatoes themselves. Baby potatoes is supported by the description; a cultivar and potato quantity are not stated there."
+  },
+  {
+    "id": "FN-17",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "medium",
+    "task_type": "guided_discovery",
+    "explicit_navigation": true,
+    "start_url": "https://foodnetwork.co.uk/recipes",
+    "instruction": "From the Recipes page, follow “Speedy Teriyaki Salmon.” Retrieve the salmon quantity and the ingredients used for its sauce, with their stated amounts.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "salmon": "four 170g fillets",
+      "sauce": [
+        "480ml teriyaki sauce",
+        "zest of 1/2 lime added during reduction"
+      ],
+      "lime_quantity_in_card": "2 limes; remaining lime used as garnish"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes",
+        "section": "Recent Recipes",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://foodnetwork.co.uk/recipes/speedy-teriyaki-salmon",
+        "section": "Ingredients; Method, step 3",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent.",
+    "answer_notes": "Teriyaki sauce is a supplied ingredient; the recipe does not give its constituent ingredients. Vegetable oil is used for frying."
+  },
+  {
+    "id": "FN-18",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "hard",
+    "task_type": "bounded_comparison",
+    "explicit_navigation": true,
+    "start_url": "https://foodnetwork.co.uk/recipes",
+    "instruction": "From the Recipes page, visit “5-Ingredient Chicken with Peas and Carrots” and “5-Ingredient Sausage and Pea Pasta.” Compare the pea quantities and the stage at which peas enter each method.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "chicken_recipe": {
+        "peas": "150g frozen",
+        "added": "After oven-baking; warmed using residual oven heat."
+      },
+      "sausage_pasta": {
+        "peas": "150g frozen",
+        "added": "After pasta cooking, with heat off; stand about 1 minute before draining."
+      }
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes",
+        "section": "Recent Recipes",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://foodnetwork.co.uk/recipes/5-ingredient-chicken-with-peas-and-carrots",
+        "section": "Ingredients; Method, step 5",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://foodnetwork.co.uk/recipes/5-ingredient-sausage-and-pea-pasta",
+        "section": "Ingredients; Method, step 4",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "FN-19",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "hard",
+    "task_type": "bounded_comparison",
+    "explicit_navigation": true,
+    "start_url": "https://foodnetwork.co.uk/recipes",
+    "instruction": "Visit “Brownie Pudding” and “Cherry Polenta Cake” via the Recipes page. Compare oven temperatures, baking durations, and doneness tests. Keep any missing field explicit.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "Brownie Pudding": {
+        "oven": "160°C",
+        "duration": "exactly 1 hour",
+        "doneness": "Tester 2 inches from edge is 3/4 clean; centre looks underbaked."
+      },
+      "Cherry Polenta Cake": {
+        "oven_alternative": "190°C",
+        "duration": "30 minutes after initial stovetop setting",
+        "grill_method": "Medium-high direct heat to start, then indirect heat with lid closed for about 30 minutes.",
+        "doneness": "puffed and golden brown"
+      }
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes",
+        "section": "Featured Recipes; Now Trending",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://foodnetwork.co.uk/recipes/brownie-pudding",
+        "section": "Method",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://foodnetwork.co.uk/recipes/cherry-polenta-cake",
+        "section": "Method, steps 1, 4 and 6",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent.",
+    "answer_notes": "Cherry Polenta Cake gives a grill method plus a separate stovetop/oven alternative; do not assign 190°C to the grill."
+  },
+  {
+    "id": "FN-20",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "hard",
+    "task_type": "bounded_comparison",
+    "explicit_navigation": true,
+    "start_url": "https://foodnetwork.co.uk/recipes",
+    "instruction": "Visit “Breadless Cucumber Tuna Salad Sandwiches,” “Keto Tuna Salad Cups,” and “The Best Tuna Salad” via the Recipes page. Compare their tuna quantities and the ingredients used to bind or dress the tuna; cite the ingredient lists and methods.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "Breadless Cucumber Tuna Salad Sandwiches": {
+        "tuna": "two 5-ounce cans chunk light tuna in water, drained",
+        "binding_dressing": [
+          "60ml low-fat plain yogurt",
+          "2 tbsp mayonnaise",
+          "red-wine-vinegar, Dijon and olive-oil vinaigrette"
+        ],
+        "flavouring": [
+          "dill",
+          "celery leaves",
+          "scallions",
+          "celery",
+          "lemon zest",
+          "salt",
+          "pepper"
+        ]
+      },
+      "Keto Tuna Salad Cups": {
+        "tuna": "two 5-ounce cans tuna in olive oil; reserve 2 tbsp oil and drain rest",
+        "binding_dressing": [
+          "75ml olive- or avocado-oil mayonnaise",
+          "2 tbsp sour cream",
+          "reserved tuna oil",
+          "lemon zest and juice"
+        ],
+        "flavouring": [
+          "celery",
+          "scallions",
+          "salt",
+          "pepper"
+        ]
+      },
+      "The Best Tuna Salad": {
+        "tuna": "two 6-ounce cans white-meat tuna in water, drained",
+        "binding_dressing": [
+          "75ml mayonnaise",
+          "1 tbsp whole-grain mustard",
+          "optional lemon juice to taste"
+        ],
+        "flavouring": [
+          "celery",
+          "red onion",
+          "parsley",
+          "pepper"
+        ]
+      }
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes/breadless-cucumber-tuna-salad-sandwiches",
+        "section": "Ingredients; Method",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://foodnetwork.co.uk/recipes/keto-tuna-salad-cups",
+        "section": "Ingredients; Method",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://foodnetwork.co.uk/recipes/the-best-tuna-salad",
+        "section": "Ingredients; Method",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "needs_revalidation",
+    "scorable": false,
+    "navigation_evidence_note": "Recipe answers were verified by direct page reads. One or more target recipes no longer appeared as direct links in the retrieved Recipes index. The full requested route was not established; do not score navigation using this annotation.",
+    "scoring_note": "Factual answer can be scored with the supplied recipe URLs; original navigation task requires route repair or a frozen snapshot."
+  },
+  {
+    "id": "FN-21",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "hard",
+    "task_type": "multi_hop",
+    "explicit_navigation": true,
+    "start_url": "https://foodnetwork.co.uk/recipes/5-ingredient-chicken-with-peas-and-carrots",
+    "instruction": "From “5-Ingredient Chicken with Peas and Carrots,” follow the related-recipe reference to “5-Ingredient Chicken Pesto Soup.” Compare the form of chicken used and how it is cooked or heated in each recipe.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "chicken_with_peas_and_carrots": {
+        "form": "6 bone-in, skin-on thighs",
+        "method": "Brown skin-side about 5 minutes, turn for 2 minutes, then oven-bake 30–40 minutes."
+      },
+      "chicken_pesto_soup": {
+        "form": "900g bone-in, skin-on thighs, about 6",
+        "method": "Simmer in chicken stock 40 minutes; remove bones and skin, shred meat and return it with spinach; cook about 1 minute."
+      }
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes/5-ingredient-chicken-with-peas-and-carrots",
+        "section": "Related Recipes; Ingredients; Method",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://foodnetwork.co.uk/recipes/5-ingredient-chicken-pesto-soup",
+        "section": "Ingredients; Method",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "FN-22",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "hard",
+    "task_type": "section_reconciliation",
+    "explicit_navigation": false,
+    "start_url": "https://foodnetwork.co.uk/recipes/5-ingredient-chicken-with-peas-and-carrots",
+    "instruction": "For “5-Ingredient Chicken with Peas and Carrots,” distinguish the oven setting from the chicken's target internal temperature. Also retrieve the instruction explaining how the peas heat through after baking.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "oven_setting": "200°C",
+      "chicken_internal_target": "74°C",
+      "peas": "After baking, return pan with added peas to switched-off oven; retained heat thaws and warms them."
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes/5-ingredient-chicken-with-peas-and-carrots",
+        "section": "Method, steps 1, 4–5",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "FN-23",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "hard",
+    "task_type": "bounded_comparison",
+    "explicit_navigation": true,
+    "start_url": "https://foodnetwork.co.uk/recipes",
+    "instruction": "From the Recipes page, retrieve “Cherry Clafoutis” and “Cherry Polenta Cake.” Compare the cherry preparation, flour or grain ingredients, and baking-vessel requirements.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "Cherry Clafoutis": {
+        "cherries": "1 pound pitted fresh cherries, or one 10-ounce bag frozen cherries thawed and patted dry",
+        "flour_grain": "60g all-purpose flour",
+        "vessel": "buttered 11-inch-round baking dish"
+      },
+      "Cherry Polenta Cake": {
+        "cherries": "450g pitted fresh cherries",
+        "flour_grain": [
+          "78g fine cornmeal",
+          "30g all-purpose flour"
+        ],
+        "vessel": "10–12-inch cast-iron skillet"
+      }
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes/cherry-clafoutis-1",
+        "section": "Ingredients; Method, step 1",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://foodnetwork.co.uk/recipes/cherry-polenta-cake",
+        "section": "Ingredients; Method, step 3",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "needs_revalidation",
+    "scorable": false,
+    "navigation_evidence_note": "Recipe answers were verified by direct page reads. One or more target recipes no longer appeared as direct links in the retrieved Recipes index. The full requested route was not established; do not score navigation using this annotation.",
+    "scoring_note": "Factual answer can be scored with the supplied recipe URLs; original navigation task requires route repair or a frozen snapshot."
+  },
+  {
+    "id": "FN-24",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "hard",
+    "task_type": "bounded_filter",
+    "explicit_navigation": true,
+    "start_url": "https://foodnetwork.co.uk/recipes",
+    "instruction": "Inspect only “Breadless Cucumber Tuna Salad Sandwiches,” “Keto Tuna Salad Cups,” and “The Best Tuna Salad,” reached from the Recipes page. Which explicitly list mayonnaise? Report its amount and any listed alternative for every matching recipe, and cite all three ingredient lists.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "matches": {
+        "Breadless Cucumber Tuna Salad Sandwiches": {
+          "mayonnaise": "2 tablespoons",
+          "alternative": "not_stated"
+        },
+        "Keto Tuna Salad Cups": {
+          "mayonnaise": "75ml",
+          "alternative": "olive-oil or avocado-oil mayonnaise"
+        },
+        "The Best Tuna Salad": {
+          "mayonnaise": "75ml prepared mayonnaise",
+          "alternative": "not_stated"
+        }
+      },
+      "nonmatches": []
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes/breadless-cucumber-tuna-salad-sandwiches",
+        "section": "Ingredients",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://foodnetwork.co.uk/recipes/keto-tuna-salad-cups",
+        "section": "Ingredients",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://foodnetwork.co.uk/recipes/the-best-tuna-salad",
+        "section": "Ingredients; Cook’s Note",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "needs_revalidation",
+    "scorable": false,
+    "navigation_evidence_note": "Recipe answers were verified by direct page reads. One or more target recipes no longer appeared as direct links in the retrieved Recipes index. The full requested route was not established; do not score navigation using this annotation.",
+    "answer_notes": "Yogurt and sour cream are additional ingredients, not stated mayonnaise substitutes. The Best Tuna Salad note substitutes mustard, not mayonnaise.",
+    "scoring_note": "Factual answer can be scored with the supplied recipe URLs; original navigation task requires route repair or a frozen snapshot."
+  },
+  {
+    "id": "FN-25",
+    "website": "foodnetwork.co.uk",
+    "difficulty": "hard",
+    "task_type": "multi_page_join",
+    "explicit_navigation": true,
+    "start_url": "https://foodnetwork.co.uk/recipes",
+    "instruction": "From the Recipes page, visit “Brownie Pudding,” “Cherry Polenta Cake,” and “Dulce de Leche Lava Cakes.” For each, retrieve any explicitly stated cooling, resting, or serving-temperature instructions. Separate these from baking durations and mark absent instructions as not stated.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "Brownie Pudding": {
+        "before_mixing": "Let melted butter cool.",
+        "after_baking": "Allow pudding to cool; duration and serving temperature not specified."
+      },
+      "Cherry Polenta Cake": {
+        "after_cooking": "Cool slightly before loosening and transferring; duration not stated."
+      },
+      "Dulce de Leche Lava Cakes": {
+        "after_baking": "Stand 1 minute; unmould while warm.",
+        "serving": "Serve warm with powdered sugar and ice cream."
+      }
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://foodnetwork.co.uk/recipes/brownie-pudding",
+        "section": "Method, steps 1 and 5",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://foodnetwork.co.uk/recipes/cherry-polenta-cake",
+        "section": "Method, step 5",
+        "evidence_type": "retrieved_page_text"
+      },
+      {
+        "url": "https://foodnetwork.co.uk/recipes/dulce-de-leche-lava-cakes",
+        "section": "Description; Method, step 3",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "navigation_status": "needs_revalidation",
+    "scorable": false,
+    "navigation_evidence_note": "Recipe answers were verified by direct page reads. One or more target recipes no longer appeared as direct links in the retrieved Recipes index. The full requested route was not established; do not score navigation using this annotation.",
+    "scoring_note": "Factual answer can be scored with the supplied recipe URLs; original navigation task requires route repair or a frozen snapshot."
+  },
+  {
+    "id": "F52-01",
+    "website": "food52.com",
+    "difficulty": "easy",
+    "task_type": "ingredient_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://food52.com/recipes/24215-perfect-popcorn",
+    "instruction": "For “Perfect Popcorn,” retrieve the quantity of popcorn kernels, retaining the original unit.",
+    "validation_status": "provisional_index_evidence_only",
+    "gold_answer": {
+      "popcorn_kernels": "1/3 cup"
+    },
+    "answer_status": "index_supported_not_page_verified",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "section": "Indexed recipe snippet observed during task design",
+        "evidence_type": "search_index_snippet"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": false,
+    "answer_notes": "Provisional: supported by a previously retrieved first-party search-index snippet, but full-page access returned 403. Exclude from the verified benchmark until checked against a page snapshot.",
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    }
+  },
+  {
+    "id": "F52-02",
+    "website": "food52.com",
+    "difficulty": "easy",
+    "task_type": "ingredient_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://food52.com/recipes/24215-perfect-popcorn",
+    "instruction": "For “Perfect Popcorn,” retrieve the quantity and type of oil specified in the ingredient list.",
+    "validation_status": "provisional_index_evidence_only",
+    "gold_answer": {
+      "oil": "3 tablespoons neutral oil"
+    },
+    "answer_status": "index_supported_not_page_verified",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "section": "Indexed recipe snippet observed during task design",
+        "evidence_type": "search_index_snippet"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": false,
+    "answer_notes": "Provisional: supported by a previously retrieved first-party search-index snippet, but full-page access returned 403. Exclude from the verified benchmark until checked against a page snapshot.",
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    }
+  },
+  {
+    "id": "F52-03",
+    "website": "food52.com",
+    "difficulty": "easy",
+    "task_type": "method_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://food52.com/recipes/24215-perfect-popcorn",
+    "instruction": "How many kernels are initially placed in the pan in “Perfect Popcorn” to test the oil?",
+    "validation_status": "provisional_index_evidence_only",
+    "gold_answer": {
+      "initial_test_kernels": 3
+    },
+    "answer_status": "index_supported_not_page_verified",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "section": "Indexed recipe snippet observed during task design",
+        "evidence_type": "search_index_snippet"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": false,
+    "answer_notes": "Provisional: supported by a previously retrieved first-party search-index snippet, but full-page access returned 403. Exclude from the verified benchmark until checked against a page snapshot.",
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    }
+  },
+  {
+    "id": "F52-04",
+    "website": "food52.com",
+    "difficulty": "easy",
+    "task_type": "equipment_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://food52.com/recipes/39135-krumkake",
+    "instruction": "What specialised cooking equipment is explicitly required for “Krumkake”?",
+    "validation_status": "provisional_index_evidence_only",
+    "gold_answer": {
+      "equipment": "krumkake iron"
+    },
+    "answer_status": "index_supported_not_page_verified",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://food52.com/recipes/39135-krumkake",
+        "section": "Indexed recipe snippet observed during task design",
+        "evidence_type": "search_index_snippet"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": false,
+    "answer_notes": "Provisional: supported by a previously retrieved first-party search-index snippet, but full-page access returned 403. Exclude from the verified benchmark until checked against a page snapshot.",
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    }
+  },
+  {
+    "id": "F52-05",
+    "website": "food52.com",
+    "difficulty": "easy",
+    "task_type": "attribution",
+    "explicit_navigation": false,
+    "start_url": "https://food52.com/recipes/24215-perfect-popcorn",
+    "instruction": "Who is credited as the author of “Perfect Popcorn”? Use the recipe credit rather than a commenter name.",
+    "validation_status": "blocked_not_answer_validated",
+    "gold_answer": null,
+    "navigation_status": "not_applicable",
+    "scorable": false,
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    },
+    "answer_status": "unresolved_access_failure",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [],
+    "unresolved_reason": "Full-page Food52 access was unavailable. Retrieved search results did not establish a complete answer. A 403 response is not a gold answer to the factual question."
+  },
+  {
+    "id": "F52-06",
+    "website": "food52.com",
+    "difficulty": "easy",
+    "task_type": "ingredient_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://food52.com/recipes/11471-chicken-kiev",
+    "instruction": "For “Chicken Kiev,” identify the ingredients explicitly used in the butter filling.",
+    "validation_status": "blocked_not_answer_validated",
+    "gold_answer": null,
+    "navigation_status": "not_applicable",
+    "scorable": false,
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    },
+    "answer_status": "unresolved_access_failure",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [],
+    "unresolved_reason": "Full-page Food52 access was unavailable. Retrieved search results did not establish a complete answer. A 403 response is not a gold answer to the factual question."
+  },
+  {
+    "id": "F52-07",
+    "website": "food52.com",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://food52.com/recipes/13641-pamonha",
+    "instruction": "According to the recipe's author notes, which country is associated with “Pamonha”?",
+    "validation_status": "provisional_index_evidence_only",
+    "gold_answer": {
+      "country": "Brazil"
+    },
+    "answer_status": "index_supported_not_page_verified",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://food52.com/recipes/13641-pamonha",
+        "section": "Indexed recipe snippet observed during task design",
+        "evidence_type": "search_index_snippet"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": false,
+    "answer_notes": "Provisional: supported by a previously retrieved first-party search-index snippet, but full-page access returned 403. Exclude from the verified benchmark until checked against a page snapshot.",
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    }
+  },
+  {
+    "id": "F52-08",
+    "website": "food52.com",
+    "difficulty": "easy",
+    "task_type": "section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://food52.com/recipes/dinner",
+    "instruction": "On the Dinner recipes page, identify the recipe title containing both white beans and kale. Return its displayed title and recipe URL.",
+    "validation_status": "blocked_not_answer_validated",
+    "gold_answer": null,
+    "navigation_status": "unverified_due_to_access_failure",
+    "scorable": false,
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    },
+    "answer_status": "unresolved_access_failure",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://food52.com/recipes/dinner",
+        "section": "Indexed Dinner recipe list",
+        "evidence_type": "search_index_snippet"
+      }
+    ],
+    "unresolved_reason": "Full-page Food52 access was unavailable. Retrieved search results did not establish a complete answer. A 403 response is not a gold answer to the factual question.",
+    "partial_answer": {
+      "recipe_title": "White Bean & Kale Soup With Chicken Sausage",
+      "recipe_url": null
+    }
+  },
+  {
+    "id": "F52-09",
+    "website": "food52.com",
+    "difficulty": "medium",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://food52.com/recipes/24215-perfect-popcorn",
+    "instruction": "For “Perfect Popcorn,” retrieve the original yield, all ingredient quantities, and the initial heat setting. Mark any unavailable field as not stated.",
+    "validation_status": "blocked_not_answer_validated",
+    "gold_answer": null,
+    "navigation_status": "not_applicable",
+    "scorable": false,
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    },
+    "answer_status": "unresolved_access_failure",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "section": "Previously observed indexed ingredients and opening method",
+        "evidence_type": "search_index_snippet"
+      }
+    ],
+    "unresolved_reason": "Full-page Food52 access was unavailable. Retrieved search results did not establish a complete answer. A 403 response is not a gold answer to the factual question.",
+    "partial_answer": {
+      "oil": "3 tablespoons neutral oil",
+      "popcorn_kernels": "1/3 cup",
+      "initial_heat": "medium-high",
+      "original_yield": null
+    }
+  },
+  {
+    "id": "F52-10",
+    "website": "food52.com",
+    "difficulty": "medium",
+    "task_type": "method_sequence",
+    "explicit_navigation": false,
+    "start_url": "https://food52.com/recipes/24215-perfect-popcorn",
+    "instruction": "For “Perfect Popcorn,” describe the sequence from testing the oil to adding the remaining kernels, using only the recipe directions.",
+    "validation_status": "blocked_not_answer_validated",
+    "gold_answer": null,
+    "navigation_status": "not_applicable",
+    "scorable": false,
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    },
+    "answer_status": "unresolved_access_failure",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "section": "Previously observed indexed opening method",
+        "evidence_type": "search_index_snippet"
+      }
+    ],
+    "unresolved_reason": "Full-page Food52 access was unavailable. Retrieved search results did not establish a complete answer. A 403 response is not a gold answer to the factual question.",
+    "partial_answer": {
+      "initial_step": "Oil and 3 test kernels in a heavy-bottomed pan over medium-high heat.",
+      "remaining_sequence": null
+    }
+  },
+  {
+    "id": "F52-11",
+    "website": "food52.com",
+    "difficulty": "medium",
+    "task_type": "method_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://food52.com/recipes/39135-krumkake",
+    "instruction": "For “Krumkake,” retrieve the instruction for shaping the cooked cookie and any timing cue for doing so.",
+    "validation_status": "blocked_not_answer_validated",
+    "gold_answer": null,
+    "navigation_status": "not_applicable",
+    "scorable": false,
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    },
+    "answer_status": "unresolved_access_failure",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [],
+    "unresolved_reason": "Full-page Food52 access was unavailable. Retrieved search results did not establish a complete answer. A 403 response is not a gold answer to the factual question."
+  },
+  {
+    "id": "F52-12",
+    "website": "food52.com",
+    "difficulty": "medium",
+    "task_type": "section_reconciliation",
+    "explicit_navigation": false,
+    "start_url": "https://food52.com/recipes/11471-chicken-kiev",
+    "instruction": "For “Chicken Kiev,” retrieve how the chicken is prepared for filling, how the butter is enclosed, and the coating sequence.",
+    "validation_status": "blocked_not_answer_validated",
+    "gold_answer": null,
+    "navigation_status": "not_applicable",
+    "scorable": false,
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    },
+    "answer_status": "unresolved_access_failure",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [],
+    "unresolved_reason": "Full-page Food52 access was unavailable. Retrieved search results did not establish a complete answer. A 403 response is not a gold answer to the factual question."
+  },
+  {
+    "id": "F52-13",
+    "website": "food52.com",
+    "difficulty": "medium",
+    "task_type": "guided_discovery",
+    "explicit_navigation": true,
+    "start_url": "https://food52.com/recipes/dinner",
+    "instruction": "From the Dinner recipes page, follow “Miso Pumpkin Pasta.” Retrieve the pasta type, the pumpkin ingredient, and the miso type or types specified.",
+    "validation_status": "blocked_not_answer_validated",
+    "gold_answer": null,
+    "navigation_status": "unverified_due_to_access_failure",
+    "scorable": false,
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    },
+    "answer_status": "unresolved_access_failure",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [],
+    "unresolved_reason": "Full-page Food52 access was unavailable. Retrieved search results did not establish a complete answer. A 403 response is not a gold answer to the factual question."
+  },
+  {
+    "id": "F52-14",
+    "website": "food52.com",
+    "difficulty": "medium",
+    "task_type": "guided_discovery",
+    "explicit_navigation": true,
+    "start_url": "https://food52.com/recipes/dinner",
+    "instruction": "From the Dinner recipes page, follow “White Bean & Kale Soup With Chicken Sausage.” Retrieve the bean form, kale preparation, and sausage quantity.",
+    "validation_status": "blocked_not_answer_validated",
+    "gold_answer": null,
+    "navigation_status": "unverified_due_to_access_failure",
+    "scorable": false,
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    },
+    "answer_status": "unresolved_access_failure",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [],
+    "unresolved_reason": "Full-page Food52 access was unavailable. Retrieved search results did not establish a complete answer. A 403 response is not a gold answer to the factual question."
+  },
+  {
+    "id": "F52-15",
+    "website": "food52.com",
+    "difficulty": "medium",
+    "task_type": "guided_discovery",
+    "explicit_navigation": true,
+    "start_url": "https://food52.com/recipes/potato",
+    "instruction": "From the Potato recipes page, follow “Polish Dill Pickle Soup (Zupa Ogórkowa).” Retrieve the pickle quantity and any pickle-brine quantity listed separately.",
+    "validation_status": "blocked_not_answer_validated",
+    "gold_answer": null,
+    "navigation_status": "unverified_due_to_access_failure",
+    "scorable": false,
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    },
+    "answer_status": "unresolved_access_failure",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [],
+    "unresolved_reason": "Full-page Food52 access was unavailable. Retrieved search results did not establish a complete answer. A 403 response is not a gold answer to the factual question."
+  },
+  {
+    "id": "F52-16",
+    "website": "food52.com",
+    "difficulty": "medium",
+    "task_type": "guided_discovery",
+    "explicit_navigation": true,
+    "start_url": "https://food52.com/recipes/grill-barbecue",
+    "instruction": "From the Grill/Barbecue recipes page, follow “Grilled Corn with Teriyaki Butter.” Identify the ingredients assigned to the flavoured butter and retrieve their amounts.",
+    "validation_status": "blocked_not_answer_validated",
+    "gold_answer": null,
+    "navigation_status": "unverified_due_to_access_failure",
+    "scorable": false,
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    },
+    "answer_status": "unresolved_access_failure",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [],
+    "unresolved_reason": "Full-page Food52 access was unavailable. Retrieved search results did not establish a complete answer. A 403 response is not a gold answer to the factual question."
+  },
+  {
+    "id": "F52-17",
+    "website": "food52.com",
+    "difficulty": "medium",
+    "task_type": "guided_discovery",
+    "explicit_navigation": true,
+    "start_url": "https://food52.com/recipes/dinner",
+    "instruction": "From the Dinner recipes page, follow “Spicy Rigatoni With Fennel Sausage Ragu.” Retrieve the sausage type, pasta quantity, and any explicitly stated sauce-simmering duration.",
+    "validation_status": "blocked_not_answer_validated",
+    "gold_answer": null,
+    "navigation_status": "unverified_due_to_access_failure",
+    "scorable": false,
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    },
+    "answer_status": "unresolved_access_failure",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [],
+    "unresolved_reason": "Full-page Food52 access was unavailable. Retrieved search results did not establish a complete answer. A 403 response is not a gold answer to the factual question."
+  },
+  {
+    "id": "F52-18",
+    "website": "food52.com",
+    "difficulty": "hard",
+    "task_type": "bounded_comparison",
+    "explicit_navigation": true,
+    "start_url": "https://food52.com/recipes/dinner",
+    "instruction": "From the Dinner recipes page, retrieve “Miso Pumpkin Pasta” and “Spicy Rigatoni With Fennel Sausage Ragu.” Compare pasta quantities, original yields, and the ingredients providing the main sauce base.",
+    "validation_status": "blocked_not_answer_validated",
+    "gold_answer": null,
+    "navigation_status": "unverified_due_to_access_failure",
+    "scorable": false,
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    },
+    "answer_status": "unresolved_access_failure",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [],
+    "unresolved_reason": "Full-page Food52 access was unavailable. Retrieved search results did not establish a complete answer. A 403 response is not a gold answer to the factual question."
+  },
+  {
+    "id": "F52-19",
+    "website": "food52.com",
+    "difficulty": "hard",
+    "task_type": "bounded_comparison",
+    "explicit_navigation": true,
+    "start_url": "https://food52.com/recipes/dinner",
+    "instruction": "Retrieve “White Bean & Kale Soup With Chicken Sausage” and “Roasted Cauliflower White Cheddar Soup” through the Dinner recipes page. Compare the stated stock or broth ingredients, their amounts, and any listed alternatives.",
+    "validation_status": "blocked_not_answer_validated",
+    "gold_answer": null,
+    "navigation_status": "unverified_due_to_access_failure",
+    "scorable": false,
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    },
+    "answer_status": "unresolved_access_failure",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [],
+    "unresolved_reason": "Full-page Food52 access was unavailable. Retrieved search results did not establish a complete answer. A 403 response is not a gold answer to the factual question."
+  },
+  {
+    "id": "F52-20",
+    "website": "food52.com",
+    "difficulty": "hard",
+    "task_type": "bounded_filter",
+    "explicit_navigation": true,
+    "start_url": "https://food52.com/recipes/dinner",
+    "instruction": "Inspect only “Miso Pumpkin Pasta,” “Spicy Rigatoni With Fennel Sausage Ragu,” and “Pesto & Broccoli Cavatelli” from the Dinner recipes page. Which explicitly list cheese? Give each cheese and its quantity, distinguishing optional cheese from required cheese.",
+    "validation_status": "blocked_not_answer_validated",
+    "gold_answer": null,
+    "navigation_status": "unverified_due_to_access_failure",
+    "scorable": false,
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    },
+    "answer_status": "unresolved_access_failure",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [],
+    "unresolved_reason": "Full-page Food52 access was unavailable. Retrieved search results did not establish a complete answer. A 403 response is not a gold answer to the factual question."
+  },
+  {
+    "id": "F52-21",
+    "website": "food52.com",
+    "difficulty": "hard",
+    "task_type": "multi_hop",
+    "explicit_navigation": true,
+    "start_url": "https://food52.com/recipes/24215-perfect-popcorn",
+    "instruction": "From “Perfect Popcorn,” follow the recipe author's profile reference and then one other recipe attributed to that author. Report both recipe titles, their yields, and the page evidence linking both to the same author. If no other recipe is accessible through that route, report the route failure.",
+    "validation_status": "blocked_not_answer_validated",
+    "gold_answer": null,
+    "navigation_status": "unverified_due_to_access_failure",
+    "scorable": false,
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    },
+    "answer_status": "unresolved_access_failure",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [],
+    "unresolved_reason": "Full-page Food52 access was unavailable. Retrieved search results did not establish a complete answer. A 403 response is not a gold answer to the factual question."
+  },
+  {
+    "id": "F52-22",
+    "website": "food52.com",
+    "difficulty": "hard",
+    "task_type": "bounded_comparison",
+    "explicit_navigation": true,
+    "start_url": "https://food52.com/recipes/potato",
+    "instruction": "From the Potato recipes page, retrieve “Mini Hasselback Potatoes with Crème Fraîche & Caviar” and “Hazelnut Hasselback Potato Gratin From Hetty Lui McKinnon.” Compare potato-cutting instructions, cooking vessels, and the explicitly named finishing ingredients.",
+    "validation_status": "blocked_not_answer_validated",
+    "gold_answer": null,
+    "navigation_status": "unverified_due_to_access_failure",
+    "scorable": false,
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    },
+    "answer_status": "unresolved_access_failure",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [],
+    "unresolved_reason": "Full-page Food52 access was unavailable. Retrieved search results did not establish a complete answer. A 403 response is not a gold answer to the factual question."
+  },
+  {
+    "id": "F52-23",
+    "website": "food52.com",
+    "difficulty": "hard",
+    "task_type": "bounded_comparison",
+    "explicit_navigation": true,
+    "start_url": "https://food52.com/recipes/grill-barbecue",
+    "instruction": "From the Grill/Barbecue recipes page, retrieve “Grilled Corn with Teriyaki Butter” and “Lemongrass Salmon Skewers.” Compare any stated marinating or resting durations and distinguish those from cooking durations.",
+    "validation_status": "blocked_not_answer_validated",
+    "gold_answer": null,
+    "navigation_status": "unverified_due_to_access_failure",
+    "scorable": false,
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    },
+    "answer_status": "unresolved_access_failure",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [],
+    "unresolved_reason": "Full-page Food52 access was unavailable. Retrieved search results did not establish a complete answer. A 403 response is not a gold answer to the factual question."
+  },
+  {
+    "id": "F52-24",
+    "website": "food52.com",
+    "difficulty": "hard",
+    "task_type": "bounded_filter",
+    "explicit_navigation": true,
+    "start_url": "https://food52.com/recipes/dinner",
+    "instruction": "Among “White Bean & Kale Soup With Chicken Sausage,” “Roasted Cauliflower White Cheddar Soup,” and “5 Minute Sopa de Frijoles (Bean Soup)” on the Dinner recipes page, identify recipes whose ingredient lists explicitly name beans. Report the bean type, form, and amount for each match, citing every candidate.",
+    "validation_status": "blocked_not_answer_validated",
+    "gold_answer": null,
+    "navigation_status": "unverified_due_to_access_failure",
+    "scorable": false,
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    },
+    "answer_status": "unresolved_access_failure",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [],
+    "unresolved_reason": "Full-page Food52 access was unavailable. Retrieved search results did not establish a complete answer. A 403 response is not a gold answer to the factual question."
+  },
+  {
+    "id": "F52-25",
+    "website": "food52.com",
+    "difficulty": "hard",
+    "task_type": "multi_page_join",
+    "explicit_navigation": true,
+    "start_url": "https://food52.com/recipes/dinner",
+    "instruction": "Retrieve “Miso Pumpkin Pasta,” “Miso Apple Butter Roast Chicken,” and “Miso Caesar With Gai Lan and Chrysanthemum Greens” through the Dinner recipes page. Compare the specified miso varieties, their amounts, and where miso is incorporated in each method.",
+    "validation_status": "blocked_not_answer_validated",
+    "gold_answer": null,
+    "navigation_status": "unverified_due_to_access_failure",
+    "scorable": false,
+    "access_check": {
+      "checked_on": "2026-09-22",
+      "reader_result": "403 Forbidden on all seven distinct supplied Food52 start URLs",
+      "browser_check": {
+        "url": "https://food52.com/recipes/24215-perfect-popcorn",
+        "result": "Visible page: This request was blocked; 403 Forbidden"
+      },
+      "scope": "Access failure in this environment; not proof that the requested information is absent."
+    },
+    "answer_status": "unresolved_access_failure",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [],
+    "unresolved_reason": "Full-page Food52 access was unavailable. Retrieved search results did not establish a complete answer. A 403 response is not a gold answer to the factual question."
+  },
+  {
+    "id": "GF-01",
+    "website": "bbcgoodfood.com",
+    "difficulty": "easy",
+    "task_type": "attribution",
+    "explicit_navigation": false,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "Who is credited as the author of “Easy pancakes”?",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "author": "Cassie Best"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Byline",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "GF-02",
+    "website": "bbcgoodfood.com",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "What is the original yield of “Easy pancakes”? Preserve whether the page expresses it as servings or items made.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "yield": "Makes 12 pancakes"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Recipe summary",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "GF-03",
+    "website": "bbcgoodfood.com",
+    "difficulty": "easy",
+    "task_type": "ingredient_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "How much milk does “Easy pancakes” require in the displayed metric ingredient list?",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "milk": "300ml"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Ingredients, metric",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "GF-04",
+    "website": "bbcgoodfood.com",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "What preparation time is displayed for “Easy pancakes”?",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "prep_time": "10 minutes"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Recipe summary",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "GF-05",
+    "website": "bbcgoodfood.com",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "What cooking time is displayed for “Easy pancakes”?",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "cook_time": "20 minutes"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Recipe summary",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "GF-06",
+    "website": "bbcgoodfood.com",
+    "difficulty": "easy",
+    "task_type": "nutrition_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "Report the protein amount and nutrition serving basis displayed for “Easy pancakes.”",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "protein": "3g",
+      "basis": "per pancake"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Nutrition",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "GF-07",
+    "website": "bbcgoodfood.com",
+    "difficulty": "easy",
+    "task_type": "section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "Go to the ingredient section of “Easy pancakes” and list the serving accompaniments explicitly marked optional.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "optional_accompaniments": [
+        "lemon wedges",
+        "caster sugar"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Ingredients",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "GF-08",
+    "website": "bbcgoodfood.com",
+    "difficulty": "easy",
+    "task_type": "section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "Go to the method section of “Easy pancakes” and retrieve the suggested optional batter-resting duration.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "optional_rest": "30 minutes"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Method, step 2",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "GF-09",
+    "website": "bbcgoodfood.com",
+    "difficulty": "medium",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "For “Easy pancakes,” retrieve the flour, egg, milk, and oil quantities, including egg size and any separate extra oil for frying.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "flour": "100g plain flour",
+      "eggs": "2 large",
+      "milk": "300ml",
+      "oil": "1 tbsp sunflower or vegetable oil, plus extra for frying"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Ingredients",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "GF-10",
+    "website": "bbcgoodfood.com",
+    "difficulty": "medium",
+    "task_type": "method_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "For “Easy pancakes,” retrieve the stated batter consistency, heat setting, and cooking duration per side.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "consistency": "like single cream",
+      "heat": "medium",
+      "cooking": "1 minute per side"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Method, steps 1, 3–4",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "GF-11",
+    "website": "bbcgoodfood.com",
+    "difficulty": "medium",
+    "task_type": "section_reconciliation",
+    "explicit_navigation": false,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "For “Easy pancakes,” distinguish the published preparation and cooking times from the optional standing time. Report the page's wording for whether resting is required.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "prep": "10 minutes",
+      "cook": "20 minutes",
+      "optional_standing": "30 minutes",
+      "rest_required": false,
+      "rest_wording": "rest if you have time, or start cooking straight away"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Recipe summary; Method, step 2",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "GF-12",
+    "website": "bbcgoodfood.com",
+    "difficulty": "medium",
+    "task_type": "method_sequence",
+    "explicit_navigation": false,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "From “Easy pancakes,” retrieve the steps for packing cooked pancakes for freezing and the maximum stated freezing duration.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "packing": "Cool completely; separate layers with baking parchment, then wrap in cling film.",
+      "freezing_duration": "up to 2 months"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Method, step 5",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "GF-13",
+    "website": "bbcgoodfood.com",
+    "difficulty": "medium",
+    "task_type": "guided_discovery",
+    "explicit_navigation": true,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "From the “Easy pancakes” FAQ, follow the reference to “American pancakes.” Retrieve its raising agent and flour quantity.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "flour": "200g self-raising flour",
+      "added_raising_agent": "1 1/2 tsp baking powder"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "FAQ / thin batter link",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      },
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/american-pancakes",
+        "section": "Ingredients",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/american-pancakes"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "GF-14",
+    "website": "bbcgoodfood.com",
+    "difficulty": "medium",
+    "task_type": "guided_discovery",
+    "explicit_navigation": true,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "From the “Easy pancakes” page's “Complete the dish” section, follow “Fruit salad.” Retrieve the fruit ingredients and original yield.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "fruit": [
+        "2 kiwi",
+        "1 mango",
+        "150g pineapple",
+        "100g grapes",
+        "400g mixed berries (strawberries, raspberries and blackberries used)",
+        "1 large orange"
+      ],
+      "yield": "Serves 6–8"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Complete the dish",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      },
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/fruit-salad",
+        "section": "Ingredients; summary",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/fruit-salad"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "GF-15",
+    "website": "bbcgoodfood.com",
+    "difficulty": "medium",
+    "task_type": "guided_discovery",
+    "explicit_navigation": true,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "From the “Easy pancakes” page's “Complete the dish” section, follow “Strawberry jam.” Retrieve the strawberry and sugar quantities and the stated yield.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "strawberries": "1kg, hulled",
+      "sugar": "750g jam sugar",
+      "yield": "3–4 jars"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Complete the dish",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      },
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/strawberry-jam",
+        "section": "Ingredients; summary",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/strawberry-jam"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "GF-16",
+    "website": "bbcgoodfood.com",
+    "difficulty": "medium",
+    "task_type": "guided_discovery",
+    "explicit_navigation": true,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "From the “Easy pancakes” page's “Complete the dish” section, follow “Almond butter.” Retrieve the almond quantity and any stated roasting temperature and duration.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "almonds": "300g skin-on almonds",
+      "oven": "190°C / 170°C fan / gas 5",
+      "roasting": "10 minutes"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Complete the dish",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      },
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/almond-butter",
+        "section": "Ingredients; Method, step 1",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/almond-butter"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "GF-17",
+    "website": "bbcgoodfood.com",
+    "difficulty": "medium",
+    "task_type": "section_reconciliation",
+    "explicit_navigation": false,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "From the “Easy pancakes” FAQs, retrieve the suggested remedies for lumpy batter and pancakes that remain uncooked in the middle. Keep the two problems and remedies separate.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "lumpy_batter": "Add liquid gradually to flour; process existing lumps in a food processor.",
+      "uncooked_middle": "Use less batter to make a thin layer."
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Frequently asked questions",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "GF-18",
+    "website": "bbcgoodfood.com",
+    "difficulty": "hard",
+    "task_type": "bounded_comparison",
+    "explicit_navigation": true,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "From “Easy pancakes,” follow the FAQ reference to “American pancakes.” Compare the two recipes' flour, milk, and egg quantities and original yields, without treating a crêpe and an American pancake as equal portions.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "Easy pancakes": {
+        "flour": "100g plain",
+        "milk": "300ml",
+        "eggs": "2 large",
+        "yield": "12 pancakes"
+      },
+      "American pancakes": {
+        "flour": "200g self-raising",
+        "milk": "200ml",
+        "eggs": "3 large",
+        "yield": "4 servings"
+      }
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Ingredients; summary; American-pancake FAQ link",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      },
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/american-pancakes",
+        "section": "Ingredients; summary",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/american-pancakes"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent.",
+    "answer_notes": "The yields describe different portion units."
+  },
+  {
+    "id": "GF-19",
+    "website": "bbcgoodfood.com",
+    "difficulty": "hard",
+    "task_type": "multi_page_join",
+    "explicit_navigation": true,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "From “Easy pancakes,” retrieve the linked “Strawberry jam” and “Almond butter” recipes. For each of the three recipes, report explicit storage locations and durations, distinguishing unopened, opened, chilled, or frozen conditions when stated.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "Easy pancakes": {
+        "frozen_cooked_pancakes": "up to 2 months",
+        "chilled_storage": "not_stated"
+      },
+      "Strawberry jam": {
+        "unopened": "up to 1 year in a cool, dry place",
+        "after_opening": "refrigerate; duration not stated",
+        "frozen": "Freezable label; duration not stated"
+      },
+      "Almond butter": {
+        "refrigerated": "up to 3 weeks",
+        "frozen": "Freezable label; duration not stated",
+        "opened_unopened_distinction": "not_stated"
+      }
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Method; Complete the dish",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      },
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/strawberry-jam",
+        "section": "Method, step 8; labels",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/strawberry-jam"
+      },
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/almond-butter",
+        "section": "Method, step 2; labels",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/almond-butter"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "GF-20",
+    "website": "bbcgoodfood.com",
+    "difficulty": "hard",
+    "task_type": "bounded_filter",
+    "explicit_navigation": true,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "Among “Easy pancakes” and the “Fruit salad,” “Strawberry jam,” and “Almond butter” recipes linked under “Complete the dish,” which display an explicit vegan label? Report present, absent, or inaccessible for each; do not infer a label from ingredients.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "matches": [],
+      "vegan_label": {
+        "Easy pancakes": "absent",
+        "Fruit salad": "absent",
+        "Strawberry jam": "absent",
+        "Almond butter": "absent"
+      }
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Recipe labels; Complete the dish",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      },
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/fruit-salad",
+        "section": "Recipe labels",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/fruit-salad"
+      },
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/strawberry-jam",
+        "section": "Recipe labels",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/strawberry-jam"
+      },
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/almond-butter",
+        "section": "Recipe labels",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/almond-butter"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent.",
+    "answer_notes": "Absent vegan labels do not establish that the dishes cannot be made vegan."
+  },
+  {
+    "id": "GF-21",
+    "website": "bbcgoodfood.com",
+    "difficulty": "hard",
+    "task_type": "bounded_comparison",
+    "explicit_navigation": true,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "Compare “Easy pancakes” with the “American pancakes” recipe linked in its FAQ. Retrieve the batter-consistency descriptions, portioning instructions, and turning or doneness cues, labelling missing details.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "Easy pancakes": {
+        "consistency": "thin, like single cream",
+        "portion": "about half a ladleful; enough to coat pan base",
+        "cues": "golden; method specifies 1 minute per side"
+      },
+      "American pancakes": {
+        "consistency": "smooth in method; tips allow small lumps and describe batter thickening during storage",
+        "portion": "rounds approximately 8cm wide",
+        "turning_cue": "many small bubbles appearing and popping, about 1–2 minutes",
+        "second_side": "about 1 minute"
+      }
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Method; FAQs",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      },
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/american-pancakes",
+        "section": "Method; Miriam’s tips",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/american-pancakes"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent.",
+    "answer_notes": "The Easy pancakes FAQ separately mentions 2–3 tbsp for American-style pancakes; the linked American pancakes method instead gives an 8cm diameter."
+  },
+  {
+    "id": "GF-22",
+    "website": "bbcgoodfood.com",
+    "difficulty": "hard",
+    "task_type": "multi_page_join",
+    "explicit_navigation": true,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "Retrieve “Easy pancakes” and the “Fruit salad” and “Almond butter” recipes linked from it. Compare stated calories and protein, preserving each page's nutrition basis and declining to rank unlike portions.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "Easy pancakes": {
+        "calories_kcal": 61,
+        "protein": "3g",
+        "basis": "per pancake"
+      },
+      "Fruit salad": {
+        "calories_kcal": 72,
+        "protein": "1g",
+        "basis": "per serving, based on 8 servings"
+      },
+      "Almond butter": {
+        "calories_kcal": 93,
+        "protein": "3g",
+        "basis": "per tablespoon"
+      },
+      "ranking": "not comparable as equal portions"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Nutrition; Complete the dish",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      },
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/fruit-salad",
+        "section": "Nutrition",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/fruit-salad"
+      },
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/almond-butter",
+        "section": "Nutrition",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/almond-butter"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "GF-23",
+    "website": "bbcgoodfood.com",
+    "difficulty": "hard",
+    "task_type": "bounded_filter",
+    "explicit_navigation": true,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "Inspect “Easy pancakes” and its linked “Fruit salad,” “Strawberry jam,” and “Almond butter” recipes. Which have both an explicit vegetarian label and a stated preparation time of at most 15 minutes? Show the label and time evidence for every candidate; treat missing data as unknown.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "matches": [
+        "Easy pancakes",
+        "Fruit salad"
+      ],
+      "candidates": {
+        "Easy pancakes": {
+          "vegetarian_label": "present",
+          "prep": "10 minutes",
+          "qualifies": true
+        },
+        "Fruit salad": {
+          "vegetarian_label": "present",
+          "prep": "15 minutes",
+          "qualifies": true
+        },
+        "Strawberry jam": {
+          "vegetarian_label": "present",
+          "prep": "20 minutes",
+          "qualifies": false
+        },
+        "Almond butter": {
+          "vegetarian_label": "absent",
+          "prep": "15 minutes",
+          "qualifies": "unknown: required label not shown"
+        }
+      }
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Labels; summary; Complete the dish",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      },
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/fruit-salad",
+        "section": "Labels; summary",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/fruit-salad"
+      },
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/strawberry-jam",
+        "section": "Labels; summary",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/strawberry-jam"
+      },
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/almond-butter",
+        "section": "Labels; summary",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/almond-butter"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  },
+  {
+    "id": "GF-24",
+    "website": "bbcgoodfood.com",
+    "difficulty": "hard",
+    "task_type": "section_reconciliation",
+    "explicit_navigation": false,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "Cross-check the ingredient list and method of “Easy pancakes.” Identify any ingredient used in the method but absent from the ingredient list, and distinguish it from ingredients marked as optional accompaniments. Cite the relevant sections.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "method_only_ingredient": "a pinch of salt, in step 1",
+      "optional_accompaniments": [
+        "lemon wedges",
+        "caster sugar"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "Ingredients; Method, step 1",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      }
+    ],
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "GF-25",
+    "website": "bbcgoodfood.com",
+    "difficulty": "hard",
+    "task_type": "multi_page_join",
+    "explicit_navigation": true,
+    "start_url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+    "instruction": "Starting with “Easy pancakes,” visit its linked “American pancakes” and “Strawberry jam” recipes. For each, retrieve one explicitly stated troubleshooting or doneness criterion and identify whether it appears in the method, notes, or FAQs. Report not stated if no such criterion is present.",
+    "validation_status": "answer_verified_route_separately_assessed",
+    "gold_answer": {
+      "Easy pancakes": {
+        "criterion": "Thin batter layer helps prevent an uncooked centre.",
+        "section": "Frequently asked questions"
+      },
+      "American pancakes": {
+        "criterion": "Turn once numerous small surface bubbles appear and burst.",
+        "section": "Method, step 4"
+      },
+      "Strawberry jam": {
+        "criterion": "A cooled saucer sample wrinkles when pushed and does not flow back into the gap.",
+        "section": "Method, step 5"
+      }
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-22",
+    "evidence": [
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/easy-pancakes",
+        "section": "FAQs; links",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/easy-pancakes"
+      },
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/american-pancakes",
+        "section": "Method, step 4",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/american-pancakes"
+      },
+      {
+        "url": "https://www.bbcgoodfood.com/recipes/strawberry-jam",
+        "section": "Method, step 5",
+        "evidence_type": "retrieved_page_text",
+        "retrieved_url": "https://tollbit.bbcgoodfood.com/recipes/strawberry-jam"
+      }
+    ],
+    "navigation_status": "required_links_or_sections_observed",
+    "scorable": true,
+    "navigation_evidence_note": "Required sections or link references were observed in retrieved pages. This is not an end-to-end execution trace from the experimental agent."
+  }
+]

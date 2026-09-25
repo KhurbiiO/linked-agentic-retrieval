@@ -11,8 +11,8 @@ SEED_URL = "https://foodnetwork.co.uk"
 QUESTION = "What useful information is available on this page?"
 
 INSTRUCTOR_MODEL = "deepseek-r1:8b"
-CONTROLLER_MODEL = "qwen3:4b"
-BUILD_MODEL = "qwen3:4b"
+CONTROLLER_MODEL = "qwen3:9b"
+BUILD_MODEL = "qwen3:9b"
 GRAPH_EMBEDDING_MODEL = "ollama:nomic-embed-text"
 
 MAX_CONTROLLER_ACTIONS = 5
