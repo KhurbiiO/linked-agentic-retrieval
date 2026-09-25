@@ -7,6 +7,7 @@ from .algorithms import (
     TriAgentAlgorithm,
 )
 from .evaluate import evaluate_answer
+from .judge import AnswerJudgement, ModelAnswerJudge
 
 __all__ = [
     "BenchmarkAlgorithm",
@@ -14,4 +15,6 @@ __all__ = [
     "FunctionAlgorithm",
     "TriAgentAlgorithm",
     "evaluate_answer",
+    "AnswerJudgement",
+    "ModelAnswerJudge",
 ]
