@@ -20,19 +20,18 @@ from time import monotonic, perf_counter
 from typing import Any
 
 from benchmark.algorithms import BenchmarkAlgorithm, TriAgentAlgorithm
-from benchmark.evaluate import evaluate_answer
 from benchmark.judge import ModelAnswerJudge
 from benchmark.ollama_service import OllamaSupervisor
 
 
-DATASET_PATH = Path(__file__).parent / "tasks" / "web_retrieval_tasks_100_T2.json"
+DATASET_PATH = Path(__file__).parent / "tasks" / "T3.json"
 OUTPUT_DIRECTORY = Path("output") / "benchmark"
 SCORABLE_ONLY = True
 TASK_IDS: set[str] = set()  # Empty means all eligible tasks.
 TASK_LIMIT: int | None = None
 RESUME = True
-MAX_TASK_MICROSECONDS: int | None = 600_000_000  # 10 minutes; None disables it.
-JUDGE_MODEL: str | None = "ollama:deepseek-r1:8b"  # Set to None for deterministic scoring only.
+MAX_TASK_MICROSECONDS: int | None = 900_000_000  # 15 minutes; None disables it.
+JUDGE_MODEL = "ollama:qwen3.6:27b"
 OLLAMA_AUTO_RECOVER = True
 OLLAMA_BASE_URL = "http://127.0.0.1:11434"
 OLLAMA_START_TIMEOUT_SECONDS = 30
@@ -42,9 +41,9 @@ OLLAMA_CONNECTION_RETRIES = 1
 ALGORITHMS: list[BenchmarkAlgorithm] = [
     TriAgentAlgorithm(
         name="TriAgent_V0_2",
-        instructor_model="ollama:qwen3.5:9b",
-        controller_model="ollama:qwen3.5:9b",
-        builder_model="ollama:qwen3.5:9b",
+        instructor_model="ollama:qwen3.6:27b",
+        controller_model="ollama:qwen3.6:27b",
+        builder_model="ollama:qwen3.6:27b",
     ),
 ]
 
@@ -76,30 +75,27 @@ def _load_completed(path: Path, *, require_model_judge: bool = False) -> set[str
 
 def _execute_task(
     task: dict[str, Any], algorithm: BenchmarkAlgorithm,
-    judge_model: str | None = None,
+    judge_model: str = JUDGE_MODEL,
 ) -> dict[str, Any]:
     started = perf_counter()
     try:
         response = algorithm.run(task["instruction"], task["start_url"])
         answer = response.answer
-        evaluation = evaluate_answer(answer, task.get("gold_answer"))
-        model_judgement = None
-        if judge_model is not None:
-            try:
-                judge = ModelAnswerJudge(judge_model)
-                model_judgement = {
-                    "status": "completed",
-                    **judge.judge(
-                        instruction=task["instruction"],
-                        gold_answer=task.get("gold_answer"),
-                        candidate_answer=answer,
-                    ),
-                }
-            except Exception as exc:
-                model_judgement = {
-                    "status": "error",
-                    "error": f"{type(exc).__name__}: {exc}",
-                }
+        try:
+            judge = ModelAnswerJudge(judge_model)
+            model_judgement = {
+                "status": "completed",
+                **judge.judge(
+                    instruction=task["instruction"],
+                    gold_answer=task.get("gold_answer"),
+                    candidate_answer=answer,
+                ),
+            }
+        except Exception as exc:
+            model_judgement = {
+                "status": "error",
+                "error": f"{type(exc).__name__}: {exc}",
+            }
         duration_microseconds = round((perf_counter() - started) * 1_000_000)
         return {
             "task_id": task["id"],
@@ -113,7 +109,6 @@ def _execute_task(
             "status": "completed",
             "answer": answer,
             "gold_answer": task.get("gold_answer"),
-            "evaluation": evaluation,
             "model_judgement": model_judgement,
             "algorithm_completed": response.completed,
             "duration_ms": round(duration_microseconds / 1000, 3),
@@ -143,7 +138,7 @@ def _execute_task(
         }
 
 
-def _task_worker(result_queue, task, algorithm, judge_model: str | None) -> None:
+def _task_worker(result_queue, task, algorithm, judge_model: str) -> None:
     if os.name != "nt":
         os.setsid()
     try:
@@ -203,7 +198,7 @@ def _timeout_record(
 
 def _run_task(
     task: dict[str, Any], algorithm: BenchmarkAlgorithm,
-    judge_model: str | None = None,
+    judge_model: str = JUDGE_MODEL,
     *, timeout_microseconds: int | None = None,
 ) -> dict[str, Any]:
     limit = MAX_TASK_MICROSECONDS if timeout_microseconds is None else timeout_microseconds
@@ -265,9 +260,7 @@ def _run_task(
 
 def _uses_ollama(algorithm: BenchmarkAlgorithm) -> bool:
     configuration = json.dumps(algorithm.configuration(), default=str).casefold()
-    return "ollama:" in configuration or bool(
-        JUDGE_MODEL and JUDGE_MODEL.casefold().startswith("ollama:")
-    )
+    return "ollama:" in configuration or JUDGE_MODEL.casefold().startswith("ollama:")
 
 
 def _remaining_microseconds(started: float) -> int | None:
@@ -373,7 +366,6 @@ def _write_summary(
     judged = [record for record in completed
               if record.get("model_judgement", {}).get("status") == "completed"]
     passed = sum(record["model_judgement"]["passed"] for record in judged)
-    deterministic_passed = sum(record["evaluation"]["passed"] for record in completed)
     summary = {
         "algorithm": algorithm.name,
         "configuration": algorithm.configuration(),
@@ -391,22 +383,12 @@ def _write_summary(
         ),
         "judge_model": JUDGE_MODEL,
         "tasks_judged": len(judged),
-        "judge_errors": len(completed) - len(judged) if JUDGE_MODEL else 0,
+        "judge_errors": len(completed) - len(judged),
         "passed": passed,
         "accuracy": round(passed / len(judged), 4) if judged else 0.0,
         "mean_judge_score": round(
             sum(record["model_judgement"]["score"] for record in judged) / len(judged), 4
         ) if judged else 0.0,
-        "deterministic_passed": deterministic_passed,
-        "deterministic_accuracy": round(
-            deterministic_passed / len(completed), 4
-        ) if completed else 0.0,
-        "mean_leaf_coverage": round(
-            sum(record["evaluation"]["leaf_coverage"] for record in completed) / len(completed), 4
-        ) if completed else 0.0,
-        "mean_token_f1": round(
-            sum(record["evaluation"]["token_f1"] for record in completed) / len(completed), 4
-        ) if completed else 0.0,
         "total_tokens": sum(record.get("total_tokens", 0) for record in completed),
         "judge_total_tokens": sum(
             record["model_judgement"].get("total_tokens", 0) for record in judged
@@ -433,7 +415,7 @@ def main() -> None:
         results_path = OUTPUT_DIRECTORY / f"{safe_name}.jsonl"
         summary_path = OUTPUT_DIRECTORY / f"{safe_name}.summary.json"
         completed_ids = _load_completed(
-            results_path, require_model_judge=JUDGE_MODEL is not None
+            results_path, require_model_judge=True
         )
         pending = [task for task in tasks if task["id"] not in completed_ids]
         print(f"[{algorithm.name}] {len(pending)} pending of {len(tasks)} selected tasks")
@@ -444,13 +426,10 @@ def main() -> None:
                     record = _run_task_with_recovery(task, algorithm, supervisor)
                     output.write(json.dumps(record, ensure_ascii=False) + "\n")
                     output.flush()
-                    result = record.get("evaluation", {})
                     judgement = record.get("model_judgement") or {}
                     print(
                         f"  {record['status']} judge_pass={judgement.get('passed')} "
                         f"judge_score={judgement.get('score')} "
-                        f"deterministic_pass={result.get('passed')} "
-                        f"coverage={result.get('leaf_coverage')} "
                         f"ollama_retries={record.get('ollama_connection_retries', 0)} "
                         f"duration_us={record.get('duration_microseconds')}",
                         flush=True,

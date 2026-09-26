@@ -1,0 +1,3046 @@
+[
+  {
+    "id": "BR-001",
+    "website": "apple.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.apple.com/ca/iphone-16/specs/",
+    "instruction": "On the iPhone 16 technical specifications page, report the weight of the iPhone 16 (not the Plus model).",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "weight_grams": 170
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.apple.com/ca/iphone-16/specs/",
+        "section": "Size and Weight",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-002",
+    "website": "apple.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://www.apple.com/ca/iphone-16/specs/",
+    "instruction": "What display size and display technology are listed for the iPhone 16?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "diagonal_size_inches": 6.1,
+      "technology": "all-screen OLED Super Retina XDR display"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.apple.com/ca/iphone-16/specs/",
+        "section": "Display",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-003",
+    "website": "apple.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.apple.com/ca/iphone-16/specs/",
+    "instruction": "Report the iPhone 16 chip name and the core counts for its CPU, GPU, and Neural Engine.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "chip": "A18",
+      "cpu": "6-core (2 performance and 4 efficiency cores)",
+      "gpu": "5-core",
+      "neural_engine": "16-core"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.apple.com/ca/iphone-16/specs/",
+        "section": "Chip",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-004",
+    "website": "apple.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.apple.com/ca/iphone-16/specs/",
+    "instruction": "Starting from the specifications page, use the Splash-, Water- and Dust-Resistant section to report the rating, maximum depth, and maximum duration.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "rating": "IP68 under IEC 60529",
+      "maximum_depth_metres": 6,
+      "maximum_duration_minutes": 30
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.apple.com/ca/iphone-16/specs/",
+        "section": "Splash-, Water- and Dust-Resistant",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-005",
+    "website": "apple.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "hard",
+    "task_type": "section_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://www.apple.com/ca/iphone-16/specs/",
+    "instruction": "Starting from the specifications page, use the Camera section to compare the Fusion Main, 2x Telephoto, and Ultra Wide cameras by megapixels, and include the Ultra Wide field of view.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "fusion_main_mp": 48,
+      "telephoto_2x_mp": 12,
+      "ultra_wide_mp": 12,
+      "ultra_wide_field_of_view_degrees": 120
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.apple.com/ca/iphone-16/specs/",
+        "section": "Camera",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-006",
+    "website": "arxiv.org",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://arxiv.org/abs/2306.06070",
+    "instruction": "How many websites and domains does the Mind2Web abstract say the dataset spans?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "websites": 137,
+      "domains": 31
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2306.06070",
+        "section": "Abstract",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-007",
+    "website": "arxiv.org",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://arxiv.org/abs/2306.06070",
+    "instruction": "Approximately how many open-ended tasks are reported for Mind2Web?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "task_count": "over 2,000"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2306.06070",
+        "section": "Abstract",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-008",
+    "website": "arxiv.org",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://arxiv.org/abs/2306.06070",
+    "instruction": "List the three ingredients that the abstract says Mind2Web provides for building generalist web agents.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "ingredients": [
+        "diverse domains, websites, and tasks",
+        "real-world websites instead of simulated and simplified ones",
+        "a broad spectrum of user interaction patterns"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2306.06070",
+        "section": "Abstract",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-009",
+    "website": "arxiv.org",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://arxiv.org/abs/2306.06070",
+    "instruction": "Starting from the paper page, use the author area to return all eight authors in displayed order.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "authors": [
+        "Xiang Deng",
+        "Yu Gu",
+        "Boyuan Zheng",
+        "Shijie Chen",
+        "Samuel Stevens",
+        "Boshi Wang",
+        "Huan Sun",
+        "Yu Su"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2306.06070",
+        "section": "Authors",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-010",
+    "website": "arxiv.org",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "hard",
+    "task_type": "problem_solution_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://arxiv.org/abs/2306.06070",
+    "instruction": "Starting from the abstract, identify the raw-HTML limitation and the mitigation evaluated by the authors, including the claimed effect.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "limitation": "Raw HTML of real-world websites is often too large to feed to an LLM.",
+      "mitigation": "Filter the HTML first with a small language model.",
+      "claimed_effect": "Improves effectiveness and efficiency."
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://arxiv.org/abs/2306.06070",
+        "section": "Abstract",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-011",
+    "website": "coursera.org",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.coursera.org/specializations/python",
+    "instruction": "How many courses are in the Python for Everybody Specialization?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "courses": 5
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.coursera.org/specializations/python",
+        "section": "Specialization summary",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-012",
+    "website": "coursera.org",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://www.coursera.org/specializations/python",
+    "instruction": "Who teaches the specialization, and which university offers it?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "instructor": "Charles Russell Severance",
+      "institution": "University of Michigan"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.coursera.org/specializations/python",
+        "section": "Specialization summary",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-013",
+    "website": "coursera.org",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.coursera.org/specializations/python",
+    "instruction": "Report the stated level, prerequisite expectation, and estimated weekly and total time commitment.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "level": "Beginner",
+      "prior_experience": "No prior experience required",
+      "estimated_duration": "2 months",
+      "hours_per_week": 10
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.coursera.org/specializations/python",
+        "section": "Details to know",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-014",
+    "website": "coursera.org",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.coursera.org/specializations/python",
+    "instruction": "Starting from the specialization page, use the Capstone description to name the three data operations students apply when creating their own applications.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "operations": [
+        "data retrieval",
+        "processing",
+        "visualization"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.coursera.org/specializations/python",
+        "section": "What you'll learn",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-015",
+    "website": "coursera.org",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "hard",
+    "task_type": "comparison_calculation",
+    "explicit_navigation": true,
+    "start_url": "https://www.coursera.org/specializations/python",
+    "instruction": "Starting from the course-series section, compare the listed durations of Course 1 and Course 2 and calculate how many hours longer Course 2 is.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "course_1": "Programming for Everybody (Getting Started with Python)",
+      "course_1_hours": 17,
+      "course_2": "Python Data Structures",
+      "course_2_hours": 20,
+      "difference_hours": 3
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.coursera.org/specializations/python",
+        "section": "Specialization - 5 course series",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-016",
+    "website": "github.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://github.com/OSU-NLP-Group/Mind2Web/blob/main/README.md",
+    "instruction": "What license applies to the Mind2Web dataset?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "dataset_license": "Creative Commons Attribution 4.0 International (CC BY 4.0)"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://github.com/OSU-NLP-Group/Mind2Web/blob/main/README.md",
+        "section": "Licensing Information",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-017",
+    "website": "github.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://github.com/OSU-NLP-Group/Mind2Web/blob/main/README.md",
+    "instruction": "What license applies to the code in the Mind2Web repository?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "code_license": "MIT License"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://github.com/OSU-NLP-Group/Mind2Web/blob/main/README.md",
+        "section": "Licensing Information",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-018",
+    "website": "github.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://github.com/OSU-NLP-Group/Mind2Web/blob/main/README.md",
+    "instruction": "List the three named contacts in the README.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "contacts": [
+        "Xiang Deng",
+        "Huan Sun",
+        "Yu Su"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://github.com/OSU-NLP-Group/Mind2Web/blob/main/README.md",
+        "section": "Contact",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-019",
+    "website": "github.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://github.com/OSU-NLP-Group/Mind2Web/blob/main/README.md",
+    "instruction": "Starting from the README, use the dataset overview to report the task, website, and domain counts.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "tasks": "over 2,000",
+      "websites": 137,
+      "domains": 31
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://github.com/OSU-NLP-Group/Mind2Web/blob/main/README.md",
+        "section": "Overview",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-020",
+    "website": "github.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "hard",
+    "task_type": "section_reconciliation",
+    "explicit_navigation": true,
+    "start_url": "https://github.com/OSU-NLP-Group/Mind2Web/blob/main/README.md",
+    "instruction": "Starting from the README, distinguish the dataset license from the repository code license and return both in one answer.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "dataset": "CC BY 4.0",
+      "repository_code": "MIT License"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://github.com/OSU-NLP-Group/Mind2Web/blob/main/README.md",
+        "section": "Licensing Information",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-021",
+    "website": "huggingface.co",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://huggingface.co/google-bert/bert-base-uncased",
+    "instruction": "How many parameters does bert-base-uncased have?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "parameters": "110M"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://huggingface.co/google-bert/bert-base-uncased",
+        "section": "Model variations",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-022",
+    "website": "huggingface.co",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "definition_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://huggingface.co/google-bert/bert-base-uncased",
+    "instruction": "What language is bert-base-uncased trained for, and what does 'uncased' mean on this model card?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "language": "English",
+      "uncased_meaning": "It does not distinguish between differently cased forms such as 'english' and 'English'."
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://huggingface.co/google-bert/bert-base-uncased",
+        "section": "Model description",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-023",
+    "website": "huggingface.co",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://huggingface.co/google-bert/bert-base-uncased",
+    "instruction": "Name the two pretraining datasets and the exclusions stated for the Wikipedia portion.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "datasets": [
+        "BookCorpus (11,038 unpublished books)",
+        "English Wikipedia"
+      ],
+      "wikipedia_exclusions": [
+        "lists",
+        "tables",
+        "headers"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://huggingface.co/google-bert/bert-base-uncased",
+        "section": "Training data",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-024",
+    "website": "huggingface.co",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://huggingface.co/google-bert/bert-base-uncased",
+    "instruction": "Starting from the model card, use Model Description to name and briefly describe both pretraining objectives.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "objectives": [
+        {
+          "name": "Masked language modeling (MLM)",
+          "description": "Mask 15% of input words and predict the masked words."
+        },
+        {
+          "name": "Next sentence prediction (NSP)",
+          "description": "Predict whether two input spans followed each other in the source text."
+        }
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://huggingface.co/google-bert/bert-base-uncased",
+        "section": "Model description",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-025",
+    "website": "huggingface.co",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "hard",
+    "task_type": "section_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://huggingface.co/google-bert/bert-base-uncased",
+    "instruction": "Starting from Training procedure, report the token-selection rate and the 80/10/10 replacement split used for masked tokens.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "selected_for_masking_percent": 15,
+      "replaced_with_mask_percent": 80,
+      "replaced_with_random_token_percent": 10,
+      "left_unchanged_percent": 10
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://huggingface.co/google-bert/bert-base-uncased",
+        "section": "Training procedure - Preprocessing",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-026",
+    "website": "rottentomatoes.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://www.rottentomatoes.com/m/matrix",
+    "instruction": "What release year and content rating are displayed for The Matrix?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "year": 1999,
+      "rating": "R"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.rottentomatoes.com/m/matrix",
+        "section": "Movie header",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-027",
+    "website": "rottentomatoes.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.rottentomatoes.com/m/matrix",
+    "instruction": "What runtime is displayed for The Matrix?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "runtime": "2h 16m"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.rottentomatoes.com/m/matrix",
+        "section": "Movie header",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-028",
+    "website": "rottentomatoes.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.rottentomatoes.com/m/matrix",
+    "instruction": "List the genres displayed in the movie header.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "genres": [
+        "Sci-Fi",
+        "Action",
+        "Mystery & Thriller"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.rottentomatoes.com/m/matrix",
+        "section": "Movie header",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-029",
+    "website": "rottentomatoes.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.rottentomatoes.com/m/matrix",
+    "instruction": "Starting from the movie page, use Cast & Crew to identify both directors.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "directors": [
+        "Lilly Wachowski",
+        "Lana Wachowski"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.rottentomatoes.com/m/matrix/cast-and-crew",
+        "section": "Cast & Crew",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-030",
+    "website": "rottentomatoes.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "hard",
+    "task_type": "section_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://www.rottentomatoes.com/m/matrix",
+    "instruction": "Starting from What to Know, report the two filmmaking elements that the critics consensus says the film combines, and the creative factor it credits.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "elements": [
+        "spectacular action",
+        "groundbreaking special effects"
+      ],
+      "credited_factor": "the Wachowskis' imaginative vision"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.rottentomatoes.com/m/matrix",
+        "section": "What to Know - Critics Consensus",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-031",
+    "website": "wikipedia.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://en.wikipedia.org/wiki/Apollo_11",
+    "instruction": "How many people were in the Apollo 11 crew, and what were their names?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "crew_size": 3,
+      "members": [
+        "Neil Armstrong",
+        "Michael Collins",
+        "Buzz Aldrin"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Apollo_11",
+        "section": "Mission infobox - Crew",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-032",
+    "website": "wikipedia.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "easy",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://en.wikipedia.org/wiki/Apollo_11",
+    "instruction": "What callsigns are listed for Apollo 11's command module, lunar module, and surface base?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "command_module": "Columbia",
+      "lunar_module": "Eagle",
+      "surface_base": "Tranquility Base"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Apollo_11",
+        "section": "Mission infobox - Callsign",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-033",
+    "website": "wikipedia.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "medium",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://en.wikipedia.org/wiki/Apollo_11",
+    "instruction": "Report Apollo 11's launch date and time, rocket, and launch site.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "launch": "July 16, 1969, 13:32:00 UTC",
+      "rocket": "Saturn V SA-506",
+      "launch_site": "Kennedy LC-39A"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Apollo_11",
+        "section": "Mission infobox - Start of mission",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-034",
+    "website": "wikipedia.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://en.wikipedia.org/wiki/Apollo_11",
+    "instruction": "Starting from the Apollo 11 article, use the Lunar lander area to report the Moon-landing date and time, landing site, and sample mass.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "landing": "July 20, 1969, 20:17:40 UTC",
+      "site": [
+        "Tranquility Base",
+        "Mare Tranquillitatis"
+      ],
+      "sample_mass": "47.51 lb (21.55 kg)"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Apollo_11",
+        "section": "Mission infobox - Lunar lander",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-035",
+    "website": "wikipedia.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "hard",
+    "task_type": "multi_section_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://en.wikipedia.org/wiki/Apollo_11",
+    "instruction": "Starting from the mission infobox, combine the overall mission duration with the surface EVA duration and the Earth-return details: date, recovery location, and recovery ship.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "mission_duration": "8 days, 3 hours, 18 minutes, 35 seconds",
+      "surface_eva_duration": "2 hours, 31 minutes, 40 seconds",
+      "earth_return": "July 24, 1969, 16:50:35 UTC",
+      "recovery_location": "North Pacific Ocean",
+      "recovered_by": "USS Hornet"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Apollo_11",
+        "section": "Mission infobox",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-036",
+    "website": "espn.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.espn.com/soccer/report/_/gameId/633850",
+    "instruction": "Who won the 2022 World Cup final, and what was the penalty-shootout score?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "winner": "Argentina",
+      "shootout_score": "4-2"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.espn.com/soccer/report/_/gameId/633850",
+        "section": "Match report",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-037",
+    "website": "espn.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://www.espn.com/soccer/report/_/gameId/633850",
+    "instruction": "What was the score after extra time, and at which stadium was the final played?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "score_after_extra_time": "3-3",
+      "stadium": "Lusail Stadium",
+      "location": "Doha, Qatar"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.espn.com/soccer/report/_/gameId/633850",
+        "section": "Match report",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-038",
+    "website": "espn.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.espn.com/soccer/report/_/gameId/633850",
+    "instruction": "Name Argentina's two regulation/extra-time scorers and France's scorer.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "argentina": [
+        "Lionel Messi",
+        "Angel Di Maria"
+      ],
+      "france": [
+        "Kylian Mbappe"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.espn.com/soccer/report/_/gameId/633850",
+        "section": "Match report",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-039",
+    "website": "espn.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.espn.com/soccer/report/_/gameId/633850",
+    "instruction": "Starting from the report, identify the two French players whose shootout attempts were saved and the Argentine player who converted the decisive kick.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "saved_from": [
+        "Kingsley Coman",
+        "Aurelien Tchouameni"
+      ],
+      "decisive_kick": "Gonzalo Montiel"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.espn.com/soccer/report/_/gameId/633850",
+        "section": "Penalty shootout account",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-040",
+    "website": "espn.com",
+    "benchmark_origin": "WebVoyager",
+    "difficulty": "hard",
+    "task_type": "historical_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://www.espn.com/soccer/report/_/gameId/633850",
+    "instruction": "Starting from the report, combine the result with the historical context: which numbered World Cup title was this for Argentina, and in which two earlier years had they won?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "title_number": 3,
+      "previous_wins": [
+        1978,
+        1986
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.espn.com/soccer/report/_/gameId/633850",
+        "section": "Match report",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-041",
+    "website": "nasa.gov",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://science.nasa.gov/mars/facts/",
+    "instruction": "What radius does NASA give for Mars in miles and kilometres?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "miles": 2106,
+      "kilometres": 3390
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://science.nasa.gov/mars/facts/",
+        "section": "Size and Distance",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-042",
+    "website": "nasa.gov",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "easy",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://science.nasa.gov/mars/facts/",
+    "instruction": "What is Mars's average distance from the Sun, expressed in miles, kilometres, and astronomical units?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "miles": "142 million",
+      "kilometres": "228 million",
+      "astronomical_units": 1.5
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://science.nasa.gov/mars/facts/",
+        "section": "Size and Distance",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-043",
+    "website": "nasa.gov",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "medium",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://science.nasa.gov/mars/facts/",
+    "instruction": "Report the length of a Martian rotation and a Martian year in both sols and Earth days.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "rotation_hours": 24.6,
+      "year_sols": 669.6,
+      "year_earth_days": 687
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://science.nasa.gov/mars/facts/",
+        "section": "Orbit and Rotation",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-044",
+    "website": "nasa.gov",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://science.nasa.gov/mars/facts/",
+    "instruction": "Starting from Mars Facts, use the Moons section to name both moons, identify the larger one, and explain why both are potato-shaped.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "moons": [
+        "Phobos",
+        "Deimos"
+      ],
+      "larger": "Phobos",
+      "shape_reason": "They have too little mass for gravity to make them spherical."
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://science.nasa.gov/mars/facts/",
+        "section": "Moons",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-045",
+    "website": "nasa.gov",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "hard",
+    "task_type": "section_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://science.nasa.gov/mars/facts/",
+    "instruction": "Starting from Mars Facts, synthesize the Structure section by giving the core radius range, mantle thickness range, crust thickness range, and the listed core elements.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "core_radius": "930-1,300 miles (1,500-2,100 km)",
+      "mantle_thickness": "770-1,170 miles (1,240-1,880 km)",
+      "crust_thickness": "6-30 miles (10-50 km)",
+      "core_elements": [
+        "iron",
+        "nickel",
+        "sulfur"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://science.nasa.gov/mars/facts/",
+        "section": "Structure",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-046",
+    "website": "nps.gov",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+    "instruction": "On what date was Yellowstone established, and what global distinction does the page give it?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "established": "March 1, 1872",
+      "distinction": "the world's first national park"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+        "section": "History",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-047",
+    "website": "nps.gov",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+    "instruction": "Report Yellowstone's area in square miles and acres.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "square_miles": 3472,
+      "acres": 2221766
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+        "section": "Geography",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-048",
+    "website": "nps.gov",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+    "instruction": "What percentage of Yellowstone lies in Wyoming, Montana, and Idaho?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "Wyoming_percent": 96,
+      "Montana_percent": 3,
+      "Idaho_percent": 1
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+        "section": "Geography",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-049",
+    "website": "nps.gov",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+    "instruction": "Starting from Park Facts, use Geography to report the highest and lowest points with their elevations in feet.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "highest": {
+        "name": "Eagle Peak",
+        "feet": 11358
+      },
+      "lowest": {
+        "name": "Reese Creek",
+        "feet": 5282
+      }
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+        "section": "Geography",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-050",
+    "website": "nps.gov",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "hard",
+    "task_type": "section_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+    "instruction": "Starting from Park Facts, use Roads & Trails to report the number of entrances, paved-road miles, approximate hiking-trail miles, and trailheads.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "park_entrances": 5,
+      "paved_road_miles": 392,
+      "approximate_hiking_trail_miles": 1114,
+      "trailheads": 92
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.nps.gov/yell/planyourvisit/parkfacts.htm",
+        "section": "Roads & Trails",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-051",
+    "website": "ikea.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://www.ikea.com/global/en/our-business/how-we-work/story-of-ikea/",
+    "instruction": "Who founded IKEA, and how old was he when the company was registered?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "founder": "Ingvar Kamprad",
+      "age": 17
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.ikea.com/global/en/our-business/how-we-work/story-of-ikea/",
+        "section": "Humble beginnings",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-052",
+    "website": "ikea.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.ikea.com/global/en/our-business/how-we-work/story-of-ikea/",
+    "instruction": "On what date was IKEA first registered as a trading company?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "date": "July 28, 1943"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.ikea.com/global/en/our-business/how-we-work/story-of-ikea/",
+        "section": "Humble beginnings",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-053",
+    "website": "ikea.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "acronym_expansion",
+    "explicit_navigation": false,
+    "start_url": "https://www.ikea.com/global/en/our-business/how-we-work/story-of-ikea/",
+    "instruction": "Expand each letter in the name IKEA as described on the page.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "I": "Ingvar",
+      "K": "Kamprad",
+      "E": "Elmtaryd",
+      "A": "Agunnaryd"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.ikea.com/global/en/our-business/how-we-work/story-of-ikea/",
+        "section": "Did you know?",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-054",
+    "website": "ikea.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.ikea.com/global/en/our-business/how-we-work/story-of-ikea/",
+    "instruction": "Starting from the story page, use Humble beginnings to list three early imported product types and the year furniture was added.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "early_products": [
+        "pens",
+        "watches",
+        "nylon stockings"
+      ],
+      "furniture_added": 1948
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.ikea.com/global/en/our-business/how-we-work/story-of-ikea/",
+        "section": "Humble beginnings",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-055",
+    "website": "ikea.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "hard",
+    "task_type": "timeline_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://www.ikea.com/global/en/our-business/how-we-work/story-of-ikea/",
+    "instruction": "Starting from IKEA's history material, place these milestones in order with years: company registration, furniture added to the range, first IKEA store opened.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "timeline": [
+        {
+          "year": 1943,
+          "event": "IKEA registered as a trading company"
+        },
+        {
+          "year": 1948,
+          "event": "Furniture added to the range"
+        },
+        {
+          "year": 1958,
+          "event": "First IKEA store opened in Älmhult, Sweden"
+        }
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.ikea.com/global/en/our-business/how-we-work/",
+        "section": "Story and history",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-056",
+    "website": "python.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "easy",
+    "task_type": "code_lookup",
+    "explicit_navigation": false,
+    "start_url": "https://docs.python.org/3/tutorial/datastructures.html",
+    "instruction": "What slice-assignment expression does the Python tutorial say is similar to a.append(x)?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "expression": "a[len(a):] = [x]"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://docs.python.org/3/tutorial/datastructures.html",
+        "section": "More on Lists",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-057",
+    "website": "python.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://docs.python.org/3/tutorial/datastructures.html",
+    "instruction": "When list.pop() is called without an index, which item is removed and returned?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "answer": "the last item in the list"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://docs.python.org/3/tutorial/datastructures.html",
+        "section": "More on Lists",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-058",
+    "website": "python.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "medium",
+    "task_type": "code_result_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://docs.python.org/3/tutorial/datastructures.html",
+    "instruction": "In the tutorial's fruits example, what are the results of fruits.count('apple'), fruits.index('banana'), and fruits.index('banana', 4)?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "apple_count": 2,
+      "first_banana_index": 3,
+      "next_banana_index_from_4": 6
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://docs.python.org/3/tutorial/datastructures.html",
+        "section": "List-method example",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-059",
+    "website": "python.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://docs.python.org/3/tutorial/datastructures.html",
+    "instruction": "Starting from Data Structures, use the Queues section to explain why ordinary lists are inefficient queues and name the recommended collection and removal method.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "reason": "Inserts or pops from the beginning are slow because all other elements must be shifted.",
+      "recommended_collection": "collections.deque",
+      "removal_method": "popleft()"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://docs.python.org/3/tutorial/datastructures.html",
+        "section": "Using Lists as Queues",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-060",
+    "website": "python.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "hard",
+    "task_type": "code_equivalence_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://docs.python.org/3/tutorial/datastructures.html",
+    "instruction": "Starting from the List Comprehensions section, give the two equivalent expressions used to build squares from range(10), and report the resulting list.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "map_expression": "list(map(lambda x: x**2, range(10)))",
+      "comprehension": "[x**2 for x in range(10)]",
+      "result": [
+        0,
+        1,
+        4,
+        9,
+        16,
+        25,
+        36,
+        49,
+        64,
+        81
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://docs.python.org/3/tutorial/datastructures.html",
+        "section": "List Comprehensions",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-061",
+    "website": "justice.gov",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.justice.gov/doj/organization-mission-and-functions-manual",
+    "instruction": "Which act created the position of Attorney General, and in what year?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "act": "Judiciary Act",
+      "year": 1789
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.justice.gov/doj/organization-mission-and-functions-manual",
+        "section": "Organization, Mission and Functions Manual",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-062",
+    "website": "justice.gov",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://www.justice.gov/doj/organization-mission-and-functions-manual",
+    "instruction": "When was the Department of Justice established, and who is its head?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "established": "June 1870",
+      "head": "Attorney General"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.justice.gov/doj/organization-mission-and-functions-manual",
+        "section": "Organization, Mission and Functions Manual",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-063",
+    "website": "justice.gov",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.justice.gov/doj/organization-mission-and-functions-manual",
+    "instruction": "Return the three clauses of the DOJ mission statement.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "mission": [
+        "uphold the rule of law",
+        "keep our country safe",
+        "protect civil rights"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.justice.gov/doj/organization-mission-and-functions-manual",
+        "section": "Mission",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-064",
+    "website": "justice.gov",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.justice.gov/doj/organization-mission-and-functions-manual",
+    "instruction": "Starting from the manual, use the Values area to name the four values listed by DOJ.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "values": [
+        "Independence and Impartiality",
+        "Honesty and Integrity",
+        "Respect",
+        "Excellence"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.justice.gov/about",
+        "section": "Values",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-065",
+    "website": "justice.gov",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "hard",
+    "task_type": "timeline_reconciliation",
+    "explicit_navigation": true,
+    "start_url": "https://www.justice.gov/doj/organization-mission-and-functions-manual",
+    "instruction": "Starting from the history text, distinguish the creation of the Attorney General position from the establishment of the Department of Justice by giving the event and year for each.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "events": [
+        {
+          "year": 1789,
+          "event": "Congress created the position of Attorney General through the Judiciary Act."
+        },
+        {
+          "year": 1870,
+          "event": "The United States Department of Justice was established by statute, with the Attorney General as its head."
+        }
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.justice.gov/doj/organization-mission-and-functions-manual",
+        "section": "History",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-066",
+    "website": "osu.edu",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://polisci.osu.edu/about-us/ohio-state",
+    "instruction": "In what year was Ohio State founded, and what kind of institution was it?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "year": 1870,
+      "type": "federal land-grant institution"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://polisci.osu.edu/about-us/ohio-state",
+        "section": "About The Ohio State",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-067",
+    "website": "osu.edu",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://polisci.osu.edu/about-us/ohio-state",
+    "instruction": "How many students are stated for the Columbus campus and for the regional campuses combined?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "Columbus": "more than 60,000",
+      "regional": "an additional 8,000"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://polisci.osu.edu/about-us/ohio-state",
+        "section": "About The Ohio State",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-068",
+    "website": "osu.edu",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://polisci.osu.edu/about-us/ohio-state",
+    "instruction": "How many undergraduate majors and graduate/professional degree programs are stated?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "undergraduate_majors": 170,
+      "masters_doctoral_professional_programs": "more than 250"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://polisci.osu.edu/about-us/ohio-state",
+        "section": "About The Ohio State",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-069",
+    "website": "osu.edu",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://polisci.osu.edu/about-us/ohio-state",
+    "instruction": "Starting from the About page, list the four named regional campuses and the separate Agricultural Technical Institute location.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "regional_campuses": [
+        "Lima",
+        "Mansfield",
+        "Marion",
+        "Newark"
+      ],
+      "agricultural_technical_institute": "Wooster"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://polisci.osu.edu/about-us/ohio-state",
+        "section": "About The Ohio State",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-070",
+    "website": "osu.edu",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "hard",
+    "task_type": "section_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://polisci.osu.edu/about-us/ohio-state",
+    "instruction": "Starting from the institutional facts, report how many degrees had been awarded since 1878 and how many living alumni were stated.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "degrees_awarded_since_1878": 637048,
+      "living_alumni": "more than 465,000"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://polisci.osu.edu/about-us/ohio-state",
+        "section": "About The Ohio State",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-071",
+    "website": "developer.mozilla.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map",
+    "instruction": "What does Array.prototype.map() return?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "answer": "A new array with each element being the result of the callback function."
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map",
+        "section": "Return value",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-072",
+    "website": "developer.mozilla.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map",
+    "instruction": "Since which month and year does MDN say Array.prototype.map() has been available across browsers?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "available_since": "July 2015"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map",
+        "section": "Baseline",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-073",
+    "website": "developer.mozilla.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "medium",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map",
+    "instruction": "Name the three arguments passed to map()'s callback function and state what each represents.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "arguments": [
+        {
+          "name": "element",
+          "meaning": "the current element"
+        },
+        {
+          "name": "index",
+          "meaning": "the index of the current element"
+        },
+        {
+          "name": "array",
+          "meaning": "the array map() was called upon"
+        }
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map",
+        "section": "Parameters",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-074",
+    "website": "developer.mozilla.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map",
+    "instruction": "Starting from the map() reference, use Description to explain its behavior on sparse arrays and the minimum properties required of a generic receiver.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "sparse_arrays": "The callback is invoked only for assigned indexes, not empty slots.",
+      "generic_requirements": [
+        "a length property",
+        "integer-keyed properties"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map",
+        "section": "Description",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-075",
+    "website": "developer.mozilla.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "hard",
+    "task_type": "code_behavior_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map",
+    "instruction": "Starting from the map() examples, report the actual result of ['1', '2', '3'].map(parseInt), explain the cause, and give both fixes shown by MDN.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "actual_result": [
+        1,
+        "NaN",
+        "NaN"
+      ],
+      "cause": "map passes element, index, and array; parseInt treats the index as its radix argument.",
+      "fixes": [
+        "['1', '2', '3'].map((str) => parseInt(str, 10))",
+        "['1', '2', '3'].map(Number)"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map",
+        "section": "Using parseInt() with map()",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-076",
+    "website": "amtrak.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.amtrak.com/california-zephyr-train",
+    "instruction": "Which four cities are presented as Route Highlights for the California Zephyr?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "cities": [
+        "Chicago",
+        "Denver",
+        "Salt Lake City",
+        "San Francisco"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.amtrak.com/california-zephyr-train",
+        "section": "Route Highlights",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-077",
+    "website": "amtrak.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.amtrak.com/california-zephyr-train",
+    "instruction": "Name the two dining options listed for the California Zephyr.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "dining_options": [
+        "Traditional Dining",
+        "Cafe Service"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.amtrak.com/california-zephyr-train",
+        "section": "Dining Options",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-078",
+    "website": "amtrak.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.amtrak.com/california-zephyr-train",
+    "instruction": "List the six accommodation types shown on the page.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "accommodations": [
+        "Lower/Upper Level Coach Class Seats",
+        "Superliner Roomette",
+        "Superliner Bedroom",
+        "Superliner Bedroom Suite",
+        "Superliner Family Bedroom",
+        "Superliner Accessible Bedroom"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.amtrak.com/california-zephyr-train",
+        "section": "Accommodations",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-079",
+    "website": "amtrak.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "guided_list_retrieval",
+    "explicit_navigation": true,
+    "start_url": "https://www.amtrak.com/california-zephyr-train",
+    "instruction": "Starting from the route page, use the scenic-highlights text to name at least six explicitly listed natural or engineered sights.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "accepted_sights": [
+        "Rocky Mountains",
+        "Sierra Nevadas",
+        "Moffat Tunnel",
+        "Gore Canyon",
+        "Byers Canyon",
+        "Glenwood Canyon",
+        "Winter Park",
+        "Truckee River",
+        "Donner Lake",
+        "San Pablo Bay",
+        "Carquinez Strait"
+      ],
+      "minimum_required": 6
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.amtrak.com/california-zephyr-train",
+        "section": "Scenic highlights",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-080",
+    "website": "amtrak.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "hard",
+    "task_type": "sequence_comparison",
+    "explicit_navigation": true,
+    "start_url": "https://www.amtrak.com/california-zephyr-train",
+    "instruction": "Starting from the route page, compare the sequence of meals listed for eastbound and westbound travel, preserving order.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "eastbound": [
+        "Lunch",
+        "Dinner",
+        "Breakfast",
+        "Lunch",
+        "Dinner",
+        "Breakfast"
+      ],
+      "westbound": [
+        "Dinner",
+        "Breakfast",
+        "Lunch",
+        "Dinner",
+        "Breakfast",
+        "Lunch"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.amtrak.com/california-zephyr-train",
+        "section": "Meals on This Train",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-081",
+    "website": "steampowered.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://store.steampowered.com/app/570/Dota_2/",
+    "instruction": "Who is listed as both developer and publisher of Dota 2?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "developer": "Valve",
+      "publisher": "Valve"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://store.steampowered.com/app/570/Dota_2/",
+        "section": "Game header",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-082",
+    "website": "steampowered.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://store.steampowered.com/app/570/Dota_2/",
+    "instruction": "What release date is listed for Dota 2?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "release_date": "July 9, 2013"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://store.steampowered.com/app/570/Dota_2/",
+        "section": "Game header",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-083",
+    "website": "steampowered.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://store.steampowered.com/app/570/Dota_2/",
+    "instruction": "Which three genres are listed in the product details?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "genres": [
+        "Action",
+        "Strategy",
+        "Free To Play"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://store.steampowered.com/app/570/Dota_2/",
+        "section": "Product details",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-084",
+    "website": "steampowered.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://store.steampowered.com/app/570/Dota_2/",
+    "instruction": "Starting from the store page, use the Content area to list the interactive elements disclosed for the game.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "interactive_elements": [
+        "in-game purchases",
+        "chance-based in-game purchases",
+        "in-game chat",
+        "online interactivity"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://store.steampowered.com/app/570/Dota_2/",
+        "section": "Content",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-085",
+    "website": "steampowered.com",
+    "benchmark_origin": "Mind2Web",
+    "difficulty": "hard",
+    "task_type": "section_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://store.steampowered.com/app/570/Dota_2/",
+    "instruction": "Starting from the store description, report the stated daily player scale, hero count, and mechanism described as keeping gameplay evolving.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "daily_player_scale": "millions of players worldwide",
+      "hero_count": "over one hundred",
+      "evolution_mechanism": "regular updates to gameplay, features, and heroes"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://store.steampowered.com/app/570/Dota_2/",
+        "section": "About This Game",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-086",
+    "website": "iana.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.iana.org/domains/reserved",
+    "instruction": "For what purpose are example.com and example.org maintained?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "purpose": "documentation purposes"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.iana.org/domains/reserved",
+        "section": "Example domains",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-087",
+    "website": "iana.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://www.iana.org/domains/reserved",
+    "instruction": "Are IANA's example domains available for registration or transfer?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "available_for_registration": false,
+      "available_for_transfer": false
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.iana.org/domains/reserved",
+        "section": "Example domains",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-088",
+    "website": "iana.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "medium",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.iana.org/domains/reserved",
+    "instruction": "Which two RFCs does IANA cite for its example-domain reservations?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "rfcs": [
+        "RFC 2606",
+        "RFC 6761"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.iana.org/domains/reserved",
+        "section": "Example domains",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-089",
+    "website": "iana.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "medium",
+    "task_type": "guided_table_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.iana.org/domains/reserved",
+    "instruction": "Starting from IANA-managed Reserved Domains, use the Test IDN top-level domains table to report how many entries it contains and list the scripts represented.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "entries": 11,
+      "scripts": [
+        "Arabic",
+        "Han (Simplified variant)",
+        "Han (Traditional variant)",
+        "Cyrillic",
+        "Devanagari (Nagari)",
+        "Greek",
+        "Hangul",
+        "Hebrew",
+        "Katakana",
+        "Tamil"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.iana.org/domains/reserved",
+        "section": "Test IDN top-level domains",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-090",
+    "website": "iana.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "hard",
+    "task_type": "section_reconciliation",
+    "explicit_navigation": true,
+    "start_url": "https://www.iana.org/domains/reserved",
+    "instruction": "Starting from IANA-managed Reserved Domains, distinguish policy-reserved domains from other special-use domains, including the country-name.info exception and the cited standard for the special-use registry.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "policy_reserved": "IANA acts as both registrant and registrar; these domains are generally unavailable for registration or transfer.",
+      "exception": "country-name.info domains may be released by the ICANN Governmental Advisory Committee Secretariat",
+      "other_special_use": "domains designated for special use by technical standards",
+      "standard": "RFC 6761"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.iana.org/domains/reserved",
+        "section": "Policy-reserved domains and Other Special-Use Domains",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-091",
+    "website": "census.gov",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://www.census.gov/programs-surveys/decennial-census/about.html",
+    "instruction": "How often is the U.S. census conducted, and on what date is Census Day?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "frequency": "every 10 years",
+      "census_day": "April 1"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.census.gov/programs-surveys/decennial-census/about.html",
+        "section": "About the Decennial Census",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-092",
+    "website": "census.gov",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "easy",
+    "task_type": "multi_field",
+    "explicit_navigation": false,
+    "start_url": "https://www.census.gov/programs-surveys/decennial-census/about.html",
+    "instruction": "In what year was the first U.S. census, and who led the effort?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "year": 1790,
+      "leader": "Secretary of State Thomas Jefferson"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.census.gov/programs-surveys/decennial-census/about.html",
+        "section": "About the Decennial Census",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-093",
+    "website": "census.gov",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "medium",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.census.gov/programs-surveys/decennial-census/about.html",
+    "instruction": "What population did the first census report, and how many House seats among how many states were apportioned from it?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "population": 3929625,
+      "house_seats": 105,
+      "states": 15
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.census.gov/programs-surveys/decennial-census/about.html",
+        "section": "About the Decennial Census",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-094",
+    "website": "census.gov",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.census.gov/programs-surveys/decennial-census/about.html",
+    "instruction": "Starting from the census overview, use The Constitution Requires the Census to name the constitutional provisions and the U.S. Code title governing the decennial census.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "constitution": "Article I, Sections 2 and 9",
+      "us_code": "Title 13"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.census.gov/programs-surveys/decennial-census/about.html",
+        "section": "The Constitution Requires the Census",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-095",
+    "website": "census.gov",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "hard",
+    "task_type": "section_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://www.census.gov/programs-surveys/decennial-census/about.html",
+    "instruction": "Starting from the census overview, explain apportionment, state its constitutional frequency, and give the current House-seat total and the year Congress set it.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "definition": "Dividing seats in the U.S. House of Representatives among the 50 states based on decennial-census population figures.",
+      "frequency": "every 10 years",
+      "house_seats": 435,
+      "set_in_year": 1913
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.census.gov/programs-surveys/decennial-census/about.html",
+        "section": "What is Apportionment?",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-096",
+    "website": "rfc-editor.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "easy",
+    "task_type": "list_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+    "instruction": "Which four HTTP request methods does RFC 9110 define as safe?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "methods": [
+        "GET",
+        "HEAD",
+        "OPTIONS",
+        "TRACE"
+      ]
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+        "section": "9.2.1 Safe Methods",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-097",
+    "website": "rfc-editor.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "easy",
+    "task_type": "single_fact",
+    "explicit_navigation": false,
+    "start_url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+    "instruction": "What numeric range contains all valid HTTP status codes?",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "minimum": 100,
+      "maximum": 599
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+        "section": "15 Status Codes",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-098",
+    "website": "rfc-editor.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "medium",
+    "task_type": "structured_extraction",
+    "explicit_navigation": false,
+    "start_url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+    "instruction": "Match each HTTP status-code class from 1xx through 5xx to its category name.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "1xx": "Informational",
+      "2xx": "Successful",
+      "3xx": "Redirection",
+      "4xx": "Client Error",
+      "5xx": "Server Error"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+        "section": "15 Status Codes",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "not_applicable",
+    "scorable": true
+  },
+  {
+    "id": "BR-099",
+    "website": "rfc-editor.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "medium",
+    "task_type": "guided_section_lookup",
+    "explicit_navigation": true,
+    "start_url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+    "instruction": "Starting from HTTP Semantics, use Idempotent Methods to define idempotence, list the methods explicitly named as idempotent, and explain why the property permits automatic retries after communication failure.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "definition": "Multiple identical requests have the same intended server effect as one request.",
+      "methods": [
+        "PUT",
+        "DELETE",
+        "GET",
+        "HEAD",
+        "OPTIONS",
+        "TRACE"
+      ],
+      "retry_reason": "Repeating the request has the same intended effect even if the first request succeeded before its response was received."
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+        "section": "9.2.2 Idempotent Methods",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  },
+  {
+    "id": "BR-100",
+    "website": "rfc-editor.org",
+    "benchmark_origin": "WebLINX-style public website",
+    "difficulty": "hard",
+    "task_type": "table_synthesis",
+    "explicit_navigation": true,
+    "start_url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+    "instruction": "Starting from the RFC's 200 OK table, map GET, HEAD, POST, PUT/DELETE, OPTIONS, and TRACE to what the response content represents.",
+    "validation_status": "answer_and_access_verified",
+    "gold_answer": {
+      "GET": "the target resource",
+      "HEAD": "the target resource, like GET, but without representation data",
+      "POST": "the status of or results from the action",
+      "PUT_or_DELETE": "the status of the action",
+      "OPTIONS": "communication options for the target resource",
+      "TRACE": "the request message as received by the server returning the trace"
+    },
+    "answer_status": "verified_page_content",
+    "answer_checked_on": "2026-09-26",
+    "evidence": [
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+        "section": "15.3.1 200 OK",
+        "evidence_type": "retrieved_page_text"
+      }
+    ],
+    "access_status": "publicly_retrievable_no_login",
+    "access_checked_on": "2026-09-26",
+    "navigation_status": "route_worded_without_click_or_type",
+    "scorable": true
+  }
+]
