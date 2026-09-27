@@ -85,6 +85,7 @@ class TriAgentAlgorithm:
     INSTRUCTOR_NUM_PREDICT = 1024
     CONTROLLER_NUM_PREDICT = 1024
     BUILDER_NUM_PREDICT = 4096
+    BUILDER_MAX_TRIPLES_PER_PAGE = 48
     PRELOAD_MODELS = False
     TRACE_PROCESS = False
 
@@ -109,6 +110,7 @@ class TriAgentAlgorithm:
                 instructor_num_predict=self.INSTRUCTOR_NUM_PREDICT,
                 controller_num_predict=self.CONTROLLER_NUM_PREDICT,
                 builder_num_predict=self.BUILDER_NUM_PREDICT,
+                builder_max_triples_per_page=self.BUILDER_MAX_TRIPLES_PER_PAGE,
                 trace=self.TRACE_PROCESS,
             )  as agent:
             result = agent.invoke(prompt)

@@ -95,6 +95,7 @@ def create_tri_agent(
     instructor_num_predict: int | None = 1024,
     controller_num_predict: int | None = 1024,
     builder_num_predict: int | None = 4096,
+    builder_max_triples_per_page: int = 48,
 ) -> InstructorAgent:
     """Create the Instructor with its Controller and Builder collaborators."""
     tracer = ProcessTracer(trace, path=trace_path, console=trace_console)
@@ -159,6 +160,7 @@ def create_tri_agent(
         graph_store=graph_store,
         tracer=tracer,
         usage_tracker=usage_tracker,
+        max_triples_per_page=builder_max_triples_per_page,
     )
     return InstructorAgent(
         instructor_llm,

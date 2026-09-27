@@ -30,6 +30,7 @@ OLLAMA_REASONING = False
 INSTRUCTOR_NUM_PREDICT = 1024
 CONTROLLER_NUM_PREDICT = 1024
 BUILDER_NUM_PREDICT = 4096
+BUILDER_MAX_TRIPLES_PER_PAGE = 48
 
 OUTPUT_DIRECTORY = Path("output")
 TRACE_PROCESS = False
@@ -61,6 +62,7 @@ def run_tri_agent():
         instructor_num_predict=INSTRUCTOR_NUM_PREDICT,
         controller_num_predict=CONTROLLER_NUM_PREDICT,
         builder_num_predict=BUILDER_NUM_PREDICT,
+        builder_max_triples_per_page=BUILDER_MAX_TRIPLES_PER_PAGE,
         trace=TRACE_PROCESS,
         trace_path=TRACE_FILE if TRACE_PROCESS else None,
     ) as tri_agent:

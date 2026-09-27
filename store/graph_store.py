@@ -274,12 +274,18 @@ class RDFKnowledgeGraphStore:
         text = str(value).strip()
         if text == "rdf:type":
             return RDF.type
+        if text.startswith("schema:"):
+            local_name = text.removeprefix("schema:")
+            if re.fullmatch(r"[A-Za-z][A-Za-z0-9]*", local_name):
+                return URIRef(cls.SCHEMA[local_name])
+            raise ValueError(f"Invalid schema.org CURIE predicate: {text!r}")
         if text == str(RDF.type) or text.startswith(str(cls.SCHEMA)):
             return URIRef(text)
         if text.startswith("http://schema.org/"):
             return URIRef("https://schema.org/" + text.removeprefix("http://schema.org/"))
         raise ValueError(
-            "Predicate must be rdf:type or a full https://schema.org/ IRI: "
+            "Predicate must be rdf:type, schema:<term>, or a full "
+            "https://schema.org/ IRI: "
             f"{text!r}"
         )
 

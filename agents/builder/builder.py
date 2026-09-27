@@ -123,6 +123,11 @@ Every triple must include a short, exact, contiguous evidence excerpt copied fro
 `aria_snapshot`. Preserve literal wording unless an unambiguous datatype
 normalization is necessary.
 
+Emit no more than <<MAX_TRIPLES>> triples. Every emitted triple must be unique:
+never repeat the same subject, predicate, object, and object_kind combination.
+Prefer facts that directly satisfy the goal and success criteria when the page
+contains more facts than this bound.
+
 Return valid JSON only:
 
 {
@@ -157,11 +162,85 @@ class BuilderAgent:
         graph_store: RDFKnowledgeGraphStore | None = None,
         tracer: ProcessTracer | None = None,
         usage_tracker: ModelUsageTracker | None = None,
+        max_triples_per_page: int = 48,
     ) -> None:
-        self.model = model.with_structured_output(KnowledgeGraph)
+        if max_triples_per_page < 1:
+            raise ValueError("max_triples_per_page must be at least 1")
+        self.model = model.with_structured_output(KnowledgeGraph, include_raw=True)
         self.graph_store = graph_store or RDFKnowledgeGraphStore()
         self.tracer = tracer or ProcessTracer()
         self.usage_tracker = usage_tracker or ModelUsageTracker()
+        self.max_triples_per_page = max_triples_per_page
+
+    def _messages(
+        self,
+        plan: RetrievalPlan,
+        result: ControllerResult,
+        *,
+        recovery: bool = False,
+    ) -> list[tuple[str, str]]:
+        prompt = BUILDER_PROMPT.replace(
+            "<<MAX_TRIPLES>>", str(self.max_triples_per_page)
+        )
+        if recovery:
+            prompt += """
+
+The previous extraction did not conform to the required JSON schema. Make one
+fresh extraction from the supplied evidence. Return a complete, compact JSON
+object; do not repeat triples and do not exceed the triple limit.
+"""
+        payload = {
+            "goal": plan.goal,
+            "context_terms": plan.context_terms,
+            "success_criteria": plan.success_criteria,
+            "retrieval_facets": plan.retrieval_facets,
+            "source_url": result.final_url,
+            "aria_snapshot": result.builder_aria,
+        }
+        return [("system", prompt), ("user", json.dumps(payload))]
+
+    def _invoke(self, messages: list[tuple[str, str]]) -> tuple[KnowledgeGraph | None, object]:
+        response = self.model.invoke(
+            messages,
+            config={"callbacks": [self.usage_tracker]},
+        )
+        if isinstance(response, KnowledgeGraph):
+            return response, None
+        return response.get("parsed"), response.get("parsing_error")
+
+    def _bounded_unique(self, graph: KnowledgeGraph) -> KnowledgeGraph:
+        unique: list[GraphTriple] = []
+        seen: set[tuple[str, str, str, str, str]] = set()
+        for triple in graph.triples:
+            key = (
+                triple.subject,
+                triple.predicate,
+                triple.object,
+                triple.object_kind,
+                triple.semantic_type,
+            )
+            if key in seen:
+                continue
+            seen.add(key)
+            unique.append(triple)
+
+        dropped_duplicates = len(graph.triples) - len(unique)
+        dropped_overflow = max(0, len(unique) - self.max_triples_per_page)
+        unique = unique[:self.max_triples_per_page]
+        unresolved = list(graph.unresolved)
+        if dropped_overflow:
+            unresolved.append(
+                f"Omitted {dropped_overflow} lower-priority triples because the "
+                f"per-page limit is {self.max_triples_per_page}."
+            )
+        if dropped_duplicates or dropped_overflow:
+            self.tracer.emit(
+                "builder",
+                "output_normalized",
+                duplicate_triples_removed=dropped_duplicates,
+                overflow_triples_removed=dropped_overflow,
+            )
+        return graph.model_copy(update={"triples": unique, "unresolved": unresolved})
 
     def ingest_structured_graph(self, graph, *, source_url: str) -> KnowledgeGraph:
         """Store embedded schema.org RDF and expose it to goal verification."""
@@ -199,17 +278,28 @@ class BuilderAgent:
             source_url=result.final_url,
             aria_chars=len(result.builder_aria),
         )
-        graph = self.model.invoke([
-            ("system", BUILDER_PROMPT),
-            ("user", json.dumps({
-                "goal": plan.goal,
-                "context_terms": plan.context_terms,
-                "success_criteria": plan.success_criteria,
-                "retrieval_facets": plan.retrieval_facets,
-                "source_url": result.final_url,
-                "aria_snapshot": result.builder_aria,
-            })),
-        ], config={"callbacks": [self.usage_tracker]})
+        graph, parsing_error = self._invoke(self._messages(plan, result))
+        if graph is None:
+            self.tracer.emit(
+                "builder",
+                "structured_output_retry",
+                error_type=type(parsing_error).__name__,
+                error=str(parsing_error)[:500],
+            )
+            graph, retry_error = self._invoke(
+                self._messages(plan, result, recovery=True)
+            )
+            if graph is None:
+                self.tracer.emit(
+                    "builder",
+                    "structured_output_failed",
+                    error_type=type(retry_error).__name__,
+                    error=str(retry_error)[:500],
+                )
+                raise retry_error if isinstance(retry_error, Exception) else ValueError(
+                    "Builder failed to return a valid knowledge graph after one retry"
+                )
+        graph = self._bounded_unique(graph)
         self.graph_store.add_knowledge_graph(graph, source_url=result.final_url)
         self.tracer.emit(
             "builder",
