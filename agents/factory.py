@@ -17,7 +17,7 @@ from agents.tracing import ProcessTracer
 from agents.usage import ModelUsageTracker
 from utils.aria import AriaPage
 from store import RDFKnowledgeGraphStore
-from store.fact_vector_store import FactVectorIndex
+from store.hyperedge_vector_store import HyperedgeVectorIndex
 from utils.structured_data import StructuredDataExtractor
 
 
@@ -142,7 +142,7 @@ def create_tri_agent(
         max_retrieval_rounds=max_retrieval_rounds,
         max_graph_query_steps=max_graph_query_steps,
         graph_query_result_limit=graph_query_result_limit,
-        fact_index=FactVectorIndex(
+        hyperedge_index=HyperedgeVectorIndex(
             graph_embeddings,
             database_path=graph_vector_database_path,
             document_prefix="search_document: " if nomic_retrieval else "",

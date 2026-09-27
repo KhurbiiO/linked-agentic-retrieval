@@ -19,6 +19,10 @@ class RetrievalPlan(BaseModel):
     context_terms: list[str] = Field(min_length=1)
     controller_objective: str
     navigation_goals: list[NavigationGoal] = Field(default_factory=list)
+    retrieval_facets: list[str] = Field(
+        default_factory=list,
+        description="Ontology hyperedge facets relevant to the extraction goal",
+    )
     success_criteria: list[str] = Field(min_length=1)
 
 

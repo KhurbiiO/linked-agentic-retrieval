@@ -10,7 +10,19 @@ from rdflib import URIRef
 from agents.models import ControllerResult, GraphTriple, KnowledgeGraph, RetrievalPlan
 from agents.tracing import ProcessTracer
 from agents.usage import ModelUsageTracker
-from store import RDFKnowledgeGraphStore
+from store import ONTOLOGY_FACETS, RDFKnowledgeGraphStore
+
+
+def _facet_grounding() -> str:
+    lines = []
+    for facet, predicates in ONTOLOGY_FACETS.items():
+        terms = ["rdf:type" if item == "type" else f"schema:{item}"
+                 for item in sorted(predicates)]
+        lines.append(f"- {facet}: {', '.join(terms)}")
+    return "\n".join(lines)
+
+
+HYPEREDGE_FACET_GROUNDING = _facet_grounding()
 
 
 SCHEMA_ORG_GROUNDING = """
@@ -25,7 +37,10 @@ The following are useful grounding examples, not an exhaustive allowlist:
 Classes:
 schema:Thing, schema:CreativeWork, schema:WebPage, schema:Article,
 schema:Recipe, schema:ItemList, schema:ListItem, schema:Person,
-schema:Organization, schema:ImageObject, schema:NutritionInformation.
+schema:Organization, schema:ImageObject, schema:NutritionInformation,
+schema:Product, schema:Offer, schema:QuantitativeValue, schema:Place,
+schema:PostalAddress, schema:GeoCoordinates, schema:AggregateRating,
+schema:Review, schema:Event, schema:SoftwareApplication.
 
 Properties:
 schema:name, schema:description, schema:url, schema:mainEntity,
@@ -51,6 +66,25 @@ Vocabulary rules:
    prompt.
 7. If no suitable Schema.org term represents an evidenced fact, omit the fact
    and report it in unresolved.
+
+The retrieval index groups triples into the following ontology-grounded
+hyperedge facets. When page evidence clearly expresses one of these relations,
+use the corresponding listed predicate so related facts can be retrieved as a
+coherent group:
+
+<<HYPEREDGE_FACETS>>
+
+Facet rules:
+- Actively inspect the evidence for relations covered by these facets.
+- Select a listed predicate only when its real Schema.org meaning exactly
+  matches the evidenced relation.
+- Do not invent a fact, predicate, entity, measurement, or relationship merely
+  to populate a facet.
+- Facet names are retrieval metadata, not RDF classes or predicates. Never emit
+  facet names such as `dimensions` or `commerce` as ontology terms.
+- Preserve explicit units and qualifiers in literal values. Where the page
+  explicitly represents a measurement as an entity, use schema:QuantitativeValue
+  with schema:value and schema:unitText or schema:unitCode.
 """
 
 BUILDER_PROMPT = """
@@ -58,6 +92,11 @@ Extract a content knowledge graph from the ARIA evidence in the supplied JSON
 object. The JSON also contains the retrieval goal and source URL. The
 current-page ARIA snapshot is bounded to the Controller's navigation limit,
 without chunk selection.
+
+The supplied `retrieval_facets` were selected by the Instructor for this goal.
+Prioritize explicitly evidenced relations in those facets, while still keeping
+other clearly relevant facts required by the success criteria. The selected
+facets guide attention; they are not evidence and are not an allowlist.
 
 <<SCHEMA_ORG_GROUNDING>>
 
@@ -102,7 +141,10 @@ Return valid JSON only:
     "unsupported or ambiguous fact and a brief reason"
   ]
 }
-""".replace("<<SCHEMA_ORG_GROUNDING>>", SCHEMA_ORG_GROUNDING)
+""".replace(
+    "<<SCHEMA_ORG_GROUNDING>>",
+    SCHEMA_ORG_GROUNDING.replace("<<HYPEREDGE_FACETS>>", HYPEREDGE_FACET_GROUNDING),
+)
 
 
 class BuilderAgent:
@@ -163,6 +205,7 @@ class BuilderAgent:
                 "goal": plan.goal,
                 "context_terms": plan.context_terms,
                 "success_criteria": plan.success_criteria,
+                "retrieval_facets": plan.retrieval_facets,
                 "source_url": result.final_url,
                 "aria_snapshot": result.builder_aria,
             })),
