@@ -29,12 +29,19 @@ def _model(
     value: ModelInput,
     temperature: float,
     ollama_keep_alive: str | int | None,
+    ollama_reasoning: bool | str | None,
+    num_predict: int | None,
 ) -> BaseChatModel:
     if isinstance(value, BaseChatModel):
         return value
     options = {"temperature": temperature}
-    if value.startswith("ollama:") and ollama_keep_alive is not None:
-        options["keep_alive"] = ollama_keep_alive
+    if value.startswith("ollama:"):
+        if ollama_keep_alive is not None:
+            options["keep_alive"] = ollama_keep_alive
+        if ollama_reasoning is not None:
+            options["reasoning"] = ollama_reasoning
+        if num_predict is not None:
+            options["num_predict"] = num_predict
     return init_chat_model(value, **options)
 
 
@@ -84,22 +91,42 @@ def create_tri_agent(
     trace_console: bool = True,
     preload_models: bool = False,
     ollama_keep_alive: str | int | None = "30m",
+    ollama_reasoning: bool | str | None = False,
+    instructor_num_predict: int | None = 1024,
+    controller_num_predict: int | None = 1024,
+    builder_num_predict: int | None = 4096,
 ) -> InstructorAgent:
     """Create the Instructor with its Controller and Builder collaborators."""
     tracer = ProcessTracer(trace, path=trace_path, console=trace_console)
     usage_tracker = ModelUsageTracker()
-    shared = _model(model, temperature, ollama_keep_alive)
+    # Create role-specific wrappers so inexpensive planning/decision calls can
+    # have tighter output limits than graph construction calls.
     instructor_llm = (
-        _model(instructor_model, temperature, ollama_keep_alive)
-        if instructor_model else shared
+        _model(
+            instructor_model or model,
+            temperature,
+            ollama_keep_alive,
+            ollama_reasoning,
+            instructor_num_predict,
+        )
     )
     controller_llm = (
-        _model(controller_model, temperature, ollama_keep_alive)
-        if controller_model else shared
+        _model(
+            controller_model or model,
+            temperature,
+            ollama_keep_alive,
+            ollama_reasoning,
+            controller_num_predict,
+        )
     )
     builder_llm = (
-        _model(builder_model, temperature, ollama_keep_alive)
-        if builder_model else shared
+        _model(
+            builder_model or model,
+            temperature,
+            ollama_keep_alive,
+            ollama_reasoning,
+            builder_num_predict,
+        )
     )
     graph_embeddings = (
         graph_embedding_model

@@ -10,9 +10,9 @@ from agents import create_tri_agent
 SEED_URL = "https://foodnetwork.co.uk"
 QUESTION = "What useful information is available on this page?"
 
-INSTRUCTOR_MODEL = "deepseek-r1:8b"
-CONTROLLER_MODEL = "qwen3:9b"
-BUILD_MODEL = "qwen3:9b"
+INSTRUCTOR_MODEL = "ollama:deepseek-r1:8b"
+CONTROLLER_MODEL = "ollama:qwen3:9b"
+BUILD_MODEL = "ollama:qwen3:9b"
 GRAPH_EMBEDDING_MODEL = "ollama:nomic-embed-text"
 
 MAX_CONTROLLER_ACTIONS = 5
@@ -26,6 +26,10 @@ GRAPH_MIN_SCORE = 0.7
 GRAPH_VECTOR_DATABASE_PATH = ":memory:"  # Set a SQLite path to persist fact vectors
 PRELOAD_MODELS = True
 OLLAMA_KEEP_ALIVE = "30m"
+OLLAMA_REASONING = False
+INSTRUCTOR_NUM_PREDICT = 1024
+CONTROLLER_NUM_PREDICT = 1024
+BUILDER_NUM_PREDICT = 4096
 
 OUTPUT_DIRECTORY = Path("output")
 TRACE_PROCESS = False
@@ -53,6 +57,10 @@ def run_tri_agent():
         graph_embedding_model=GRAPH_EMBEDDING_MODEL,
         preload_models=PRELOAD_MODELS,
         ollama_keep_alive=OLLAMA_KEEP_ALIVE,
+        ollama_reasoning=OLLAMA_REASONING,
+        instructor_num_predict=INSTRUCTOR_NUM_PREDICT,
+        controller_num_predict=CONTROLLER_NUM_PREDICT,
+        builder_num_predict=BUILDER_NUM_PREDICT,
         trace=TRACE_PROCESS,
         trace_path=TRACE_FILE if TRACE_PROCESS else None,
     ) as tri_agent:

@@ -81,6 +81,10 @@ class TriAgentAlgorithm:
     GRAPH_MIN_SCORE = 0.35
     GRAPH_VECTOR_DATABASE_PATH = ":memory:"  # Set a SQLite path to persist fact vectors
     OLLAMA_KEEP_ALIVE = "30m"
+    OLLAMA_REASONING = False
+    INSTRUCTOR_NUM_PREDICT = 1024
+    CONTROLLER_NUM_PREDICT = 1024
+    BUILDER_NUM_PREDICT = 4096
     PRELOAD_MODELS = False
     TRACE_PROCESS = False
 
@@ -101,6 +105,10 @@ class TriAgentAlgorithm:
                 graph_embedding_model=self.GRAPH_EMBEDDING_MODEL,
                 preload_models=self.PRELOAD_MODELS,
                 ollama_keep_alive=self.OLLAMA_KEEP_ALIVE,
+                ollama_reasoning=self.OLLAMA_REASONING,
+                instructor_num_predict=self.INSTRUCTOR_NUM_PREDICT,
+                controller_num_predict=self.CONTROLLER_NUM_PREDICT,
+                builder_num_predict=self.BUILDER_NUM_PREDICT,
                 trace=self.TRACE_PROCESS,
             )  as agent:
             result = agent.invoke(prompt)
