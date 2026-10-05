@@ -24,7 +24,7 @@ from benchmark.judge import ModelAnswerJudge
 from benchmark.ollama_service import OllamaSupervisor
 
 
-DATASET_PATH = Path(__file__).parent / "tasks" / "web_retrieval_tasks_500_V1.json"
+DATASET_PATH = Path(__file__).parent / "tasks" / "web_retrieval_tasks_500_V2.json"
 OUTPUT_DIRECTORY = Path("output") / "benchmark"
 SCORABLE_ONLY = True
 TASK_IDS: set[str] = set()  # Empty means all eligible tasks.
