@@ -24,7 +24,7 @@ from benchmark.judge import ModelAnswerJudge
 from benchmark.ollama_service import OllamaSupervisor
 
 
-DATASET_PATH = Path(__file__).parent / "tasks" / "T3.json"
+DATASET_PATH = Path(__file__).parent / "tasks" / "web_retrieval_tasks_500_V1.json"
 OUTPUT_DIRECTORY = Path("output") / "benchmark"
 SCORABLE_ONLY = True
 TASK_IDS: set[str] = set()  # Empty means all eligible tasks.
@@ -40,7 +40,7 @@ OLLAMA_CONNECTION_RETRIES = 1
 
 ALGORITHMS: list[BenchmarkAlgorithm] = [
     TriAgentAlgorithm(
-        name="TriAgent_V0_2",
+        name="TriAgent_V0_2_500",
         instructor_model="ollama:qwen3.6:27b",
         controller_model="ollama:qwen3.6:27b",
         builder_model="ollama:qwen3.6:27b",

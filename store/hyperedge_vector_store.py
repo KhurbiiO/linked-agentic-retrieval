@@ -17,6 +17,7 @@ from rdflib import RDF, URIRef
 if TYPE_CHECKING:
     from .graph_store import RDFKnowledgeGraphStore, StoredEvidence
 
+import numpy
 
 SCHEMA = "https://schema.org/"
 
