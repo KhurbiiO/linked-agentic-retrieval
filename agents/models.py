@@ -27,9 +27,28 @@ class RetrievalPlan(BaseModel):
 
 
 class ControllerDecision(BaseModel):
-    action: Literal["goto", "back", "stop"]
+    action: Literal["click", "type", "check", "back", "stop"]
     reason: str
-    url: str | None = None
+    role: str | None = Field(
+        default=None,
+        description="ARIA role of the visible target, such as link, button, textbox, or checkbox",
+    )
+    name: str | None = Field(
+        default=None,
+        description="Exact accessible name of the visible target",
+    )
+    selector: str | None = Field(
+        default=None,
+        description="CSS fallback used only when the ARIA role/name cannot identify the target",
+    )
+    value: str | None = Field(
+        default=None,
+        description="Text to enter for a type action",
+    )
+    checked: bool | None = Field(
+        default=None,
+        description="Desired checkbox state for a check action",
+    )
     new_navigation_goal: NavigationGoal | None = None
     completed_navigation_goal_indices: list[int] = Field(default_factory=list)
 

@@ -75,7 +75,7 @@ def resolve_action_target(page: Any, decision: Any) -> tuple[Any, dict[str, str]
 
     # Small models often put a visible link label in the selector field. Resolve
     # it only when that exact accessible label really exists on the current page.
-    for candidate_role in ("link", "button", "textbox", "searchbox"):
+    for candidate_role in ("link", "button", "textbox", "searchbox", "checkbox"):
         target = _visible_first(page.get_by_role(candidate_role, name=selector, exact=True))
         if target is not None:
             return target, {"role": candidate_role, "name": selector}
@@ -186,15 +186,6 @@ def execute_browser_action(
 
     if decision.action == "stop":
         return finish("stopped")
-    if decision.action == "snapshot":
-        if not decision.selector:
-            raise ValueError("snapshot requires a focused CSS selector")
-        metadata["focused_aria"] = page.locator(decision.selector).aria_snapshot(
-            timeout=_remaining(action_deadline), mode="ai"
-        )
-        _body_snapshot(aria_page, action_deadline)
-        return finish("inspected")
-
     popups: list[Any] = []
     def record_popup(popup: Any) -> None:
         popups.append(popup)
@@ -207,10 +198,12 @@ def execute_browser_action(
         if decision.action == "back":
             page.go_back(wait_until="domcontentloaded", timeout=_remaining(action_deadline))
         else:
-            if decision.action not in {"click", "fill", "press"}:
+            if decision.action not in {"click", "type", "check"}:
                 raise ValueError(f"Unsupported controller action: {decision.action}")
-            if decision.action in {"fill", "press"} and decision.value is None:
+            if decision.action == "type" and decision.value is None:
                 raise ValueError(f"{decision.action} requires value")
+            if decision.action == "check" and decision.checked is None:
+                raise ValueError("check requires a boolean checked state")
             target, metadata["target"] = resolve_action_target(page, decision)
             before_target = target.evaluate(_TARGET_STATE, timeout=_remaining(action_deadline))
             if decision.action == "click":
@@ -236,10 +229,10 @@ def execute_browser_action(
                         metadata["javascript_fallback"] = True
                     else:
                         raise
-            elif decision.action == "fill":
+            elif decision.action == "type":
                 target.fill(decision.value, timeout=_remaining(action_deadline))
             else:
-                target.press(decision.value, timeout=_remaining(action_deadline))
+                target.set_checked(decision.checked, timeout=_remaining(action_deadline))
 
         navigation_deadline = monotonic() + navigation_timeout_ms / 1000
         status = ""
@@ -264,8 +257,11 @@ def execute_browser_action(
                 page.wait_for_timeout(min(100, remaining_ms))
                 continue
             if not requires_navigation:
-                if decision.action == "fill":
-                    status = "filled"
+                if decision.action == "type":
+                    status = "typed"
+                    break
+                if decision.action == "check":
+                    status = "checked" if decision.checked else "unchecked"
                     break
                 state_changed = False
                 if target is not None:
