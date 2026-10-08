@@ -1,0 +1,26 @@
+{
+  "algorithm": "WebWalkerQA_EN",
+  "configuration": {
+    "type": "tri_agent",
+    "model": "ollama:qwen3.6:27b",
+    "graph_embedding_model": "ollama:nomic-embed-text",
+    "options": {}
+  },
+  "generated_at": "2026-10-08T16:22:52.647527+00:00",
+  "tasks_recorded": 0,
+  "tasks_completed": 0,
+  "errors": 0,
+  "timeouts": 0,
+  "max_task_microseconds": 900000000,
+  "ollama_service_starts": 0,
+  "ollama_connection_retries": 0,
+  "judge_model": "ollama:qwen3.6:27b",
+  "tasks_judged": 0,
+  "judge_errors": 0,
+  "passed": 0,
+  "accuracy": 0.0,
+  "mean_judge_score": 0.0,
+  "total_tokens": 0,
+  "judge_total_tokens": 0,
+  "total_duration_ms": 0
+}

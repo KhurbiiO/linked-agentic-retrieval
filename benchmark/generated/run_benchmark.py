@@ -19,12 +19,12 @@ from queue import Empty
 from time import monotonic, perf_counter
 from typing import Any
 
-from benchmark.algorithms import BenchmarkAlgorithm, TriAgentAlgorithm
-from benchmark.judge import ModelAnswerJudge
-from benchmark.ollama_service import OllamaSupervisor
+from benchmark.generated.algorithms import BenchmarkAlgorithm, TriAgentAlgorithm
+from benchmark.generated.judge import ModelAnswerJudge
+from benchmark.generated.ollama_service import OllamaSupervisor
 
 
-DATASET_PATH = Path(__file__).parent / "tasks" / "web_retrieval_tasks_500_V2.json"
+DATASET_PATH = Path(__file__).parent / "tasks" / "WebWalkerQA_EN_tasks_247.json"
 OUTPUT_DIRECTORY = Path("output") / "benchmark"
 SCORABLE_ONLY = True
 TASK_IDS: set[str] = set()  # Empty means all eligible tasks.
@@ -40,7 +40,7 @@ OLLAMA_CONNECTION_RETRIES = 1
 
 ALGORITHMS: list[BenchmarkAlgorithm] = [
     TriAgentAlgorithm(
-        name="TriAgent_V0_2_500",
+        name="WebWalkerQA_EN",
         instructor_model="ollama:qwen3.6:27b",
         controller_model="ollama:qwen3.6:27b",
         builder_model="ollama:qwen3.6:27b",
@@ -50,6 +50,8 @@ ALGORITHMS: list[BenchmarkAlgorithm] = [
 
 def _load_tasks() -> list[dict[str, Any]]:
     tasks = json.loads(DATASET_PATH.read_text(encoding="utf-8"))
+    for task in tasks:
+        task.setdefault("scorable", True)
     selected = [
         task for task in tasks
         if (not SCORABLE_ONLY or task.get("scorable") is True)

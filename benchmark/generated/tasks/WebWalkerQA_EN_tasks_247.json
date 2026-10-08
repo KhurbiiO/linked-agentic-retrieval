@@ -1,0 +1,4829 @@
+[
+  {
+    "id": "WW-001",
+    "website": "ehaweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://ehaweb.org/",
+    "instruction": "Which program funded the SUPPLY project involving EHA, when did the project start, and how long will it last?",
+    "gold_answer": {
+      "answer": "The SUPPLY project that EHA is involved in is funded by the EU4Health program. It started on September 1, 2022, and lasts for 18 months."
+    },
+    "evidence": [
+      {
+        "url": "https://ehaweb.org/organization/newsroom/news-and-updates/eha-to-participate-in-an-eu-funded-project-supply/"
+      }
+    ]
+  },
+  {
+    "id": "WW-002",
+    "website": "icse-conferences.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "http://www.icse-conferences.org/",
+    "instruction": "When and where was the ICSE duplicate submission statement agreed upon?",
+    "gold_answer": {
+      "answer": "November 2002, Charleston, South Carolina."
+    },
+    "evidence": [
+      {
+        "url": "http://www.icse-conferences.org/duplicate.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-003",
+    "website": "illuvium.io",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://illuvium.io/",
+    "instruction": "In February 2024, how was the land revenue share decision made in the Illuvium game, and how many council members voted in favor of this proposal?",
+    "gold_answer": {
+      "answer": "Five votes in favor."
+    },
+    "evidence": [
+      {
+        "url": "https://illuvium.io/news/illuvium-dao-governance-newsletter-february-2024"
+      }
+    ]
+  },
+  {
+    "id": "WW-004",
+    "website": "sigchi.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://sigchi.org/",
+    "instruction": "Which goal was related to the discussion by Neha, Joe Konstan, and Cliff Lampe about the relationship with the steering committee in the EC working meeting on November 15, 2023?",
+    "gold_answer": {
+      "answer": "Financial goals."
+    },
+    "evidence": [
+      {
+        "url": "https://sigchi.org/events/ec-working-november-15-2023/"
+      }
+    ]
+  },
+  {
+    "id": "WW-005",
+    "website": "ciie.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ciie.org/",
+    "instruction": "Which African countries participated in the 7th China International Import Expo with the theme of the 60th anniversary of diplomatic relations with China?",
+    "gold_answer": {
+      "answer": "Tanzania, Tunisia, and Zambia"
+    },
+    "evidence": [
+      {
+        "url": "https://www.ciie.org/zbh/en/news/exhibition/focus/20241024/46202.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-006",
+    "website": "nmun.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.nmun.org/",
+    "instruction": "What is the final deadline for submitting hotel reservation payments and position papers for the NMUN NYC 2025 conference?",
+    "gold_answer": {
+      "answer": "The final deadline for submitting hotel reservation payments is 15 February 2025, and for position papers, it is 1 March 2025."
+    },
+    "evidence": [
+      {
+        "url": "https://www.nmun.org/conferences/new-york/register-and-plan-your-trip/plan-your-trip/hotel-information.html#main"
+      },
+      {
+        "url": "https://www.nmun.org/conferences/new-york/prepare-for-committee/position-papers.html#main"
+      }
+    ]
+  },
+  {
+    "id": "WW-007",
+    "website": "icse-conferences.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "http://www.icse-conferences.org/",
+    "instruction": "Which tutorial at ICSE 2002 focused on the challenges of building web application systems, and what was the primary submission category emphasized by the ICSE for software engineering practitioners?",
+    "gold_answer": {
+      "answer": "Tutorial 5 ('Meeting the Challenges of Web Application Development: The Web Engineering Approach') focused on building web application systems. The primary submission category emphasized by ICSE for software engineering practitioners was 'To provide opportunities for participation by software practitioners.'"
+    },
+    "evidence": [
+      {
+        "url": "http://www.icse-conferences.org/2002/cfp/index.html"
+      },
+      {
+        "url": "http://www.icse-conferences.org/2002/info/tutorials.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-008",
+    "website": "poms.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.poms.org/",
+    "instruction": "Wickham Skinner Award winners in 2016 and 2022?",
+    "gold_answer": {
+      "answer": "The 2016 Wickham Skinner Award winner was James Hill, and the 2022 winner was Gregory R. Heim."
+    },
+    "evidence": [
+      {
+        "url": "https://www.poms.org/node/460"
+      },
+      {
+        "url": "https://www.poms.org/node/977"
+      }
+    ]
+  },
+  {
+    "id": "WW-009",
+    "website": "2024.aclweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://2024.aclweb.org/",
+    "instruction": "Who is the chair of the ACL 2024 Student Research Workshop, and what is the deadline to apply for a travel subsidy to attend this workshop?",
+    "gold_answer": {
+      "answer": "The chair of the ACL 2024 Student Research Workshop is Xiyan Fu. The deadline to apply for a travel subsidy is July 3rd, 2024."
+    },
+    "evidence": [
+      {
+        "url": "https://2024.aclweb.org/calls/student_research_workshop/"
+      },
+      {
+        "url": "https://2024.aclweb.org/calls/subsidies/"
+      }
+    ]
+  },
+  {
+    "id": "WW-010",
+    "website": "sigchi.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://sigchi.org/",
+    "instruction": "Who are the candidates for VP of Accessibility at the SIGCHI 2024 elections, and which membership requirement allows members to vote in these elections?",
+    "gold_answer": {
+      "answer": "Dragan Ahmetovic and Fernando Loizides are candidates for VP of Accessibility; Only SIGCHI members can vote in the SIGCHI elections."
+    },
+    "evidence": [
+      {
+        "url": "https://sigchi.org/events/meet-the-candidates-accessibility/"
+      },
+      {
+        "url": "https://sigchi.org/people/membership/"
+      }
+    ]
+  },
+  {
+    "id": "WW-011",
+    "website": "icse-conferences.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "http://www.icse-conferences.org/",
+    "instruction": "Which scholars presented the IMPACT project on safety-critical systems and software inspections, reviews, and walkthroughs at the ICSE 2002 conference?",
+    "gold_answer": {
+      "answer": "The IMPACT presentations at ICSE 2002 were headed by John Knight on safety-critical systems and Oliver Laitenberger on software inspections, reviews, and walkthroughs."
+    },
+    "evidence": [
+      {
+        "url": "http://www.icse-conferences.org/2002/info/soa.html"
+      },
+      {
+        "url": "http://www.icse-conferences.org/2002/info/impact.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-012",
+    "website": "2023.aclweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://2023.aclweb.org/",
+    "instruction": "What was the specific schedule for the social event held on the evening after the ACL 2023 best paper awards ceremony?",
+    "gold_answer": {
+      "answer": "The social event was scheduled from 7:00 PM to 10:30 PM on July 11th."
+    },
+    "evidence": [
+      {
+        "url": "https://2023.aclweb.org/program/best_papers/"
+      },
+      {
+        "url": "https://2023.aclweb.org/program/social/"
+      }
+    ]
+  },
+  {
+    "id": "WW-013",
+    "website": "2025.aclweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://2025.aclweb.org/",
+    "instruction": "When is the paper submission deadline for the ACL 2025 Industry Track, and what is the venue address for the conference?",
+    "gold_answer": {
+      "answer": "The paper submission deadline for the ACL 2025 Industry Track is March, 2025. The conference will be held in Bruno-Kreisky-Platz 1."
+    },
+    "evidence": [
+      {
+        "url": "https://2025.aclweb.org/calls/industry_track/"
+      },
+      {
+        "url": "https://2025.aclweb.org/venue/"
+      }
+    ]
+  },
+  {
+    "id": "WW-014",
+    "website": "www2024.thewebconf.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www2024.thewebconf.org/",
+    "instruction": "During The Web Conference 2024, which keynote speaker is addressing the challenges posed by AI deepfakes, and on what thematic special day of the conference does the discussion on Large Language Models (LLMs) take place?",
+    "gold_answer": {
+      "answer": "Jeannie Marie Paterson addresses AI deepfakes on May 17, 2024. Large Language Model Day is on May 14, 2024."
+    },
+    "evidence": [
+      {
+        "url": "https://www2024.thewebconf.org/program/keynotes"
+      },
+      {
+        "url": "https://www2024.thewebconf.org/program/special-days/"
+      }
+    ]
+  },
+  {
+    "id": "WW-015",
+    "website": "riotgames.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.riotgames.com/en",
+    "instruction": "During the 2023 League of Legends World Championship, which charitable cause did Riot Games and AWS's 'Take the Drake for Water's Sake' campaign support, and what was the total amount of the Riot Games Social Impact Fund at that time?",
+    "gold_answer": {
+      "answer": "The funds raised supported providing 70,000 people with access to safe water or sanitation, and the Riot Games Social Impact Fund reached a total of $50 million."
+    },
+    "evidence": [
+      {
+        "url": "https://www.riotgames.com/en/news/worlds-2023-sustainability-aws"
+      },
+      {
+        "url": "https://www.riotgames.com/en/news/50M-raised-riot-games-social-impact"
+      }
+    ]
+  },
+  {
+    "id": "WW-016",
+    "website": "duoyi.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.duoyi.com/",
+    "instruction": "Which game by Duoyi Network won the 'Outstanding Mobile Game' award at the 2024 Golden Finger Awards, and when did the test for 'Wan Xian Zhu Lu' start?",
+    "gold_answer": {
+      "answer": "The game \"Dream World 3\" won the \"Outstanding Mobile Game\" award at the 2024 Golden Finger Awards. The test for \"Myth of Wanxian\" began on June 2, 2024, at 12:00."
+    },
+    "evidence": [
+      {
+        "url": "https://www.duoyi.com/news/news_30902.shtm"
+      },
+      {
+        "url": "https://www.duoyi.com/news/news_27230.shtm#sub-content"
+      }
+    ]
+  },
+  {
+    "id": "WW-017",
+    "website": "sandbox.game",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.sandbox.game/en/",
+    "instruction": "Which event has a higher total reward pool, the SHIBUYA Y3K event on October 2, 2024, or the upcoming The Smurfs: Gargamel's Castle experience?",
+    "gold_answer": {
+      "answer": "SHIBUYA Y3K event has a higher total prize pool of 65,000 SAND compared to The Smurfs: Gargamel's Castle's 1,009 SAND."
+    },
+    "evidence": [
+      {
+        "url": "https://www.sandbox.game/en/blog/futuristic-fashion-has-arrived-the-shibuya-y3k-fashion-collection-is-here/3420"
+      },
+      {
+        "url": "https://www.sandbox.game/en/experiences/The%20Smurfs:%20Gargamel's%20Castle/1bb49753-34fd-452c-8f59-719ae040a92a/page"
+      }
+    ]
+  },
+  {
+    "id": "WW-018",
+    "website": "ironhidegames.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ironhidegames.com/",
+    "instruction": "Which characters are involved in the grand opening of Battle Brewmasters Artisanal Potion Shop in Kingdom Rush 5: Alliance, and what types of hidden treasures can be found in the upcoming Pirate Kings Campaign?",
+    "gold_answer": {
+      "answer": "Characters like Linireans, elves, and dwarves participate in the grand opening. Hidden treasures in the Pirate Kings Campaign include items like Ironhide Games assets, heroes, towers, or DLCs."
+    },
+    "evidence": [
+      {
+        "url": "https://www.ironhidegames.com/News/Details/372"
+      },
+      {
+        "url": "https://www.ironhidegames.com/News/Details/370"
+      }
+    ]
+  },
+  {
+    "id": "WW-019",
+    "website": "igg.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.igg.com/",
+    "instruction": "What are the two major themes supported by IGG's charitable activities as demonstrated in their 2020 and 2023 initiatives?",
+    "gold_answer": {
+      "answer": "Children's wishes and ocean conservation"
+    },
+    "evidence": [
+      {
+        "url": "https://www.igg.com/charity/?pageno=3"
+      },
+      {
+        "url": "https://www.igg.com/charity/?pageno=1"
+      }
+    ]
+  },
+  {
+    "id": "WW-020",
+    "website": "apec.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.apec.org/",
+    "instruction": "What is the target for international tourist arrivals in Peru for 2024?",
+    "gold_answer": {
+      "answer": "4.4 million"
+    },
+    "evidence": [
+      {
+        "url": "https://www.apec.org/press/news-releases/2024/ministers-safeguard-tourism-sector-s-role-as-driver-of-economic-growth"
+      }
+    ]
+  },
+  {
+    "id": "WW-021",
+    "website": "ietf.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ietf.org/",
+    "instruction": "What is notable about the preliminary agenda and registration process for the IETF 122 meeting in Bangkok in March 2025?",
+    "gold_answer": {
+      "answer": "The preliminary agenda for IETF 122 Bangkok will be available on 14 February 2025, with each working group responsible for posting their agendas."
+    },
+    "evidence": [
+      {
+        "url": "https://www.ietf.org/meeting/new-participants/"
+      }
+    ]
+  },
+  {
+    "id": "WW-022",
+    "website": "poms.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.poms.org/",
+    "instruction": "Who won the 2015 Wickham Skinner Teaching Innovation Award?",
+    "gold_answer": {
+      "answer": "Mike Gorman"
+    },
+    "evidence": [
+      {
+        "url": "https://www.poms.org/node/459"
+      }
+    ]
+  },
+  {
+    "id": "WW-023",
+    "website": "icse-conferences.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "http://www.icse-conferences.org/",
+    "instruction": "What visual modeling language for complex systems was introduced in the ICSE 2002 tutorial led by Joseph Gil and others on May 21, 2002?",
+    "gold_answer": {
+      "answer": "Advanced Visual Modeling: Beyond UML"
+    },
+    "evidence": [
+      {
+        "url": "http://www.icse-conferences.org/2002/info/tutorials.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-024",
+    "website": "rheumatology.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://rheumatology.org/annual-meeting",
+    "instruction": "By when should an international attendee applying for a B1 visa in May 2024 receive their visa to attend ACR Convergence 2024?",
+    "gold_answer": {
+      "answer": "By early November 2024."
+    },
+    "evidence": [
+      {
+        "url": "https://rheumatology.org/annual-meeting-travel"
+      }
+    ]
+  },
+  {
+    "id": "WW-025",
+    "website": "hematology.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.hematology.org/meetings/annual-meeting",
+    "instruction": "When is the deadline to request an ancillary meeting at the 66th ASH Annual Meeting, and by what date must late-breaking abstract submissions be completed?",
+    "gold_answer": {
+      "answer": "The deadline to request an ancillary meeting at the 66th ASH Annual Meeting is November 22, 2024, and late-breaking abstract submissions must be completed by October 28, 2024."
+    },
+    "evidence": [
+      {
+        "url": "https://www.hematology.org/meetings/annual-meeting/ancillary-meetings"
+      },
+      {
+        "url": "https://www.hematology.org/meetings/annual-meeting/abstracts/call-for-late-breaking-abstracts"
+      }
+    ]
+  },
+  {
+    "id": "WW-026",
+    "website": "vldb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.vldb.org/",
+    "instruction": "What roles did H. V. Jagadish and Gerald Weber hold in the editorial team of the VLDB journal from 2010 to 2015?",
+    "gold_answer": {
+      "answer": "H. V. Jagadish was the Founding Editor-in-Chief and Gerald Weber was the Information Director for the VLDB journal from 2010 to 2015."
+    },
+    "evidence": [
+      {
+        "url": "https://www.vldb.org/pvldb/vol4-volume-info"
+      },
+      {
+        "url": "https://www.vldb.org/pvldb/vol8-volume-info"
+      }
+    ]
+  },
+  {
+    "id": "WW-027",
+    "website": "poms.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.poms.org/",
+    "instruction": "Who were the recipients of the POMS Fellows Award in 2011 and 2022, respectively?",
+    "gold_answer": {
+      "answer": "The 2011 recipient of the POMS Fellows Award was Chris Tang, and the 2022 recipient was Zuo-Jun \"Max\" Shen."
+    },
+    "evidence": [
+      {
+        "url": "https://www.poms.org/node/974"
+      },
+      {
+        "url": "https://www.poms.org/node/403"
+      }
+    ]
+  },
+  {
+    "id": "WW-028",
+    "website": "nime.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.nime.org/",
+    "instruction": "What traditional Vietnamese and Korean instruments inspired the innovations discussed in the NIME 2024 conference papers by Tim-Tarek Grund and Michaella J Moon?",
+    "gold_answer": {
+      "answer": "đàn Bầu and Gugak."
+    },
+    "evidence": [
+      {
+        "url": "https://www.nime.org/proc/nime2024_65/index.html"
+      },
+      {
+        "url": "https://www.nime.org/proc/nime2024_27/index.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-029",
+    "website": "nmun.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.nmun.org/",
+    "instruction": "Which committee addresses the transition from relief to development at the NMUN Washington D.C. conference, and what is the payment deadline?",
+    "gold_answer": {
+      "answer": "The committee is the Economic and Social Council (ECOSOC), and the payment deadline is October 1."
+    },
+    "evidence": [
+      {
+        "url": "https://www.nmun.org/conferences/washington-dc/register-and-plan-your-trip/academic-tools/committees-and-topics.html#main"
+      },
+      {
+        "url": "https://www.nmun.org/conferences/washington-dc/register-and-plan-your-trip/plan-your-trip/cost-information.html#main"
+      }
+    ]
+  },
+  {
+    "id": "WW-030",
+    "website": "rheumatology.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://rheumatology.org/annual-meeting",
+    "instruction": "What are the specific embargo lift timings for abstracts and patient perspectives at ACR Convergence 2024?",
+    "gold_answer": {
+      "answer": "November 14, 2024, 10:00 AM ET for both abstracts and patient perspectives."
+    },
+    "evidence": [
+      {
+        "url": "https://rheumatology.org/annual-meeting-abstract-embargo-policies"
+      },
+      {
+        "url": "https://rheumatology.org/annual-meeting-patient-perspectives"
+      }
+    ]
+  },
+  {
+    "id": "WW-031",
+    "website": "mrs.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.mrs.org/",
+    "instruction": "Who is more focused on promoting interdisciplinary collaboration between materials science and education in the 2024 MRS Board elections, according to the contributions and statements by Derya Baran and Izabela Szlufarska?",
+    "gold_answer": {
+      "answer": "Izabela Szlufarska"
+    },
+    "evidence": [
+      {
+        "url": "https://www.mrs.org/membership/governance/elections/derya-baran"
+      },
+      {
+        "url": "https://www.mrs.org/membership/governance/elections/izabela-szlufarska"
+      }
+    ]
+  },
+  {
+    "id": "WW-032",
+    "website": "cbd.int",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.cbd.int/",
+    "instruction": "Which documentary by Jean Lemire aligns with the international information exchange goals of Article 17 of the Convention on Biological Diversity?",
+    "gold_answer": {
+      "answer": "The Last Continent"
+    },
+    "evidence": [
+      {
+        "url": "https://www.cbd.int/convention/articles.shtml?a=cbd-17"
+      },
+      {
+        "url": "https://www.cbd.int/cooperation/midori/lemire.shtml"
+      }
+    ]
+  },
+  {
+    "id": "WW-033",
+    "website": "rovio.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.rovio.com/",
+    "instruction": "In 2024, how did Rovio express a commitment to its community through its actions in reviving classic games and supporting the Brazil Nut Corridor conservation?",
+    "gold_answer": {
+      "answer": "Rovio announced plans to bring back classic Angry Birds games due to fan demand and supported the Brazil Nut Corridor conservation through the Wild Green Future's Annual Charity Battle."
+    },
+    "evidence": [
+      {
+        "url": "https://www.rovio.com/articles/a-letter-to-our-fans/"
+      },
+      {
+        "url": "https://www.rovio.com/articles/angry-birds-contributes-to-wild-green-futures-annual-charity-battle/"
+      }
+    ]
+  },
+  {
+    "id": "WW-034",
+    "website": "rovio.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.rovio.com/",
+    "instruction": "What specific reasons did the Rovio report cite for the decline in revenue in Q1 2023 compared to the same period the previous year, and by what percentage did the revenue decline?",
+    "gold_answer": {
+      "answer": "Rovio's revenue in Q1 2023 decreased by 13.2% compared to the same period in 2022, largely due to the impact of the Angry Birds Journey launch in early 2022 affecting the comparison figures."
+    },
+    "evidence": [
+      {
+        "url": "https://www.rovio.com/articles/rovios-half-year-2022-financial-report-published/"
+      },
+      {
+        "url": "https://www.rovio.com/articles/rovios-q1-2023-interim-report-published/"
+      }
+    ]
+  },
+  {
+    "id": "WW-035",
+    "website": "icse-conferences.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "http://www.icse-conferences.org/",
+    "instruction": "Who were the program committee chairs for the ICSE 2002 conference, and when and where was this conference held?",
+    "gold_answer": {
+      "answer": "The program committee chairs for the 2002 ICSE conference were Michal Young and Jeff Magee. The conference was held from May 19-25, 2002 in Orlando, Florida, USA."
+    },
+    "evidence": [
+      {
+        "url": "http://www.icse-conferences.org/2002/info/ccommittee.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-036",
+    "website": "ehaweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://ehaweb.org/",
+    "instruction": "In 2024, what specific group's hematology diagnostic care did EHA launch a major consultation to understand?",
+    "gold_answer": {
+      "answer": "Adolescents and Young Adults (AYA)."
+    },
+    "evidence": [
+      {
+        "url": "https://ehaweb.org/organization/newsroom/news-and-updates/tag/survey"
+      }
+    ]
+  },
+  {
+    "id": "WW-037",
+    "website": "sigchi.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://sigchi.org/",
+    "instruction": "What time will James Landay share his experiences in the 2024 ACM SIGCHI Awards series in Shanghai local time?",
+    "gold_answer": {
+      "answer": "June 15, 2024, 4:30 AM to 5:30 AM Shanghai local time."
+    },
+    "evidence": [
+      {
+        "url": "https://sigchi.org/events/sigchi-lifetime-research-award-james-landay/"
+      }
+    ]
+  },
+  {
+    "id": "WW-038",
+    "website": "ehaweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://ehaweb.org/",
+    "instruction": "Which doctor presented the randomized study results on kinase inhibitors for acute myeloid leukemia treatment at the EHA conference in June 2015?",
+    "gold_answer": {
+      "answer": "Dr Ehninger"
+    },
+    "evidence": [
+      {
+        "url": "https://ehaweb.org/organization/newsroom/news-and-updates/category/press-releases?start=45"
+      }
+    ]
+  },
+  {
+    "id": "WW-039",
+    "website": "ehaweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://ehaweb.org/",
+    "instruction": "Who became the Managing Director of the European Hematology Association in January 2023, and when did they officially assume the position?",
+    "gold_answer": {
+      "answer": "Ignacio Quiles Lara became the new Managing Director of the European Hematology Association on January 9, 2023."
+    },
+    "evidence": [
+      {
+        "url": "https://ehaweb.org/organization/newsroom/news-and-updates/appointment-of-new-eha-managing-director/"
+      }
+    ]
+  },
+  {
+    "id": "WW-040",
+    "website": "ehaweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://ehaweb.org/",
+    "instruction": "When did the European Hematology Association (EHA) initiate the bridge funding program to support the rebuilding of hematology in Ukraine?",
+    "gold_answer": {
+      "answer": "April 2022"
+    },
+    "evidence": [
+      {
+        "url": "https://ehaweb.org/organization/newsroom/news-and-updates/rebuilding-the-future-for-hematology-in-ukraine-today/"
+      }
+    ]
+  },
+  {
+    "id": "WW-041",
+    "website": "www2024.thewebconf.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www2024.thewebconf.org/",
+    "instruction": "Which specific theme day does the tutorial schedule overlap with at The Web Conference 2024?",
+    "gold_answer": {
+      "answer": "Online Trust & Safety Day"
+    },
+    "evidence": [
+      {
+        "url": "https://www2024.thewebconf.org/calls/tutorials"
+      },
+      {
+        "url": "https://www2024.thewebconf.org/program/special-days"
+      }
+    ]
+  },
+  {
+    "id": "WW-042",
+    "website": "rovio.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.rovio.com/",
+    "instruction": "When does the unique Angry Birds AR experience created by Zappar and Burger King for fans end in the US and Canada?",
+    "gold_answer": {
+      "answer": "June 20, 2021"
+    },
+    "evidence": [
+      {
+        "url": "https://www.rovio.com/articles/angry-birds-fly-to-burger-king-with-new-toys-and-augmented-reality-experience/"
+      }
+    ]
+  },
+  {
+    "id": "WW-043",
+    "website": "sigchi.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://sigchi.org/",
+    "instruction": "Who is the chair responsible for accessibility during the ETRA 2025 that will be held at Miraikan, Tokyo?",
+    "gold_answer": {
+      "answer": "Dragan Ahmetovic"
+    },
+    "evidence": [
+      {
+        "url": "https://sigchi.org/events/etra-2025/"
+      },
+      {
+        "url": "https://sigchi.org/people/committees/accessibility-committee/"
+      }
+    ]
+  },
+  {
+    "id": "WW-044",
+    "website": "yili.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.yili.com/",
+    "instruction": "What are the two main strategies employed by Yili Group for the 'Yili Nutrition 2030' project to support its sustainability commitment?",
+    "gold_answer": {
+      "answer": "Yili Group supports its sustainability commitment through two major strategies: 'Rural Revitalization' and 'Healthy China'."
+    },
+    "evidence": [
+      {
+        "url": "https://www.yili.com/en/sustainability"
+      },
+      {
+        "url": "https://www.yili.com/en/sustainability/corporate-citizenship"
+      }
+    ]
+  },
+  {
+    "id": "WW-045",
+    "website": "ion.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ion.org/",
+    "instruction": "In which city and at which venue did the Joint Navigation Conference take place in 2025, and what were the scheduled dismantling hours for exhibitors at the ION GNSS+ 2024 event?",
+    "gold_answer": {
+      "answer": "The Joint Navigation Conference in 2025 took place in the Greater Cincinnati Area at the Northern Kentucky Convention Center. The scheduled dismantling hours for exhibitors at the ION GNSS+ 2024 event were Thursday, 4:00 p.m. to 10:00 p.m."
+    },
+    "evidence": [
+      {
+        "url": "https://www.ion.org/jnc/past-meetings.cfm"
+      },
+      {
+        "url": "https://www.ion.org/gnss/exhibitor-resource-center.cfm"
+      }
+    ]
+  },
+  {
+    "id": "WW-046",
+    "website": "sigchi.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://sigchi.org/",
+    "instruction": "Who was introduced as the Adjunct Chair for Equity during the SIGCHI Open Session on October 26, 2022, and what is the email contact for the SIGCHI CARES Co-chairs?",
+    "gold_answer": {
+      "answer": "Cale Passmore; sigchi-cares@acm.org"
+    },
+    "evidence": [
+      {
+        "url": "https://sigchi.org/events/open-session-october-26-2022/"
+      },
+      {
+        "url": "https://sigchi.org/about/sigchi-cares/"
+      }
+    ]
+  },
+  {
+    "id": "WW-047",
+    "website": "vldb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.vldb.org/",
+    "instruction": "Who among the editors of Volume 6 of the Proceedings of the VLDB Endowment became a new trustee of the VLDB Endowment from 2018 to 2024?",
+    "gold_answer": {
+      "answer": "Divesh Srivastava"
+    },
+    "evidence": [
+      {
+        "url": "https://www.vldb.org/pvldb/vol6-volume-info"
+      },
+      {
+        "url": "https://www.vldb.org/newslist/new_trustees.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-048",
+    "website": "vldb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.vldb.org/",
+    "instruction": "Who was the president of the VLDB Endowment at the start of the 2022 trustee term?",
+    "gold_answer": {
+      "answer": "Volker Markl"
+    },
+    "evidence": [
+      {
+        "url": "https://www.vldb.org/newslist/new_trustees_2022.html"
+      },
+      {
+        "url": "https://www.vldb.org/newslist/new_executive.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-049",
+    "website": "rovio.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.rovio.com/",
+    "instruction": "Which two Angry Birds games released by Rovio incorporate innovative and environmental themes, one being a mobile AR game from 2019 and the other related to an Earth Day event in 2024?",
+    "gold_answer": {
+      "answer": "Angry Birds AR: Isle of Pigs and Angry Birds Dream Blast."
+    },
+    "evidence": [
+      {
+        "url": "https://www.rovio.com/articles/rovio-and-resolution-games-reveal-first-angry-birds-mobile-ar-game-angry-birds-ar-isle-of-pigs/"
+      },
+      {
+        "url": "https://www.rovio.com/articles/birds-helping-birds-angry-birds-dream-blast-earth-day-campaign/"
+      }
+    ]
+  },
+  {
+    "id": "WW-050",
+    "website": "mythofempires.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.mythofempires.com/",
+    "instruction": "What unconventional resource acquisition methods are introduced in Myth of Empires Season 2 and the upcoming Persia DLC?",
+    "gold_answer": {
+      "answer": "Non-traditional resource acquisition methods include copper coins generated by sky lanterns and rare treasures in underground caves on the Persian map."
+    },
+    "evidence": [
+      {
+        "url": "https://www.mythofempires.com/newsall/news/2024/0815/625.html"
+      },
+      {
+        "url": "https://www.mythofempires.com/newsall/news/2024/0906/627.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-051",
+    "website": "icse-conferences.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "http://www.icse-conferences.org/",
+    "instruction": "What are the submission deadlines for technical papers and the doctoral symposium at the ICSE 2002 conference?",
+    "gold_answer": {
+      "answer": "The technical paper submission deadline was September 25, 2001, and the doctoral symposium submission deadline was January 6, 2002."
+    },
+    "evidence": [
+      {
+        "url": "http://www.icse-conferences.org/2002/cfp/techpapers.html"
+      },
+      {
+        "url": "http://www.icse-conferences.org/2002/cfp/docsymp.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-052",
+    "website": "icse-conferences.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "http://www.icse-conferences.org/",
+    "instruction": "On which day was the 5K Fun Run event held during the ICSE Conference 2002?",
+    "gold_answer": {
+      "answer": "May 23rd"
+    },
+    "evidence": [
+      {
+        "url": "http://www.icse-conferences.org/2002/travel/fiveKrun.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-053",
+    "website": "illuvium.io",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://illuvium.io/",
+    "instruction": "In the update of Illuvium Zero version 1.0.3, if converting 20 units of Hyperion into Solon at 150% efficiency, how many units of Solon can be obtained?",
+    "gold_answer": {
+      "answer": "21 Solon"
+    },
+    "evidence": [
+      {
+        "url": "https://illuvium.io/news/illuvium-zero-patch-notes-1-0-3"
+      }
+    ]
+  },
+  {
+    "id": "WW-054",
+    "website": "riotgames.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.riotgames.com/en",
+    "instruction": "How many players participated in the 2023 charity voting campaign, and what percentage of the regional charity pool did the winning organization receive?",
+    "gold_answer": {
+      "answer": "589,000 players voted, and the winning organization in each region receives 50% of the charity pool."
+    },
+    "evidence": [
+      {
+        "url": "https://www.riotgames.com/en/who-we-are/social-impact/in-game-fundraisers"
+      }
+    ]
+  },
+  {
+    "id": "WW-055",
+    "website": "illuvium.io",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://illuvium.io/",
+    "instruction": "On what date does Pre-Season 1 of Airdrop #1 conclude, and what is the total ILV allocation for Airdrop #1 during Pre-Season 1 and Pre-Season 2 combined?",
+    "gold_answer": {
+      "answer": "Pre-Season 1 ends on June 30, 23:59 UTC. The total ILV allocation for Airdrop #1 during Pre-Season 1 and Pre-Season 2 combined is 30,000 ILV."
+    },
+    "evidence": [
+      {
+        "url": "https://illuvium.io/news/illuvium-airdrop-season-details"
+      }
+    ]
+  },
+  {
+    "id": "WW-056",
+    "website": "riotgames.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.riotgames.com/en",
+    "instruction": "In the 2021 Human Rights Campaign Corporate Equality Index, in which category did Riot Games lose points and what is their plan to improve this category's score?",
+    "gold_answer": {
+      "answer": "Riot Games lost points in the corporate responsibility category and plans to improve by establishing official documentation."
+    },
+    "evidence": [
+      {
+        "url": "https://www.riotgames.com/en/news/the-2021-human-rights-campaign-corporate-equality-index"
+      }
+    ]
+  },
+  {
+    "id": "WW-057",
+    "website": "vldb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.vldb.org/",
+    "instruction": "Which conference did Gunter Schlageter contribute to in 2000, and who maintains the bibliography database including his work?",
+    "gold_answer": {
+      "answer": "Gunter Schlageter contributed to the VLDB 2000 conference. The bibliography database that includes his work is maintained by Michael Ley."
+    },
+    "evidence": [
+      {
+        "url": "https://www.vldb.org/dblp/db/indices/a-tree/s/Schlageter:Gunter.html"
+      },
+      {
+        "url": "https://www.vldb.org/dblp/"
+      }
+    ]
+  },
+  {
+    "id": "WW-058",
+    "website": "ietf.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ietf.org/",
+    "instruction": "What are the dates for the IETF 122 meeting in Bangkok, and what technology will be mandatory for remote participants to use during these sessions?",
+    "gold_answer": {
+      "answer": "15-21 March 2025, Meetecho"
+    },
+    "evidence": [
+      {
+        "url": "https://www.ietf.org/blog/ietf122-registration-open/"
+      },
+      {
+        "url": "https://www.ietf.org/meeting/technology/"
+      }
+    ]
+  },
+  {
+    "id": "WW-059",
+    "website": "show.ibc.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://show.ibc.org/",
+    "instruction": "Which technology standard was used for the accelerator project 'Design Your Weapon Against Fake News' to verify content sources at the IBC2024 conference?",
+    "gold_answer": {
+      "answer": "C2PA"
+    },
+    "evidence": [
+      {
+        "url": "https://show.ibc.org/press-releases-1/ibc-announces-8-accelerator-media-innovation-challenges-plus-special-incubator-project-2024；https://show.ibc.org/accelerator-project-design-weapons-fight-against-disinformation"
+      }
+    ]
+  },
+  {
+    "id": "WW-060",
+    "website": "nmun.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.nmun.org/",
+    "instruction": "When do delegations need to start registering for the NMUN conference held in New York from April 6-10 or April 13-17, 2025, and what are the key steps related to applying for a visa?",
+    "gold_answer": {
+      "answer": "Registration for the NMUN conference starts on 1 September 2024. To apply for a visa, a delegation should register and pay the fee before requesting a visa invitation letter, which can be requested after 1 August 2024."
+    },
+    "evidence": [
+      {
+        "url": "https://www.nmun.org/conferences/new-york/register-and-plan-your-trip/register-and-key-dates.html#main"
+      },
+      {
+        "url": "https://www.nmun.org/conferences/washington-dc/register-and-plan-your-trip/plan-your-trip/visa-information.html#main"
+      }
+    ]
+  },
+  {
+    "id": "WW-061",
+    "website": "apec.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.apec.org/",
+    "instruction": "What proactive steps did the APEC 12th Tourism Ministerial Meeting conclude to address the challenges in tourism due to sea level rise?",
+    "gold_answer": {
+      "answer": "Implementation of regenerative tourism principles and building resilient tourism ecosystems."
+    },
+    "evidence": [
+      {
+        "url": "https://www.apec.org/publications/2023/12/assessing-the-impact-of-rising-sea-levels-on-travel-and-tourism-in-apec-economies"
+      },
+      {
+        "url": "https://www.apec.org/meeting-papers/sectoral-ministerial-meetings/general/12th-apec-tourism-ministerial-meeting"
+      }
+    ]
+  },
+  {
+    "id": "WW-062",
+    "website": "poms.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.poms.org/",
+    "instruction": "Who were the recipients of the POMS Fellows Award in 2006 and the Wickham Skinner Award for Teaching Innovation in 2018?",
+    "gold_answer": {
+      "answer": "The POMS Fellows Award in 2006 was awarded to Wallace J. Hopp, and the Wickham Skinner Award for Teaching Innovation in 2018 was awarded to Gangshu (George) Cai."
+    },
+    "evidence": [
+      {
+        "url": "https://www.poms.org/node/414"
+      },
+      {
+        "url": "https://www.poms.org/node/462"
+      }
+    ]
+  },
+  {
+    "id": "WW-063",
+    "website": "mythofempires.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.mythofempires.com/",
+    "instruction": "During Myth of Empires Season 3, when does the 60% discount period for the Base game extend, and what key gameplay adjustment will enhance the speed of resource gathering?",
+    "gold_answer": {
+      "answer": "The 60% discount period for the Base game extends from November 8 to November 22, and the key gameplay adjustment is the increase in the resource gathering multiplier."
+    },
+    "evidence": [
+      {
+        "url": "https://www.mythofempires.com/newsall/2024/1105/638.html"
+      },
+      {
+        "url": "https://www.mythofempires.com/newsall/2024/1031/636.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-064",
+    "website": "cs.pku.edu.cn",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://cs.pku.edu.cn/",
+    "instruction": "In the 2024 plan to promote international academic influence of Peking University's School of Computer Science, which activities involve collaboration with top institutions in Southeast Asia and globally, and which international advisors are participating?",
+    "gold_answer": {
+      "answer": "The activities involve visits to nine institutions in Singapore, Malaysia, Thailand, and Vietnam. The participating international advisors include John Edward Hopcroft, Andrew Yao, and Michael I. Jordan."
+    },
+    "evidence": [
+      {
+        "url": "https://cs.pku.edu.cn/info/1174/3249.htm"
+      },
+      {
+        "url": "https://cs.pku.edu.cn/info/1174/3413.htm"
+      }
+    ]
+  },
+  {
+    "id": "WW-065",
+    "website": "godotengine.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://godotengine.org/",
+    "instruction": "What were the core reasons given by the developers of 'Gravity Ace' and 'Resolutiion' for choosing the Godot engine?",
+    "gold_answer": {
+      "answer": "Gravity Ace developers chose Godot for its excellent 2D workflow, while Resolutiion's developers valued its ease of use and powerful core functionality."
+    },
+    "evidence": [
+      {
+        "url": "https://godotengine.org/showcase/gravity-ace/"
+      },
+      {
+        "url": "https://godotengine.org/showcase/resolutiion/"
+      }
+    ]
+  },
+  {
+    "id": "WW-066",
+    "website": "rovio.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.rovio.com/",
+    "instruction": "Which position is identified as a key role in promoting inclusion strategy according to Rovio's guide for inclusive game design and 2023 Sustainability Report?",
+    "gold_answer": {
+      "answer": "Heini Kaihu, Rovio's Chief Sustainability Officer"
+    },
+    "evidence": [
+      {
+        "url": "https://www.rovio.com/articles/rovio-unveils-an-industry-wide-guide-for-inclusive-game-design/"
+      },
+      {
+        "url": "https://www.rovio.com/articles/rovio-sustainability-report-2023-message-from-chief-sustainability-officer/"
+      }
+    ]
+  },
+  {
+    "id": "WW-067",
+    "website": "civilization.2k.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://civilization.2k.com/civ-vii/",
+    "instruction": "How does Tecumseh's special ability combine with the Shawnee civilization's unique river adjacency effect to enhance combat strength in Civilization VII?",
+    "gold_answer": {
+      "answer": "Tecumseh's ability 'Nicaakiyakoolaakwe' boosts unit combat strength for each city-state under your control, and it combines with the Shawnee's 'Nepekifaki,' which provides extra food for settlements near navigable rivers."
+    },
+    "evidence": [
+      {
+        "url": "https://civilization.2k.com/civ-vii/game-guide/leaders/tecumseh/"
+      },
+      {
+        "url": "https://civilization.2k.com/civ-vii/game-guide/civilizations/shawnee/"
+      }
+    ]
+  },
+  {
+    "id": "WW-068",
+    "website": "ion.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ion.org/",
+    "instruction": "Which scholars did Dr. Mathieu Joerger collaborate with for significant research when he received the 2014 Early Achievement Award and the 2022 Burka Award?",
+    "gold_answer": {
+      "answer": "2014: No specific collaborators; 2022: Elisa Gallon and Dr. Boris Pervan."
+    },
+    "evidence": [
+      {
+        "url": "https://www.ion.org/awards/2014-Early-Achievement.cfm"
+      },
+      {
+        "url": "https://www.ion.org/awards/Burka-2022.cfm"
+      }
+    ]
+  },
+  {
+    "id": "WW-069",
+    "website": "apec.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.apec.org/",
+    "instruction": "Who chaired the APEC Tourism Ministers Meeting on June 9, 2024?",
+    "gold_answer": {
+      "answer": "Elizabeth Galdo"
+    },
+    "evidence": [
+      {
+        "url": "https://www.apec.org/press/news-releases/2024/apec-tourism-ministers-issue-joint-statement"
+      }
+    ]
+  },
+  {
+    "id": "WW-070",
+    "website": "mrs.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.mrs.org/",
+    "instruction": "How many hours in total would a person spend if they attended the Inclusive Connections Lounge activities from December 1 to 6, 2024, at the MRS Fall Meeting?",
+    "gold_answer": {
+      "answer": "66 hours"
+    },
+    "evidence": [
+      {
+        "url": "https://www.mrs.org/meetings-events/annual-meetings/2024-mrs-fall-meeting/meeting-events/broadening-participation/inclusive-connections-lounge"
+      }
+    ]
+  },
+  {
+    "id": "WW-071",
+    "website": "mrs.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.mrs.org/",
+    "instruction": "Where and when will the 2025 MRS Fall Meeting take place?",
+    "gold_answer": {
+      "answer": "Boston, Massachusetts, November 30 to December 5, 2025."
+    },
+    "evidence": [
+      {
+        "url": "https://www.mrs.org/meetings-events/annual-meetings"
+      }
+    ]
+  },
+  {
+    "id": "WW-072",
+    "website": "igg.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.igg.com/",
+    "instruction": "Find the first IGG recruitment contact email in Asia in alphabetical order.",
+    "gold_answer": {
+      "answer": "jobs.cn@igg.com"
+    },
+    "evidence": [
+      {
+        "url": "https://www.igg.com/contact/"
+      }
+    ]
+  },
+  {
+    "id": "WW-073",
+    "website": "ehaweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://ehaweb.org/",
+    "instruction": "If Gavriilaki is currently a member of the SWG Committee and can be reappointed once, until what year can she serve if she starts her new term in 2024?",
+    "gold_answer": {
+      "answer": "2030"
+    },
+    "evidence": [
+      {
+        "url": "https://ehaweb.org/organization/committees/swg-unit/"
+      }
+    ]
+  },
+  {
+    "id": "WW-074",
+    "website": "mrs.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.mrs.org/",
+    "instruction": "In what year did the MRS plan to hold its first spring meeting in Hawaii, and in what city was this meeting set to be held?",
+    "gold_answer": {
+      "answer": "The MRS plans to hold its first spring meeting in Hawaii in 2026, in Honolulu."
+    },
+    "evidence": [
+      {
+        "url": "https://www.mrs.org/meetings-events/annual-meetings/2026-mrs-spring-meeting-exhibit"
+      }
+    ]
+  },
+  {
+    "id": "WW-075",
+    "website": "sigchi.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://sigchi.org/",
+    "instruction": "What are the three streaming options for presentation-based tracks in the 'Designing Hybrid Conference Experiences' guide, and how does Option #2 enhance remote presentation quality?",
+    "gold_answer": {
+      "answer": "The three streaming options are: 1) using a single camera pointed at the stage, 2) using a single conference laptop, and 3) all presenters logging into the online meeting session. Option #2 enhances quality by allowing both videos and slides to be shared in good quality using the online meeting system, without needing an additional camera, but requires all presentations to be preloaded on the laptop."
+    },
+    "evidence": [
+      {
+        "url": "https://sigchi.org/resources/guides-for-organizers/hybrid/"
+      }
+    ]
+  },
+  {
+    "id": "WW-076",
+    "website": "illuvium.io",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://illuvium.io/",
+    "instruction": "What are the two primary reasons the IIP-49 proposal was declined and the IIP-51 proposal was approved by the Illuvium Council?",
+    "gold_answer": {
+      "answer": "IIP-49 was declined for focusing on non-core features, overlapping with existing systems, and inefficiency, whereas IIP-51 was approved for effectively addressing community concerns, improving participant incentives, and demonstrating strong DAO collaboration."
+    },
+    "evidence": [
+      {
+        "url": "https://illuvium.io/news/illuvium-dao-governance-newsletter-may-2024"
+      }
+    ]
+  },
+  {
+    "id": "WW-077",
+    "website": "ion.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ion.org/",
+    "instruction": "What is the date when Dr. John Raquet received the Johannes Kepler Award at the ION GNSS+ 2024 conference?",
+    "gold_answer": {
+      "answer": "September 20, 2024"
+    },
+    "evidence": [
+      {
+        "url": "https://www.ion.org/news/kepleraward2024.cfm"
+      }
+    ]
+  },
+  {
+    "id": "WW-078",
+    "website": "ietf.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ietf.org/",
+    "instruction": "When are the IETF Sailors activities usually scheduled for sailing enthusiasts during IETF meetings?",
+    "gold_answer": {
+      "answer": "The IETF Sailors events are usually scheduled on the weekends immediately before or after an IETF meeting."
+    },
+    "evidence": [
+      {
+        "url": "https://www.ietf.org/about/groups/affiliate/"
+      }
+    ]
+  },
+  {
+    "id": "WW-079",
+    "website": "ehaweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://ehaweb.org/",
+    "instruction": "When did EHA join ECO based on the anniversary date?",
+    "gold_answer": {
+      "answer": "EHA joined the European Cancer Organisation (ECO) on November 17-18, 2020."
+    },
+    "evidence": [
+      {
+        "url": "https://ehaweb.org/organization/newsroom/news-and-updates/tag/eco"
+      }
+    ]
+  },
+  {
+    "id": "WW-080",
+    "website": "nmun.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.nmun.org/",
+    "instruction": "When should a delegation schedule a meeting with their represented country's Permanent Mission to the UN for the 2025 NMUN conference, and what alternatives exist if a meeting on that day is not possible?",
+    "gold_answer": {
+      "answer": "The delegation should schedule a meeting with the UN mission of their country on Monday before 1 p.m. If that's not possible, they can arrange a virtual meeting before the conference."
+    },
+    "evidence": [
+      {
+        "url": "https://www.nmun.org/conferences/new-york/register-and-plan-your-trip/plan-your-trip/mission-briefings.html#menu"
+      }
+    ]
+  },
+  {
+    "id": "WW-081",
+    "website": "sigchi.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://sigchi.org/",
+    "instruction": "Which SIGCHI policy documents were updated in 2014?",
+    "gold_answer": {
+      "answer": "The policy regarding the Doctoral Consortium at the CHI conference was updated on June 1, 2014."
+    },
+    "evidence": [
+      {
+        "url": "https://sigchi.org/about/policies/conference-policies/"
+      }
+    ]
+  },
+  {
+    "id": "WW-082",
+    "website": "apec.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.apec.org/",
+    "instruction": "Which country's photographer won the first prize in the 2021 APEC Photo Contest for highlighting digitalization as a tool for economic recovery?",
+    "gold_answer": {
+      "answer": "The Philippines."
+    },
+    "evidence": [
+      {
+        "url": "https://www.apec.org/press/news-releases/2021/winning-photo-of-apec-photo-contest-2021-highlight-digitalization-as-a-tool-for-recovery"
+      }
+    ]
+  },
+  {
+    "id": "WW-083",
+    "website": "cs.pku.edu.cn",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://cs.pku.edu.cn/",
+    "instruction": "What is the date for the Fifth Youth Forum at Peking University's School of Computer Science for faculty job applicants who are shortlisted for an interview?",
+    "gold_answer": {
+      "answer": "December 2-3, 2023."
+    },
+    "evidence": [
+      {
+        "url": "https://cs.pku.edu.cn/info/1181/2650.htm"
+      }
+    ]
+  },
+  {
+    "id": "WW-084",
+    "website": "riotgames.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.riotgames.com/en",
+    "instruction": "In which month of 2019 did Riot Games hold the General Manager Summit as part of its diversity and inclusion strategy, and how many managers participated?",
+    "gold_answer": {
+      "answer": "Over 600 managers participated in the summit in January 2019."
+    },
+    "evidence": [
+      {
+        "url": "https://www.riotgames.com/en/news/Feb2019-DIRC-Update"
+      }
+    ]
+  },
+  {
+    "id": "WW-085",
+    "website": "mrs.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.mrs.org/",
+    "instruction": "On which date and time will Claudia Anna-Maria Felser accept the Von Hippel Award during the 2024 MRS Fall Meeting in Boston?",
+    "gold_answer": {
+      "answer": "Wednesday, December 4 at 6:15 pm (ET)"
+    },
+    "evidence": [
+      {
+        "url": "https://www.mrs.org/publications-digital-content/news/article/2024/11/04/claudia-anna-maria-felser-to-receive-von-hippel-award--the-materials-research-society-s-highest-honor"
+      }
+    ]
+  },
+  {
+    "id": "WW-086",
+    "website": "cigre.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.cigre.org/",
+    "instruction": "What are the deadline for full paper submission and acceptance feedback dates for the 2025 CIGRE Symposium in Trondheim?",
+    "gold_answer": {
+      "answer": "The deadline for full paper submission is February 3, 2025, and the date for acceptance feedback is March 3, 2025."
+    },
+    "evidence": [
+      {
+        "url": "https://www.cigre.org/article/GB/events/cigre-symposia/cigre-symposium-2025-in-trondheim-norway"
+      }
+    ]
+  },
+  {
+    "id": "WW-087",
+    "website": "civilization.2k.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://civilization.2k.com/civ-vii/",
+    "instruction": "Which version of Sid Meier's Civilization VII should a user purchase to start playing on February 6, 2025, and access a civilization with the 'Nepekifaki' ability?",
+    "gold_answer": {
+      "answer": "Founders Edition"
+    },
+    "evidence": [
+      {
+        "url": "https://civilization.2k.com/civ-vii/en-GB/buy/"
+      }
+    ]
+  },
+  {
+    "id": "WW-088",
+    "website": "rheumatology.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://rheumatology.org/annual-meeting",
+    "instruction": "When can information beyond abstracts be disclosed during ACR Convergence 2024?",
+    "gold_answer": {
+      "answer": "Information beyond the abstract can be disclosed on November 14, 2024, at 10:00 AM ET."
+    },
+    "evidence": [
+      {
+        "url": "https://rheumatology.org/annual-meeting-abstract-presentation"
+      }
+    ]
+  },
+  {
+    "id": "WW-089",
+    "website": "ehaweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://ehaweb.org/",
+    "instruction": "Which experts explained intermediate and advanced Hodgkin lymphoma cases during the December 15, 2020 guidelines workshop, and when did the interactive discussion start?",
+    "gold_answer": {
+      "answer": "Dr. T. Skrypets and Dr. D. Dujmovic explained the cases; the interactive discussion started at 16:00 CET."
+    },
+    "evidence": [
+      {
+        "url": "https://ehaweb.org/guidelines/clinical-practice-guidelines/guidelines-workshops-3/hodgkin-lymphoma-2/"
+      }
+    ]
+  },
+  {
+    "id": "WW-090",
+    "website": "icse-conferences.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "http://www.icse-conferences.org/",
+    "instruction": "Who was the General Chair of the ICSE conference in 2002?",
+    "gold_answer": {
+      "answer": "Will Tracz"
+    },
+    "evidence": [
+      {
+        "url": "http://www.icse-conferences.org/2002/"
+      }
+    ]
+  },
+  {
+    "id": "WW-091",
+    "website": "illuvium.io",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://illuvium.io/",
+    "instruction": "How much did the ILV price change in the Illuvium job posting on October 22 compared to past information, and what are the unique aspects of this job opportunity?",
+    "gold_answer": {
+      "answer": "The ILV price decreased by $1.53, from $40.17 to $38.64. The job is unique because it is 100% remote and emphasizes autonomy, adaptability, innovation, and core design skills."
+    },
+    "evidence": [
+      {
+        "url": "https://illuvium.io/jobs/1888798"
+      }
+    ]
+  },
+  {
+    "id": "WW-092",
+    "website": "2023.aclweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://2023.aclweb.org/",
+    "instruction": "What additional content was included during the author response period at ACL 2023 to complement the new policy?",
+    "gold_answer": {
+      "answer": "After the start of ACL 2023 author response, two additional sections were included for completeness and in response to community feedback."
+    },
+    "evidence": [
+      {
+        "url": "https://2023.aclweb.org/blog/review-acl23/"
+      }
+    ]
+  },
+  {
+    "id": "WW-093",
+    "website": "ietf.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ietf.org/",
+    "instruction": "What kind of experiment did the IETF start in September 2006, and what method was used to evaluate its effectiveness?",
+    "gold_answer": {
+      "answer": "In September 2006, the IETF began an experiment using a 'propose, experiment, evaluate, and establish permanent procedures' model."
+    },
+    "evidence": [
+      {
+        "url": "https://www.ietf.org/about/groups/iesg/process-experiments/"
+      }
+    ]
+  },
+  {
+    "id": "WW-094",
+    "website": "poms.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.poms.org/",
+    "instruction": "Who won the Wickham Skinner Teaching Innovation Award in 2022 but is not recorded as the current year's award recipient?",
+    "gold_answer": {
+      "answer": "Wiljeana Jackson Glover"
+    },
+    "evidence": [
+      {
+        "url": "https://www.poms.org/node/976"
+      }
+    ]
+  },
+  {
+    "id": "WW-095",
+    "website": "riotgames.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.riotgames.com/en",
+    "instruction": "On what date was the inaugural event for the Asian & Pacific Islander Rioter Inclusion Group held during the AAPI Heritage Month celebrations at Riot, and what was the theme of AAPI Heritage Month 2022?",
+    "gold_answer": {
+      "answer": "May 26, 2022, Advancing Leaders through Collaboration"
+    },
+    "evidence": [
+      {
+        "url": "https://www.riotgames.com/en/news/asian-american-and-pacific-islander-heritage-month-recap"
+      }
+    ]
+  },
+  {
+    "id": "WW-096",
+    "website": "ion.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ion.org/",
+    "instruction": "Who received the Per Enge Early Achievement Award in 2023 for outstanding innovations in the development of low Earth orbiting satellites?",
+    "gold_answer": {
+      "answer": "Dr. Tyler Gerald René Reid"
+    },
+    "evidence": [
+      {
+        "url": "https://www.ion.org/awards/Annual-Award-Winners.cfm"
+      }
+    ]
+  },
+  {
+    "id": "WW-097",
+    "website": "hematology.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.hematology.org/meetings/annual-meeting",
+    "instruction": "What type of session details were publicly released in November 2024 for the ASH 66th Annual Meeting?",
+    "gold_answer": {
+      "answer": "Details about abstract sessions will be available."
+    },
+    "evidence": [
+      {
+        "url": "https://www.hematology.org/meetings/annual-meeting/schedule-and-program/programs"
+      }
+    ]
+  },
+  {
+    "id": "WW-098",
+    "website": "riotgames.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.riotgames.com/zh-cn",
+    "instruction": "How much money did players raise in 2020 through the Dawnbringer Karma, COVID Support Bundle, and Elderwood Ornn fundraisers?",
+    "gold_answer": {
+      "answer": "Over $14 million"
+    },
+    "evidence": [
+      {
+        "url": "https://www.riotgames.com/zh-cn/news/2020-social-impact-year-in-review"
+      }
+    ]
+  },
+  {
+    "id": "WW-099",
+    "website": "illuvium.io",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://illuvium.io/",
+    "instruction": "When does Pre-season 2 of Illuvium end before the official game launch on July 25, 2024?",
+    "gold_answer": {
+      "answer": "Pre-season 2 ends on July 18, 2024, at 23:59:59 UTC."
+    },
+    "evidence": [
+      {
+        "url": "https://illuvium.io/news/illuvium-overworld-and-arena-patch-notes-0-4-3"
+      }
+    ]
+  },
+  {
+    "id": "WW-100",
+    "website": "illuvium.io",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://illuvium.io/",
+    "instruction": "What were the key bug fixes in the Illuvium: Zero version 1.1.4 released on November 1, 2024, that improved the game's stability?",
+    "gold_answer": {
+      "answer": "Key bug fixes in Illuvium: Zero version 1.1.4 include warning pop-ups for insufficient storage capacity, extra interaction button issues during initial land transfer, and crash resolutions on iPhones, enhancing game stability."
+    },
+    "evidence": [
+      {
+        "url": "https://illuvium.io/news/illuvium-zero-patch-notes-1-1-4"
+      }
+    ]
+  },
+  {
+    "id": "WW-101",
+    "website": "cbd.int",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.cbd.int/",
+    "instruction": "Who won the MIDORI Prize for Biodiversity in 2024 and what were their achievements?",
+    "gold_answer": {
+      "answer": "Vera Voronova from Kazakhstan and Ysabel Agustina Calderón Carlos from Peru won the MIDORI Prize for Biodiversity in 2024."
+    },
+    "evidence": [
+      {
+        "url": "https://www.cbd.int/cooperation/midori/"
+      }
+    ]
+  },
+  {
+    "id": "WW-102",
+    "website": "ageofempires.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ageofempires.com/",
+    "instruction": "What is the milestone that allows the Mongol civilization to advance to the second age in Age of Empires IV, and what economic advantage does it provide?",
+    "gold_answer": {
+      "answer": "In 'Age of Empires IV', the Mongols enter the second age with the 'Silver Tree' landmark, which serves as a market that builds traders faster and cheaper, offering economic advantages."
+    },
+    "evidence": [
+      {
+        "url": "https://www.ageofempires.com/games/age-of-empires-iv/civilizations/mongols/"
+      }
+    ]
+  },
+  {
+    "id": "WW-103",
+    "website": "ion.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ion.org/",
+    "instruction": "How many days are there between the dates of the Joint Navigation Conference in 2025 and 2027?",
+    "gold_answer": {
+      "answer": "735 days"
+    },
+    "evidence": [
+      {
+        "url": "https://www.ion.org/jnc/future-meetings.cfm"
+      }
+    ]
+  },
+  {
+    "id": "WW-104",
+    "website": "hematology.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.hematology.org/meetings/annual-meeting",
+    "instruction": "What is the latest date by which poster authors need to submit their presentation recordings and static images for the 66th ASH Annual Meeting?",
+    "gold_answer": {
+      "answer": "Poster authors must submit their presentation recordings and static images by November 12, 2024."
+    },
+    "evidence": [
+      {
+        "url": "https://www.hematology.org/meetings/annual-meeting/meeting-and-presenter-resources/presenter-resources"
+      }
+    ]
+  },
+  {
+    "id": "WW-105",
+    "website": "ageofempires.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ageofempires.com/",
+    "instruction": "In Age of Empires IV, what are the two strategic paths you can choose for the Japanese civilization in Age 4, and how do they affect the development of the civilization?",
+    "gold_answer": {
+      "answer": "In Age 4 of Age of Empires IV, the Japanese civilization can choose between enhancing trade through the Castle of the Crow, which generates Treasure Caravans, or cultivating gunpowder weaponry via the Tanegashima Gunsmith, accessing units like the Ozutsu."
+    },
+    "evidence": [
+      {
+        "url": "https://www.ageofempires.com/games/age-of-empires-iv/civilizations/japanese/"
+      }
+    ]
+  },
+  {
+    "id": "WW-106",
+    "website": "ion.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ion.org/",
+    "instruction": "What is the earliest time and date exhibitors can begin booth installation before the ITM/PTTI conference in January 2025?",
+    "gold_answer": {
+      "answer": "January 27, 2025, from 1:00 p.m. to 6:00 p.m."
+    },
+    "evidence": [
+      {
+        "url": "https://www.ion.org/ptti/exhibitor-resource-center.cfm"
+      }
+    ]
+  },
+  {
+    "id": "WW-107",
+    "website": "ehaweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://ehaweb.org/",
+    "instruction": "Which Italian professor gave an overview presentation of the guidelines at the EHA-organized workshop on mild to moderate inherited bleeding disorders held on April 20, 2021, and what was their specific role?",
+    "gold_answer": {
+      "answer": "The Italian professor F. Rodeghiero conducted the guidelines overview presentation at the EHA workshop."
+    },
+    "evidence": [
+      {
+        "url": "https://ehaweb.org/guidelines/clinical-practice-guidelines/guidelines-workshops-3/bleeding-disorders-2/"
+      }
+    ]
+  },
+  {
+    "id": "WW-108",
+    "website": "cigre.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.cigre.org/",
+    "instruction": "What was the main theme of the 2022 Kyoto Symposium and which two CIGRE Study Committees led the organization?",
+    "gold_answer": {
+      "answer": "The main theme of the 2022 Kyoto Symposium was 'Power System Transformation including Active Distribution,' led by SC C6 (Active Distribution Systems and Distributed Energy Resources) and SC D2 (Information Systems and Telecommunication)."
+    },
+    "evidence": [
+      {
+        "url": "https://www.cigre.org/article/GB/events/cigre-symposia/kyoto-symposium-2022"
+      }
+    ]
+  },
+  {
+    "id": "WW-109",
+    "website": "ion.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ion.org/",
+    "instruction": "What are the exhibit hall hours for the PTTI conference in Long Beach, California, from January 27-30, 2025?",
+    "gold_answer": {
+      "answer": "The exhibit hall will be open on Tuesday from 9:30 a.m. to 4:00 p.m. and on Wednesday from 10:00 a.m. to 4:00 p.m."
+    },
+    "evidence": [
+      {
+        "url": "https://www.ion.org/ptti/exhibits.cfm"
+      }
+    ]
+  },
+  {
+    "id": "WW-110",
+    "website": "icse-conferences.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "http://www.icse-conferences.org/",
+    "instruction": "What was the other workshop held on the same day as the Workshop on Software Quality at ICSE 2002?",
+    "gold_answer": {
+      "answer": "Workshop on Architecting Dependable Systems."
+    },
+    "evidence": [
+      {
+        "url": "http://www.icse-conferences.org/2002/info/workshops.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-111",
+    "website": "icse-conferences.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "http://www.icse-conferences.org/",
+    "instruction": "Where and when was the ICSE 2003 Program Committee Meeting held?",
+    "gold_answer": {
+      "answer": "The ICSE 2003 Program Committee Meeting was held in Room Crystal A-C from 17:30 to 18:30."
+    },
+    "evidence": [
+      {
+        "url": "http://www.icse-conferences.org/2002/cal/meetings.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-112",
+    "website": "ageofempires.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ageofempires.com/",
+    "instruction": "In the October 24, 2024 update for Age of Empires III: Definitive Edition, by what percentage does the 'Lipizzaner Cavalry' increase the attack and hitpoints of Uhlans?",
+    "gold_answer": {
+      "answer": "20%"
+    },
+    "evidence": [
+      {
+        "url": "https://www.ageofempires.com/news/age-of-empires-iii-definitive-edition-data-patch-for-build-15-59076/"
+      }
+    ]
+  },
+  {
+    "id": "WW-113",
+    "website": "mrs.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.mrs.org/",
+    "instruction": "What research fields were mentioned in the special memorial session for the late scientist Richard M. Osgood, Jr. at the Symposium EL07 of the 2024 MRS Fall Meeting?",
+    "gold_answer": {
+      "answer": "The special memorial session for Richard M. Osgood, Jr. at the 2024 MRS Fall Meeting's Symposium EL07 covers research fields including plasmonics, silicon photonics, and laser-induced photochemical reactions."
+    },
+    "evidence": [
+      {
+        "url": "https://www.mrs.org/meetings-events/annual-meetings/2024-mrs-fall-meeting/symposium-sessions/call-for-papers/2024-fall-meeting/Symposium_EL07"
+      }
+    ]
+  },
+  {
+    "id": "WW-114",
+    "website": "ageofempires.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ageofempires.com/",
+    "instruction": "What is the date when Eliot 'eLbotz' Hong announced his departure from Relic Entertainment?",
+    "gold_answer": {
+      "answer": "May 13, 2022"
+    },
+    "evidence": [
+      {
+        "url": "https://www.ageofempires.com/news/a-letter-to-the-community-eliot/"
+      }
+    ]
+  },
+  {
+    "id": "WW-115",
+    "website": "rheumatology.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://rheumatology.org/annual-meeting",
+    "instruction": "How can a company contact the relevant person to quickly obtain terms for participating in ACR Convergence 2024 advertising campaigns?",
+    "gold_answer": {
+      "answer": "They should contact Hilary Bair, TriStar Senior Media Strategist, at 913-491-4200 or hbair@tristarpub.com."
+    },
+    "evidence": [
+      {
+        "url": "https://rheumatology.org/annual-meeting-support-advertising"
+      }
+    ]
+  },
+  {
+    "id": "WW-116",
+    "website": "illuvium.io",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://illuvium.io/",
+    "instruction": "How many ILV will be distributed during the rewards process of Pre-season 2?",
+    "gold_answer": {
+      "answer": "10,000 ILV"
+    },
+    "evidence": [
+      {
+        "url": "https://illuvium.io/news/transitioning-from-pre-season-1-to-pre-season-2-testnet"
+      }
+    ]
+  },
+  {
+    "id": "WW-117",
+    "website": "ion.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ion.org/",
+    "instruction": "What are the timings for the Pacific PNT Luau Luncheon on April 17, 2024?",
+    "gold_answer": {
+      "answer": "12:00 p.m. to 2:00 p.m."
+    },
+    "evidence": [
+      {
+        "url": "https://www.ion.org/pnt/program.cfm"
+      }
+    ]
+  },
+  {
+    "id": "WW-118",
+    "website": "riotgames.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.riotgames.com/en",
+    "instruction": "Under what condition did Riot Games commit to allowing new Rioters to opt out of arbitration for individual sexual harassment claims in May 2019?",
+    "gold_answer": {
+      "answer": "When the active litigation concludes."
+    },
+    "evidence": [
+      {
+        "url": "https://www.riotgames.com/en/news/announcing-new-forums-for-d-i-collaboration"
+      }
+    ]
+  },
+  {
+    "id": "WW-119",
+    "website": "ageofempires.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ageofempires.com/",
+    "instruction": "On which date does the Hallow's Hearth event for Age of Empires IV's Season Nine update start, and what new game mode is introduced during this event?",
+    "gold_answer": {
+      "answer": "October 22nd; Full Moon game mode"
+    },
+    "evidence": [
+      {
+        "url": "https://www.ageofempires.com/news/age-of-empires-iv-season-nine-update-preview-12-0-1974/"
+      }
+    ]
+  },
+  {
+    "id": "WW-120",
+    "website": "illuvium.io",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://illuvium.io/",
+    "instruction": "Which Illuvial line received an Omega damage boost in Illuvium: Arena Beta 3 v0.3.5 patch to effectively counter stronger front-line units?",
+    "gold_answer": {
+      "answer": "Shoebill Line"
+    },
+    "evidence": [
+      {
+        "url": "https://illuvium.io/news/illuvium-arena-beta-3-v0-3-5-patch-notes"
+      }
+    ]
+  },
+  {
+    "id": "WW-121",
+    "website": "rovio.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.rovio.com/",
+    "instruction": "How many consecutive years has Angry Birds 2 contributed proceeds from in-app purchases to SpecialEffect during the One Special Day event by 2024?",
+    "gold_answer": {
+      "answer": "Seven years"
+    },
+    "evidence": [
+      {
+        "url": "https://www.rovio.com/articles/angry-birds-2-supporting-one-special-day-2024/"
+      }
+    ]
+  },
+  {
+    "id": "WW-122",
+    "website": "civilization.2k.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://civilization.2k.com/civ-vii/",
+    "instruction": "Which civilization in Antiquity Age possesses the unique ability called 'Twelve Tables', and what specific cultural output does this ability enhance?",
+    "gold_answer": {
+      "answer": "Rome in the Antiquity Age; Adds Culture on Districts in the Capital and City Centers in Towns."
+    },
+    "evidence": [
+      {
+        "url": "https://civilization.2k.com/civ-vii/game-guide/civilizations/rome/"
+      }
+    ]
+  },
+  {
+    "id": "WW-123",
+    "website": "riotgames.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.riotgames.com/en",
+    "instruction": "Which bank did Patrick Ryan work for 12 years before joining Riot, and what financial services inclusion network did he help create and lead?",
+    "gold_answer": {
+      "answer": "Patrick Ryan worked at State Street for 12 years and was involved in co-founding FuSIoN, a financial services inclusion network."
+    },
+    "evidence": [
+      {
+        "url": "https://www.riotgames.com/en/news/rainbow-rioters-find-their-lane-patrick-ryan"
+      }
+    ]
+  },
+  {
+    "id": "WW-124",
+    "website": "ageofempires.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ageofempires.com/",
+    "instruction": "In Age of Empires IV, after Jeanne d’Arc reaches level 4, besides summoning additional units with her Rally Call ability, how are her companion units upgraded?",
+    "gold_answer": {
+      "answer": "Jeanne d’Arc's Rally Call ability upgrades her companion units to Elite."
+    },
+    "evidence": [
+      {
+        "url": "https://www.ageofempires.com/games/age-of-empires-iv/civilizations/jeanne-darc/"
+      }
+    ]
+  },
+  {
+    "id": "WW-125",
+    "website": "riotgames.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.riotgames.com/en",
+    "instruction": "When did Candace Thomas join Riot Games and how long did it take her to overcome her imposter syndrome in the gaming industry?",
+    "gold_answer": {
+      "answer": "Candace Thomas joined Riot in 2021, and it took her about five or six years to overcome imposter syndrome."
+    },
+    "evidence": [
+      {
+        "url": "https://www.riotgames.com/en/news/changing-the-face-of-gaming-at-2021-virtual-san-diego-comic-con"
+      }
+    ]
+  },
+  {
+    "id": "WW-126",
+    "website": "cc.nankai.edu.cn",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://cc.nankai.edu.cn/",
+    "instruction": "How many CCF-B level conference papers did Associate Professor Chen Chen from the Nankai University School of Computer Science publish between 2021 and 2023?",
+    "gold_answer": {
+      "answer": "2"
+    },
+    "evidence": [
+      {
+        "url": "https://cc.nankai.edu.cn/2021/0323/c13620a549996/page.htm"
+      }
+    ]
+  },
+  {
+    "id": "WW-127",
+    "website": "sigchi.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://sigchi.org/",
+    "instruction": "What is the name of the ACM conference held in Brisbane in 2025 and when will it take place?",
+    "gold_answer": {
+      "answer": "The ACM conference in Brisbane in 2025 is called ACM AutomotiveUI 2025, held from September 20 to September 24."
+    },
+    "evidence": [
+      {
+        "url": "https://sigchi.org/events/automotiveui-2025/"
+      }
+    ]
+  },
+  {
+    "id": "WW-128",
+    "website": "unrealengine.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.unrealengine.com/zh-CN",
+    "instruction": "What virtual rewards can participants collect from the immersive experience project created in Fortnite through the collaboration of Nike and Epic Games via UEFN, and what is the completion deadline for this project?",
+    "gold_answer": {
+      "answer": "Participants can collect the virtual reward Air Max 1 '86 Back Bling. The project completion deadline is June 27, 2023, at 8 PM ET."
+    },
+    "evidence": [
+      {
+        "url": "https://www.unrealengine.com/zh-CN/spotlights/step-into-nike-s-virtual-sneaker-hunt-airphoria-built-using-uefn"
+      }
+    ]
+  },
+  {
+    "id": "WW-129",
+    "website": "cstc.hrbeu.edu.cn",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "http://cstc.hrbeu.edu.cn/",
+    "instruction": "Which professor gave a lecture at the 832nd session of the 'Xuecui Forum' at Harbin Engineering University on August 15, 2018, and what innovative solution did they propose?",
+    "gold_answer": {
+      "answer": "Dr. Xiaojiang (James) Du; e-SAFE (Secure, Efficient and Forensics-Enabled Access to Wireless Implantable Medical Devices)"
+    },
+    "evidence": [
+      {
+        "url": "http://cstc.hrbeu.edu.cn/2018/0824/c6989a264191/page.htm"
+      }
+    ]
+  },
+  {
+    "id": "WW-130",
+    "website": "ciie.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ciie.org/",
+    "instruction": "Which country is the guest of honor at the 2024 China International Import Expo?",
+    "gold_answer": {
+      "answer": "Uzbekistan"
+    },
+    "evidence": [
+      {
+        "url": "https://www.ciie.org/zbh/en/news/exhibition/focus/20241029/46297.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-131",
+    "website": "sigchi.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://sigchi.org/",
+    "instruction": "What are the key points related to future planning discussed regarding site selection at the SIGCHI open session on October 12, 2023?",
+    "gold_answer": {
+      "answer": "Key future-oriented points discussed were sustainability issues (ecological, economic), understanding regional land use, establishing a timeline for future site selection, re-evaluating the conference bidding process, and creating a roadmap for net-zero emissions."
+    },
+    "evidence": [
+      {
+        "url": "https://sigchi.org/events/open-session-site-selection-october-12-2023/"
+      }
+    ]
+  },
+  {
+    "id": "WW-132",
+    "website": "rovio.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.rovio.com/",
+    "instruction": "In which year was the Angry Birds Minecraft adventure world DLC released, and how does that relate to the 15th anniversary of Angry Birds?",
+    "gold_answer": {
+      "answer": "2022"
+    },
+    "evidence": [
+      {
+        "url": "https://www.rovio.com/articles/the-angry-birds-come-to-minecraft-in-a-new-adventure-world-dlc/"
+      }
+    ]
+  },
+  {
+    "id": "WW-133",
+    "website": "riotgames.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.riotgames.com/en",
+    "instruction": "Who participated in the 2022 Riot Games Black History Month panel 'For the Culture: Stories of Creativity from the Black Community'?",
+    "gold_answer": {
+      "answer": "Alton Glass, Jasmine 'CutiePieSensei' James, and Manuel Godoy."
+    },
+    "evidence": [
+      {
+        "url": "https://www.riotgames.com/en/news/black-history-month-recap"
+      }
+    ]
+  },
+  {
+    "id": "WW-134",
+    "website": "riotgames.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.riotgames.com/zh-cn",
+    "instruction": "What specific activities did Riot Noir organize on March 7, 2022, to celebrate Black History Month, and who were the special guests?",
+    "gold_answer": {
+      "answer": "On March 7, 2022, Riot Noir at Riot Games organized events for Black History Month including lectures, panel discussions, and food celebrations. The special guests included Alton Glass, Jasmine “CutiePieSensei” James, and Manuel Godoy."
+    },
+    "evidence": [
+      {
+        "url": "https://www.riotgames.com/zh-cn/news/black-history-month-recap"
+      }
+    ]
+  },
+  {
+    "id": "WW-135",
+    "website": "riotgames.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.riotgames.com/zh-cn",
+    "instruction": "Which intern worked on the Champion Engineering team at Riot in 2020 and fixed bugs related to Rek'Sai?",
+    "gold_answer": {
+      "answer": "Cliff Zhu"
+    },
+    "evidence": [
+      {
+        "url": "https://www.riotgames.com/zh-cn/news/technology-interns-in-2020-league-of-legends-tft-valorant"
+      }
+    ]
+  },
+  {
+    "id": "WW-136",
+    "website": "scst.suda.edu.cn",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://scst.suda.edu.cn/",
+    "instruction": "On which top journal was the paper 'A comprehensive review on knowledge graphs for complex diseases' by Associate Professor Yang Yang from the School of Computer Science and Technology at Soochow University published in 2022, and what is its impact factor?",
+    "gold_answer": {
+      "answer": "The paper was published in the journal 'Briefings in Bioinformatics' in 2022, with an impact factor of 13.9."
+    },
+    "evidence": [
+      {
+        "url": "https://scst.suda.edu.cn/10/ee/c30768a528622/page.htm"
+      }
+    ]
+  },
+  {
+    "id": "WW-137",
+    "website": "sigchi.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://sigchi.org/",
+    "instruction": "Who from the CHI Steering Committee expressed interest in moving forward with one of the cities at the September 25, 2023 EC Working meeting?",
+    "gold_answer": {
+      "answer": "Cliff Lampe"
+    },
+    "evidence": [
+      {
+        "url": "https://sigchi.org/events/ec-working-september-25-2023/"
+      }
+    ]
+  },
+  {
+    "id": "WW-138",
+    "website": "sigchi.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://sigchi.org/",
+    "instruction": "How many SIGCHI Executive Committee open meetings were held on September 5, 2023, in Hawaii?",
+    "gold_answer": {
+      "answer": "2"
+    },
+    "evidence": [
+      {
+        "url": "https://sigchi.org/events/open-session-chi-in-hawaii-september-5-2023/"
+      }
+    ]
+  },
+  {
+    "id": "WW-139",
+    "website": "hematology.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.hematology.org/meetings/annual-meeting",
+    "instruction": "Which editor from Cleveland Clinic will host a rapid session in the Blood Journals Studio on December 7, 2024?",
+    "gold_answer": {
+      "answer": "Keith R. McCrae, MD"
+    },
+    "evidence": [
+      {
+        "url": "https://www.hematology.org/meetings/annual-meeting/schedule-and-program/programs/blood-journals-studio"
+      }
+    ]
+  },
+  {
+    "id": "WW-140",
+    "website": "riotgames.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.riotgames.com/zh-cn",
+    "instruction": "What type of content should applicants include in their portfolio to showcase VFX skills for the 2023 Riot Games US Summer Internship?",
+    "gold_answer": {
+      "answer": "A portfolio should be under one minute, showcase your best work, and demonstrate an understanding of color, form, composition, and timing."
+    },
+    "evidence": [
+      {
+        "url": "https://www.riotgames.com/zh-cn/news/art-portfolio-tips-internships-study-guide-riot-vol-3"
+      }
+    ]
+  },
+  {
+    "id": "WW-141",
+    "website": "ehaweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://ehaweb.org/",
+    "instruction": "Who won the first EHA-ISTH Joint Fellowship at the 16th EHA Congress and where was it awarded?",
+    "gold_answer": {
+      "answer": "Dr A van Hylckama Vlieg won the first EHA-ISTH Joint Fellowship at the 16th EHA Congress in London, UK."
+    },
+    "evidence": [
+      {
+        "url": "https://ehaweb.org/organization/newsroom/news-and-updates/category/press-releases?start=90"
+      }
+    ]
+  },
+  {
+    "id": "WW-142",
+    "website": "ion.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ion.org/",
+    "instruction": "Who was the individual that successfully implemented the patented core technology of Xona Space Systems in 2022 and received the 2023 Per Enge Early Achievement Award?",
+    "gold_answer": {
+      "answer": "Dr. Tyler Gerald René Reid"
+    },
+    "evidence": [
+      {
+        "url": "https://www.ion.org/awards/2023-Early-Achievement.cfm"
+      }
+    ]
+  },
+  {
+    "id": "WW-143",
+    "website": "ehaweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://ehaweb.org/",
+    "instruction": "How many countries were represented at the EHA-PTHiT Mini Hematology Tutorial in November 2021?",
+    "gold_answer": {
+      "answer": "34"
+    },
+    "evidence": [
+      {
+        "url": "https://ehaweb.org/organization/newsroom/news-and-updates/eha-and-pthit-successfully-conclude-the-second-joint-virtual-mini-hematology-tutorial/"
+      }
+    ]
+  },
+  {
+    "id": "WW-144",
+    "website": "cstc.hrbeu.edu.cn",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "http://cstc.hrbeu.edu.cn/",
+    "instruction": "Which aspect of smart cities did Dr. Haiyan (Helen) Lu focus on in her lecture at the Harbin Engineering University on July 19, 2018, and what were the three major research opportunities she mentioned in this field?",
+    "gold_answer": {
+      "answer": "Smart grid; (i) Big Data-Driven Economic Dispatch, (ii) Big Data-Driven Power System Surveillance, (iii) Big Data-Driven Power Market Coordination."
+    },
+    "evidence": [
+      {
+        "url": "http://cstc.hrbeu.edu.cn/2018/0718/c6989a264192/page.htm"
+      }
+    ]
+  },
+  {
+    "id": "WW-145",
+    "website": "apec.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.apec.org/",
+    "instruction": "Who was the chair of the 12th APEC Tourism Ministerial Meeting held in Urubamba on June 9, 2024?",
+    "gold_answer": {
+      "answer": "H.E. Mrs. Elizabeth Galdo Marín"
+    },
+    "evidence": [
+      {
+        "url": "https://www.apec.org/meeting-papers/sectoral-ministerial-meetings/tourism/12th-apec-tourism-ministerial-meeting"
+      }
+    ]
+  },
+  {
+    "id": "WW-146",
+    "website": "ciie.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ciie.org/",
+    "instruction": "During the 7th China International Import Expo (CIIE) in 2024, when will the National Exhibition and Convention Center (Shanghai) be closed for security measures, and who is permitted to access the venue during this period?",
+    "gold_answer": {
+      "answer": "The National Exhibition and Convention Center (Shanghai) will be closed for security from October 25 to November 12, 2024. During this time, only individuals and vehicles with valid pre-registered badges can enter or exit the premises."
+    },
+    "evidence": [
+      {
+        "url": "https://www.ciie.org/zbh/en/news/notice/20240923/45866.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-147",
+    "website": "ciie.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ciie.org/",
+    "instruction": "What is the pavilion area of France, one of the guest countries, at the 7th China International Import Expo?",
+    "gold_answer": {
+      "answer": "20,000 square meters"
+    },
+    "evidence": [
+      {
+        "url": "https://www.ciie.org/digital/release/news/detail?id=46654"
+      }
+    ]
+  },
+  {
+    "id": "WW-148",
+    "website": "riotgames.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.riotgames.com/zh-cn",
+    "instruction": "In October 2021, which Employee Resource Group (ERG) did Riot Unidos collaborate with to host a special Food Lab event, and what cultural dishes were shared?",
+    "gold_answer": {
+      "answer": "In October 2021, Riot Unidos collaborated with Filipinos At Riot to host a special Food Lab event featuring Filipino and Salvadoran dishes."
+    },
+    "evidence": [
+      {
+        "url": "https://www.riotgames.com/zh-cn/news/latinx-heritage-month-recap"
+      }
+    ]
+  },
+  {
+    "id": "WW-149",
+    "website": "scst.suda.edu.cn",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://scst.suda.edu.cn/",
+    "instruction": "In which year was the paper titled 'Scalable and Adaptive Joins for Trajectory Data in Distributed Stream System' published by Associate Professor Junhua Fang of Soochow University?",
+    "gold_answer": {
+      "answer": "2019"
+    },
+    "evidence": [
+      {
+        "url": "https://scst.suda.edu.cn/10/9a/c30768a528538/page.htm"
+      }
+    ]
+  },
+  {
+    "id": "WW-150",
+    "website": "input-tv.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.input-tv.org/",
+    "instruction": "How many countries submitted programs for the INPUT 2023 conference between January 30 and February 5, 2023?",
+    "gold_answer": {
+      "answer": "29"
+    },
+    "evidence": [
+      {
+        "url": "https://www.input-tv.org/news/d39k4rsuk7mwl4vy2856fndmmfg3nv-mn3zp-hdwyh"
+      }
+    ]
+  },
+  {
+    "id": "WW-151",
+    "website": "icse-conferences.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "http://www.icse-conferences.org/",
+    "instruction": "What types of proposals had submission deadlines between September 10, 2001, and January 6, 2002?",
+    "gold_answer": {
+      "answer": "Full Paper, Panel Proposals, State of the Art Proposals, Tutorial Proposals, Workshop Proposals, Poster and Demo Proposals."
+    },
+    "evidence": [
+      {
+        "url": "http://www.icse-conferences.org/2002/cfp/deadlines.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-152",
+    "website": "sigchi.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://sigchi.org/",
+    "instruction": "What topics were discussed by the SIGCHI Executive Committee in their meeting from 9:00 to 10:00 AM Asia/Shanghai time on February 10, 2023?",
+    "gold_answer": {
+      "answer": "Equity"
+    },
+    "evidence": [
+      {
+        "url": "https://sigchi.org/events/open-session-equity-1-february-10-2023/"
+      }
+    ]
+  },
+  {
+    "id": "WW-153",
+    "website": "rovio.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.rovio.com/",
+    "instruction": "In which country did Rovio sponsor a Pride event for the first time in 2023 to celebrate diversity and inclusion?",
+    "gold_answer": {
+      "answer": "Finland"
+    },
+    "evidence": [
+      {
+        "url": "https://www.rovio.com/articles/reflecting-on-pride-2023/"
+      }
+    ]
+  },
+  {
+    "id": "WW-154",
+    "website": "hematology.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.hematology.org/meetings/annual-meeting",
+    "instruction": "When will the 'The Performance Paradox' talk take place on December 7, 2024, and who is the speaker?",
+    "gold_answer": {
+      "answer": "The talk 'The Performance Paradox' will be held from 3:35 p.m. to 3:45 p.m. on December 7, 2024. The speaker is Kara Hardin."
+    },
+    "evidence": [
+      {
+        "url": "https://www.hematology.org/meetings/annual-meeting/schedule-and-program/programs/ash-wellness-studio"
+      }
+    ]
+  },
+  {
+    "id": "WW-155",
+    "website": "cstc.hrbeu.edu.cn",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "http://cstc.hrbeu.edu.cn/",
+    "instruction": "What was the theme of Professor Du Xiaojiang's academic report held at Harbin Engineering University on December 19, 2016?",
+    "gold_answer": {
+      "answer": "Analysis of Clickjacking Attacks and An Effective Defense Scheme for Android Devices"
+    },
+    "evidence": [
+      {
+        "url": "http://cstc.hrbeu.edu.cn/2016/1218/c11965a264094/page.htm"
+      }
+    ]
+  },
+  {
+    "id": "WW-156",
+    "website": "ehaweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://ehaweb.org/",
+    "instruction": "During 2021, from when to when was the content of the EHA-SWG virtual meeting available?",
+    "gold_answer": {
+      "answer": "The EHA-SWG virtual meeting content was available from April 22, 2021, to May 29, 2021."
+    },
+    "evidence": [
+      {
+        "url": "https://ehaweb.org/organization/newsroom/news-and-updates/archive/2021/5/31"
+      }
+    ]
+  },
+  {
+    "id": "WW-157",
+    "website": "cs.swust.edu.cn",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://cs.swust.edu.cn/",
+    "instruction": "Which leaders attended the postgraduate entrance examination mobilization meeting for the 2025 graduates at the School of Computer Science and Technology, Southwest University of Science and Technology, and who chaired the meeting?",
+    "gold_answer": {
+      "answer": "The meeting was attended by Party Secretary Chen Yufang, Dean Zhang Hui, Vice Deans Jia Xiaolin and Huang Xiaofang, and Executive Deputy Director of the Elderly Workers Committee Lei Quanshui. It was hosted by Party Committee Deputy Secretary Xie Changyong."
+    },
+    "evidence": [
+      {
+        "url": "https://cslab.swust.edu.cn/2024/0512/c11243a194925/page.htm"
+      }
+    ]
+  },
+  {
+    "id": "WW-158",
+    "website": "ehaweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://ehaweb.org/",
+    "instruction": "Who are the recipients of the inaugural EHA Bilateral Collaborative Grants 2021, and what projects are they working on?",
+    "gold_answer": {
+      "answer": "Andrea Ditadi and Eirini Trompouki for 'Dissecting the role of transposable element-mediated inflammation in human hematopoietic stem cell development'; Ashok Kumar Jayavelu and Beat Bornhauser for 'Proteogenomic guidance for the treatment of high-risk acute lymphoblastic leukemia'."
+    },
+    "evidence": [
+      {
+        "url": "https://ehaweb.org/organization/newsroom/news-and-updates/eha-congratulates-the-2021-bilateral-collaborative-grant-winners/"
+      }
+    ]
+  },
+  {
+    "id": "WW-159",
+    "website": "rovio.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.rovio.com/",
+    "instruction": "Which former professional football star was involved in the Rovio and Topgolf collaboration to demonstrate the 'Angry Birds Dance', and in what year did this collaboration begin?",
+    "gold_answer": {
+      "answer": "Roddy White, 2020"
+    },
+    "evidence": [
+      {
+        "url": "https://www.rovio.com/articles/angry-birds-at-topgolf-oh-its-on/"
+      }
+    ]
+  },
+  {
+    "id": "WW-160",
+    "website": "riotgames.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.riotgames.com/en",
+    "instruction": "When and what was the result of the lawsuit against Riot Games and former CEO Nicolo Laurent?",
+    "gold_answer": {
+      "answer": "2024年5月7日，仲裁员宣布对Riot Games和前CEO Nicolo Laurent的所有指控均为无依据。"
+    },
+    "evidence": [
+      {
+        "url": "https://www.riotgames.com/en/news/update-on-2021-lawsuit"
+      }
+    ]
+  },
+  {
+    "id": "WW-161",
+    "website": "mrs.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.mrs.org/",
+    "instruction": "When did Carolyn Duran, the 2022 MRS President, discuss the future celebration activities for the 50th anniversary of MRS?",
+    "gold_answer": {
+      "answer": "October 5, 2022"
+    },
+    "evidence": [
+      {
+        "url": "https://www.mrs.org/discover-mrs/about-mrs/our-society/annual-reports/2022-annual-report"
+      }
+    ]
+  },
+  {
+    "id": "WW-162",
+    "website": "sigchi.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://sigchi.org/",
+    "instruction": "What is the fiscal year prior to FY25, and by how much were the expenses reduced for SIGCHI's budget compared to this fiscal year?",
+    "gold_answer": {
+      "answer": "The fiscal year prior to FY25 is FY24, and the expenses were reduced by USD 1 million."
+    },
+    "evidence": [
+      {
+        "url": "https://sigchi.org/events/open-session-1-march-12-2024/"
+      }
+    ]
+  },
+  {
+    "id": "WW-163",
+    "website": "sigchi.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "single_source",
+    "explicit_navigation": true,
+    "start_url": "https://sigchi.org/",
+    "instruction": "Who are the candidates running for President and Executive Vice President in the SIGCHI 2024 elections, and when is their introduction meeting scheduled?",
+    "gold_answer": {
+      "answer": "The candidates for the President and Executive Vice President are Neha Kumar and Luigi De Russis, with their introduction scheduled for April 29, 2024, from 7:00 PM to 8:00 PM UTC."
+    },
+    "evidence": [
+      {
+        "url": "https://sigchi.org/events/meet-the-candidates-president-executive-vp1/"
+      }
+    ]
+  },
+  {
+    "id": "WW-164",
+    "website": "ageofempires.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ageofempires.com/",
+    "instruction": "In 'Age of Empires II: Definitive Edition', which historical or cultural figures does the 'Dynasties of India' expansion and 'Chronicles: Battle for Greece' pay tribute to?",
+    "gold_answer": {
+      "answer": "Rajendra Chola and Themistocles."
+    },
+    "evidence": [
+      {
+        "url": "https://www.ageofempires.com/games/aoeiide/dynasties-of-india/"
+      },
+      {
+        "url": "https://www.ageofempires.com/news/building-the-narrative-in-chronicles-battle-for-greece/"
+      }
+    ]
+  },
+  {
+    "id": "WW-165",
+    "website": "rheumatology.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://rheumatology.org/annual-meeting",
+    "instruction": "What is the deadline for claiming Continuing Medical Education (CME) credits for ACR Convergence 2024, and in which city will the meeting be held?",
+    "gold_answer": {
+      "answer": "The CME credit claim deadline is November 13, 2025, and the conference will be held in Washington, D.C."
+    },
+    "evidence": [
+      {
+        "url": "https://rheumatology.org/annual-meeting-cme-disclosures"
+      },
+      {
+        "url": "https://rheumatology.org/annual-meeting-hotels"
+      }
+    ]
+  },
+  {
+    "id": "WW-166",
+    "website": "fallguys.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.fallguys.com/",
+    "instruction": "What new items or features related to creative building and physical systems were introduced in Fall Guys through the Summer Breeze update in August 2023 and the Scrapyard Stumble update in September 2024?",
+    "gold_answer": {
+      "answer": "The 2023 Summer Breeze update introduced Carriable Fans, while the 2024 Scrapyard Stumble update added Destructible Objects."
+    },
+    "evidence": [
+      {
+        "url": "https://www.fallguys.com/en-US/news/the-future-of-fall-guys-and-summer-breeze-update"
+      },
+      {
+        "url": "https://www.fallguys.com/en-US/news/scrapyard-stumble-update"
+      }
+    ]
+  },
+  {
+    "id": "WW-167",
+    "website": "godotengine.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://godotengine.org/",
+    "instruction": "What is the release status of Godot version 4.3, and what are the main updates in its XR features?",
+    "gold_answer": {
+      "answer": "Godot 4.3 is stable, and its XR updates include improved frame timing logic, support for rendering on a separate thread, standardization of hand, face, and body tracking, and enhanced WebXR support."
+    },
+    "evidence": [
+      {
+        "url": "https://godotengine.org/download/archive/"
+      },
+      {
+        "url": "https://godotengine.org/article/godot-xr-update-oct-2024/"
+      }
+    ]
+  },
+  {
+    "id": "WW-168",
+    "website": "fallguys.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.fallguys.com/",
+    "instruction": "During which event did Fall Guys introduce the 'Rubber Chicken' power-up and what thematic feature did the 'Tool Up' update highlight?",
+    "gold_answer": {
+      "answer": "The 'Rubber Chicken' power-up was introduced during the Scrapyard Stumble Update and the 'Tool Up' update highlighted a winter-themed Skybox."
+    },
+    "evidence": [
+      {
+        "url": "https://www.fallguys.com/en-US/news/fall-guys-tool-up-update"
+      },
+      {
+        "url": "https://www.fallguys.com/en-US/news/scrapyard-stumble-update"
+      }
+    ]
+  },
+  {
+    "id": "WW-169",
+    "website": "vldb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.vldb.org/",
+    "instruction": "When did the VLDB Foundation and SIGMOD start the DBCares initiative, and what role did H. V. Jagadish have during Volume 7 and in founding the DBCares initiative?",
+    "gold_answer": {
+      "answer": "October 2018; H. V. Jagadish was the Founding Editor-in-Chief of PVLDB."
+    },
+    "evidence": [
+      {
+        "url": "https://www.vldb.org/pvldb/vol7-volume-info"
+      },
+      {
+        "url": "https://www.vldb.org/vldb_cares.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-170",
+    "website": "rovio.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.rovio.com/",
+    "instruction": "Who is the Head of Brand Operations at Rovio responsible for overseeing the Angry Birds brand's activities during its 15th anniversary?",
+    "gold_answer": {
+      "answer": "Eeva Aaltonen"
+    },
+    "evidence": [
+      {
+        "url": "https://www.rovio.com/articles/angry-birds-celebrates-15th-anniversary-with-special-in-game-events-and-more/"
+      },
+      {
+        "url": "https://www.rovio.com/articles/eeva-aaltonen/"
+      }
+    ]
+  },
+  {
+    "id": "WW-171",
+    "website": "2023.aclweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://2023.aclweb.org/",
+    "instruction": "In ACL 2023, who are the Tutorial Chairs and Main Conference Chairs?",
+    "gold_answer": {
+      "answer": "Tutorial Chairs: Yun-Nung (Vivian) Chen, Margot Mieskes, Siva Reddy; Main Conference Chairs: Jordan Lee Boyd-Graber, Naoaki Okazaki, Anna Rogers"
+    },
+    "evidence": [
+      {
+        "url": "https://2023.aclweb.org/calls/tutorials/"
+      },
+      {
+        "url": "https://2023.aclweb.org/calls/main_conference/"
+      }
+    ]
+  },
+  {
+    "id": "WW-172",
+    "website": "vldb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.vldb.org/",
+    "instruction": "Who served as the Information Director for both Volume 3 (2010) and Volume 5 (2011) of the PVLDB publication?",
+    "gold_answer": {
+      "answer": "Gerald Weber"
+    },
+    "evidence": [
+      {
+        "url": "https://www.vldb.org/pvldb/vol5-volume-info"
+      },
+      {
+        "url": "https://www.vldb.org/pvldb/vol3-volume-info"
+      }
+    ]
+  },
+  {
+    "id": "WW-173",
+    "website": "playstation.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.playstation.com/en-us/",
+    "instruction": "What are the two upcoming games on the PlayStation 5 platform in 2025 that involve Japanese samurai culture?",
+    "gold_answer": {
+      "answer": "The two upcoming games involving Japanese samurai culture on the PlayStation 5 platform in 2025 are Ghost of Yōtei and Assassin’s Creed Shadows."
+    },
+    "evidence": [
+      {
+        "url": "https://www.playstation.com/en-us/games/ghost-of-yotei/"
+      },
+      {
+        "url": "https://www.playstation.com/en-us/games/assassins-creed-shadows/"
+      }
+    ]
+  },
+  {
+    "id": "WW-174",
+    "website": "fallguys.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.fallguys.com/",
+    "instruction": "During which dates and with what festive seasonal costumes did the Winter Blunderland Fame Pass appear in Fall Guys?",
+    "gold_answer": {
+      "answer": "The Winter Blunderland Fame Pass appeared from 10AM GMT on December 12, 2023 to 10AM GMT on January 15, 2024 in Fall Guys, featuring costumes like Winter Red Panda, Gingerbread, Llama Charmer, Koala Knitwear, and Santa Samurai."
+    },
+    "evidence": [
+      {
+        "url": "https://www.fallguys.com/en-US/news/fall-guys-power-party-update"
+      },
+      {
+        "url": "https://www.fallguys.com/en-US/news/2023-the-yeet-in-review"
+      }
+    ]
+  },
+  {
+    "id": "WW-175",
+    "website": "nime.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.nime.org/",
+    "instruction": "Which NIME 2024 board members have made contributions to the conference proceedings, and what were these contributions?",
+    "gold_answer": {
+      "answer": "Stefano Fasciani, the Proceedings Officer, contributed to the NIME 2024 proceedings with papers alongside Jack E Hardwick and Çağrı Erdem, and Ahmet Emin Memis and Çağrı Erdem."
+    },
+    "evidence": [
+      {
+        "url": "https://www.nime.org/board/"
+      },
+      {
+        "url": "https://www.nime.org/archives"
+      }
+    ]
+  },
+  {
+    "id": "WW-176",
+    "website": "cs.sdufe.edu.cn",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://cs.sdufe.edu.cn/",
+    "instruction": "What international conferences co-hosted by the School of Computer Science and Technology at Shandong University of Finance and Economics in 2024 and academic activities on October 31st are scheduled?",
+    "gold_answer": {
+      "answer": "The International Conference on Geometric Modeling and Processing (GMP 2024) and an Academic Exchange Session on October 31st."
+    },
+    "evidence": [
+      {
+        "url": "https://cs.sdufe.edu.cn/info/1243/7693.htm"
+      },
+      {
+        "url": "https://cs.sdufe.edu.cn/info/1495/7918.htm"
+      }
+    ]
+  },
+  {
+    "id": "WW-177",
+    "website": "icse-conferences.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "http://www.icse-conferences.org/",
+    "instruction": "What were the exact dates and the General Chair for the ICSE conference in 2004?",
+    "gold_answer": {
+      "answer": "The ICSE 2004 conference was held from May 23 to 28, and the General Chair was Anthony Finkelstein."
+    },
+    "evidence": [
+      {
+        "url": "http://www.icse-conferences.org/2004/index.html"
+      },
+      {
+        "url": "http://www.icse-conferences.org/history.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-178",
+    "website": "rovio.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.rovio.com/",
+    "instruction": "Who is responsible for overseeing the Angry Birds brand strategy during the 15th anniversary celebrations, and what major project is highlighted as part of these celebrations?",
+    "gold_answer": {
+      "answer": "Eeva Aaltonen is responsible for overseeing the Angry Birds brand strategy during the 15th anniversary celebrations, and 'Angry Birds Mystery Island: A Hatchlings Adventure' is highlighted as a major project."
+    },
+    "evidence": [
+      {
+        "url": "https://www.rovio.com/articles/angry-birds-celebrates-15th-anniversary-with-special-in-game-events-and-more/"
+      },
+      {
+        "url": "https://www.rovio.com/articles/eeva-aaltonen/"
+      }
+    ]
+  },
+  {
+    "id": "WW-179",
+    "website": "poms.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.poms.org/",
+    "instruction": "Who is the 2024 recipient of the Martin K. Starr Excellence Award, and what special responsibility does Professor Martin K. Starr currently hold in the POM Journal?",
+    "gold_answer": {
+      "answer": "The 2024 Martin K. Starr Excellence Award winner is Brad Sorenson. Professor Martin K. Starr is responsible for special responsibilities at POM Journal."
+    },
+    "evidence": [
+      {
+        "url": "https://www.poms.org/pomsocietyawards/martinkstarraward"
+      },
+      {
+        "url": "https://www.poms.org/pomjournal"
+      }
+    ]
+  },
+  {
+    "id": "WW-180",
+    "website": "rovio.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.rovio.com/",
+    "instruction": "What is the theme of RovioCon Google 2024 and the name of the Angry Birds animated series released during the 15th anniversary?",
+    "gold_answer": {
+      "answer": "The theme of RovioCon Google 2024 is 'Slingshot to Stardom' and the animated series released during the Angry Birds 15th anniversary is 'Angry Birds Mystery Island: A Hatchlings Adventure.'"
+    },
+    "evidence": [
+      {
+        "url": "https://www.rovio.com/articles/roviocon-google-a-celebration-of-games-growth-and-the-future-of-mobile/"
+      },
+      {
+        "url": "https://www.rovio.com/articles/angry-birds-celebrates-15th-anniversary-with-special-in-game-events-and-more/"
+      }
+    ]
+  },
+  {
+    "id": "WW-181",
+    "website": "hematology.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.hematology.org/meetings/annual-meeting",
+    "instruction": "What is the deadline to submit a request for hosting an ancillary meeting at the 66th ASH Annual Meeting, and on which day is the first on-site registration open for participants?",
+    "gold_answer": {
+      "answer": "The deadline to submit an ancillary meeting request is November 22, 2024, and the first on-site registration opens on December 5, 2024."
+    },
+    "evidence": [
+      {
+        "url": "https://www.hematology.org/meetings/annual-meeting/ancillary-meetings"
+      },
+      {
+        "url": "https://www.hematology.org/meetings/annual-meeting/schedule-and-program/schedule-at-a-glance"
+      }
+    ]
+  },
+  {
+    "id": "WW-182",
+    "website": "igg.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.igg.com/",
+    "instruction": "What charity project was initiated by Lords Mobile in May 2023, and through which platform should users seek technical assistance for iOS devices?",
+    "gold_answer": {
+      "answer": "Protecting the Azure Ocean, iOS users should contact ihelp.lordsmobile@igg.com for support."
+    },
+    "evidence": [
+      {
+        "url": "https://www.igg.com/support/"
+      },
+      {
+        "url": "https://www.igg.com/charity/"
+      }
+    ]
+  },
+  {
+    "id": "WW-183",
+    "website": "fallguys.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.fallguys.com/",
+    "instruction": "What Creative Mode features from the Fall Guys updates can be used to create fast-moving platform levels?",
+    "gold_answer": {
+      "answer": "Buttons and Bean Ball"
+    },
+    "evidence": [
+      {
+        "url": "https://www.fallguys.com/en-US/news/fall-guys-fall-force-update"
+      },
+      {
+        "url": "https://www.fallguys.com/en-US/news/fall-guys-power-party-update"
+      }
+    ]
+  },
+  {
+    "id": "WW-184",
+    "website": "poms.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.poms.org/",
+    "instruction": "Who received the Nagesh Murthy Emerging Economies Doctoral Dissertation Award for Asia in 2024 and what role did Nagesh M. Murthy hold within POMS?",
+    "gold_answer": {
+      "answer": "Nani Zhou received the Nagesh Murthy Emerging Economies Doctoral Dissertation Award for Asia in 2024. Nagesh M. Murthy is recognized by the Sushil K. Gupta Distinguished POMS Service Award, which he received in 2016."
+    },
+    "evidence": [
+      {
+        "url": "https://www.poms.org/pomsocietyawards/economiesawardforasia"
+      },
+      {
+        "url": "https://www.poms.org/pomsocietyawards/distinguishedpomsserviceaward"
+      }
+    ]
+  },
+  {
+    "id": "WW-185",
+    "website": "ion.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ion.org/",
+    "instruction": "Who is the scholar awarded the Johannes Kepler Award at the ION GNSS+ 2024 conference and what is their contribution to satellite navigation technology?",
+    "gold_answer": {
+      "answer": "The awardee is Dr. John Raquet, recognized for his sustained and significant contributions to the development of satellite navigation technology."
+    },
+    "evidence": [
+      {
+        "url": "https://www.ion.org/news/index.cfm；https://www.ion.org/awards/2024-Kepler.cfm"
+      }
+    ]
+  },
+  {
+    "id": "WW-186",
+    "website": "2024.aclweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://2024.aclweb.org/",
+    "instruction": "For ACL 2024, what is the deadline for students requiring financial assistance to apply for discounted virtual registration, and by what date will they be notified about the selection for D&I subsidies?",
+    "gold_answer": {
+      "answer": "The deadline for students to apply for discounted virtual registration is July 26, 2024. They will be notified about selection for D&I subsidies by July 9, 2024."
+    },
+    "evidence": [
+      {
+        "url": "https://2024.aclweb.org/calls/subsidies"
+      },
+      {
+        "url": "https://2024.aclweb.org/registration#discounted-virtual-registration"
+      }
+    ]
+  },
+  {
+    "id": "WW-187",
+    "website": "rheumatology.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://rheumatology.org/annual-meeting",
+    "instruction": "What is the submission deadline for session proposals for ACR Convergence 2025, and during which dates will ACR Convergence 2024 be held?",
+    "gold_answer": {
+      "answer": "Submission deadline for 2025 session proposals: December 10, 2024. ACR Convergence 2024 dates: November 14 -19, 2024."
+    },
+    "evidence": [
+      {
+        "url": "https://rheumatology.org/annual-meeting-call-for-proposals"
+      },
+      {
+        "url": "https://rheumatology.org/annual-meeting-registration"
+      }
+    ]
+  },
+  {
+    "id": "WW-188",
+    "website": "poms.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.poms.org/",
+    "instruction": "Who were the recipients of the Emerging Economies Doctoral Dissertation Awards for Asia and for Latin America and the Caribbean in 2024?",
+    "gold_answer": {
+      "answer": "Nani Zhou and Agatha da Silva"
+    },
+    "evidence": [
+      {
+        "url": "https://www.poms.org/pomsocietyawards/economiesawardforasia"
+      },
+      {
+        "url": "https://www.poms.org/pomsocietyawards/economiesawardforlatinamericaandcaribbean"
+      }
+    ]
+  },
+  {
+    "id": "WW-189",
+    "website": "mrs.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.mrs.org/",
+    "instruction": "Who was selected as the MRS/Optica Congressional Science and Engineering Fellow for 2024-2025, and which committee in MRS is responsible for contributing to governmental science and technology policy?",
+    "gold_answer": {
+      "answer": "Shriya Pai was selected as the MRS/Optica Congressional Science and Engineering Fellow for 2024-2025. The Government Affairs Committee in MRS is responsible for contributing to governmental science and technology policy."
+    },
+    "evidence": [
+      {
+        "url": "https://www.mrs.org/discover-mrs/advocacy-policy/mrs-optica-fellowship"
+      },
+      {
+        "url": "https://www.mrs.org/advancing-careers/volunteer-central/committees"
+      }
+    ]
+  },
+  {
+    "id": "WW-190",
+    "website": "thatskygame.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.thatskygame.com/",
+    "instruction": "What are the dates for the first Saturday after the start of the 'Spirits, Tricks, and More in Days of Mischief 2024' event and two days before the start of the 'Season of Moomin' event?",
+    "gold_answer": {
+      "answer": "October 26, 2024 and October 12, 2024"
+    },
+    "evidence": [
+      {
+        "url": "https://www.thatskygame.com/news/spirits-tricks-and-more-in-days-of-mischief-2024"
+      },
+      {
+        "url": "https://www.thatskygame.com/news/season-of-moomin-a-classic-tale-of-healing-and-acceptance"
+      }
+    ]
+  },
+  {
+    "id": "WW-191",
+    "website": "2024.aclweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://2024.aclweb.org/",
+    "instruction": "Which local sponsor for ACL 2024 can provide visa support documents for obtaining a Thai visa?",
+    "gold_answer": {
+      "answer": "TCEB"
+    },
+    "evidence": [
+      {
+        "url": "https://2024.aclweb.org/sponsors"
+      },
+      {
+        "url": "https://2024.aclweb.org/participants/visa/"
+      }
+    ]
+  },
+  {
+    "id": "WW-192",
+    "website": "2023.aclweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://2023.aclweb.org/",
+    "instruction": "What is the deadline for applying for the subsidies offered for travel and accommodation for financially constrained individuals intending to attend workshops at ACL 2023, and when are these workshops scheduled?",
+    "gold_answer": {
+      "answer": "The deadline to apply for subsidies is May 31, 2023. The workshops are scheduled for July 13-14, 2023."
+    },
+    "evidence": [
+      {
+        "url": "https://2023.aclweb.org/calls/subsidies/"
+      },
+      {
+        "url": "https://2023.aclweb.org/program/workshops/"
+      }
+    ]
+  },
+  {
+    "id": "WW-193",
+    "website": "2023.aclweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://2023.aclweb.org/",
+    "instruction": "At ACL 2023, which dates are the workshops scheduled for and what is the deadline for applying for travel and accommodation subsidies?",
+    "gold_answer": {
+      "answer": "Workshops at ACL 2023 are scheduled for July 13-14, 2023. The deadline to apply for travel and accommodation subsidies is May 31, 2023."
+    },
+    "evidence": [
+      {
+        "url": "https://2023.aclweb.org/calls/workshops/"
+      },
+      {
+        "url": "https://2023.aclweb.org/calls/subsidies/"
+      }
+    ]
+  },
+  {
+    "id": "WW-194",
+    "website": "www2024.thewebconf.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "easy",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www2024.thewebconf.org/",
+    "instruction": "Which accommodation option ensures maximum convenience for attendees of the Web Conference 2024 and is closest to the venue for a Diamond level sponsor?",
+    "gold_answer": {
+      "answer": "Hotel Michael"
+    },
+    "evidence": [
+      {
+        "url": "https://www2024.thewebconf.org/sponsors/become-a-sponsor"
+      },
+      {
+        "url": "https://www2024.thewebconf.org/attending/accommodation"
+      }
+    ]
+  },
+  {
+    "id": "WW-195",
+    "website": "illuvium.io",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://illuvium.io/",
+    "instruction": "In 2024, how much ILV reward can creators participating in the Creator Program and players engaging in the Play-2-Airdrop during Private Beta 4 on the Illuvium platform earn?",
+    "gold_answer": {
+      "answer": "Creators can earn 100 ILV weekly in the Creator Reward Program, and 200,000 ILV will be distributed over six months for players in the Play-2-Airdrop during Private Beta 4."
+    },
+    "evidence": [
+      {
+        "url": "https://illuvium.io/news/illuvium-creator-program-is-getting-an-upgrade"
+      },
+      {
+        "url": "https://illuvium.io/news/register-now-for-private-beta-4"
+      }
+    ]
+  },
+  {
+    "id": "WW-196",
+    "website": "www2024.thewebconf.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www2024.thewebconf.org/",
+    "instruction": "Where is the Web Conference 2024 Welcome Reception held and what is the nearest transportation method from the Resorts World Convention Centre?",
+    "gold_answer": {
+      "answer": "The Welcome Reception of Web Conference 2024 will be held at Tipsy Unicorn. The nearest transport from Resorts World Convention Centre is to take the free Sentosa Express monorail to Beach Station, then walk."
+    },
+    "evidence": [
+      {
+        "url": "https://www2024.thewebconf.org/attending/venue/"
+      },
+      {
+        "url": "https://www2024.thewebconf.org/program/social-events/"
+      }
+    ]
+  },
+  {
+    "id": "WW-197",
+    "website": "2024.aclweb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://2024.aclweb.org/",
+    "instruction": "What is the topic and schedule of Professor Subbarao Kambhampati's lecture at the ACL 2024 conference?",
+    "gold_answer": {
+      "answer": "The theme is 'Can LLMs Reason and Plan?' and the scheduled time is August 13th, from 9:00 AM to 10:00 AM."
+    },
+    "evidence": [
+      {
+        "url": "https://2024.aclweb.org/program/keynotes/"
+      },
+      {
+        "url": "https://2024.aclweb.org/program/"
+      }
+    ]
+  },
+  {
+    "id": "WW-198",
+    "website": "ageofempires.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ageofempires.com/",
+    "instruction": "What are the key military units for the Malians and Japanese civilizations in the 'The Sultans Ascend' expansion of Age of Empires IV?",
+    "gold_answer": {
+      "answer": "Musofadi Gunner for the Malians and Shinobi for the Japanese."
+    },
+    "evidence": [
+      {
+        "url": "https://www.ageofempires.com/games/age-of-empires-iv/civilizations/malians/"
+      },
+      {
+        "url": "https://www.ageofempires.com/games/age-of-empires-iv/civilizations/japanese/"
+      }
+    ]
+  },
+  {
+    "id": "WW-199",
+    "website": "rheumatology.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://rheumatology.org/annual-meeting",
+    "instruction": "During the ACR Convergence 2024, when is the Pediatric Rheumatology Residents Program scheduled, and does it coincide with the Global Rheumatology Summit?",
+    "gold_answer": {
+      "answer": "The Pediatric Rheumatology Residents Program is scheduled for November 16, coinciding with the Global Rheumatology Summit on the same day."
+    },
+    "evidence": [
+      {
+        "url": "https://rheumatology.org/annual-meeting-registration"
+      },
+      {
+        "url": "https://rheumatology.org/annual-meeting-program"
+      }
+    ]
+  },
+  {
+    "id": "WW-200",
+    "website": "rheumatology.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://rheumatology.org/annual-meeting",
+    "instruction": "When does the embargo on ACR Convergence 2024 abstracts lift for public release, and who manages the official hotel reservations for attendees?",
+    "gold_answer": {
+      "answer": "The embargo lifts at 10:00 AM ET on November 14, 2024, and Convention Management Resources (CMR) manages official hotel reservations."
+    },
+    "evidence": [
+      {
+        "url": "https://rheumatology.org/annual-meeting-abstract-embargo-policies"
+      },
+      {
+        "url": "https://rheumatology.org/annual-meeting-hotels"
+      }
+    ]
+  },
+  {
+    "id": "WW-201",
+    "website": "poms.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.poms.org/",
+    "instruction": "Who were the recipients of the POMS Fellows Award in 2005?",
+    "gold_answer": {
+      "answer": "Hau Lee and Marshall Fisher"
+    },
+    "evidence": [
+      {
+        "url": "https://www.poms.org/node/417"
+      },
+      {
+        "url": "https://www.poms.org/node/415"
+      }
+    ]
+  },
+  {
+    "id": "WW-202",
+    "website": "cbd.int",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.cbd.int/",
+    "instruction": "Which 2024 Midori Prize winner's project aligns with the Nagoya Protocol's model contractual clauses by addressing conservation of migratory animal corridors?",
+    "gold_answer": {
+      "answer": "Vera Voronova (Kazakhstan)"
+    },
+    "evidence": [
+      {
+        "url": "https://www.cbd.int/abs/modelclauses.shtml"
+      },
+      {
+        "url": "https://www.cbd.int/cooperation/midori/"
+      }
+    ]
+  },
+  {
+    "id": "WW-203",
+    "website": "vldb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.vldb.org/",
+    "instruction": "Who became the President of the VLDB Endowment starting from 2018, and who replaced Volker Markl as a trustee in 2022?",
+    "gold_answer": {
+      "answer": "The President of the VLDB Endowment starting from 2018 was Volker Markl; Sihem Amer-Yahia replaced him as a trustee in 2022."
+    },
+    "evidence": [
+      {
+        "url": "https://www.vldb.org/newslist/new_executive.html；https://www.vldb.org/newslist/new_trustees_2022.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-204",
+    "website": "riotgames.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.riotgames.com/en",
+    "instruction": "Which champion inspired by West African culture was highlighted by Riot Games for promoting diversity at AfroTech 2022, and what initiative did Riot undertake to support humanitarian efforts in Ukraine in 2022?",
+    "gold_answer": {
+      "answer": "The champion K'Sante; donating proceeds from battle pass sales to support humanitarian relief in Ukraine."
+    },
+    "evidence": [
+      {
+        "url": "https://www.riotgames.com/en/news/afrotech-riot-games-black-leaders-tech"
+      },
+      {
+        "url": "https://www.riotgames.com/en/news/riot-is-donating-battle-pass-sales-to-humanitarian-relief-in-eastern-europe"
+      }
+    ]
+  },
+  {
+    "id": "WW-205",
+    "website": "mrs.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.mrs.org/",
+    "instruction": "What are the deadlines for the 2024 University Chapter Special Projects Program proposals and when are MRS committee rosters typically reviewed annually?",
+    "gold_answer": {
+      "answer": "The deadline for the 2024 University Chapter Special Projects Program proposals is December 15. MRS committee rosters are typically reviewed annually in late December or early January."
+    },
+    "evidence": [
+      {
+        "url": "https://www.mrs.org/membership/volunteer-central/volunteer-profile"
+      },
+      {
+        "url": "https://www.mrs.org/programs/mrs-foundation/funding-opportunities/special-projects-program---mrs-university-chapters"
+      }
+    ]
+  },
+  {
+    "id": "WW-206",
+    "website": "ci.hfut.edu.cn",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://ci.hfut.edu.cn/",
+    "instruction": "Who are the presenters for the reports on mathematical fuzzy logic and non-associative fuzzy logic on July 14, 2024, at the Jade Technology Building lecture hall of Hefei University of Technology?",
+    "gold_answer": {
+      "answer": "The report on mathematical fuzzy logic is hosted by Zhou Hongjun, while the report on non-associative fuzzy logic is hosted by Zhang Xiaohong."
+    },
+    "evidence": [
+      {
+        "url": "https://ci.hfut.edu.cn/info/1109/15193.htm"
+      },
+      {
+        "url": "https://ci.hfut.edu.cn/info/1109/15195.htm"
+      }
+    ]
+  },
+  {
+    "id": "WW-207",
+    "website": "mrs.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.mrs.org/",
+    "instruction": "What time and where exactly will Claudia Anna-Maria Felser receive the Von Hippel Award during the 2024 MRS Fall Meeting?",
+    "gold_answer": {
+      "answer": "Claudia Anna-Maria Felser will receive the Von Hippel Award on December 4, 2024, at 6:15 PM ET at the Hynes Convention Center in Boston."
+    },
+    "evidence": [
+      {
+        "url": "https://www.mrs.org/publications-digital-content/news/article/2024/11/04/claudia-anna-maria-felser-to-receive-von-hippel-award--the-materials-research-society-s-highest-honor"
+      },
+      {
+        "url": "https://www.mrs.org/meetings-events/annual-meetings/2024-mrs-fall-meeting/meeting-faq"
+      }
+    ]
+  },
+  {
+    "id": "WW-208",
+    "website": "fallguys.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.fallguys.com/",
+    "instruction": "What are the two power-ups introduced in the Fall Guys 'Power Party' and 'Scrapyard Stumble' updates?",
+    "gold_answer": {
+      "answer": "Bean Ball and Rubber Chicken."
+    },
+    "evidence": [
+      {
+        "url": "https://www.fallguys.com/news/fall-guys-power-party-update"
+      },
+      {
+        "url": "https://www.fallguys.com/news/scrapyard-stumble-update"
+      }
+    ]
+  },
+  {
+    "id": "WW-209",
+    "website": "poms.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.poms.org/",
+    "instruction": "Who were the two scholars who received the Sushil K Gupta Award in 2013 and 2017?",
+    "gold_answer": {
+      "answer": "The scholars who received the Sushil K Gupta Award are Martin K Starr in 2013 and Cristopher (Chris) S. Tang in 2017."
+    },
+    "evidence": [
+      {
+        "url": "https://www.poms.org/node/384"
+      },
+      {
+        "url": "https://www.poms.org/node/391"
+      }
+    ]
+  },
+  {
+    "id": "WW-210",
+    "website": "illuvium.io",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://illuvium.io/",
+    "instruction": "What was the required launch date for Illuvium Zero according to proposal IIP-39, and when did it actually launch on iOS and Google Play for the testnet?",
+    "gold_answer": {
+      "answer": "IIP-39 requires Illuvium Zero to launch before Illuvium Overworld. Illuvium Zero Beta went live on iOS and Google Play on July 25, 2024."
+    },
+    "evidence": [
+      {
+        "url": "https://illuvium.io/news/illuvium-dao-governance-newsletter-april-2024"
+      },
+      {
+        "url": "https://illuvium.io/news/illuvium-zero-beta-launch-on-ios-google-play-&-epic-games"
+      }
+    ]
+  },
+  {
+    "id": "WW-211",
+    "website": "show.ibc.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://show.ibc.org/",
+    "instruction": "What category of tools will be showcased in the IBC2024 Accelerator project's final presentation on misinformation challenges, and in which public event will these technologies be presented?",
+    "gold_answer": {
+      "answer": "Detection and provenance tools; IBC2024 Conference."
+    },
+    "evidence": [
+      {
+        "url": "https://show.ibc.org/accelerator-project-design-weapons-fight-against-disinformation"
+      },
+      {
+        "url": "https://show.ibc.org/press-releases-1/ibc2024-technical-papers-submission-now-open"
+      }
+    ]
+  },
+  {
+    "id": "WW-212",
+    "website": "poms.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.poms.org/",
+    "instruction": "What are the two awards Cheryl Gaimon received from POMS in 2009 and 2014?",
+    "gold_answer": {
+      "answer": "POMS Fellows Award (2009) and Sushil K Gupta Award (2014)."
+    },
+    "evidence": [
+      {
+        "url": "https://www.poms.org/node/386"
+      },
+      {
+        "url": "https://www.poms.org/node/406"
+      }
+    ]
+  },
+  {
+    "id": "WW-213",
+    "website": "icse-conferences.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "http://www.icse-conferences.org/",
+    "instruction": "Was David Notkin a member of the program committee for ICSE 2002 where he gave the keynote speech on 'ArchJava: Connecting Software Architecture to Implementation'?",
+    "gold_answer": {
+      "answer": "Yes, David Notkin was a member of the ICSE 2002 program committee."
+    },
+    "evidence": [
+      {
+        "url": "http://www.icse-conferences.org/2002/info/papers.html"
+      },
+      {
+        "url": "http://www.icse-conferences.org/2002/info/pcommittee.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-214",
+    "website": "rheumatology.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://rheumatology.org/annual-meeting",
+    "instruction": "At what time and date is the media embargo lifted for the Patient Perspectives Program presentation at ACR Convergence 2024?",
+    "gold_answer": {
+      "answer": "November 14th at 10:00 AM ET"
+    },
+    "evidence": [
+      {
+        "url": "https://rheumatology.org/annual-meeting-patient-perspectives"
+      },
+      {
+        "url": "https://rheumatology.org/annual-meeting-abstract-presentation"
+      }
+    ]
+  },
+  {
+    "id": "WW-215",
+    "website": "rovio.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.rovio.com/",
+    "instruction": "On which two days will Rovio participate in the One Special Day charity event and the crossover gaming event with SEGA in 2024?",
+    "gold_answer": {
+      "answer": "The One Special Day event is on October 4, 2024, and the crossover gaming event with SEGA is from March 14 to March 21, 2024."
+    },
+    "evidence": [
+      {
+        "url": "https://www.rovio.com/articles/angry-birds-2-supporting-one-special-day-2024/"
+      },
+      {
+        "url": "https://www.rovio.com/articles/sega-and-rovio-join-forces-in-mobile-gaming-crossover-event/"
+      }
+    ]
+  },
+  {
+    "id": "WW-216",
+    "website": "ion.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ion.org/",
+    "instruction": "What are the registration fee discounts offered for attendees staying at the official hotels of the Pacific PNT and Joint Navigation Conference (JNC) in 2024 and 2025, respectively?",
+    "gold_answer": {
+      "answer": "$500 for attendees of Pacific PNT 2024 and $300 for attendees of JNC 2025."
+    },
+    "evidence": [
+      {
+        "url": "https://www.ion.org/pnt/hotel.cfm"
+      },
+      {
+        "url": "https://www.ion.org/jnc/registration.cfm"
+      }
+    ]
+  },
+  {
+    "id": "WW-217",
+    "website": "vldb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.vldb.org/",
+    "instruction": "Who transitioned from a trustee to the Vice President of the VLDB Endowment Executive Committee in 2018?",
+    "gold_answer": {
+      "answer": "Divesh Srivastava"
+    },
+    "evidence": [
+      {
+        "url": "https://www.vldb.org/newslist/new_trustees.html"
+      },
+      {
+        "url": "https://www.vldb.org/newslist/new_executive.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-218",
+    "website": "cbd.int",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.cbd.int/",
+    "instruction": "Which city will host COP 16 and what was the significant role defined for National Focal Points during COP 8?",
+    "gold_answer": {
+      "answer": "Cali, Colombia; enhancing the capacity of National Focal Points during COP 8."
+    },
+    "evidence": [
+      {
+        "url": "https://www.cbd.int/cop/"
+      },
+      {
+        "url": "https://www.cbd.int/information/nfp.shtml"
+      }
+    ]
+  },
+  {
+    "id": "WW-219",
+    "website": "mrs.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "medium",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.mrs.org/",
+    "instruction": "Who is the chair of the Publications Committee ensuring the quality of editorial content for materials science, and who chairs the symposium on Advanced Characterization Techniques for Battery Materials at the 2024 MRS Fall Meeting?",
+    "gold_answer": {
+      "answer": "The chair of the Publications Committee is Linda S. Schadler, and Duhan Zhang chairs the symposium on Advanced Characterization Techniques for Battery Materials at the 2024 MRS Fall Meeting."
+    },
+    "evidence": [
+      {
+        "url": "https://www.mrs.org/meetings-events/annual-meetings/2024-mrs-fall-meeting/symposium-sessions/call-for-papers/2024-fall-meeting/Symposium_CH04"
+      },
+      {
+        "url": "https://www.mrs.org/membership/governance/operating-committees/publications-committee"
+      }
+    ]
+  },
+  {
+    "id": "WW-220",
+    "website": "ion.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ion.org/",
+    "instruction": "Which two scientists who have conducted GNSS-related research at Stanford University received the ION Early Career Achievement Award in 2023 and 2004?",
+    "gold_answer": {
+      "answer": "Dr. Tyler Gerald René Reid and Dr. Sherman Lo."
+    },
+    "evidence": [
+      {
+        "url": "https://www.ion.org/awards/2023-Early-Achievement.cfm"
+      },
+      {
+        "url": "https://www.ion.org/awards/2004-Early-Achievement.cfm"
+      }
+    ]
+  },
+  {
+    "id": "WW-221",
+    "website": "rovio.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.rovio.com/",
+    "instruction": "Which game contributed significantly to Rovio's revenue in both 2019 and 2022?",
+    "gold_answer": {
+      "answer": "Angry Birds Dream Blast"
+    },
+    "evidence": [
+      {
+        "url": "https://www.rovio.com/articles/q1-2019-interim-report-published/"
+      },
+      {
+        "url": "https://www.rovio.com/articles/rovios-q3-2022-interim-report-published/"
+      }
+    ]
+  },
+  {
+    "id": "WW-222",
+    "website": "mrs.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.mrs.org/",
+    "instruction": "What was a significant advancement achieved by the Materials Research Society (MRS) under Todd M. Osman's leadership with Sabrina Sartori as president in 2023?",
+    "gold_answer": {
+      "answer": "MRS enhanced its global collaboration efforts and focused on achieving diversity, equity, and inclusion (DEI) goals in 2023."
+    },
+    "evidence": [
+      {
+        "url": "https://www.mrs.org/discover-mrs/about-mrs/contact-us/executive-staff#Todd M. Osman"
+      },
+      {
+        "url": "https://www.mrs.org/discover-mrs/about-mrs/our-society/annual-reports/2023-annual-report"
+      }
+    ]
+  },
+  {
+    "id": "WW-223",
+    "website": "mrs.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.mrs.org/",
+    "instruction": "What programs and specific support are available for early career professionals to enhance their career development during the 2024 MRS Fall Meeting?",
+    "gold_answer": {
+      "answer": "Early career professionals can benefit from ECPSC career development activities and childcare grants during the 2024 MRS Fall Meeting."
+    },
+    "evidence": [
+      {
+        "url": "https://www.mrs.org/membership/governance/operating-committees/career-advancement-committee/early-career-professional-subcommittee"
+      },
+      {
+        "url": "https://www.mrs.org/meetings-events/fall-meetings-exhibits/2024-mrs-fall-meeting/registration/childcare-grants"
+      }
+    ]
+  },
+  {
+    "id": "WW-224",
+    "website": "cstc.hrbeu.edu.cn",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "http://cstc.hrbeu.edu.cn/",
+    "instruction": "Which type of privacy invasion discussed in the 2018 'Privacy Leakage in Smart Devices' lecture is related to the issue of data distribution-based privacy attacks in federated learning according to the 2022 seminar?",
+    "gold_answer": {
+      "answer": "The location privacy leakage through smart device sensor data is related to data distribution-based privacy attacks in federated learning."
+    },
+    "evidence": [
+      {
+        "url": "http://cstc.hrbeu.edu.cn/2018/0713/c6988a264193/page.htm"
+      },
+      {
+        "url": "http://cstc.hrbeu.edu.cn/2022/1103/c12615a300446/page.htm"
+      }
+    ]
+  },
+  {
+    "id": "WW-225",
+    "website": "mythofempires.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.mythofempires.com/",
+    "instruction": "How many months were between the release of Myth of Empires V1.0 and the release of the Hellenic Civilization Pack DLC?",
+    "gold_answer": {
+      "answer": "5 months"
+    },
+    "evidence": [
+      {
+        "url": "https://www.mythofempires.com/newsall/news/2024/0205/547.html"
+      },
+      {
+        "url": "https://www.mythofempires.com/newsall/news/2024/0627/617.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-226",
+    "website": "ironhidegames.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ironhidegames.com/",
+    "instruction": "What is the official launch date of Junkworld on Apple Arcade, and what new feature was introduced in the January 2024 update?",
+    "gold_answer": {
+      "answer": "September 22, 2023; New Daily Rewards feature."
+    },
+    "evidence": [
+      {
+        "url": "https://www.ironhidegames.com/News/Details/307"
+      },
+      {
+        "url": "https://www.ironhidegames.com/News/Details/329"
+      }
+    ]
+  },
+  {
+    "id": "WW-227",
+    "website": "yili.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.yili.com/",
+    "instruction": "Which country did Yili take students to in 2019 to cultivate the future of China's ice and snow sports, and what award did they win at the IDF Dairy Innovation Awards 2024?",
+    "gold_answer": {
+      "answer": "Switzerland, Innovation Award in New Product Development – Human Nutrition"
+    },
+    "evidence": [
+      {
+        "url": "https://www.yili.com/en/sustainable/t98/1930"
+      },
+      {
+        "url": "https://www.yili.com/en/news/company/5081"
+      }
+    ]
+  },
+  {
+    "id": "WW-228",
+    "website": "illuvium.io",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://illuvium.io/",
+    "instruction": "What were the specific changes passed in IIP-66 regarding the removal of the fuel system by the Illuvium DAO between September and October 2024?",
+    "gold_answer": {
+      "answer": "IIP-66-R passed in October, removing the bonus fuel system and introducing a minimum order size for fuel trades for improved market transparency."
+    },
+    "evidence": [
+      {
+        "url": "https://illuvium.io/news/illuvium-dao-governance-newsletter-october-2024"
+      },
+      {
+        "url": "https://illuvium.io/news/illuvium-dao-governance-newsletter-september-2024"
+      }
+    ]
+  },
+  {
+    "id": "WW-229",
+    "website": "ironhidegames.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ironhidegames.com/",
+    "instruction": "Which game developed by Ironhide was awarded a round trip to GDC as a prize, and what is the latest game they announced for Apple Arcade in 2023?",
+    "gold_answer": {
+      "answer": "Kingdom Rush and Junkworld"
+    },
+    "evidence": [
+      {
+        "url": "https://www.ironhidegames.com/News/Details/42"
+      },
+      {
+        "url": "https://www.ironhidegames.com/News/Details/307"
+      }
+    ]
+  },
+  {
+    "id": "WW-230",
+    "website": "ion.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ion.org/",
+    "instruction": "Who received the Superior Achievement Award in 2000 for navigating rescue supplies in an Antarctic emergency mission, and whose navigation techniques and operational strategies are similar to those of Captain Jonathan D. Hantsbarger in 2012 for securing special forces through aerial support?",
+    "gold_answer": {
+      "answer": "Major Geoffrey A. Laing and Captain Jonathan D. Hantsbarger"
+    },
+    "evidence": [
+      {
+        "url": "https://www.ion.org/awards/2000-Superior-Achievement-Laing.cfm"
+      },
+      {
+        "url": "https://www.ion.org/awards/2012-Superior-Achievement-Hantsbarger.cfm"
+      }
+    ]
+  },
+  {
+    "id": "WW-231",
+    "website": "riotgames.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.riotgames.com/zh-cn",
+    "instruction": "Who is the famous Mexican artist behind the True Damage graffiti used for decoration at the 2022 Mexico City World Championship Watch Party, and what natural phenomenon from the Philippines inspired Zeri's design at this event?",
+    "gold_answer": {
+      "answer": "The True Damage graffiti was created by a famous Mexican graffiti artist, and Zeri's design was inspired by bioluminescent electric eels from the Philippines."
+    },
+    "evidence": [
+      {
+        "url": "https://www.riotgames.com/zh-cn/news/inside-the-house-of-worlds-mexico-citys-premiere-worlds-watch-party-zh-cn"
+      },
+      {
+        "url": "https://www.riotgames.com/zh-cn/news/champion-insights-zeri"
+      }
+    ]
+  },
+  {
+    "id": "WW-232",
+    "website": "mrs.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.mrs.org/",
+    "instruction": "Who is responsible for promoting global collaboration and the goals of diversity and inclusion in materials science at the MRS 50th anniversary future prospect?",
+    "gold_answer": {
+      "answer": "Todd M. Osman"
+    },
+    "evidence": [
+      {
+        "url": "https://www.mrs.org/discover-mrs/about-mrs/our-society/mrs-history/50th-anniversary"
+      },
+      {
+        "url": "https://www.mrs.org/discover-mrs/about-mrs/contact-us/executive-staff#Todd M. Osman"
+      }
+    ]
+  },
+  {
+    "id": "WW-233",
+    "website": "rovio.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.rovio.com/",
+    "instruction": "What strategic partner teamed up with Rovio to develop and publish mobile games based on the Moomin IP, and on which major platform did Angry Birds Reloaded launch in 2021?",
+    "gold_answer": {
+      "answer": "Moomin Characters and Gutsy Animations; Apple Arcade"
+    },
+    "evidence": [
+      {
+        "url": "https://www.rovio.com/articles/rovio-entertainment-moomin-characters-and-gutsy-animations-enter-into-a-long-term-partnership/"
+      },
+      {
+        "url": "https://www.rovio.com/articles/angry-birds-reloaded-now-available-on-apple-arcade/"
+      }
+    ]
+  },
+  {
+    "id": "WW-234",
+    "website": "mrs.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.mrs.org/",
+    "instruction": "Who were the MRS Presidents in 2022 and 2023?",
+    "gold_answer": {
+      "answer": "The MRS Presidents were Carolyn Duran in 2022 and Sabrina Sartori in 2023."
+    },
+    "evidence": [
+      {
+        "url": "https://www.mrs.org/discover-mrs/about-mrs/our-society/annual-reports/2023-annual-report"
+      },
+      {
+        "url": "https://www.mrs.org/discover-mrs/about-mrs/our-society/annual-reports/2022-annual-report"
+      }
+    ]
+  },
+  {
+    "id": "WW-235",
+    "website": "ion.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ion.org/",
+    "instruction": "Who were the specific individuals recognized for pioneering technological advancements in GNSS integrity and high-accuracy navigation solutions through the Early Achievement Awards between 2014 and 2019?",
+    "gold_answer": {
+      "answer": "Dr. Mathieu Joerger (2014) and Dr. Ramsey Faragher (2019)"
+    },
+    "evidence": [
+      {
+        "url": "https://www.ion.org/awards/2014-Early-Achievement.cfm"
+      },
+      {
+        "url": "https://www.ion.org/awards/2019-Early-Achievement.cfm"
+      }
+    ]
+  },
+  {
+    "id": "WW-236",
+    "website": "illuvium.io",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://illuvium.io/",
+    "instruction": "Which proposal between IIP-67 and IIP-69 was ultimately adopted and improved the reward structure for Illuvium Beyond in September and October 2024?",
+    "gold_answer": {
+      "answer": "IIP-69"
+    },
+    "evidence": [
+      {
+        "url": "https://illuvium.io/news/illuvium-dao-governance-newsletter-september-2024"
+      },
+      {
+        "url": "https://illuvium.io/news/illuvium-dao-governance-newsletter-october-2024"
+      }
+    ]
+  },
+  {
+    "id": "WW-237",
+    "website": "sigchi.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://sigchi.org/",
+    "instruction": "Who were the two specific committee members working on SIGCHI's data access/use policy, and who received the 2024 SIGCHI Lifetime Research Award?",
+    "gold_answer": {
+      "answer": "Helena Mentis and Kash Todi were working on SIGCHI's data access/use policy, and Wendy Mackay received the 2024 SIGCHI Lifetime Research Award."
+    },
+    "evidence": [
+      {
+        "url": "https://sigchi.org/events/open-session-november-16-2022/"
+      },
+      {
+        "url": "https://sigchi.org/events/sigchi-lifetime-research-award-wendy-mackay/"
+      }
+    ]
+  },
+  {
+    "id": "WW-238",
+    "website": "igg.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.igg.com/",
+    "instruction": "In the IGG's initiatives involving Lords Mobile, name the artist whose piece 'Storm Fox' won the first prize in a competition, and identify the public welfare project that was launched near Tianheng Island in 2023?",
+    "gold_answer": {
+      "answer": "The artist Jiang won first prize with 'Storm Fox'. The public welfare project launched near Tianheng Island in 2023 is called 'Protecting the Azure Ocean'."
+    },
+    "evidence": [
+      {
+        "url": "https://www.igg.com/charity/?pageno=3"
+      },
+      {
+        "url": "https://www.igg.com/charity/?pageno=1"
+      }
+    ]
+  },
+  {
+    "id": "WW-239",
+    "website": "vldb.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.vldb.org/",
+    "instruction": "When did the terms of the VLDB Journal Editors-in-Chief for Asia and Europe begin?",
+    "gold_answer": {
+      "answer": "The term for the Asia editor started in 2015, and for the Europe editor, it started in 2014."
+    },
+    "evidence": [
+      {
+        "url": "https://www.vldb.org/newslist/call_for_nominations_editor-in-chief_for_asia.html"
+      },
+      {
+        "url": "https://www.vldb.org/newslist/call_for_nominations_editor-in-chief_for_europe.html"
+      }
+    ]
+  },
+  {
+    "id": "WW-240",
+    "website": "poms.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.poms.org/",
+    "instruction": "Which POMS award recipient pages mention Professor Sushil Gupta, Ph.D. as the Executive Director of POMS?",
+    "gold_answer": {
+      "answer": "The recipient pages for the Sushil K Gupta POMS Service Award and the Martin K Starr Award mention Professor Sushil Gupta as the Executive Director of POMS."
+    },
+    "evidence": [
+      {
+        "url": "https://www.poms.org/taxonomy/term/35"
+      },
+      {
+        "url": "https://www.poms.org/taxonomy/term/26"
+      }
+    ]
+  },
+  {
+    "id": "WW-241",
+    "website": "illuvium.io",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://illuvium.io/",
+    "instruction": "What were the key reasons for updating Illuvium Beyond's leaderboard and reward structure by shifting from IIP-67 to IIP-69 between September and October 2024?",
+    "gold_answer": {
+      "answer": "IIP-69 replaced IIP-67 to create a sustainable rewards structure with expanded leaderboards and incentives linked to Wave 3 sales, encouraging long-term ecosystem health."
+    },
+    "evidence": [
+      {
+        "url": "https://illuvium.io/news/illuvium-dao-governance-newsletter-september-2024"
+      },
+      {
+        "url": "https://illuvium.io/news/illuvium-dao-governance-newsletter-october-2024"
+      }
+    ]
+  },
+  {
+    "id": "WW-242",
+    "website": "mrs.org",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.mrs.org/",
+    "instruction": "Who were the MRS Presidents in the years 2020 and 2021, and what were their notable achievements?",
+    "gold_answer": {
+      "answer": "Matt Copel was the MRS President in 2020, focusing on virtual meetings. Cherie Kagan was the MRS President in 2021, emphasizing governance structure changes."
+    },
+    "evidence": [
+      {
+        "url": "https://www.mrs.org/discover-mrs/about-mrs/our-society/annual-reports/2020-annual-report"
+      },
+      {
+        "url": "https://www.mrs.org/discover-mrs/about-mrs/our-society/annual-reports/2021-annual-report"
+      }
+    ]
+  },
+  {
+    "id": "WW-243",
+    "website": "ageofempires.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ageofempires.com/",
+    "instruction": "What new DLC update was officially launched in Age of Empires II: Definitive Edition Update 128442, and on which date did the Red Bull Wololo: El Reinado tournament start?",
+    "gold_answer": {
+      "answer": "Chronicles: Battle for Greece, October 3rd, 2024."
+    },
+    "evidence": [
+      {
+        "url": "https://www.ageofempires.com/news/age-of-empires-ii-definitive-edition-update-128442/"
+      },
+      {
+        "url": "https://www.ageofempires.com/news/red-bull-wololo-el-reinado-starting-3-october/"
+      }
+    ]
+  },
+  {
+    "id": "WW-244",
+    "website": "ironhidegames.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ironhidegames.com/",
+    "instruction": "What new games were released by Ironhide Game Studio on April 10, 2023, and November 20, 2014?",
+    "gold_answer": {
+      "answer": "IRON MARINES and Kingdom Rush Origins"
+    },
+    "evidence": [
+      {
+        "url": "https://www.ironhidegames.com/News/Details/295"
+      },
+      {
+        "url": "https://www.ironhidegames.com/News/Details/98"
+      }
+    ]
+  },
+  {
+    "id": "WW-245",
+    "website": "illuvium.io",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://illuvium.io/",
+    "instruction": "What proposal related to the leaderboard structure and rewards for Illuvium Beyond was passed during the Illuvium DAO meetings in September and October 2024, and what specific changes were announced afterward?",
+    "gold_answer": {
+      "answer": "IIP-69 proposed a new leaderboard structure and rewards for Illuvium Beyond, and in October, the Leaderboard Ranks were expanded with sales performance incentives."
+    },
+    "evidence": [
+      {
+        "url": "https://illuvium.io/news/illuvium-dao-governance-newsletter-september-2024"
+      },
+      {
+        "url": "https://illuvium.io/news/illuvium-dao-governance-newsletter-october-2024"
+      }
+    ]
+  },
+  {
+    "id": "WW-246",
+    "website": "illuvium.io",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://illuvium.io/",
+    "instruction": "What was the specific proposal passed in the October 2024 Illuvium DAO governance regarding the reward structure for Illuvium Beyond, and how does it differ from the Illuvium Creator Rewards Program's reward distribution?",
+    "gold_answer": {
+      "answer": "The proposal IIP-69 redesigned the reward structure for Illuvium Beyond, while the Illuvium Creator Rewards Program offers a weekly pool of 100 ILV tokens."
+    },
+    "evidence": [
+      {
+        "url": "https://illuvium.io/news/illuvium-dao-governance-newsletter-october-2024"
+      },
+      {
+        "url": "https://illuvium.io/news/join-the-illuvium-creator-rewards-program"
+      }
+    ]
+  },
+  {
+    "id": "WW-247",
+    "website": "ironhidegames.com",
+    "benchmark_origin": "WebWalkerQA",
+    "difficulty": "hard",
+    "task_type": "multi_source",
+    "explicit_navigation": true,
+    "start_url": "https://www.ironhidegames.com/",
+    "instruction": "What was the prize for Kingdom Rush winning Uruguay's national video game contest, and how was the game's world further expanded in 2012?",
+    "gold_answer": {
+      "answer": "A trip to the 2012 GDC with an All Access Pass; expanded via the Kingdom Rush comic release."
+    },
+    "evidence": [
+      {
+        "url": "https://www.ironhidegames.com/News/Details/42"
+      },
+      {
+        "url": "https://www.ironhidegames.com/News/Details/64"
+      }
+    ]
+  }
+]
